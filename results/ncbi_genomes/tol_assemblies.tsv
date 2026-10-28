@@ -1,0 +1,66 @@
+accession	name	organism	taxid	level	length	contig_n50	released
+GCA_963070105.1	nxLitSigm11.1	Litomosoides sigmodontis	42156	Chromosome	65863885	5025376	2023-08-09
+GCA_964036155.1	nxDipCoro1.1	Diploscapter coronatus	288516	Chromosome	169689949	8174647	2024-05-12
+GCA_965124195.1	nxSpiLupi9.1	Spirocerca lupi	304461	Chromosome	129706012	4569149	2025-02-11
+GCA_963570955.1	nxCaeAfra1.1	Caenorhabditis afra	1094335	Chromosome	68959013	3237724	2023-10-27
+GCA_932521025.1	nxOscOnir1.1	Oscheius onirici	1559960	Chromosome	65783231	10624782	2022-03-23
+GCA_963572205.1	nxCaeImpe1.1	Caenorhabditis imperialis	1094324	Chromosome	74034744	3384236	2023-10-27
+GCA_964211945.1	nxCaeKama1.1	Caenorhabditis kamaaina	1094325	Chromosome	93223295	11347902	2024-11-08
+GCA_964187885.1	nxPanDetr1.1	Panagrolaimus detritophagus	310956	Chromosome	56336990	10824035	2024-06-17
+GCA_963966625.1	nxCaeZanz1.1	Caenorhabditis zanzibari	2306312	Chromosome	107171732	5450271	2024-02-24
+GCA_965282815.1	nxCaeAstr2.1	Caenorhabditis astrocarya	2035511	Chromosome	53788341	5344654	2025-05-18
+GCA_977925995.1	nxCaeTrib1.1	Caenorhabditis tribulationis	2306311	Chromosome	115772433	2796471	2025-12-12
+GCA_964256745.1	neEchMats5.1	Echinomermella matsi	944443	Chromosome	55262301	1217885	2024-08-30
+GCA_964036235.1	nxHetBact1.1	Heterorhabditis bacteriophora	37862	Chromosome	86281216	2927634	2024-05-12
+GCA_988322925.1	nrPanRedv2.hap1.1	Panagrellus redivivus	6233	Chromosome	97559480	7820243	2026-10-03
+GCA_964187775.1	ngDicVivi2.1	Dictyocaulus viviparus	29172	Chromosome	181075179	786611	2024-06-18
+GCA_963932045.1	nxCaeSini1.1	Caenorhabditis sinica	1550068	Chromosome	152391863	7112757	2024-02-07
+GCA_964036275.1	nrLitMari1.1	Litoditis marina	1654675	Chromosome	261818995	1813241	2024-05-12
+GCA_964213925.1	nxCaeAnga2.1	Caenorhabditis angaria	860376	Chromosome	71975138	7200575	2024-08-22
+GCA_963572235.1	nxCaeJapo1.1	Caenorhabditis japonica	281687	Chromosome	151961726	6223073	2023-10-29
+GCA_963932035.1	nxCaeWall1.1	Caenorhabditis wallacei	1094326	Chromosome	85056245	5680309	2024-02-07
+GCA_965194785.1	nxTheCall6.1	Thelazia callipaeda	103827	Chromosome	117587282	1011000	2025-03-10
+GCA_963573275.1	nxCaeUtel1.1	Caenorhabditis uteleia	2305860	Chromosome	114326735	14330918	2023-10-29
+GCA_964197825.1	nxCaeMono1.1	Caenorhabditis monodelphis	1094320	Chromosome	119411741	14221384	2024-07-08
+GCA_932521035.1	nxOscDolc1.1	Oscheius dolichura	473156	Chromosome	70338629	9641278	2022-03-23
+GCA_965601645.1	neTriOvis3.hap1.1	Trichuris ovis	93034	Chromosome	72505407	6607825	2025-07-07
+GCA_963931815.1	nxCaePlic1.1	Caenorhabditis plicata	281681	Chromosome	131533889	6504151	2024-02-06
+GCA_964036255.1	nxCaeViri1.1	Caenorhabditis virilis	1094323	Chromosome	117310586	4848123	2024-05-12
+GCA_963572285.1	nxCaeDros1.1	Caenorhabditis drosophilae	96641	Chromosome	51313650	3533253	2023-10-27
+GCA_963572265.1	nxCaeDoug1.1	Caenorhabditis doughertyi	1094321	Chromosome	146904779	3336659	2023-10-29
+GCA_963932285.1	nxCaeMacr1.1	Caenorhabditis macrosperma	1094328	Chromosome	112938657	3298198	2024-02-07
+GCA_982262855.1	neRomNiel1.hap1.1	Romanomermis nielseni	416167	Chromosome	238313824	1828984	2026-03-14
+GCA_963969345.1	nrTurAcet1.1	Turbatrix aceti	114909	Chromosome	60156456	757235	2024-02-26
+GCA_964656895.1	nxAcrNanu1.1	Acrobeloides nanus	290746	Chromosome	188892103	284133	2025-01-02
+GCA_981261845.1	nxCaePort1.hap1.1	Caenorhabditis portoensis	1094334	Chromosome	171758850	24079000	2026-02-28
+GCA_964057225.1	nxAuaRhod1.1	Auanema rhodense	473160	Chromosome	180895486	16410216	2024-05-19
+GCA_984798855.1	hrDivMult2.1	Diversibipalium multilineatum	391263	Chromosome	846494783	16230347	2026-06-26
+GCA_964035985.1	nxPanSupe1.1	Panagrolaimus superbus	310955	Chromosome	103067286	12089808	2024-05-10
+GCA_965217555.1	nxCaeAgri1.1	Caenorhabditis agridulce	3233994	Chromosome	76037724	10435968	2025-03-23
+GCA_964212105.1	nxAcrMaxi1.1	Acrobeloides maximus	96598	Chromosome	166351651	9410481	2024-08-03
+GCA_964198105.1	nxCaeQuio2.1	Caenorhabditis quiockensis	2305861	Chromosome	114845712	8798000	2024-07-12
+GCA_977118345.1	heTriNodu1.1	Triaenophorus nodulosus	56557	Chromosome	713084067	6972067	2026-02-01
+GCA_965219145.1	nxCaeWait2.1	Caenorhabditis waitukubuli	2305864	Chromosome	76072687	6923470	2025-03-23
+GCA_965235105.1	hrPseSple1.1	Pseudobiceros splendidus	983666	Chromosome	3206858410	6449511	2025-04-06
+GCA_988282115.1	nxChoDudi2.1	Choriorhabditis dudichi	96657	Chromosome	139603495	4166186	2026-09-18
+GCA_988278295.1	hrPseMaxi1.1	Pseudoceros maximus	3465981	Chromosome	2461570786	3097344	2026-09-14
+GCA_965231745.1	nxCaeDole2.1	Caenorhabditis dolens	2035512	Chromosome	117060472	2820245	2025-03-29
+GCA_963966605.1	nxCaeSuls1.1	Caenorhabditis sulstoni	2305862	Chromosome	76347226	2062562	2024-02-24
+GCA_988578875.1	heEubCras1.hap1.1	Eubothrium crassum	70637	Chromosome	1212765544	1944000	2026-10-21
+GCA_964057215.1	nxOscMyri1.1	Oscheius myriophilus	281680	Chromosome	193885405	1912732	2024-05-19
+GCA_964235305.1	nxSphBomb6.1	Sphaerularia bombi	364607	Chromosome	109080817	977707	2024-08-31
+GCA_965643505.1	nxHelMixt5.hap1.1	Heligmosomum mixtum	375988	Chromosome	741911694	504730	2025-07-19
+GCA_964056735.1	nxAllPara2.1	Allodiplogaster pararmata	3304976	Chromosome	305795013	197908	2024-05-18
+GCA_964036195.1	nhSphHirs1.1	Sphaerolaimus hirsutus	319955	Chromosome	349537915	188663	2024-05-12
+GCA_963978915.1	nxCaeParv1.1	Caenorhabditis parvicauda	2305859	Chromosome	115349008	180097	2024-03-10
+GCA_964036265.1	nhDapSeto1.1	Daptonema setosum	320139	Chromosome	245194829	96883	2024-05-12
+GCA_984574255.1	nxAcaVite2.hap1.1	Acanthocheilonema viteae	6277	Chromosome	80796391	2770199	2026-05-28
+GCA_964059925.1	nxProSpea1.1	Propanagrolaimus sp. LC92	2963941	Chromosome	51521781	3611945	2024-06-06
+GCA_988924335.1	nxDirImmi7.hap1.1	Dirofilaria immitis	6287	Chromosome	89077238	2593492	2026-10-20
+GCA_964213165.1	htOpiVive1.1	Opisthorchis viverrini	6198	Chromosome	627184053	1046692	2024-08-07
+GCA_981319295.1	nxCaeSpek1.hap1.1	Caenorhabditis sp. 25 ZF1457	3115683	Chromosome	82325789	7586832	2026-02-28
+GCA_964263715.1	nxAuaSpee2.1	Auanema sp. APS25	2878356	Chromosome	90522324	5988694	2024-09-15
+GCA_964036215.1	nxOscSpes1.1	Oscheius sp. DF5033	2879418	Chromosome	76833724	2860290	2024-05-12
+GCA_964249645.1	nxPanSpeb1.1	Panagrolaimus sp. ES5	591445	Chromosome	116281119	219387	2024-08-31
+GCA_963556285.1	ngHelPoly2.1	Heligmosomoides polygyrus	6339	Scaffold	615256677	138591	2023-10-11
+GCA_987219625.1	nxAniSpea1.1	Anisakidae sp. A-QB95YQNDS	3738056	Chromosome	150224680	3552733	2026-09-02

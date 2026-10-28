@@ -1,0 +1,73 @@
+# Darwin Tree of Life-style helminth assemblies, one per species (primary or
+# hap1, newest), scanned for V4. Excludes the td... schistosome series, the
+# same project's assemblies the WBPS scan already covered, and those in
+# longread_genomes.txt. Scanned with bin/ncbi_genomes_insilico_pcr.py @this-file.
+
+# Vertebrate parasites
+GCA_984574255.1  # Acanthocheilonema viteae nxAcaVite2.hap1.1
+GCA_987219625.1  # Anisakidae sp. A-QB95YQNDS nxAniSpea1.1
+GCA_964187775.1  # Dictyocaulus viviparus ngDicVivi2.1
+GCA_988924335.1  # Dirofilaria immitis nxDirImmi7.hap1.1
+GCA_988578875.1  # Eubothrium crassum heEubCras1.hap1.1
+GCA_963556285.1  # Heligmosomoides polygyrus ngHelPoly2.1
+GCA_965643505.1  # Heligmosomum mixtum nxHelMixt5.hap1.1
+GCA_963070105.1  # Litomosoides sigmodontis nxLitSigm11.1
+GCA_964213165.1  # Opisthorchis viverrini htOpiVive1.1
+GCA_965124195.1  # Spirocerca lupi nxSpiLupi9.1
+GCA_965194785.1  # Thelazia callipaeda nxTheCall6.1
+GCA_977118345.1  # Triaenophorus nodulosus heTriNodu1.1
+GCA_965601645.1  # Trichuris ovis neTriOvis3.hap1.1
+
+# Free-living (faecal colonisers in field samples) and invertebrate parasites
+GCA_964212105.1  # Acrobeloides maximus nxAcrMaxi1.1
+GCA_964656895.1  # Acrobeloides nanus nxAcrNanu1.1
+GCA_964056735.1  # Allodiplogaster pararmata nxAllPara2.1
+GCA_964057225.1  # Auanema rhodense nxAuaRhod1.1
+GCA_964263715.1  # Auanema sp. APS25 nxAuaSpee2.1
+GCA_963570955.1  # Caenorhabditis afra nxCaeAfra1.1
+GCA_965217555.1  # Caenorhabditis agridulce nxCaeAgri1.1
+GCA_964213925.1  # Caenorhabditis angaria nxCaeAnga2.1
+GCA_965282815.1  # Caenorhabditis astrocarya nxCaeAstr2.1
+GCA_965231745.1  # Caenorhabditis dolens nxCaeDole2.1
+GCA_963572265.1  # Caenorhabditis doughertyi nxCaeDoug1.1
+GCA_963572285.1  # Caenorhabditis drosophilae nxCaeDros1.1
+GCA_963572205.1  # Caenorhabditis imperialis nxCaeImpe1.1
+GCA_963572235.1  # Caenorhabditis japonica nxCaeJapo1.1
+GCA_964211945.1  # Caenorhabditis kamaaina nxCaeKama1.1
+GCA_963932285.1  # Caenorhabditis macrosperma nxCaeMacr1.1
+GCA_964197825.1  # Caenorhabditis monodelphis nxCaeMono1.1
+GCA_963978915.1  # Caenorhabditis parvicauda nxCaeParv1.1
+GCA_963931815.1  # Caenorhabditis plicata nxCaePlic1.1
+GCA_981261845.1  # Caenorhabditis portoensis nxCaePort1.hap1.1
+GCA_964198105.1  # Caenorhabditis quiockensis nxCaeQuio2.1
+GCA_963932045.1  # Caenorhabditis sinica nxCaeSini1.1
+GCA_981319295.1  # Caenorhabditis sp. 25 ZF1457 nxCaeSpek1.hap1.1
+GCA_963966605.1  # Caenorhabditis sulstoni nxCaeSuls1.1
+GCA_977925995.1  # Caenorhabditis tribulationis nxCaeTrib1.1
+GCA_963573275.1  # Caenorhabditis uteleia nxCaeUtel1.1
+GCA_964036255.1  # Caenorhabditis virilis nxCaeViri1.1
+GCA_965219145.1  # Caenorhabditis waitukubuli nxCaeWait2.1
+GCA_963932035.1  # Caenorhabditis wallacei nxCaeWall1.1
+GCA_963966625.1  # Caenorhabditis zanzibari nxCaeZanz1.1
+GCA_988282115.1  # Choriorhabditis dudichi nxChoDudi2.1
+GCA_964036265.1  # Daptonema setosum nhDapSeto1.1
+GCA_964036155.1  # Diploscapter coronatus nxDipCoro1.1
+GCA_984798855.1  # Diversibipalium multilineatum hrDivMult2.1
+GCA_964256745.1  # Echinomermella matsi neEchMats5.1
+GCA_964036235.1  # Heterorhabditis bacteriophora nxHetBact1.1
+GCA_964036275.1  # Litoditis marina nrLitMari1.1
+GCA_932521035.1  # Oscheius dolichura nxOscDolc1.1
+GCA_964057215.1  # Oscheius myriophilus nxOscMyri1.1
+GCA_932521025.1  # Oscheius onirici nxOscOnir1.1
+GCA_964036215.1  # Oscheius sp. DF5033 nxOscSpes1.1
+GCA_988322925.1  # Panagrellus redivivus nrPanRedv2.hap1.1
+GCA_964187885.1  # Panagrolaimus detritophagus nxPanDetr1.1
+GCA_964249645.1  # Panagrolaimus sp. ES5 nxPanSpeb1.1
+GCA_964035985.1  # Panagrolaimus superbus nxPanSupe1.1
+GCA_964059925.1  # Propanagrolaimus sp. LC92 nxProSpea1.1
+GCA_965235105.1  # Pseudobiceros splendidus hrPseSple1.1
+GCA_988278295.1  # Pseudoceros maximus hrPseMaxi1.1
+GCA_982262855.1  # Romanomermis nielseni neRomNiel1.hap1.1
+GCA_964036195.1  # Sphaerolaimus hirsutus nhSphHirs1.1
+GCA_964235305.1  # Sphaerularia bombi nxSphBomb6.1
+GCA_963969345.1  # Turbatrix aceti nrTurAcet1.1
