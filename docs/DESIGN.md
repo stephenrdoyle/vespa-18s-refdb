@@ -3,7 +3,7 @@
 **Status: proposal and first measurements. No release has been built yet.**
 
 This repository builds the reference database that
-[nf-helminth-amplicon](../nf-helminth-amplicon) uses in its
+[nf-helminth-amplicon](https://github.com/stephenrdoyle/nf-helminth-amplicon) uses in its
 `--reference_database` mode: an 18S V4 database covering everything the
 VESPA primers amplify, trimmed to the amplicon, with taxonomy, resolution
 tables and the adapter look-alike mask the pipeline needs. How the

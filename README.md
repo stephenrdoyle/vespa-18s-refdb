@@ -3,7 +3,7 @@
 Builds the 18S V4 reference database for VESPA-primer metabarcoding:
 everything the primers amplify, trimmed to the amplicon, with taxonomy,
 resolution tables and the adapter look-alike mask. It is consumed by
-[nf-helminth-amplicon](../nf-helminth-amplicon) in its
+[nf-helminth-amplicon](https://github.com/stephenrdoyle/nf-helminth-amplicon) in its
 `--reference_database` mode, and kept separate from it because building
 a reference is its own job - its own inputs, its own release cycle - and
 its output is a versioned artefact, not a pipeline step.
@@ -131,3 +131,21 @@ streamed, nothing kept), the comparison about 10 minutes.
 - A genome hit is discarded if a primer site contains N or the insert is
   more than 1% N: N in a scaffold gap matches a primer for free.
 - "Nearest" in the comparison is by shared 12-mers, not an alignment.
+
+## Licence and sources
+
+The code is under the [MIT licence](LICENSE). The database itself is
+derived from public sources, which keep their own terms and should be
+credited with it:
+
+- **PR2** (Guillou et al. 2013, *Nucleic Acids Res* 41:D597;
+  https://pr2-database.org) - the backbone.
+- **NCBI GenBank** and **NCBI genome assemblies** - GenBank and protist
+  genome layers.
+- **WormBase ParaSite** (Howe et al. 2017, *Mol Biochem Parasitol*
+  215:2) - helminth genome layer.
+- **ParaRef** (Niemann et al. 2025, *Genome Biology*;
+  doi:10.5281/zenodo.13744644, CC-BY 4.0) - genome layer; the ParaRef
+  results in `results/` are derived from it.
+- The primers and protocol are VESPA's (Owens et al. 2024, *Nat Commun*
+  15:402).
