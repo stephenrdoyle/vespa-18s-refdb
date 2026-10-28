@@ -613,9 +613,27 @@ copies, own class). Built by commit `da7d3a4`.
   (genus). *Trichuris ovis* is identical to *T. discolor*.
 - The *D. immitis* Tree of Life assembly carries the V4 of AB973230/1,
   the record VESPA's human reads matched - a genuine *D. immitis*.
+- *Trichuris incognita* (the STPHxBioinformatics scaffolded assembly on
+  GitHub) carries three V4 copies on one scaffold, both primers exact,
+  7-20 edits apart; all three are local sequences. Each is nearest
+  *T. suis* (4, 11, 17 edits), then *T. trichiura* (10-23), as expected
+  for *T. suis*' sister species. A fourth hit, 1467bp with a ~900bp
+  insertion, is left out as a likely misassembly. Whether the spread
+  between copies is real rDNA variation or assembly error is not
+  resolved; reads or a second assembly would settle it.
 - Two *Sphaerolaimus hirsutus* variants sent to review
-  (`results/curation/tol_genome_review.tsv`): weakly nearest a fungus,
-  more likely a divergent nematode V4 than a contaminant.
+  (`results/curation/tol_genome_review.tsv`, one contig of
+  GCA_964036195.1, 15 edits apart) are **not** the nematode's 18S. They
+  are about 170 edits (~69% identity) from all four *S. hirsutus*
+  GenBank/PR2 records and from every other *Sphaerolaimus* record, and
+  nearest nothing closely in the release (unnamed environmental fungi,
+  ~89% over ~380bp). Most likely another eukaryote carried with the
+  specimen - gut content or an epibiont. The assembly holds no copy of
+  the worm's own V4. NCBI BLAST (core_nt, 2026-10-28) finds nothing
+  named: best hits are uncultured fungi and marine eukaryotes at 86% over
+  the whole insert, 89-91% over ~380bp - an early-diverging fungal or
+  unknown lineage with no close reference anywhere. Kept out;
+  *Sphaerolaimus* stays named by its GenBank/PR2 records.
 
 Still no V4 anywhere: *Bunostomum*, *Chabertia*, *Murshidia*,
 *Prosthenorchis*, *Rhabdias* - none has an assembly on NCBI.
