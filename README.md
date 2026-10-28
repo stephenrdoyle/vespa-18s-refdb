@@ -30,6 +30,7 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 | `bin/pararef_insilico_pcr.py`, `bin/pararef_layer.py` | **Build.** Streams the ParaRef archive; its layer, under the genome rules |
 | `bin/local_layer.py`, `local/sequences.tsv` | **Build.** Our own sequences, hand-curated, most trusted |
 | `bin/genome_insilico_pcr.py` | Scans any one genome, URL or file |
+| `bin/ncbi_genomes_insilico_pcr.py` | Streams every NCBI assembly for a taxon through the scan (optionally the best N per species) |
 | `bin/vespa.py` | Primers, in-silico PCR and PR2 rank conventions shared by the build |
 | `bin/pr2_insilico_pcr.py` | In-silico PCR over PR2; insert lengths; resolution over the whole insert (nanopore) and the 2x150 read windows (Illumina); adapter-anchor look-alikes |
 | `bin/wbps_insilico_pcr.py` | Streams every WormBase ParaSite genome from the EBI FTP, finds V4 amplicons on both strands, keeps only the hits |
@@ -56,10 +57,21 @@ python3 bin/pararef_layer.py work/pararef_out results/pararef_taxa.json \
 python3 bin/local_layer.py local/sequences.tsv work/pr2_layer.tsv.gz \
     work/local_layer.tsv.gz work/local_review.tsv
 
-L="work/genbank_layer.tsv.gz work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz \
-   work/wbps_layer.tsv.gz work/local_layer.tsv.gz"      # increasing trust
-python3 bin/collapse.py work/build $L
-python3 bin/release.py work/build releases v0.2.0 $L
+# Protists: NCBI genomes (3 best per species) and GenBank, per genus
+python3 bin/ncbi_genomes_insilico_pcr.py Cryptosporidium work/ncbi_genomes/Cryptosporidium 6 3
+python3 bin/pararef_layer.py work/ncbi_genomes/Cryptosporidium \
+    work/ncbi_genomes/Cryptosporidium/taxa.json work/pr2_layer.tsv.gz \
+    work/ncbi_layers/Cryptosporidium.tsv.gz work/ncbi_layers/Cryptosporidium.review.tsv NCBI_genomes
+#   ... for each protist genus, then concatenate into work/ncbi_genomes_layer.tsv.gz
+python3 bin/genbank_fetch.py work/genbank Cryptosporidium Giardia ...   # protist genera
+python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/genbank_protist_layer.tsv.gz \
+    work/genbank_protist_review.tsv <protist fasta.gz files>
+
+# Increasing trust. (zsh: list the files; it does not word-split a variable)
+python3 bin/collapse.py work/build work/genbank_layer.tsv.gz work/genbank_protist_layer.tsv.gz \
+    work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz work/ncbi_genomes_layer.tsv.gz \
+    work/wbps_layer.tsv.gz work/local_layer.tsv.gz
+python3 bin/release.py work/build releases v0.3.0 <the same layers>
 ```
 
 Layers go to `collapse.py` and `release.py` in increasing order of
@@ -71,7 +83,8 @@ ParaRef stream (~80 min). A release is never overwritten.
 
 | version | contents | notes |
 |---|---|---|
-| v0.2.0 | GenBank + PR2 v5.1.1 + ParaRef + WBPS19 + local; 94,028 records, 8,808 helminth | **current** (docs/DESIGN.md §6.2) |
+| v0.3.0 | v0.2.0 plus protists from NCBI genomes and GenBank; 97,559 records | **current** (docs/DESIGN.md §6.3) |
+| v0.2.0 | GenBank + PR2 v5.1.1 + ParaRef + WBPS19 + local; 94,028 records, 8,808 helminth | superseded; its coverage table undercounts PR2's numbered genera (§4.6) |
 | v0.1.0 | PR2 v5.1.1 + WBPS19 genomes; 89,872 records | superseded: its Illumina resolution table overstates 8,775 records (§6.1 erratum); look-alike mask not yet usable by the pipeline |
 
 Each release is `releases/vespa18s_<version>/` plus a `.tar.gz`. Only

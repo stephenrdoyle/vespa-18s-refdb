@@ -487,6 +487,48 @@ then how many reach species, nanopore/Illumina):
 | *Cryptosporidium* | 1 | 0/0 | still effectively absent |
 | *Toxoplasma* | 0 | | no amplicon-spanning entry |
 
+### 6.3 v0.3.0
+
+Seven layers, in increasing trust: GenBank helminths and GenBank
+protists, PR2 v5.1.1, ParaRef, NCBI protist genomes, WBPS19, local.
+Built by commit `dcf9249`.
+
+- **97,559 records**; helminth records unchanged at 8,808.
+- **Protists**: the NCBI genome layer (20 genera, three best assemblies
+  per species, 260 variants) and the GenBank protist layer (60 genera
+  of gut, blood, tissue and zoo-relevant protists and protist-like fungi;
+  8,126 records PR2 lacked, collapsing to about 3,500 new sequences,
+  because many *Theileria*, *Babesia* and *Sarcocystis* records are
+  identical).
+- PR2's numbered clade genera (§4.6) are now counted with their base
+  genus, which corrects the v0.2.0 table: *Cryptosporidium* has 102
+  records, not 1; *Toxoplasma* 48, not 0.
+- 9 GenBank protist records went to review: apicoplast 16S labelled as
+  *Neospora*, and fungal or plant sequences under parasite names.
+
+The full table is `results/v0.3.0_genera_of_interest.tsv`. Selected
+rows (records; reaching species whole / through the Illumina windows):
+
+| genus | records | species N/I |
+|---|---:|---|
+| *Cryptosporidium* | 102 | 82/70 |
+| *Giardia* | 40 | 32/31 |
+| *Entamoeba* | 217 | 159/157 |
+| *Blastocystis* | 638 | 160/113 (subtypes, mostly not named species) |
+| *Balantioides* | 18 | 14/14 |
+| *Eimeria* | 534 | 401/334 |
+| *Toxoplasma* | 48 | 41/30 |
+| *Sarcocystis* | 801 | 651/511 |
+| *Plasmodium* | 447 | 354/337 |
+| *Babesia* / *Theileria* | 778 / 945 | 498/432, 684/504 |
+| *Leucocytozoon* / *Haemoproteus* | 145 / 7 | 40/40, 7/7 |
+| *Trypanosoma* / *Leishmania* | 565 / 20 | 256/181, 14/7 |
+
+Still absent: *Cooperia*, *Bunostomum*, *Hammondia* (probably identical
+to *Toxoplasma* over V4, and in PR2 if at all), and among zoo taxa
+*Murshidia*, *Prosthenorchis*, *Rhabdias*, *Anoplocephala* - none of
+which has 18S in GenBank.
+
 ## 7. Order of work
 
 1. ~~PR2 layer, genome layer, collapse with conflict handling~~ (done:
@@ -495,15 +537,14 @@ then how many reach species, nanopore/Illumina):
    release **v0.1.0**, §6.1).
 3. ~~GenBank layer~~ (helminths done, §4.3); ~~ParaRef~~ (§4.4);
    ~~local layer~~ (§4.5); **v0.2.0** (§6.2).
-4. Protists properly: *Cryptosporidium*, *Toxoplasma* and other gaps,
-   from VEuPathDB genomes (raw, not decontaminated) and a GenBank pass
-   for protist groups.
+4. ~~Protists~~ (done: NCBI genomes and GenBank, §4.6, §6.3).
 5. Local sequences for *Cooperia*, *Bunostomum* and other trichostrongylid
    gaps (Sanger, or our own assemblies via `bin/genome_insilico_pcr.py`).
 6. Decide whether partial GenBank records (V4's 3′ end only, as for
    *Onchocerca*) can enter as partial references.
-7. Make the GenBank layer's other-class check use all cores (it is the
-   slowest step, about 15 minutes single-threaded).
+7. ~~Make the GenBank other-class check use all cores~~ (done).
+8. Zoo gaps with no 18S anywhere (elephant and rhino strongyles,
+   *Prosthenorchis*, *Rhabdias*, anoplocephalids): genomes or Sanger.
 
 ## 8. Open questions
 
