@@ -2,7 +2,7 @@
 """Cut a release from a collapsed build (docs/DESIGN.md, release format).
 
     bin/release.py <build dir> <releases dir> <version> <layer.tsv.gz> ... \
-        [--read-length 150] [--workers 8]
+        [--illumina 150] [--illumina 300:250x200] [--workers 8]
 
 <build dir> is collapse.py's output; the layers are the ones it was built
 from, in the same order, so the manifest can fingerprint them. Writes
@@ -117,7 +117,11 @@ def main() -> int:
     ap.add_argument("releases")
     ap.add_argument("version")
     ap.add_argument("layers", nargs="+")
-    ap.add_argument("--read-length", type=int, default=150)
+    ap.add_argument("--illumina", action="append", metavar="READLEN[:W1xW2]",
+                    help="an Illumina read geometry to tabulate: read length, and "
+                         "optionally the insert bases each read covers (default: "
+                         "read length minus the primer). Repeatable; the first is "
+                         "the summary's. Default 150")
     ap.add_argument("--workers", type=int, default=os.cpu_count())
     a = ap.parse_args()
 
@@ -144,31 +148,42 @@ def main() -> int:
             r, n = deepest(tax[rid])
             fh.write(f"{rid}\t{r}\t{n}\n")
 
-    # --- Illumina: only the two read windows are seen
-    w1, w2 = a.read_length - len(FWD), a.read_length - len(REV)
-    groups = defaultdict(list)
-    for rid, s in seqs.items():
-        groups[s if len(s) <= w1 + w2 else (s[:w1], s[-w2:])].append(rid)
-    ill_name = f"resolution_illumina_{a.read_length}x{a.read_length}.tsv"
-    ill_rank = {}
-    with open(os.path.join(out, ill_name), "w") as fh:
-        fh.write("id\twindow_group\trecords_in_group\tdeepest_rank\tname\n")
-        for key, ids in groups.items():
-            gid = "W_" + hashlib.sha1(repr(key).encode()).hexdigest()[:12]
-            merged = merge_records([tax[i] for i in ids])
-            r, n = deepest(merged)
-            for rid in ids:
-                ill_rank[rid] = r
-                fh.write(f"{rid}\t{gid}\t{len(ids)}\t{r}\t{n}\n")
-
-    # Through the windows a record can never be resolved deeper than read
-    # whole; if it is, the merge above is wrong. Refuse the release.
+    # --- Illumina: only the two read windows are seen, one table per read
+    # geometry. The first geometry is the summary's.
     order = {r: k for k, r in enumerate(RANKS)}
-    worse = [i for i in seqs
-             if order.get(ill_rank[i], -1) > order.get(deepest(tax[i])[0], -1)]
-    if worse:
-        sys.exit(f"{len(worse)} records resolve deeper through the Illumina "
-                 f"windows than whole, e.g. {worse[:3]}: not releasing")
+    geometries = []
+    for spec in a.illumina or ["150"]:
+        read_len, _, win = spec.partition(":")
+        read_len = int(read_len)
+        if win:
+            w1, w2 = (int(x) for x in win.split("x"))
+        else:
+            w1, w2 = read_len - len(FWD), read_len - len(REV)
+        groups = defaultdict(list)
+        for rid, s in seqs.items():
+            groups[s if len(s) <= w1 + w2 else (s[:w1], s[-w2:])].append(rid)
+        name = f"resolution_illumina_{read_len}x{read_len}.tsv"
+        rank_of = {}
+        with open(os.path.join(out, name), "w") as fh:
+            fh.write("id\twindow_group\trecords_in_group\tdeepest_rank\tname\n")
+            for key, ids in groups.items():
+                gid = "W_" + hashlib.sha1(repr(key).encode()).hexdigest()[:12]
+                r, n = deepest(merge_records([tax[i] for i in ids]))
+                for rid in ids:
+                    rank_of[rid] = r
+                    fh.write(f"{rid}\t{gid}\t{len(ids)}\t{r}\t{n}\n")
+        # Through the windows a record can never be resolved deeper than
+        # read whole; if it is, the merge above is wrong. Refuse the release.
+        worse = [i for i in seqs
+                 if order.get(rank_of[i], -1) > order.get(deepest(tax[i])[0], -1)]
+        if worse:
+            sys.exit(f"{len(worse)} records resolve deeper through the {name} "
+                     f"windows than whole, e.g. {worse[:3]}: not releasing")
+        geometries.append({"read_length": read_len, "windows": [w1, w2], "file": name,
+                           "window_groups": len(groups), "rank_of": rank_of})
+    primary = geometries[0]
+    ill_rank, groups = primary["rank_of"], range(primary["window_groups"])
+    a.read_length, (w1, w2) = primary["read_length"], primary["windows"]
 
     # --- anchor look-alikes, scanned on primer + insert + primer as read
     f5, r3 = concrete(FWD), concrete(REV_RC)
@@ -225,6 +240,8 @@ def main() -> int:
         "insert": "between the primers; primers not included",
         "illumina_read_length": a.read_length,
         "illumina_windows": [w1, w2],
+        "illumina_geometries": [{k: g[k] for k in ("read_length", "windows", "file",
+                                                    "window_groups")} for g in geometries],
         "anchors": ANCHORS,
         "lookalike_max_edits": LOOKALIKE_MAX_EDITS,
         "layers": [{"file": os.path.basename(p), "sha256": sha256(p),

@@ -277,7 +277,7 @@ def resolution_table(rel: str, tax: list, version: str) -> str:
         with open(os.path.join(rel, path)) as fh:
             return {r["id"]: r["deepest_rank"] for r in csv.DictReader(fh, delimiter="\t")}
     nano = ranks("resolution_nanopore.tsv")
-    ill_path = next(f for f in os.listdir(rel) if f.startswith("resolution_illumina_"))
+    ill_path = sorted(f for f in os.listdir(rel) if f.startswith("resolution_illumina_"))[0]
     ill = ranks(ill_path)
     geometry = ill_path[len("resolution_illumina_"):-4]
     sets = [("All records", [t["id"] for t in tax]),

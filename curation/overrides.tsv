@@ -1,0 +1,8 @@
+# Curated judgements no rule can make. One member (source accession, as
+# members.tsv writes it) per line, the action, and the evidence. Applied by
+# bin/collapse.py before conflicts are judged; dropped members stay listed
+# in members.tsv with role "dropped" and this reason.
+accession	action	reason
+MT951391.1.1732_U	drop	labelled Auxenochlorella pyrenoidosa (alga) but its V4 is identical to Hartmannella vermiformis AB425953: an amoeba in an algal culture (vespa18s v0.4.0 feedback 1a, V4_627358604901)
+BABL01046589.4206.6012_U	drop	Vigna radiata WGS contig whose V4 is identical to Morchella eximia QMFK01003685: fungal 18S in a plant assembly (vespa18s v0.4.0 feedback 1a, V4_54f09b637b29)
+Trachyphloeus_angustisetulus	host_species	the weevil host, not the gregarine (genus Leidyana; JN619291): NCBI places Trachyphloeus in Arthropoda. Checked with NCBI taxonomy against the other apicomplexan records whose species name does not start with their genus - all of those name apicomplexan genera (vespa18s v0.4.0 feedback 1b, V4_a048af0a7d80)

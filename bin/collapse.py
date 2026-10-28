@@ -60,6 +60,7 @@ from __future__ import annotations
 
 import hashlib
 import os
+import re
 import sys
 from collections import Counter, defaultdict
 
@@ -69,6 +70,94 @@ from vespa import (CONFLICT_DEPTH, FWD, RANKS, REV, THREE_PRIME_WINDOW,  # noqa:
 
 
 MIN_INSERT = 100
+
+# A bacterial or archaeal 16S amplifies with these primers to about 370bp;
+# a eukaryote's 18S to about 550. A prokaryote label on an insert this long
+# is eukaryotic 18S inside a bacterial genome assembly - host plant, insect
+# or human DNA in the sequenced culture.
+EUKARYOTE_LENGTH = 450
+
+# Organelle suffixes PR2 puts on labels. Not "nucl": a nucleomorph's 18S
+# is an 18S.
+ORGANELLES = ("mito", "plas", "apic", "chro")
+
+
+# GenBank WGS and TSA accessions: four (or six) letters, then digits.
+# Contigs from genome or transcriptome assemblies, which carry whatever was
+# in the sample, so a directly sequenced, named isolate outranks them.
+ASSEMBLY_ACCESSION = re.compile(r"^[A-Z]{4}(?:[A-Z]{2})?\d{8,}")
+
+
+def load_overrides(path: str):
+    """curation/overrides.tsv: judgements no rule can make, with evidence.
+
+    action "drop": first column is a source accession (as members.tsv
+    writes it, stable across builds where record ids follow the sequence);
+    that member is dropped. action "host_species": first column is a
+    species label that names the host, not the organism; it becomes
+    Genus_sp. Returns ({accession: reason}, {species label}).
+    """
+    drop, host = {}, set()
+    if path and os.path.exists(path):
+        with open(path) as fh:
+            for line in fh:
+                if line.startswith("#") or not line.strip():
+                    continue
+                f = line.rstrip("\n").split("\t")
+                if f[0] == "accession" or len(f) < 3:
+                    continue
+                if f[1] == "drop":
+                    drop[f[0]] = f[2]
+                elif f[1] == "host_species":
+                    host.add(f[0])
+    return drop, host
+
+
+def screen(members, insert: str, overrides: dict):
+    """(kept, dropped) before conflicts are judged: members whose label
+    cannot belong to this sequence, each dropped with its reason."""
+    kept, dropped = [], []
+    nuclear = any(":" not in m["ranks"][0] for m in members)
+    for m in members:
+        dom = m["ranks"][0]
+        if m["accession"] in overrides:
+            dropped.append((m, "override: " + overrides[m["accession"]]))
+        elif dom in ("Bacteria", "Archaea") and len(insert) >= EUKARYOTE_LENGTH:
+            dropped.append((m, f"prokaryote label on a {len(insert)}bp insert: "
+                               "eukaryotic 18S in a bacterial assembly"))
+        elif dom.split(":")[-1] in ORGANELLES and nuclear:
+            dropped.append((m, "organelle label beside nuclear ones on an 18S"))
+        else:
+            kept.append(m)
+    return kept, dropped
+
+
+def fix_host_species(members, genus_classes: dict, host_named: set = frozenset()) -> int:
+    """A species name that is the host's, not the organism's (a gregarine
+    labelled with its weevil, Leidyana / Trachyphloeus): the species
+    becomes Genus_sp. Caught two ways: the name's genus is used in another
+    class here, or the species is listed as host-named in the overrides
+    (checked against NCBI taxonomy - a parasite lineage is full of species
+    PR2 files under a clade's genus, which a name test cannot tell from a
+    host). Returns how many were fixed."""
+    n = 0
+    for m in members:
+        r = m["ranks"]
+        genus, species, cls = r[7], r[8], r[4]
+        if not informative(genus) or not informative(species):
+            continue
+        word = species.split(":")[0].split("_")[0]
+        # The genus without PR2's organelle suffix or homonym tag
+        # (Nemastoma_arachnid, Serpula-fungus): the bare name species use.
+        base = genus.split(":")[0].split("-")[0].split("_")[0]
+        if word == base:
+            continue
+        other = genus_classes.get(word, set())
+        foreign = bool(other) and cls not in other or species in host_named
+        if foreign:
+            m["ranks"] = r[:8] + [genus.split(":")[0] + "_sp." + (":" + genus.split(":")[1] if ":" in genus else "")]
+            n += 1
+    return n
 
 
 def record_id(insert: str) -> str:
@@ -113,6 +202,17 @@ def resolve(members, trust: dict):
                    for i, a in enumerate(distinct) for b in distinct[i + 1:])
     if not conflict:
         return members, [], "none"
+
+    # A directly sequenced isolate outranks an assembly contig: if the
+    # isolates agree among themselves, conflicting contigs lose.
+    direct = [m for m in members if not ASSEMBLY_ACCESSION.match(m["accession"])]
+    direct_labels = {high_label(m["ranks"]) for m in direct}
+    if direct and len(direct) < len(members) and \
+            all(compatible(a, b) for a in direct_labels for b in direct_labels):
+        win = next(iter(direct_labels))
+        over = [m for m in members if not compatible(high_label(m["ranks"]), win)]
+        if over and all(ASSEMBLY_ACCESSION.match(m["accession"]) for m in over):
+            return [m for m in members if m not in over], over, "isolate"
 
     top = max(trust[m["source"]] for m in members)
     top_labels = {high_label(m["ranks"]) for m in members
@@ -202,8 +302,16 @@ def best_fit(kept) -> list:
 
 
 def main() -> int:
-    outdir, layers = sys.argv[1], sys.argv[2:]
+    args = sys.argv[1:]
+    overrides_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                  os.pardir, "curation", "overrides.tsv")
+    if "--overrides" in args:
+        k = args.index("--overrides")
+        overrides_path = args[k + 1]
+        del args[k:k + 2]
+    outdir, layers = args[0], args[1:]
     os.makedirs(outdir, exist_ok=True)
+    overrides, host_named = load_overrides(overrides_path)
 
     groups = defaultdict(list)
     trust, order = {}, []
@@ -235,8 +343,20 @@ def main() -> int:
                     "ranks": normalise_ranks(label), "label": label,
                     "fit": (get("f_edits"), get("r_edits"), get("f_site"), get("r_site"))})
 
+    # Which classes each genus name is used in, across every source - so a
+    # species name borrowed from another class (a host) can be recognised.
+    genus_classes = defaultdict(set)
+    for members in groups.values():
+        for m in members:
+            g = m["ranks"][7].split(":")[0].split("-")[0].split("_")[0]
+            if informative(m["ranks"][7]):
+                genus_classes[g].add(m["ranks"][4])
+    host_fixed = sum(fix_host_species(ms, genus_classes, host_named) for ms in groups.values())
+
     decisions = Counter()
     fits = Counter()
+    drops = Counter()
+    excluded = 0
     with open(os.path.join(outdir, "refdb.fasta"), "w") as fa, \
          open(os.path.join(outdir, "taxonomy.tsv"), "w") as tx, \
          open(os.path.join(outdir, "members.tsv"), "w") as mb, \
@@ -244,11 +364,22 @@ def main() -> int:
          open(os.path.join(outdir, "primer_fit.tsv"), "w") as pf:
         pf.write("\t".join(FIT_COLUMNS) + "\n")
         tx.write("\t".join(["id", *RANKS, "deepest_rank", "members", "sources"]) + "\n")
-        mb.write("id\tsource\taccession\tlabel\trole\n")
+        mb.write("id\tsource\taccession\tlabel\trole\tnote\n")
         cf.write("id\tdecision\tmembers\tlabels\tkept_label\n")
         for insert in sorted(groups, key=record_id):
             members = groups[insert]
             rid = record_id(insert)
+            screened, dropped = screen(members, insert, overrides)
+            for m, why in dropped:
+                drops[why.split(":")[0].split(" on a ")[0]] += 1
+                mb.write(f"{rid}\t{m['source']}\t{m['accession']}\t"
+                         f"{';'.join(m['label'])}\tdropped\t{why}\n")
+            if not screened:
+                # Nothing left to say what this sequence is: it is not a
+                # record. (Human 18S from a bacterial assembly, for one.)
+                excluded += 1
+                continue
+            members = screened
             kept, over, how = resolve(members, trust)
             kept, over2 = trust_below_class(kept, trust)
             if over2:
@@ -258,7 +389,7 @@ def main() -> int:
             for m in members:
                 role = "kept" if m in kept else "overruled"
                 mb.write(f"{rid}\t{m['source']}\t{m['accession']}\t"
-                         f"{';'.join(m['label'])}\t{role}\n")
+                         f"{';'.join(m['label'])}\t{role}\t\n")
             if how != "none":
                 labs = Counter(";".join(x for x in high_label(m["ranks"]))
                                for m in members)
@@ -284,8 +415,10 @@ def main() -> int:
     if n_short:
         print("  set aside as shorter than {}bp: ".format(MIN_INSERT)
               + ", ".join(f"{s} {n}" for s, n in n_short.items()))
-    print(f"unique inserts: {len(groups):,}")
-    for k in ("none", "trust", "majority", "unresolved"):
+    print(f"unique inserts: {len(groups):,}; excluded (no member left): {excluded}")
+    print("members dropped: " + (", ".join(f"{k} {v}" for k, v in drops.items()) or "none")
+          + f"; host-named species fixed: {host_fixed}")
+    for k in ("none", "isolate", "trust", "majority", "unresolved"):
         print(f"  conflict {k:9s} {decisions[k]:>7,}")
     print("primer fit: " + ", ".join(f"{k} {fits[k]:,}" for k in
           ("exact", "away_3prime", "near_3prime", "indel", "edits_only", "unknown")))

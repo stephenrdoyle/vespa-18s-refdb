@@ -13,6 +13,8 @@ sequence, with
              trimmed (as the genome scans write it)
   evidence   where it came from, specifically enough to check again
   added_by, date
+  f_edits, r_edits  optional: for a bare insert, the primer edits the scan
+             that found it recorded (0 and 0 = both primers exact)
 
 Ranks come from the NCBI lineage of ncbi_name, mapped onto PR2's as for
 every other layer. A sequence whose nearest PR2 insert is in another PR2
@@ -71,8 +73,10 @@ def main() -> int:
             status, ins, fc, rc, fsite, rsite = pcr_full(seq)
             if status != "amplicon":
                 # Already the insert, as genome scans write it: the primer
-                # sites, and so the primer fit, are not known.
-                ins, fc, rc, fsite, rsite = seq, "", "", "", ""
+                # sites are not known, but the scan's edit counts may be
+                # given (f_edits, r_edits) - both 0 is an exact fit.
+                ins, fsite, rsite = seq, "", ""
+                fc, rc = (r.get("f_edits") or "").strip(), (r.get("r_edits") or "").strip()
             w = r["ncbi_name"].split()
             genus = w[0]
             species = f"{w[0]}_{w[1]}" if len(w) > 1 and w[1] not in ("sp.", "sp") else f"{genus}_sp."
