@@ -128,7 +128,37 @@ ParaRef stream (~80 min). A release is never overwritten.
 
 Each release is `releases/vespa18s_<version>/` plus a `.tar.gz`. Only
 `manifest.json` and `summary.txt` are committed; the data travel as the
-tarball.
+tarball, attached to the matching
+[GitHub Release](https://github.com/stephenrdoyle/vespa-18s-refdb/releases).
+
+### Downloading a release
+
+```bash
+V=v0.4.0
+curl -LO https://github.com/stephenrdoyle/vespa-18s-refdb/releases/download/$V/vespa18s_$V.tar.gz
+tar -xzf vespa18s_$V.tar.gz        # unpacks to vespa18s_$V/
+```
+
+Then check the files against the manifest committed in this repository
+for that version - not the copy inside the tarball, which would only
+check the download against itself:
+
+```bash
+curl -L -o manifest.json \
+  https://raw.githubusercontent.com/stephenrdoyle/vespa-18s-refdb/$V/releases/vespa18s_$V/manifest.json
+python3 - <<'EOF'
+import hashlib, json
+m = json.load(open("manifest.json"))
+bad = [f for f, h in m["files"].items()
+       if hashlib.sha256(open(f"{m['name']}/{f}", "rb").read()).hexdigest() != h]
+print(f"{m['name']}: {len(m['files']) - len(bad)}/{len(m['files'])} files match the manifest"
+      + (f"; MISMATCH: {bad}" if bad else ""))
+EOF
+```
+
+`vespa18s_$V/` is what the pipeline's planned `--reference_database` mode will read;
+`refdb.fasta` holds the sequences and `taxonomy.tsv` their ranks, both
+keyed by record id (the release format is in docs/DESIGN.md §6).
 
 ## Reproducing the exploratory measurements
 
