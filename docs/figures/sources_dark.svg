@@ -1,23 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340" font-family="system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif" role="img" aria-label="Where the 97,708 reference sequences come from">
-<rect width="760" height="340" rx="8" fill="#1a1a19" stroke="rgba(255,255,255,0.10)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="368" viewBox="0 0 760 368" font-family="system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif" role="img" aria-label="Where the 97,708 reference sequences come from">
+<rect width="760" height="368" rx="8" fill="#1a1a19" stroke="rgba(255,255,255,0.10)"/>
 <text x="24" y="34" font-size="17" font-weight="600" fill="#ffffff">Where the 97,708 reference sequences come from</text>
 <text x="24" y="56" font-size="13" fill="#c3c2b7">vespa18s v0.6.0: records each source contributes to</text>
 <rect x="196" y="72" width="12" height="12" rx="3" fill="#3987e5"/>
 <text x="214" y="82.5" font-size="12.5" fill="#c3c2b7">Only from this source</text>
 <rect x="389.20000000000005" y="72" width="12" height="12" rx="3" fill="#d95926"/>
 <text x="407.20000000000005" y="82.5" font-size="12.5" fill="#c3c2b7">Shared with another source</text>
-<line x1="196.0" y1="98" x2="196.0" y2="272" stroke="#383835" stroke-width="1"/>
-<text x="196.0" y="290" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">0</text>
-<line x1="273.6" y1="98" x2="273.6" y2="272" stroke="#2c2c2a" stroke-width="1"/>
-<text x="273.6" y="290" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">20k</text>
-<line x1="351.2" y1="98" x2="351.2" y2="272" stroke="#2c2c2a" stroke-width="1"/>
-<text x="351.2" y="290" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">40k</text>
-<line x1="428.8" y1="98" x2="428.8" y2="272" stroke="#2c2c2a" stroke-width="1"/>
-<text x="428.8" y="290" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">60k</text>
-<line x1="506.4" y1="98" x2="506.4" y2="272" stroke="#2c2c2a" stroke-width="1"/>
-<text x="506.4" y="290" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">80k</text>
-<line x1="584.0" y1="98" x2="584.0" y2="272" stroke="#2c2c2a" stroke-width="1"/>
-<text x="584.0" y="290" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">100k</text>
+<line x1="196.0" y1="98" x2="196.0" y2="300" stroke="#383835" stroke-width="1"/>
+<text x="196.0" y="318" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">0</text>
+<line x1="273.6" y1="98" x2="273.6" y2="300" stroke="#2c2c2a" stroke-width="1"/>
+<text x="273.6" y="318" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">20k</text>
+<line x1="351.2" y1="98" x2="351.2" y2="300" stroke="#2c2c2a" stroke-width="1"/>
+<text x="351.2" y="318" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">40k</text>
+<line x1="428.8" y1="98" x2="428.8" y2="300" stroke="#2c2c2a" stroke-width="1"/>
+<text x="428.8" y="318" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">60k</text>
+<line x1="506.4" y1="98" x2="506.4" y2="300" stroke="#2c2c2a" stroke-width="1"/>
+<text x="506.4" y="318" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">80k</text>
+<line x1="584.0" y1="98" x2="584.0" y2="300" stroke="#2c2c2a" stroke-width="1"/>
+<text x="584.0" y="318" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">100k</text>
 <text x="184" y="122.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">PR2 v5.1.1</text>
 <rect x="196.0" y="110.0" width="341.9" height="16" fill="#3987e5"/>
 <path d="M539.9,110.0 h2.1 a2.0835600000000056,2.0835600000000056 0 0 1 2.0835600000000056,2.0835600000000056 v11.8 a2.0835600000000056,2.0835600000000056 0 0 1 -2.0835600000000056,2.0835600000000056 h-2.1 z" fill="#d95926"/>
@@ -29,18 +29,22 @@
 <text x="184" y="178.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">NCBI protist genomes</text>
 <rect x="196.0" y="166.0" width="2.0" height="16" fill="#3987e5"/>
 <path d="M200.0,166.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#d95926"/>
-<text x="212.0" y="178.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">456  ·  258 only here</text>
-<text x="184" y="206.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">WormBase ParaSite 19</text>
+<text x="212.0" y="178.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">237  ·  87 only here</text>
+<text x="184" y="206.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">Long-read helminth genomes</text>
 <rect x="196.0" y="194.0" width="2.0" height="16" fill="#3987e5"/>
 <path d="M200.0,194.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#d95926"/>
-<text x="212.0" y="206.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">212  ·  114 only here</text>
-<text x="184" y="234.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">ParaRef</text>
+<text x="212.0" y="206.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">219  ·  171 only here</text>
+<text x="184" y="234.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">WormBase ParaSite 19</text>
 <rect x="196.0" y="222.0" width="2.0" height="16" fill="#3987e5"/>
 <path d="M200.0,222.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#d95926"/>
-<text x="212.0" y="234.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">147  ·  49 only here</text>
-<text x="184" y="262.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">Local (our sequences)</text>
+<text x="212.0" y="234.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">212  ·  114 only here</text>
+<text x="184" y="262.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">ParaRef</text>
 <rect x="196.0" y="250.0" width="2.0" height="16" fill="#3987e5"/>
 <path d="M200.0,250.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#d95926"/>
-<text x="212.0" y="262.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">4  ·  2 only here</text>
-<text x="24" y="324" font-size="12" fill="#898781">A record is one unique V4 sequence; it can be backed by several sources.</text>
+<text x="212.0" y="262.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">147  ·  49 only here</text>
+<text x="184" y="290.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">Local (our sequences)</text>
+<rect x="196.0" y="278.0" width="2.0" height="16" fill="#3987e5"/>
+<path d="M200.0,278.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#d95926"/>
+<text x="212.0" y="290.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">4  ·  2 only here</text>
+<text x="24" y="352" font-size="12" fill="#898781">A record is one unique V4 sequence; it can be backed by several sources.</text>
 </svg>

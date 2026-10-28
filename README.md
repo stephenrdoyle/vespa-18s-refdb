@@ -16,13 +16,23 @@ primers, and the release format the pipeline expects.
 <!-- figures:start -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/sources_dark.svg">
-  <img alt="Bar chart: where the 97,708 reference sequences in v0.6.0 come from. Records each source backs, and how many only that source provides: PR2 v5.1.1 89,710 (88,636 only here); GenBank 8,482 (7,519 only here); NCBI protist genomes 456 (258 only here); WormBase ParaSite 19 212 (114 only here); ParaRef 147 (49 only here); Local (our sequences) 4 (2 only here)." src="docs/figures/sources_light.svg" width="760">
+  <img alt="Bar chart: where the 97,708 reference sequences in v0.6.0 come from. Records each source backs, and how many only that source provides: PR2 v5.1.1 89,710 (88,636 only here); GenBank 8,482 (7,519 only here); NCBI protist genomes 237 (87 only here); Long-read helminth genomes 219 (171 only here); WormBase ParaSite 19 212 (114 only here); ParaRef 147 (49 only here); Local (our sequences) 4 (2 only here)." src="docs/figures/sources_light.svg" width="760">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/taxa_dark.svg">
   <img alt="Bar chart: records per major taxonomic group in v0.6.0, and how many resolve to species read whole: Other animals 19,831 (13,023 to species); Fungi 17,908 (8,572 to species); Other alveolates 14,171 (2,946 to species); Plants and algae 9,426 (6,224 to species); Stramenopiles 7,007 (2,663 to species); Nematoda 5,305 (3,308 to species); Apicomplexa 4,867 (3,192 to species); Rhizaria 3,502 (956 to species); Platyhelminthes 3,470 (2,344 to species); Discoba 2,457 (1,261 to species); Bacteria and archaea 2,141 (18 to species); Other eukaryotes 2,102 (706 to species); Amoebozoa 2,058 (1,310 to species); Organelle 16S 1,397 (704 to species); Metamonada 1,212 (630 to species); Vertebrates 648 (579 to species); Acanthocephala 206 (156 to species)." src="docs/figures/taxa_light.svg" width="760">
 </picture>
+
+How many species v0.6.0 can name. A species named in the source sequences but with no record of its own shares its V4 exactly with another species, so a read from it is named only to genus or above. Names are counted as written, so a few synonyms may be counted twice.
+
+| Records | Species named in sources | Species with their own record (read whole) | Species named through Illumina 150x150 | Genera with their own record |
+|---|---:|---:|---:|---:|
+| All records | 38,486 | 29,243 | 23,743 | 19,189 |
+| Nematoda | 2,134 | 1,838 | 1,589 | 857 |
+| Platyhelminthes | 1,999 | 1,771 | 1,603 | 1,133 |
+| Acanthocephala | 146 | 113 | 99 | 57 |
+| Apicomplexa | 680 | 611 | 556 | 93 |
 
 How far a record can be named, read whole (nanopore) or only through the two 150x150 Illumina read windows, in v0.6.0. Best case: an exact sequence, no sequencing error.
 

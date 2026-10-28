@@ -40,8 +40,20 @@ MODES = {
                  seq_dark="#3987e5", seq_light="#184f95", ring="rgba(255,255,255,0.10)"),
 }
 SOURCE_NAMES = {"PR2_5.1.1": "PR2 v5.1.1", "GenBank": "GenBank", "WBPS19": "WormBase ParaSite 19",
-                "NCBI_genomes": "NCBI protist genomes", "ParaRef": "ParaRef",
-                "local": "Local (our sequences)"}
+                "NCBI_genomes": "NCBI protist genomes",
+                "NCBI_genomes:helminth": "Long-read helminth genomes",
+                "ParaRef": "ParaRef", "local": "Local (our sequences)"}
+HELMINTH_CLASSES = ("Nematoda", "Platyhelminthes", "Acanthocephala")
+
+
+def source_of(r: dict) -> str:
+    """The figure's source for a member. The NCBI genome layer holds both
+    the protist genomes and the long-read helminth genomes (Darwin Tree of
+    Life and others); they are split by the member's own class."""
+    if r["source"] == "NCBI_genomes" and \
+            r["label"].split(";")[4].split(":")[0] in HELMINTH_CLASSES:
+        return "NCBI_genomes:helminth"
+    return r["source"]
 
 
 def group_of(t: dict) -> str:
@@ -169,7 +181,7 @@ def main() -> int:
     with open(os.path.join(rel, "members.tsv")) as fh:
         for r in csv.DictReader(fh, delimiter="\t"):
             if r["role"] == "kept":
-                sources[r["id"]].add(r["source"])
+                sources[r["id"]].add(source_of(r))
     per, only = collections.Counter(), collections.Counter()
     for s in sources.values():
         for x in s:
@@ -226,7 +238,8 @@ def main() -> int:
                       f'  <img alt="{escape(alt, {chr(34): "&quot;"})}" src="{out}/{stem}_light.svg" '
                       f'width="760">\n'
                       f'</picture>')
-    section = "\n\n".join(blocks) + "\n\n" + resolution_table(rel, tax, version)
+    section = ("\n\n".join(blocks) + "\n\n" + species_table(rel, tax, version)
+               + "\n\n" + resolution_table(rel, tax, version))
     if os.path.exists(os.path.join(rel, "primer_fit.tsv")):
         section += "\n\n" + primer_fit_table(rel, tax, version)
     if len(sys.argv) > 3:
@@ -244,6 +257,57 @@ def main() -> int:
 
 START, END = "<!-- figures:start -->", "<!-- figures:end -->"
 HELMINTHS = ("Nematoda", "Platyhelminthes", "Acanthocephala")
+
+
+def species_table(rel: str, tax: list, version: str) -> str:
+    """Markdown: how many species the release can name, against how many
+    are named in its source sequences. The gap is species whose V4 is
+    identical to another species', so their record stops above species."""
+    def group(cls, sub):
+        return [g for g, hit in (("Nematoda", cls == "Nematoda"),
+                                 ("Platyhelminthes", cls == "Platyhelminthes"),
+                                 ("Acanthocephala", cls == "Acanthocephala"),
+                                 ("Apicomplexa", sub == "Apicomplexa")) if hit]
+    groups = ["All records", "Nematoda", "Platyhelminthes", "Acanthocephala", "Apicomplexa"]
+    whole, genera, named, ill = ({g: set() for g in groups} for _ in range(4))
+    of = {}
+    for t in tax:
+        gs = ["All records"] + group(t["class"].split(":")[0], t["subdivision"].split(":")[0])
+        of[t["id"]] = gs
+        for g in gs:
+            if t["deepest_rank"] == "species":
+                whole[g].add(t["species"])
+            if t["deepest_rank"] in ("genus", "species"):
+                genera[g].add(t["genus"])
+    ill_path = sorted(f for f in os.listdir(rel) if f.startswith("resolution_illumina_"))[0]
+    geometry = ill_path[len("resolution_illumina_"):-4]
+    with open(os.path.join(rel, ill_path)) as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            if r["deepest_rank"] == "species":
+                for g in of[r["id"]]:
+                    ill[g].add(r["name"])
+    with open(os.path.join(rel, "members.tsv")) as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            if r["role"] != "kept":
+                continue
+            lab = r["label"].split(";")
+            sp = lab[-1]
+            if not sp or sp.endswith("_sp.") or "_X" in sp:
+                continue
+            for g in ["All records"] + group(lab[4].split(":")[0], lab[3].split(":")[0]):
+                named[g].add(sp)
+    lines = [f"How many species {version} can name. A species named in the source "
+             f"sequences but with no record of its own shares its V4 exactly with another "
+             f"species, so a read from it is named only to genus or above. Names are "
+             f"counted as written, so a few synonyms may be counted twice.", "",
+             "| Records | Species named in sources | Species with their own record "
+             f"(read whole) | Species named through Illumina {geometry} | "
+             "Genera with their own record |",
+             "|---|---:|---:|---:|---:|"]
+    for g in groups:
+        lines.append(f"| {g} | {len(named[g]):,} | {len(whole[g]):,} | {len(ill[g]):,} | "
+                     f"{len(genera[g]):,} |")
+    return "\n".join(lines)
 
 
 def primer_fit_table(rel: str, tax: list, version: str) -> str:
