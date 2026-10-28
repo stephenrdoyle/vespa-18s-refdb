@@ -442,6 +442,12 @@ That is the pipeline's to fix - index the contexts, for example by
 k-mer, so a hit is checked only against contexts that share sequence
 with it. The release format stays as it is.
 
+**Update:** fixed on the pipeline's `lookalike-mask-index` branch
+(commit `e9c5245`, not yet merged): a seed-piece index plus the q-gram
+lemma, both exact bounds, so the answers are unchanged. On the v0.4.0
+mask a real junction hit takes 7.8 ms instead of 389 ms - about 22
+CPU-hours for a 5M-read run instead of about 740.
+
 **Erratum (found while cutting v0.2.0).** v0.1.0's
 `resolution_illumina_150x150.tsv` overstates the rank reached for
 **8,775 of 89,872 records (227 helminth)**. Records sharing read windows

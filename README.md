@@ -124,7 +124,7 @@ ParaRef stream (~80 min). A release is never overwritten.
 | v0.4.0 | v0.3.0's records, plus `primer_fit.tsv`: how well the primers fit each record | **current** (docs/DESIGN.md §6.4) |
 | v0.3.0 | v0.2.0 plus protists from NCBI genomes and GenBank; 97,559 records | superseded by v0.4.0 (same records) |
 | v0.2.0 | GenBank + PR2 v5.1.1 + ParaRef + WBPS19 + local; 94,028 records, 8,808 helminth | superseded; its coverage table undercounts PR2's numbered genera (§4.6) |
-| v0.1.0 | PR2 v5.1.1 + WBPS19 genomes; 89,872 records | superseded: its Illumina resolution table overstates 8,775 records (§6.1 erratum); look-alike mask not yet usable by the pipeline |
+| v0.1.0 | PR2 v5.1.1 + WBPS19 genomes; 89,872 records | superseded: its Illumina resolution table overstates 8,775 records (§6.1 erratum) |
 
 Each release is `releases/vespa18s_<version>/` plus a `.tar.gz`. Only
 `manifest.json` and `summary.txt` are committed; the data travel as the
