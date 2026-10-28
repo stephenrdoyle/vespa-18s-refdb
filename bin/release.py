@@ -162,9 +162,9 @@ def main() -> int:
         groups = defaultdict(list)
         for rid, s in seqs.items():
             groups[s if len(s) <= w1 + w2 else (s[:w1], s[-w2:])].append(rid)
-        name = f"resolution_illumina_{read_len}x{read_len}.tsv"
+        table = f"resolution_illumina_{read_len}x{read_len}.tsv"
         rank_of = {}
-        with open(os.path.join(out, name), "w") as fh:
+        with open(os.path.join(out, table), "w") as fh:
             fh.write("id\twindow_group\trecords_in_group\tdeepest_rank\tname\n")
             for key, ids in groups.items():
                 gid = "W_" + hashlib.sha1(repr(key).encode()).hexdigest()[:12]
@@ -177,9 +177,9 @@ def main() -> int:
         worse = [i for i in seqs
                  if order.get(rank_of[i], -1) > order.get(deepest(tax[i])[0], -1)]
         if worse:
-            sys.exit(f"{len(worse)} records resolve deeper through the {name} "
+            sys.exit(f"{len(worse)} records resolve deeper through the {table} "
                      f"windows than whole, e.g. {worse[:3]}: not releasing")
-        geometries.append({"read_length": read_len, "windows": [w1, w2], "file": name,
+        geometries.append({"read_length": read_len, "windows": [w1, w2], "file": table,
                            "window_groups": len(groups), "rank_of": rank_of})
     primary = geometries[0]
     ill_rank, groups = primary["rank_of"], range(primary["window_groups"])
