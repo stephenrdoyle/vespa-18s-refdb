@@ -1,0 +1,151 @@
+id	decision	members	labels	kept_label
+V4_01fa6d5ce1a3	majority	10	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x8 | Bacteria;Terrabacteria;Firmicutes;;Clostridia x2	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_030e16bde3e6	majority	177	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x176 | Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_0e0adb79ca3f	majority	3	Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae x2 | Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae x1	Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae
+V4_0f3618610e85	majority	75	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x63 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x7 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x2 | Bacteria;PANNAM;Proteobacteria;;Alphaproteobacteria x1 | Bacteria;Terrabacteria;Actinobacteria;; x1 | Bacteria;Terrabacteria;Firmicutes;;Bacilli x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata
+V4_10736d8c12a9	majority	7	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x5 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x2	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_10e0b25fb995	majority	7	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x5 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x2	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_1172ccb67dd7	majority	4	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x3 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_12a7e47c926f	majority	12	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x11 | Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x1	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_1349558c9dc7	unresolved	2	Eukaryota;Obazoa;Opisthokonta;Fungi;Chytridiomycota x1 | Eukaryota;Obazoa;Opisthokonta;Fungi;Rozellomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Chytridiomycota
+V4_1768ffe3ecce	majority	4	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x3 | Eukaryota;Archaeplastida;Rhodophyta;Eurhodophytina;Florideophyceae x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda
+V4_17c593ffaaa3	majority	59	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x55 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x2 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1 | Bacteria;Terrabacteria;Firmicutes;;Bacilli x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_1ad592c2cd4d	unresolved	2	Eukaryota;Obazoa;Opisthokonta;Pluriformea;Corallochytrea x1 | Eukaryota;Obazoa;Opisthokonta;Choanoflagellata;Choanoflagellatea x1	Eukaryota;Obazoa;Opisthokonta;Pluriformea;Corallochytrea
+V4_1ee063991d5c	majority	28	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x25 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x3	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_20d5b7cf40b5	majority	17	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x16 | Bacteria;Terrabacteria;Actinobacteria;; x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata
+V4_2686bf513ded	majority	14	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x11 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x2 | Bacteria;PVC;Chlamydiae;; x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata
+V4_27b640bbadb8	majority	254	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x253 | Bacteria;Terrabacteria;Actinobacteria;; x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_2899f470c502	unresolved	2	Eukaryota:mito;TSAR:mito;Alveolata:mito;Ciliophora:mito;Colpodea:mito x1 | Eukaryota;TSAR;Alveolata;Ciliophora;Colpodea x1	Eukaryota:mito;TSAR:mito;Alveolata:mito;Ciliophora:mito;Colpodea:mito
+V4_29085b4c4ccf	majority	8	Eukaryota;TSAR;Stramenopiles;Gyrista;Coscinodiscophyceae x6 | Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae x2	Eukaryota;TSAR;Stramenopiles;Gyrista;Coscinodiscophyceae
+V4_299eea326ed9	majority	50	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x49 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_29ac67585880	majority	222	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x208 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x7 | Bacteria;Terrabacteria;Actinobacteria;; x4 | Eukaryota;TSAR;Alveolata;Apicomplexa;Coccidiomorphea x1 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1 | Bacteria;Terrabacteria;Firmicutes;;Bacilli x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata
+V4_2aaeeed33b3f	majority	37	Eukaryota:plas;Archaeplastida:plas;Streptophyta:plas;;Embryophyceae:plas x36 | Eukaryota:plas;TSAR:plas;Rhizaria:plas;Foraminifera:plas;Globothalamea:plas x1	Eukaryota:plas;Archaeplastida:plas;Streptophyta:plas;;Embryophyceae:plas
+V4_2e733b2c94dc	majority	11	Eukaryota;Archaeplastida;Streptophyta;;Klebsormidiophyceae x10 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Streptophyta;;Klebsormidiophyceae
+V4_2ee71d893402	majority	20	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x19 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_31aee29f4dba	unresolved	5	Eukaryota;TSAR;Stramenopiles;Gyrista;Peronosporomycetes x2 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x2 | Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x1	Eukaryota;TSAR;Stramenopiles;Gyrista;Peronosporomycetes
+V4_32330d8d1127	majority	55	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x54 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota
+V4_329d592e0f67	majority	3	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x2 | Bacteria;FCB;Bacteroidetes;;Bacteroidia x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda
+V4_32df8c1c5011	majority	26	Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae x25 | Eukaryota;TSAR;Stramenopiles;Gyrista;Coscinodiscophyceae x1	Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae
+V4_3419989a7aa8	unresolved	2	Eukaryota;Obazoa;Opisthokonta;Fungi;Monoblepharidomycetes x1 | Eukaryota;Obazoa;Opisthokonta;Fungi;Chytridiomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Monoblepharidomycetes
+V4_36b3f27de47a	majority	20	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x19 | Eukaryota;TSAR;Stramenopiles;Gyrista;Eustigmatophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_39f3c81bea52	majority	8	Eukaryota;Obazoa;Opisthokonta;Metazoa;Annelida x7 | Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Annelida
+V4_3aa5e825a0a3	majority	219	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x218 | Bacteria;PANNAM;Proteobacteria;;Alphaproteobacteria x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_3f106295884f	unresolved	2	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x1 | Bacteria;Terrabacteria;Actinobacteria;; x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda
+V4_3f488afc4a5d	majority	6	Eukaryota;Amoebozoa;Discosea;;Centramoebia x5 | Bacteria;Terrabacteria;Actinobacteria;; x1	Eukaryota;Amoebozoa;Discosea;;Centramoebia
+V4_420e6499d996	majority	9	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x8 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_4595aaab0a41	majority	5	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x4 | Bacteria;Terrabacteria;Actinobacteria;; x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_4bde90ad9f32	majority	12	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x11 | Bacteria;Terrabacteria;Actinobacteria;; x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_4d5e061f822e	majority	11	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x8 | Bacteria;FCB;Bacteroidetes;;Bacteroidia x2 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_4d815218f511	trust	8	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda x8	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda
+V4_4e3b89adef1a	majority	22	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x21 | Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_4eafb76d2480	majority	38	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x37 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda
+V4_4f9e63a1a8d2	majority	3	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x2 | Eukaryota;Obazoa;Opisthokonta;Metazoa;Mollusca x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_5044e8cb6cff	unresolved	2	Eukaryota;TSAR;Stramenopiles;;Stramenopiles_X-Group-7 x1 | Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae x1	Eukaryota;TSAR;Stramenopiles;;Stramenopiles_X-Group-7
+V4_54f09b637b29	unresolved	2	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x1 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_56d679cc4c02	majority	3	Eukaryota;Archaeplastida;Streptophyta;;Zygnemophyceae x2 | Eukaryota:plas;Archaeplastida:plas;Streptophyta:plas;;Zygnemophyceae:plas x1	Eukaryota;Archaeplastida;Streptophyta;;Zygnemophyceae
+V4_57e3156b3176	majority	58	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x57 | Eukaryota;Obazoa;Opisthokonta;Fungi;Mucoromycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_58bab2c51c34	majority	33	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x29 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x4	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_5b7f23fcd989	unresolved	8	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x5 | Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x2 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_5c63ee87f161	unresolved	4	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x2 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x2	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_5c9bf9ff13b7	majority	7	Eukaryota;Cryptista;Cryptophyta;;Cryptophyceae x6 | Eukaryota:nucl;Cryptista:nucl;Cryptophyta:nucl;;Cryptophyceae:nucl x1	Eukaryota;Cryptista;Cryptophyta;;Cryptophyceae
+V4_5d069eac32e4	unresolved	2	Eukaryota;Obazoa;Opisthokonta;Metazoa;Mollusca x1 | Eukaryota;Obazoa;Opisthokonta;Metazoa;Annelida x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Mollusca
+V4_617e1557ec39	majority	6	Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae x5 | Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae x1	Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae
+V4_627358604901	unresolved	2	Eukaryota;Amoebozoa;Tubulinea;;Elardia x1 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Amoebozoa;Tubulinea;;Elardia
+V4_69f4e384eab7	majority	378	Eukaryota:plas;Archaeplastida:plas;Streptophyta:plas;;Embryophyceae:plas x377 | Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x1	Eukaryota:plas;Archaeplastida:plas;Streptophyta:plas;;Embryophyceae:plas
+V4_6ae905b495a8	majority	33	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x29 | Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x2 | Eukaryota;TSAR;Stramenopiles;Gyrista;Peronosporomycetes x2	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_6b08dc209420	majority	4	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x3 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_6bc3ff0adf1e	majority	9	Eukaryota;Obazoa;Opisthokonta;Metazoa;Urochordata x8 | Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Urochordata
+V4_6c45e71ec77b	majority	5	Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae x4 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae
+V4_6cc113a83a07	majority	12	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x11 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_72cdeb59ddc7	unresolved	2	Eukaryota;Archaeplastida;Streptophyta;;Zygnemophyceae x1 | Eukaryota;Archaeplastida;Streptophyta;;Mesostigmatophyceae x1	Eukaryota;Archaeplastida;Streptophyta;;Zygnemophyceae
+V4_74f6cb7066b9	majority	28	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x27 | Eukaryota;Obazoa;Opisthokonta;Fungi;Mucoromycota x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_756a9df2f6be	majority	60	Eukaryota;TSAR;Stramenopiles;Gyrista;Eustigmatophyceae x59 | Bacteria;Terrabacteria;Actinobacteria;; x1	Eukaryota;TSAR;Stramenopiles;Gyrista;Eustigmatophyceae
+V4_76dd81f50b7f	unresolved	2	Eukaryota;TSAR;Stramenopiles;Gyrista;Coscinodiscophyceae x1 | Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae x1	Eukaryota;TSAR;Stramenopiles;Gyrista;Coscinodiscophyceae
+V4_76f3b7daf47c	majority	37	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x35 | Bacteria;Terrabacteria;Actinobacteria;; x2	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_777f652a8aef	majority	54	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x53 | Bacteria;Terrabacteria;Actinobacteria;; x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_7a4e625e516e	majority	17	Eukaryota;TSAR;Stramenopiles;Gyrista;Chrysophyceae x16 | Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae x1	Eukaryota;TSAR;Stramenopiles;Gyrista;Chrysophyceae
+V4_7d1145620d13	majority	8	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x7 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_7d224381e1c5	majority	96	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x85 | Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x8 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x2 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata
+V4_7d38f4e0bd14	majority	3	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x2 | Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata
+V4_7e946a1f5a8c	majority	8	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x7 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota
+V4_800573ab3c98	majority	103	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x102 | Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_84610b0090da	trust	16	Eukaryota;Obazoa;Opisthokonta;Metazoa;Platyhelminthes x16	Eukaryota;Obazoa;Opisthokonta;Metazoa;Platyhelminthes
+V4_85b586ae3b1e	majority	6	Eukaryota;Obazoa;Opisthokonta;Fungi;Neocallimastigomycota x5 | Eukaryota;Obazoa;Opisthokonta;Fungi;Chytridiomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Neocallimastigomycota
+V4_86c3c0db6467	unresolved	2	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_889729639c23	majority	53	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x52 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_8c5e97bd760a	majority	10	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x9 | Bacteria;PANNAM;Proteobacteria;;Alphaproteobacteria x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_8ce103b366c4	majority	33	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x30 | Eukaryota;TSAR;Stramenopiles;Gyrista;Eustigmatophyceae x2 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_8df5b6362212	majority	18	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x17 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_8e5f97793ff0	trust	2	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda x2	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda
+V4_92cc115de72e	unresolved	5	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x2 | Bacteria;Terrabacteria;Firmicutes;;Clostridia x2 | Bacteria;Terrabacteria;Firmicutes;;Bacilli x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_933236ff7441	majority	32	Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae x31 | Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae x1	Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae
+V4_93a3fcf9107c	majority	9	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x8 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota
+V4_98ecf884c924	majority	3	Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae x2 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae
+V4_99f15f43aa47	unresolved	2	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_9b8b7df9a086	unresolved	2	Eukaryota;Excavata;Discoba;Euglenozoa;Kinetoplastea x1 | Eukaryota;TSAR;Stramenopiles;Gyrista;Eustigmatophyceae x1	Eukaryota;Excavata;Discoba;Euglenozoa;Kinetoplastea
+V4_9d39e0c63d7c	unresolved	2	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1 | Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_9dc48003cd30	majority	31	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x25 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x6	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_9ead23904c04	unresolved	2	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_9f1ecc0d5f30	unresolved	8	Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae x5 | Eukaryota;TSAR;Stramenopiles;Gyrista;Coscinodiscophyceae x3	Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae
+V4_9fb9f04077cb	unresolved	19	Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x9 | Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x8 | Bacteria;Terrabacteria;Actinobacteria;; x2	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_a0c7836defef	trust	4	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda x4	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda
+V4_a2d6e0d7d259	majority	5	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x4 | Eukaryota;TSAR;Alveolata;Apicomplexa;Coccidiomorphea x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_a563ba48d877	unresolved	2	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x1 | Bacteria;Terrabacteria;Firmicutes;;Bacilli x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda
+V4_a9ab4ce9d60e	unresolved	4	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x2 | Eukaryota:plas;Archaeplastida:plas;Chlorophyta:plas;;Trebouxiophyceae:plas x2	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_aa9d38f98a1a	majority	3	Eukaryota;TSAR;Alveolata;Ciliophora;Prostomatea_3 x2 | Eukaryota;TSAR;Alveolata;Ciliophora;Prostomatea x1	Eukaryota;TSAR;Alveolata;Ciliophora;Prostomatea_3
+V4_ac3dedde598a	majority	3	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x2 | Eukaryota;Obazoa;Opisthokonta;Fungi;Opisthosporidia x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda
+V4_b1b54f31687c	majority	31	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x30 | Eukaryota;TSAR;Stramenopiles;Gyrista;Peronosporomycetes x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_b1e6d503eff9	majority	24	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x23 | Eukaryota;Obazoa;Opisthokonta;Fungi;Mucoromycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_b24d11efdee2	majority	6	Eukaryota;TSAR;Stramenopiles;Gyrista; x5 | Eukaryota;TSAR;Alveolata;Chrompodellids;Colpodellidea x1	Eukaryota;TSAR;Stramenopiles;Gyrista;
+V4_b2a9c41feb5b	majority	13	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x12 | Eukaryota;Amoebozoa;Evosea;Eumycetozoa; x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota
+V4_b321b6d46743	majority	6	Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae x4 | Eukaryota;Archaeplastida;Streptophyta;;Klebsormidiophyceae x2	Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae
+V4_b37cb080181b	majority	17	Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae x16 | Eukaryota:nucl;TSAR:nucl;Alveolata:nucl;Dinoflagellata:nucl;Dinophyceae:nucl x1	Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae
+V4_b62b2ddad08a	majority	11	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x10 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_b68566d2d766	majority	447	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x446 | Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_b7e166486fc8	trust	8	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda x8	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda
+V4_b818d8f0a776	majority	9	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x8 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota
+V4_b87496ef7cf4	unresolved	5	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x3 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x2	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_ba1357bba2f2	majority	5	Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae x4 | Bacteria;Terrabacteria;Firmicutes;;Bacilli x1	Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae
+V4_bbaa3e578a51	majority	7	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x5 | Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae x2	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_bc4e22f5d574	majority	19	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x18 | Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota
+V4_bd4f3d03bd64	majority	3	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x2 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda
+V4_bdd80ab857aa	majority	114	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda x113 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Arthropoda
+V4_bf4298fec8ab	majority	7	Eukaryota:plas;TSAR:plas;Stramenopiles:plas;Gyrista:plas;Raphidophyceae:plas x6 | Eukaryota:plas;TSAR:plas;Stramenopiles:plas;Gyrista:plas;Olisthodiscophyceae:plas x1	Eukaryota:plas;TSAR:plas;Stramenopiles:plas;Gyrista:plas;Raphidophyceae:plas
+V4_bf7ab1357ac6	majority	70	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x69 | Bacteria;Terrabacteria;Firmicutes;;Bacilli x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_bffdf22bc83d	majority	18	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x17 | Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_c63d67e4c849	unresolved	2	Eukaryota;Archaeplastida;Streptophyta;;Zygnemophyceae x1 | Eukaryota;Archaeplastida;Streptophyta;;Mesostigmatophyceae x1	Eukaryota;Archaeplastida;Streptophyta;;Zygnemophyceae
+V4_c7add965fa8c	unresolved	2	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota x1 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota
+V4_c99a86fc558f	unresolved	6	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x3 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x3	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_cbc570523851	unresolved	2	Eukaryota:plas;Archaeplastida:plas;Chlorophyta:plas;;Chlorophyceae:plas x1 | Eukaryota:plas;Archaeplastida:plas;Chlorophyta:plas;;Trebouxiophyceae:plas x1	Eukaryota:plas;Archaeplastida:plas;Chlorophyta:plas;;Chlorophyceae:plas
+V4_ccac185bfb00	majority	20	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x19 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata
+V4_cccde2e18ef4	unresolved	2	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_cd6c5d95699e	majority	5	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x4 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_cd7290794c91	majority	3	Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae x2 | Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales x1	Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae
+V4_cec74c9f768f	majority	63	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x62 | Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota
+V4_ceda76c3c88b	unresolved	2	Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea x1 | Eukaryota;TSAR;Stramenopiles;Gyrista;Coscinodiscophyceae x1	Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea
+V4_cf4b187a302d	majority	4	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x3 | Bacteria;Terrabacteria;Actinobacteria;; x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_d15d55f210b0	majority	5	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x4 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_d1697ef88129	majority	26	Eukaryota;Archaeplastida;Streptophyta;;Klebsormidiophyceae x25 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1	Eukaryota;Archaeplastida;Streptophyta;;Klebsormidiophyceae
+V4_d412308d48aa	majority	23	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x22 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata
+V4_d421519d6cd7	unresolved	2	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x1 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_d55b23f5c345	majority	13	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x12 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_d66fa986513a	majority	4	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata x3 | Bacteria;Terrabacteria;Firmicutes;;Bacilli x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Craniata
+V4_d679cb5ce01a	majority	3	Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x2 | Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x1	Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria
+V4_d9e47beca719	unresolved	2	Eukaryota;TSAR;Alveolata;Chrompodellids;Colpodellidea x1 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1	Eukaryota;TSAR;Alveolata;Chrompodellids;Colpodellidea
+V4_dcccbe39a67f	majority	39	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x37 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x2	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_ded137200e85	majority	11	Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea x10 | Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda x1	Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea
+V4_e017351e33ef	majority	18	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x16 | Bacteria;PANNAM;Proteobacteria;;Alphaproteobacteria x2	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_e2d1cb81cd31	unresolved	9	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x5 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x4	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_e415621ff68b	unresolved	2	Eukaryota;Obazoa;Opisthokonta;Fungi;Rozellomycota x1 | Eukaryota;Obazoa;Opisthokonta;Fungi;Chytridiomycota x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Rozellomycota
+V4_e486c4159b2d	majority	74	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x72 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x2	Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae
+V4_eaa1c34b8a7d	unresolved	2	Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae x1 | Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae x1	Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae
+V4_ee14bcb3f359	trust	3	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda x3	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda
+V4_ee9297e5154b	unresolved	2	Eukaryota;Excavata;Discoba;Euglenozoa;Kinetoplastea x1 | Eukaryota;Provora;Nebulidia;;Nebulidea x1	Eukaryota;Excavata;Discoba;Euglenozoa;Kinetoplastea
+V4_eea064b3181d	majority	8	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x7 | Eukaryota:plas;Archaeplastida:plas;Streptophyta:plas;;Embryophyceae:plas x1	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_eeb591234467	majority	8	Eukaryota;Obazoa;Opisthokonta;Fungi;Mucoromycota x7 | Bacteria;PANNAM;Proteobacteria;;Gammaproteobacteria x1	Eukaryota;Obazoa;Opisthokonta;Fungi;Mucoromycota
+V4_f3711cdcfa98	trust	11	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda x10 | Eukaryota;Obazoa;Opisthokonta;Metazoa;Platyhelminthes x1	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda
+V4_f5f580f4b3d8	majority	7	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x6 | Eukaryota;Archaeplastida;Streptophyta;;Klebsormidiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_f5fe7cb39d52	unresolved	5	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae x3 | Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota x2	Eukaryota;Archaeplastida;Streptophyta;;Embryophyceae
+V4_fb5cac300e68	trust	10	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda x10	Eukaryota;Obazoa;Opisthokonta;Metazoa;Nematoda
+V4_fb64711b0b7b	unresolved	2	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1 | Eukaryota;Archaeplastida;Chlorophyta;;Trebouxiophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae
+V4_fcc5aab007c2	majority	3	Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae x2 | Eukaryota;Archaeplastida;Chlorophyta;;Chlorophyceae x1	Eukaryota;Archaeplastida;Chlorophyta;;Ulvophyceae

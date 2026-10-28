@@ -22,6 +22,10 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 
 | path | |
 |---|---|
+| `bin/pr2_layer.py` | **Build.** Layer 1: PR2 (taxo_long, with accessions) trimmed to the V4 insert |
+| `bin/wbps_layer.py` | **Build.** Layer 2: genome V4 filtered by copy support and phylum, given PR2 ranks (NCBI lineage where PR2 lacks the genus) |
+| `bin/collapse.py` | **Build.** Collapses layers into unique inserts, merges taxonomy, resolves label conflicts; writes `refdb.fasta`, `taxonomy.tsv`, `members.tsv`, `conflicts.tsv` |
+| `bin/vespa.py` | Primers, in-silico PCR and PR2 rank conventions shared by the build |
 | `bin/pr2_insilico_pcr.py` | In-silico PCR over PR2; insert lengths; resolution over the whole insert (nanopore) and the 2x150 read windows (Illumina); adapter-anchor look-alikes |
 | `bin/wbps_insilico_pcr.py` | Streams every WormBase ParaSite genome from the EBI FTP, finds V4 amplicons on both strands, keeps only the hits |
 | `bin/compare_wbps_pr2.py` | Per genome: is the species in PR2, does its V4 match PR2 and under whose label, nearest PR2 taxon if not, possible contaminants |
@@ -31,7 +35,22 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 
 Python 3.9+, standard library only.
 
-## Reproducing
+## Building
+
+```bash
+# sources/README.md lists what goes in sources/
+python3 bin/pr2_layer.py sources/pr2_version_5.1.1_SSU_taxo_long.fasta.gz work/pr2_layer.tsv.gz 8
+python3 bin/wbps_layer.py results/wbps19_v4_amplicons.tsv.gz work/pr2_layer.tsv.gz \
+    work/wbps_layer.tsv.gz work/wbps_review.tsv
+python3 bin/collapse.py work/build work/pr2_layer.tsv.gz work/wbps_layer.tsv.gz
+```
+
+Layers go to `collapse.py` in increasing order of trust. About ten
+minutes for the PR2 layer, under a minute for the rest. Not yet a full
+release: resolution tables, the look-alike mask and the manifest are
+still to come (docs/DESIGN.md §7).
+
+## Reproducing the exploratory measurements
 
 ```bash
 # PR2 v5.1.0, DADA2 format, from https://github.com/pr2database/pr2database
@@ -56,6 +75,9 @@ streamed, nothing kept), the comparison about 10 minutes.
 | `pr2_v5.1.0_summary.txt` | amplification, insert lengths, resolution, genera of interest, anchor look-alikes |
 | `wbps19_vs_pr2.txt` | genome-versus-PR2 report |
 | `wbps19_scan.tsv` | one row per WBPS19 assembly: bases scanned, amplicons, seconds (one failed download listed) |
+| `curation/conflicts.tsv` | every class-level label conflict in the PR2 + WBPS19 build and how it was resolved |
+| `curation/overruled.tsv` | every member label the build overruled, with its accession |
+| `curation/wbps_review.tsv` | genome variants kept out as another organism's rDNA |
 | `wbps19_v4_amplicons.tsv.gz` | every V4 amplicon found in WBPS19: genome, contig, strand, coordinates, primer edits, insert. Raw material for the genome layer **before** the filtering rules in the design note - it still contains host, vector and other contaminant rDNA |
 
 ## Caveats

@@ -17,3 +17,10 @@ wbps_out/
 wbps_vs_pr2/
 pcr_results.json
 wbps_genomes.txt
+
+# Downloaded source databases (sources/README.md says where from)
+sources/*
+!sources/README.md
+
+# Build intermediates
+work/

@@ -9,7 +9,7 @@ VESPA primers amplify, trimmed to the amplicon, with taxonomy, resolution
 tables and the adapter look-alike mask the pipeline needs. How the
 pipeline *uses* it - mapping, LCA, the Illumina and nanopore routes,
 reporting - is designed in the pipeline's
-`docs/REFERENCE_DATABASE.md`. The two meet at the release format in §5.
+`docs/REFERENCE_DATABASE.md`. The two meet at the release format in §6.
 
 VESPA: Owens et al. 2024, *Nat Commun* 15:402,
 doi:10.1038/s41467-023-44521-3.
@@ -21,7 +21,7 @@ doi:10.1038/s41467-023-44521-3.
 | | |
 |---|---|
 | Primers | `AMPSEQ_VESPA18S_29F` `AGCAGCCGCGGTAATTCC` / `AMPSEQ_VESPA18S_21b8_I_R_Nmod` `TCCGTCAATTYCTTNAASTTTC` (locus-specific parts; both carry the standard Nextera tails). Our reverse primer differs from VESPA's published 21b8R (`TCAATTYCTTIAASTTTC`, Supplementary Table 1): a 5′ `TCCG` extension that matches the template, and N in place of deoxyinosine |
-| Backbone | PR2 v5.1.0 SSU, DADA2 format: 9 ranks in the header, `Domain;Supergroup;Division;Subdivision;Class;Order;Family;Genus;Species;` |
+| Backbone | PR2 v5.1.1 SSU, `taxo_long` format (accession, gene, organelle, strain, then the nine ranks `Domain;Supergroup;Division;Subdivision;Class;Order;Family;Genus;Species`). The exploratory measurements in §3 were made on v5.1.0 in DADA2 format, which has no accessions; the build uses v5.1.1, whose in-silico PCR gives 151,932 amplicons (one more than v5.1.0) and the same 89,738 unique inserts |
 | Read geometry | Illumina 2x150 (fixed for now); nanopore reads the whole amplicon |
 
 ## 2. Preparation
@@ -208,16 +208,69 @@ hit is in `results/wbps19_v4_amplicons.tsv.gz`.
 
 ### 4.2 Rules for the genome layer
 
-1. Keep a variant only if its nearest database neighbour is in the same
-   phylum as the genome's species; send the rest to review as possible
-   contaminants or PR2 mislabels.
-2. Prefer the best assembly per species, and variants seen in more than
-   one copy, over every variant of every draft.
-3. Where a genome and PR2 disagree on a label for the same sequence,
-   the genome's label wins if the variant is the dominant one in a
-   good assembly.
+As implemented in `bin/wbps_layer.py`:
 
-## 5. Release format
+1. **Support.** Per species, pooled across its assemblies, a variant
+   enters only if it is seen in at least two copies. A species with no
+   such variant contributes its most common one. Of 1,034 variants
+   seen, 798 single-copy ones are dropped - mostly draft-assembly noise,
+   and with them most stray contaminant copies.
+2. **Phylum.** A variant enters only if its nearest PR2 sequence is in
+   the species' own PR2 class. Four failed, all correctly: the only V4
+   in *Cylicostephanus goldi* is a chytrid, in *Protopolystoma* its host
+   *Xenopus*; a *Trichinella pseudospiralis* assembly carries vertebrate
+   18S in two copies; a *Meloidogyne graminicola* contig carries
+   *Tetrahymena*. They go to `results/curation/wbps_review.tsv`.
+3. **Ranks.** From PR2 where PR2 knows the genus (135 species);
+   otherwise from the NCBI lineage, walked up to the first name PR2
+   has, with PR2-style placeholders below (10 species; strain-coded
+   names such as *Auanema* JU1783 are looked up by genus).
+
+232 genome variants from 145 species enter the build.
+
+## 5. Curation: collapsing the layers
+
+As implemented in `bin/collapse.py` (its docstring is the reference).
+Layers are given in increasing order of trust: PR2, then genomes, then
+GenBank and local sequences as they arrive.
+
+- **Merge.** Identical inserts become one record with a stable id
+  derived from the sequence. At each rank the record takes the single
+  informative name its members agree on; placeholders do not vote; two
+  different names stop it at the rank above.
+- **Conflicts at class or above** (identical V4 in two PR2 classes - a
+  nematode and a flatworm, a plant and a bacterium) are resolved by the
+  most trusted layer if it is consistent, else by a two-thirds
+  majority of at least two, else left **unresolved**: the record is kept
+  at the ranks all members share and listed for review. Kept, not
+  dropped - a sequence missing from the database still sends reads,
+  which would then be pushed onto its nearest neighbour.
+- **Below class, a trusted layer overrules narrowly.** Species never
+  overrule: a genome shows a sequence is *in* a species, not *only* in
+  it. At order, family and genus, a conflicting less-trusted label is
+  overruled only when a single accession carries it; two or more are
+  taken as real sharing.
+- Overruled members stay in `members.tsv`, marked.
+
+On PR2 v5.1.1 plus WBPS19: 89,872 unique inserts; 103 class-level
+conflicts resolved by majority, 8 by a genome, 39 unresolved. The
+helminth cases come out as they should:
+
+| record | outcome |
+|---|---|
+| *Brugia malayi* V4, one PR2 member labelled *Schistosoma mansoni* (a contig from the *S. mansoni* genome project) | majority: *Brugia*; *Wuchereria* and *B. timori* genomes share it, so the record stops above genus |
+| *Necator americanus* V4, one PR2 member labelled "*Haemonchus* sp." | genome overrules the lone label: *Necator americanus* |
+| *C. elegans* V4, one PR2 member from the *B. malayi* genome project | majority plus genome: *C. elegans* |
+| *Tetrahymena* V4, one PR2 member from a *M. graminicola* genome contig | majority: *Tetrahymena* |
+| *Haemonchus contortus*/*placei*/*similis* | genus *Haemonchus*: real sharing |
+| *Toxocara canis*/*cati*, one PR2 "*Porrocaecum*" | lone label overruled; genus *Toxocara* |
+| *Pristionchus*, one PR2 "*Diplogaster lethieri*" | an old synonym of *P. lheritieri*; genus *Pristionchus* |
+| *Clonorchis*/*Opisthorchis* | several accessions each: real sharing; family |
+
+Every decision is in `results/curation/`: `conflicts.tsv`,
+`overruled.tsv` and `wbps_review.tsv`.
+
+## 6. Release format
 
 A release is one directory, named for its build version, holding:
 
@@ -234,18 +287,18 @@ A release is one directory, named for its build version, holding:
 
 The pipeline records `manifest.json`'s build version in every result.
 
-## 6. Order of work
+## 7. Order of work
 
-1. Turn the exploratory scripts into a build: PR2 layer, collapse and
-   merge, conflict flagging, release files (§5).
-2. Genome layer from `results/wbps19_v4_amplicons.tsv.gz`, applying
-   §4.2.
+1. ~~PR2 layer, genome layer, collapse with conflict handling~~ (done:
+   §4.2, §5).
+2. The rest of a release (§6): resolution tables, look-alike mask,
+   manifest; then cut the first release.
 3. GenBank layer for a priority gap list; measure how many gaps it
    closes.
 4. VEuPathDB genomes for protists (*Cryptosporidium* first).
 5. Layer 4 format, and the first local sequences.
 
-## 7. Open questions
+## 8. Open questions
 
 - The priority gap list: ruminant trichostrongylids, human
   soil-transmitted helminths, or both. It decides which GenBank queries
