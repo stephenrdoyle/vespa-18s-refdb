@@ -290,6 +290,22 @@ polygyrus*; protists such as *Plasmodium vivax* and *P. malariae*,
 *Histomonas*, *Trypanosoma congolense*. Still nothing for
 *Cryptosporidium*.
 
+### 4.5 Local layer and *Teladorsagia*
+
+`local/sequences.tsv` is hand-curated and the most trusted layer
+(`bin/local_layer.py`). Its first entry is the *Teladorsagia
+circumcincta* V4 from the tci2_wsi3.0 assembly - chr_1, two identical
+copies, both primers exact - found with `bin/genome_insilico_pcr.py`.
+
+It is **identical to PR2's *Trichostrongylus colubriformis*
+(AJ920350)**, one base from *Ostertagia*, and two from all three
+*Haemonchus* (one difference in each 2x150 read window). One
+*Ostertagia ostertagi* record differs only in the unread middle, and two
+*O. ostertagi* records differ from each other. So **V4 resolves the
+ruminant trichostrongylids to family and seldom further**; telling
+*Teladorsagia* from *Trichostrongylus* or *Ostertagia* needs ITS2. The
+merged record stops at the shared rank.
+
 ### 4.6 Protists: *Cryptosporidium*
 
 **PR2 splits apicomplexan genera into numbered clades** -
@@ -330,22 +346,6 @@ Open: the genotyping fragments carry far more species and genotypes
 than the genomes. Admitting partial references (here: all of the R1
 window, a third of the R2 window, 85% of the insert) is the same
 question as *Onchocerca*'s partial records (§7).
-
-### 4.5 Local layer and *Teladorsagia*
-
-`local/sequences.tsv` is hand-curated and the most trusted layer
-(`bin/local_layer.py`). Its first entry is the *Teladorsagia
-circumcincta* V4 from the tci2_wsi3.0 assembly - chr_1, two identical
-copies, both primers exact - found with `bin/genome_insilico_pcr.py`.
-
-It is **identical to PR2's *Trichostrongylus colubriformis*
-(AJ920350)**, one base from *Ostertagia*, and two from all three
-*Haemonchus* (one difference in each 2x150 read window). One
-*Ostertagia ostertagi* record differs only in the unread middle, and two
-*O. ostertagi* records differ from each other. So **V4 resolves the
-ruminant trichostrongylids to family and seldom further**; telling
-*Teladorsagia* from *Trichostrongylus* or *Ostertagia* needs ITS2. The
-merged record stops at the shared rank.
 
 ## 5. Curation: collapsing the layers
 
