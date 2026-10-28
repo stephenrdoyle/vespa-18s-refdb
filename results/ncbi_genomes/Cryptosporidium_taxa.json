@@ -1,0 +1,484 @@
+{
+ "assemblies": {
+  "GCA_000165345.1": "353152",
+  "GCF_000165345.1": "353152",
+  "GCA_039657295.1": "93969",
+  "GCA_000006425.1": "237895",
+  "GCF_000006425.1": "353151",
+  "GCA_000006425.2": "353151",
+  "GCA_000006515.1": "441375",
+  "GCF_000006515.1": "441375",
+  "GCA_061346505.1": "83999",
+  "GCA_001865345.1": "857276",
+  "GCF_001865345.1": "857276",
+  "GCA_004337835.1": "564424",
+  "GCA_037039495.1": "659607",
+  "GCA_009768925.2": "310047",
+  "GCF_009768925.1": "310047",
+  "GCA_009792415.2": "515981",
+  "GCF_009792415.1": "515981",
+  "GCA_001593455.1": "27987",
+  "GCA_001865355.1": "117008",
+  "GCF_001865355.1": "117008",
+  "GCA_027243985.1": "195482",
+  "GCA_056278765.1": "1729943",
+  "GCA_007210665.1": "756076",
+  "GCA_014529505.1": "83540",
+  "GCA_004337795.1": "1176757",
+  "GCA_059910425.1": "5807",
+  "GCA_019844115.2": "5807",
+  "GCA_015245375.1": "5807",
+  "GCA_035232765.1": "5807",
+  "GCA_040285075.1": "5807",
+  "GCA_048859185.1": "5807",
+  "GCA_058640825.1": "237895",
+  "GCA_045269125.1": "237895",
+  "GCA_031892065.1": "2138604",
+  "GCA_002223825.1": "237895",
+  "GCA_057166865.1": "310047",
+  "GCA_003057855.1": "5807",
+  "GCA_003148445.1": "5807",
+  "GCA_045166985.1": "5807",
+  "GCA_001306235.1": "5807",
+  "GCA_045167005.1": "5807",
+  "GCA_030415345.1": "5807",
+  "GCA_030415325.1": "5807",
+  "GCA_001305455.2": "5807",
+  "GCA_030415335.1": "5807",
+  "GCA_030415355.1": "5807",
+  "GCA_030415315.1": "5807",
+  "GCA_045166965.1": "5807",
+  "GCA_001305415.1": "5807",
+  "GCA_002093605.1": "5807",
+  "GCA_001305475.1": "5807",
+  "GCA_001305335.1": "5807",
+  "GCA_001306245.1": "5807",
+  "GCA_001305435.1": "5807",
+  "GCA_004337865.1": "5807",
+  "GCA_004337875.1": "5807",
+  "GCA_002093595.1": "5807",
+  "GCA_003024765.1": "5807",
+  "GCA_002093615.1": "5807",
+  "GCA_004337825.1": "5807",
+  "GCA_001945495.1": "237895",
+  "GCA_018342955.1": "237895",
+  "GCA_018342975.1": "237895",
+  "GCA_000804495.1": "237895",
+  "GCA_001483515.1": "237895",
+  "GCA_001593465.1": "237895",
+  "GCA_001593475.1": "237895",
+  "GCA_001307845.1": "237895",
+  "GCA_001483505.1": "237895",
+  "GCA_001305395.1": "237895",
+  "GCA_001305325.1": "237895",
+  "GCA_001483535.1": "237895",
+  "GCA_001593445.1": "93969",
+  "GCA_059910485.1": "93969",
+  "GCA_004337925.1": "93969",
+  "GCA_004348035.1": "93969",
+  "GCA_001835705.1": "857276",
+  "GCA_051169045.1": "83999",
+  "GCA_050494125.1": "83999",
+  "GCA_001835715.1": "857276",
+  "GCA_050437105.1": "83999",
+  "GCA_050494235.1": "83999",
+  "GCA_004337815.1": "857276",
+  "GCA_004337805.1": "857276",
+  "GCA_004936735.2": "1280935",
+  "GCF_004936735.1": "1280935",
+  "GCA_023213095.1": "310047",
+  "GCA_023213085.1": "310047",
+  "GCA_023213155.1": "310047",
+  "GCA_023213035.1": "310047",
+  "GCA_027243965.1": "195482",
+  "GCA_023213115.1": "310047",
+  "GCA_001835725.1": "117008",
+  "GCA_020826745.1": "310047",
+  "GCA_027243975.1": "195482",
+  "GCA_037042805.1": "659607",
+  "GCA_001835735.1": "117008",
+  "GCA_029747635.1": "2994656",
+  "GCA_000831705.1": "1603071",
+  "GCA_004337945.1": "5807",
+  "GCA_049309605.1": "83999",
+  "GCA_000209695.1": "5807"
+ },
+ "taxa": {
+  "117008": {
+   "name": "Cryptosporidium andersoni",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "1176757": {
+   "name": "Cryptosporidium viatorum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "1280935": {
+   "name": "Cryptosporidium sp. chipmunk genotype I",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium",
+    "unclassified Cryptosporidium",
+    "Cryptosporidium genotype names"
+   ]
+  },
+  "1603071": {
+   "name": "Cryptosporidium sp. chipmunk LX-2015",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium",
+    "unclassified Cryptosporidium"
+   ]
+  },
+  "1729943": {
+   "name": "Cryptosporidium proliferans",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "195482": {
+   "name": "Cryptosporidium canis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "2138604": {
+   "name": "Cryptosporidium sp. 43IA8",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium",
+    "unclassified Cryptosporidium"
+   ]
+  },
+  "237895": {
+   "name": "Cryptosporidium hominis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "27987": {
+   "name": "Cryptosporidium baileyi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "2994656": {
+   "name": "Cryptosporidium sp. SCAU42500",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium",
+    "unclassified Cryptosporidium"
+   ]
+  },
+  "310047": {
+   "name": "Cryptosporidium bovis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "353151": {
+   "name": "Cryptosporidium hominis TU502",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium",
+    "Cryptosporidium hominis"
+   ]
+  },
+  "353152": {
+   "name": "Cryptosporidium parvum Iowa II",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium",
+    "Cryptosporidium parvum"
+   ]
+  },
+  "441375": {
+   "name": "Cryptosporidium muris RN66",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium",
+    "Cryptosporidium muris"
+   ]
+  },
+  "515981": {
+   "name": "Cryptosporidium ryanae",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "564424": {
+   "name": "Cryptosporidium cuniculus",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "5807": {
+   "name": "Cryptosporidium parvum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "659607": {
+   "name": "Cryptosporidium xiaoi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "756076": {
+   "name": "Cryptosporidium tyzzeri",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "83540": {
+   "name": "Cryptosporidium felis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "83999": {
+   "name": "Cryptosporidium serpentis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "857276": {
+   "name": "Cryptosporidium ubiquitum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  },
+  "93969": {
+   "name": "Cryptosporidium meleagridis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Cryptosporidiidae",
+    "Cryptosporidium"
+   ]
+  }
+ }
+}

@@ -166,9 +166,9 @@ def main() -> int:
             stats["no_taxonomy"] += 1
             continue
         genus, species = pr2_label(t)
-        ranks, h = pr2.ranks_for(genus, species, t["lineage"])
-        how[h.split()[0]] += 1
         cls, share = pr2.nearest_class(ins)
+        ranks, h = pr2.ranks_for(genus, species, t["lineage"], cls)
+        how[h.split()[0]] += 1
         if ranks[4] and cls and cls != ranks[4]:
             stats["review_other_class"] += 1
             review.append([acc, t["name"], ranks[4], cls, f"{share:.2f}", title[:120], ins])

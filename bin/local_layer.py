@@ -75,8 +75,8 @@ def main() -> int:
             w = r["ncbi_name"].split()
             genus = w[0]
             species = f"{w[0]}_{w[1]}" if len(w) > 1 and w[1] not in ("sp.", "sp") else f"{genus}_sp."
-            ranks, how = pr2.ranks_for(genus, species, lineage(r["ncbi_name"], cache))
             cls, share = pr2.nearest_class(ins)
+            ranks, how = pr2.ranks_for(genus, species, lineage(r["ncbi_name"], cache), cls)
             if ranks[4] and cls and cls != ranks[4]:
                 review.append([r["id"], r["ncbi_name"], ranks[4], cls, f"{share:.2f}"])
                 continue

@@ -290,6 +290,47 @@ polygyrus*; protists such as *Plasmodium vivax* and *P. malariae*,
 *Histomonas*, *Trypanosoma congolense*. Still nothing for
 *Cryptosporidium*.
 
+### 4.6 Protists: *Cryptosporidium*
+
+**PR2 splits apicomplexan genera into numbered clades** -
+*Cryptosporidium1* (*C. parvum*, *C. hominis*), *Cryptosporidium13*
+(*C. andersoni*), and likewise *Theileria*, *Babesia*, *Hepatozoon*,
+*Eimeria*, *Sarcocystis*, *Plasmodium*, *Toxoplasma*: about 9,000 PR2
+entries. They are now read as their base genus (`vespa.normalise_ranks`)
+in the merge and in rank lookup; `members.tsv` keeps PR2's own label.
+Before this, a genome's *Cryptosporidium* and PR2's *Cryptosporidium1*
+were two genera and their shared records stopped at family - and the
+v0.2.0 coverage table (§6.2) undercounts every one of these genera: its
+"*Cryptosporidium* 1" and "*Toxoplasma* 0" are wrong.
+
+**PR2 and NCBI name protist classes differently** (Coccidiomorphea /
+Gregarinomorphea against Conoidasida), so the lineage check rejected
+PR2's ranks for every *Cryptosporidium* genome - and the placeholder
+class that replaced them also switched off the other-class check. The
+sequence is now the witness: a PR2 genus is accepted when its class is
+the class of the PR2 insert nearest the taxon's own V4.
+
+**Sources.** Most PR2 and GenBank *Cryptosporidium* records are the
+standard nested-PCR genotyping fragment: it holds VESPA's forward primer
+and runs about 436 of the 513 insert bases, so it never spans the
+amplicon. Full-length V4 comes from genomes:
+`bin/ncbi_genomes_insilico_pcr.py` streamed all 102 NCBI assemblies (17
+species; ~2 minutes), and the genome-layer rules
+(`bin/pararef_layer.py ... NCBI_genomes`) keep 27 variants. GenBank adds
+57 full-length records PR2 lacks (`bin/genbank_layer.py`), mostly
+*C. parvum* and *C. baileyi*; 7,115 are genotyping fragments.
+
+With PR2, all 86 *Cryptosporidium* records reach genus, and the named
+species - *parvum*, *hominis*, *meleagridis*, *muris*, *andersoni*,
+*bovis*, *ryanae*, *xiaoi*, *baileyi*, *serpentis*, *felis*, *canis*,
+*ubiquitum*, *viatorum*, *proliferans*, *fragile* - mostly reach
+species, whole or through the Illumina windows.
+
+Open: the genotyping fragments carry far more species and genotypes
+than the genomes. Admitting partial references (here: all of the R1
+window, a third of the R2 window, 85% of the insert) is the same
+question as *Onchocerca*'s partial records (§7).
+
 ### 4.5 Local layer and *Teladorsagia*
 
 `local/sequences.tsv` is hand-curated and the most trusted layer

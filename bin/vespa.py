@@ -64,6 +64,27 @@ def informative(name: str) -> bool:
     return bool(base) and not re.search(r"(_X+(_|$)|_sp\.?$)", base)
 
 
+_CLADE_GENUS = re.compile(r"([A-Z][a-z]+)(\d+)(:\w+)?")
+
+
+def normalise_ranks(ranks) -> list:
+    """PR2 splits some genera into numbered clades - Cryptosporidium1 for
+    C. parvum and C. hominis, Cryptosporidium13 for C. andersoni, and so
+    on for Theileria, Babesia, Eimeria, Plasmodium, Toxoplasma ... (about
+    9,000 PR2 entries). They are one genus: read Cryptosporidium1 as
+    Cryptosporidium, and Cryptosporidium1_sp. as Cryptosporidium_sp., or
+    a genome's Cryptosporidium and PR2's Cryptosporidium1 count as two
+    genera and every record they share stops at family."""
+    r = list(ranks)
+    m = _CLADE_GENUS.fullmatch(r[7]) if len(r) > 7 else None
+    if m:
+        base = m.group(1) + (m.group(3) or "")
+        r[7] = base
+        if r[8].startswith(m.group(1) + m.group(2)):
+            r[8] = m.group(1) + r[8][len(m.group(1) + m.group(2)):]
+    return r
+
+
 def read_taxo_long(path: str):
     """PR2 taxo_long FASTA: yields (accession, gene, organelle, ranks, seq).
 
@@ -113,7 +134,7 @@ class PR2Index:
             col = {c: i for i, c in enumerate(head)}
             for line in fh:
                 f = line.rstrip("\n").split("\t")
-                ranks = tuple(f[col[r]] for r in RANKS)
+                ranks = tuple(normalise_ranks([f[col[r]] for r in RANKS]))
                 # PR2 accessions are AB353770.1.1740_U: GenBank id first.
                 self.accessions.add(f[col["accession"]].split(".")[0])
                 if informative(ranks[7]):
@@ -125,9 +146,10 @@ class PR2Index:
                     self.ins_class.setdefault(f[col["insert"]], ranks[4])
         self._uniq = None
 
-    def ranks_for(self, genus: str, species: str, lineage) -> tuple:
+    def ranks_for(self, genus: str, species: str, lineage, seq_class: str = "") -> tuple:
         """(nine ranks, how). lineage: NCBI names root-first, or a callable
-        returning them."""
+        returning them. seq_class: the PR2 class of the nearest PR2 insert
+        to this taxon's own V4, when there is one."""
         names = (lineage() if callable(lineage) else lineage) or []
         if self.by_genus.get(genus):
             # Genus names are not unique across kingdoms: Setaria is a
@@ -136,10 +158,15 @@ class PR2Index:
             # agree with the NCBI lineage; without a lineage, trust PR2.
             # The most specific of them must agree - Metazoa is shared by
             # every animal, so it cannot tell a nematode from a vertebrate.
+            # The sequence is the better witness where it can speak: PR2
+            # and NCBI name protist classes differently (Coccidiomorphea
+            # against Conoidasida), so a PR2 genus whose class is the class
+            # of the nearest PR2 insert is accepted on that alone.
             seen = set(names)
             for cand, _ in self.by_genus[genus].most_common():
                 higher = [n.split(":")[0] for n in cand[1:5] if informative(n)]
-                if not seen or not higher or higher[-1] in seen:
+                if ((seq_class and cand[4] == seq_class) or not seen
+                        or not higher or higher[-1] in seen):
                     return (*cand, species), "PR2 genus"
         for name in reversed(names):
             if name in self.by_name and self.by_name[name][0] <= 6:
@@ -182,7 +209,8 @@ def genome_layer_rows(copies: dict, where: dict, ranks_for, pr2: "PR2Index",
 
     copies:    species -> Counter(insert -> copies), pooled across assemblies
     where:     (species, insert) -> one copy's location, as its accession
-    ranks_for: species -> (nine ranks, how they were found)
+    ranks_for: (species, PR2 class nearest its commonest variant)
+               -> (nine ranks, how they were found)
 
     SUPPORT: a variant enters if seen in at least two copies; a species
     with no such variant contributes its most common one. PHYLUM: it
@@ -193,7 +221,8 @@ def genome_layer_rows(copies: dict, where: dict, ranks_for, pr2: "PR2Index",
     from collections import Counter
     rows, review, stats = [], [], Counter()
     for species in sorted(copies):
-        ranks, how = ranks_for(species)
+        top = copies[species].most_common(1)[0][0]
+        ranks, how = ranks_for(species, pr2.nearest_class(top)[0])
         stats[how.split()[0]] += 1
         variants = copies[species]
         supported = [v for v, n in variants.items() if n >= 2]

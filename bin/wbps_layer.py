@@ -76,13 +76,13 @@ def main() -> int:
 
     pr2 = PR2Index(pr2_path)
 
-    def ranks_for(species: str) -> tuple:
+    def ranks_for(species: str, seq_class: str = "") -> tuple:
         genus = species.split("_")[0].capitalize()
         sp = species[0].upper() + species[1:]
         # Strain-coded names (Auanema_ju1783) are unknown to NCBI by that
         # name; the genus is not.
         return pr2.ranks_for(genus, sp, lambda: ncbi_lineage(sp, cache)[:-1]
-                             or ncbi_lineage(genus, cache))
+                             or ncbi_lineage(genus, cache), seq_class)
 
     # --- genome hits, pooled per species
     copies = defaultdict(Counter)

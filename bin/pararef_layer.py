@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
-"""Layer: V4 from ParaRef genomes, under the genome-layer rules.
+"""Layer: V4 from a set of genomes, under the genome-layer rules.
 
-    bin/pararef_layer.py work/pararef_out sources/pararef_maps/pararef_taxa.json \
-        work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz work/pararef_review.tsv
+    bin/pararef_layer.py <hits dir> <taxa.json> work/pr2_layer.tsv.gz \
+        <layer.tsv.gz> <review.tsv> [source]
+
+Built for ParaRef (source "ParaRef", the default); also builds the layer
+for NCBI genome sets from ncbi_genomes_insilico_pcr.py, whose taxa.json
+has the same shape - e.g. source "NCBI_genomes".
+
+An assembly listed under both its GenBank (GCA_) and RefSeq (GCF_)
+accession is the same genome twice; only the GCA_ copy is counted, or a
+single-copy variant would pass the two-copy rule.
 
 <pararef_out> is pararef_insilico_pcr.py's per-genome hits. Each genome
 is tied to its taxon through ParaRef's own map files (assembly -> NCBI
@@ -42,6 +50,7 @@ def assembly_of(stem: str, known: set) -> str | None:
 
 def main() -> int:
     hits_dir, taxa_path, pr2_path, out_path, review_path = sys.argv[1:6]
+    source = sys.argv[6] if len(sys.argv) > 6 else SOURCE
     taxa = json.load(open(taxa_path))
     asm, info = taxa["assemblies"], taxa["taxa"]
     pr2 = PR2Index(pr2_path)
@@ -49,8 +58,16 @@ def main() -> int:
     copies = defaultdict(Counter)
     where, lineage_of = {}, {}
     unmatched, untaxed = [], []
-    for tsv in sorted(glob.glob(os.path.join(hits_dir, "*.tsv"))):
+    tsvs = sorted(glob.glob(os.path.join(hits_dir, "*.tsv")))
+    stems = {os.path.basename(t)[:-4] for t in tsvs}
+    twins = 0
+    for tsv in tsvs:
         stem = os.path.basename(tsv)[:-4]
+        if stem.startswith("GCF_") and "GCA_" + stem[4:] in stems:
+            twins += 1
+            continue
+        if stem in ("assemblies",):
+            continue
         a = assembly_of(stem, set(asm))
         if a is None:
             unmatched.append(stem)
@@ -71,14 +88,14 @@ def main() -> int:
                 copies[species][ins] += 1
                 where.setdefault((species, ins), f"{a}:{f[1]}:{f[3]}-{f[4]}")
 
-    def ranks_for(species: str):
-        return pr2.ranks_for(species.split("_")[0], species, lineage_of[species])
+    def ranks_for(species: str, seq_class: str = ""):
+        return pr2.ranks_for(species.split("_")[0], species, lineage_of[species], seq_class)
 
-    rows, review, stats = genome_layer_rows(copies, where, ranks_for, pr2, SOURCE)
+    rows, review, stats = genome_layer_rows(copies, where, ranks_for, pr2, source)
     write_table(out_path, LAYER_COLUMNS, rows)
     write_table(review_path, GENOME_REVIEW_COLUMNS, review)
 
-    print(f"genomes with hits files: {len(glob.glob(os.path.join(hits_dir, '*.tsv')))}; "
+    print(f"genomes with hits files: {len(tsvs)} ({twins} RefSeq twins of GenBank assemblies skipped); "
           f"not matched to a map: {len(unmatched)}; no taxonomy: {len(untaxed)}")
     if unmatched:
         print("  unmatched: " + ", ".join(unmatched[:10]))

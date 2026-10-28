@@ -63,7 +63,7 @@ import sys
 from collections import Counter, defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from vespa import CONFLICT_DEPTH, RANKS, informative, open_text  # noqa: E402
+from vespa import CONFLICT_DEPTH, RANKS, informative, normalise_ranks, open_text  # noqa: E402
 
 
 MIN_INSERT = 100
@@ -188,9 +188,10 @@ def main() -> int:
                     trust[src] = li
                     order.append(src)
                 n_rows[src] += 1
+                label = [f[col[r]] for r in RANKS]
                 groups[f[col["insert"]]].append({
                     "source": src, "accession": f[col["accession"]],
-                    "ranks": [f[col[r]] for r in RANKS]})
+                    "ranks": normalise_ranks(label), "label": label})
 
     decisions = Counter()
     with open(os.path.join(outdir, "refdb.fasta"), "w") as fa, \
@@ -212,7 +213,7 @@ def main() -> int:
             for m in members:
                 role = "kept" if m in kept else "overruled"
                 mb.write(f"{rid}\t{m['source']}\t{m['accession']}\t"
-                         f"{';'.join(m['ranks'])}\t{role}\n")
+                         f"{';'.join(m['label'])}\t{role}\n")
             if how != "none":
                 labs = Counter(";".join(x for x in high_label(m["ranks"]))
                                for m in members)
