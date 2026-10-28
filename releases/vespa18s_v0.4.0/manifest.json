@@ -1,0 +1,147 @@
+{
+ "name": "vespa18s_v0.4.0",
+ "version": "v0.4.0",
+ "built": "2026-10-28T14:22:44Z",
+ "code_commit": "9110efd9604673ab87e42271b7e71e373dac3e8e",
+ "marker": "18S rRNA V4",
+ "primers": {
+  "forward": {
+   "name": "AMPSEQ_VESPA18S_29F",
+   "sequence": "AGCAGCCGCGGTAATTCC"
+  },
+  "reverse": {
+   "name": "AMPSEQ_VESPA18S_21b8_I_R_Nmod",
+   "sequence": "TCCGTCAATTYCTTNAASTTTC"
+  },
+  "max_edits_in_silico": 2
+ },
+ "insert": "between the primers; primers not included",
+ "illumina_read_length": 150,
+ "illumina_windows": [
+  132,
+  128
+ ],
+ "anchors": {
+  "i5_inner_anchor": "TCGTCGGCAGCGTC",
+  "i7_inner_anchor": "CCGAGCCCACGAGAC"
+ },
+ "lookalike_max_edits": 3,
+ "layers": [
+  {
+   "file": "genbank_layer.tsv.gz",
+   "sha256": "1f7274ecae117d0979ce98881e4a3b9c088ba112e6884483ee93a851f4971eda",
+   "trust_order": 0
+  },
+  {
+   "file": "genbank_protist_layer.tsv.gz",
+   "sha256": "cb5c7c05826f490937dadaf7276149be0b32f36769f5d49379537c8848182a9b",
+   "trust_order": 1
+  },
+  {
+   "file": "pr2_layer.tsv.gz",
+   "sha256": "6248e1bd1cd07e412f7b2f3b56b9147274f286d15f17196db8ca53097a1e09aa",
+   "trust_order": 2
+  },
+  {
+   "file": "pararef_layer.tsv.gz",
+   "sha256": "794a3ae3c2759ce3ea17b2dc662f799e6aaee99986dea1770664f90afe589542",
+   "trust_order": 3
+  },
+  {
+   "file": "ncbi_genomes_layer.tsv.gz",
+   "sha256": "e38644430806ee6b56a296adbe75d6a375c428eed3c4b3b5649b9749e8f4823a",
+   "trust_order": 4
+  },
+  {
+   "file": "wbps_layer.tsv.gz",
+   "sha256": "6b56b7b22165cefee1fe49fa98d452e84f36f45214904491706a521ee55c1db8",
+   "trust_order": 5
+  },
+  {
+   "file": "local_layer.tsv.gz",
+   "sha256": "e0b3874ac576d60358adc1f178d8933f0dcc2dd6ac446ad33f5c5111aeeee969",
+   "trust_order": 6
+  }
+ ],
+ "sources": [
+  "GenBank",
+  "NCBI_genomes",
+  "PR2_5.1.1",
+  "ParaRef",
+  "WBPS19",
+  "local"
+ ],
+ "counts": {
+  "records": 97559,
+  "members": {
+   "GenBank kept": 15911,
+   "GenBank overruled": 25,
+   "NCBI_genomes kept": 260,
+   "PR2_5.1.1 kept": 151752,
+   "PR2_5.1.1 overruled": 174,
+   "ParaRef kept": 158,
+   "WBPS19 kept": 232,
+   "local kept": 1
+  },
+  "conflicts": {
+   "majority": 103,
+   "trust": 29,
+   "unresolved": 39
+  },
+  "deepest_rank_nanopore": {
+   "genus": 24831,
+   "class": 4818,
+   "species": 48435,
+   "family": 14171,
+   "order": 4810,
+   "division": 190,
+   "subdivision": 286,
+   "": 9,
+   "domain": 8,
+   "supergroup": 1
+  },
+  "deepest_rank_illumina": {
+   "genus": 25573,
+   "class": 6095,
+   "species": 38493,
+   "family": 19775,
+   "order": 6491,
+   "": 82,
+   "subdivision": 548,
+   "division": 419,
+   "domain": 80,
+   "supergroup": 3
+  },
+  "helminth_records": 8808,
+  "illumina_window_groups": 75160,
+  "anchor_lookalikes_by_edits": {
+   "1": 2,
+   "2": 1036,
+   "3": 45301
+  },
+  "primer_fit": {
+   "exact": 75824,
+   "near_3prime": 13187,
+   "away_3prime": 8167,
+   "edits_only": 136,
+   "indel": 245
+  },
+  "primer_fit_helminth": {
+   "exact": 5973,
+   "near_3prime": 2562,
+   "away_3prime": 198,
+   "edits_only": 73,
+   "indel": 2
+  }
+ },
+ "files": {
+  "anchor_lookalikes.tsv": "2228f62debe73eee8d3db345f1d5d09ba1997a468f70ebcc0c472d79a6ea207d",
+  "conflicts.tsv": "98deb254cdc30f0dfcf5652f8d5fc40febd1bd7a98dc3a3306959579cdd422b0",
+  "members.tsv": "f02a38f73fa63062955617ab63b1a8f1bfab47021b2a47ffde7037d8e6a5b428",
+  "primer_fit.tsv": "1aec16684bbfa582885f9e678ed27af855e7e72af58af0abebea8dfe40d13bed",
+  "refdb.fasta": "7b8d58301aabe428cfd9cfe0eef651d4b9e3b1fd68f6377533c1acd24b373bef",
+  "resolution_illumina_150x150.tsv": "9e4153fadf182dbe49718791aa9a29c3793ecff36bb6c77d7a021e006edfd11a",
+  "resolution_nanopore.tsv": "939f597cb2a5a63d38bc3160050aa2a4ef5c78cf283f2bd1391561c079117402",
+  "taxonomy.tsv": "116d2f38b1f1a3843035a74e2cbcfb3b904e75006729bc7d20c32cdc3f5b6777"
+ }
+}

@@ -1,0 +1,72 @@
+vespa18s_v0.4.0  built 2026-10-28T14:22:44Z  code 9110efd9604673ab87e42271b7e71e373dac3e8e
+primers AGCAGCCGCGGTAATTCC / TCCGTCAATTYCTTNAASTTTC
+layers: genbank_layer.tsv.gz, genbank_protist_layer.tsv.gz, pr2_layer.tsv.gz, pararef_layer.tsv.gz, ncbi_genomes_layer.tsv.gz, wbps_layer.tsv.gz, local_layer.tsv.gz
+records 97,559; Illumina 150x150 window groups 75,160
+members: GenBank kept 15,911, GenBank overruled 25, NCBI_genomes kept 260, PR2_5.1.1 kept 151,752, PR2_5.1.1 overruled 174, ParaRef kept 158, WBPS19 kept 232, local kept 1
+conflicts: majority 103, trust 29, unresolved 39
+
+Deepest rank, all records - nanopore:
+    species        48,435   49.6%
+    genus          24,831   25.5%
+    family         14,171   14.5%
+    order           4,810    4.9%
+    class           4,818    4.9%
+    subdivision       286    0.3%
+    division          190    0.2%
+    supergroup          1    0.0%
+    domain              8    0.0%
+    (none)              9    0.0%
+  Illumina:
+    species        38,493   39.5%
+    genus          25,573   26.2%
+    family         19,775   20.3%
+    order           6,491    6.7%
+    class           6,095    6.2%
+    subdivision       548    0.6%
+    division          419    0.4%
+    supergroup          3    0.0%
+    domain             80    0.1%
+    (none)             82    0.1%
+
+Helminth records (8,808) - nanopore:
+    species         5,638   64.0%
+    genus           2,635   29.9%
+    family            198    2.2%
+    order             284    3.2%
+    class              53    0.6%
+    subdivision         0    0.0%
+    division            0    0.0%
+    supergroup          0    0.0%
+    domain              0    0.0%
+    (none)              0    0.0%
+  Illumina:
+    species         4,833   54.9%
+    genus           3,040   34.5%
+    family            342    3.9%
+    order             503    5.7%
+    class              87    1.0%
+    subdivision         3    0.0%
+    division            0    0.0%
+    supergroup          0    0.0%
+    domain              0    0.0%
+    (none)              0    0.0%
+
+Primer fit (best-fitting member of each record):
+    exact          75,824   77.7%   helminth  5,973
+    away_3prime     8,167    8.4%   helminth    198
+    near_3prime    13,187   13.5%   helminth  2,562
+    indel             245    0.3%   helminth      2
+    edits_only        136    0.1%   helminth     73
+    unknown             0    0.0%   helminth      0
+
+Anchor look-alikes by edits: 1: 2, 2: 1,036, 3: 45,301
+
+Files:
+  anchor_lookalikes.tsv  2228f62debe73eee
+  conflicts.tsv  98deb254cdc30f0d
+  members.tsv  f02a38f73fa63062
+  primer_fit.tsv  1aec16684bbfa582
+  refdb.fasta  7b8d58301aabe428
+  resolution_illumina_150x150.tsv  9e4153fadf182dbe
+  resolution_nanopore.tsv  939f597cb2a5a63d
+  taxonomy.tsv  116d2f38b1f1a384

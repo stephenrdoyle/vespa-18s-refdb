@@ -13,20 +13,42 @@ been built yet.** See [docs/DESIGN.md](docs/DESIGN.md) for the design,
 what PR2 and the WormBase ParaSite genomes look like through these
 primers, and the release format the pipeline expects.
 
+<!-- figures:start -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/sources_dark.svg">
-  <img alt="Bar chart: where the 97,559 reference sequences in v0.3.0 come from. Records each source backs, and how many only that source provides: PR2 v5.1.1 89,734 (88,678 only here); GenBank 8,482 (7,526 only here); NCBI protist genomes 237 (87 only here); WormBase ParaSite 19 212 (116 only here); ParaRef 147 (51 only here); Local (our sequences) 1 (0 only here)." src="docs/figures/sources_light.svg" width="760">
+  <img alt="Bar chart: where the 97,559 reference sequences in v0.4.0 come from. Records each source backs, and how many only that source provides: PR2 v5.1.1 89,734 (88,678 only here); GenBank 8,482 (7,526 only here); NCBI protist genomes 237 (87 only here); WormBase ParaSite 19 212 (116 only here); ParaRef 147 (51 only here); Local (our sequences) 1 (0 only here)." src="docs/figures/sources_light.svg" width="760">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/taxa_dark.svg">
-  <img alt="Bar chart: records per major taxonomic group in v0.3.0, and how many resolve to species read whole: Other animals 19,831 (13,023 to species); Fungi 17,906 (8,571 to species); Other alveolates 14,170 (2,945 to species); Plants and algae 9,418 (6,220 to species); Stramenopiles 7,007 (2,663 to species); Nematoda 5,142 (3,147 to species); Apicomplexa 4,867 (3,194 to species); Rhizaria 3,502 (956 to species); Platyhelminthes 3,460 (2,335 to species); Discoba 2,455 (1,260 to species); Bacteria and archaea 2,166 (38 to species); Other eukaryotes 2,115 (706 to species); Amoebozoa 2,057 (1,309 to species); Organelle 16S 1,398 (704 to species); Metamonada 1,212 (630 to species); Vertebrates 647 (578 to species); Acanthocephala 206 (156 to species)." src="docs/figures/taxa_light.svg" width="760">
+  <img alt="Bar chart: records per major taxonomic group in v0.4.0, and how many resolve to species read whole: Other animals 19,831 (13,023 to species); Fungi 17,906 (8,571 to species); Other alveolates 14,170 (2,945 to species); Plants and algae 9,418 (6,220 to species); Stramenopiles 7,007 (2,663 to species); Nematoda 5,142 (3,147 to species); Apicomplexa 4,867 (3,194 to species); Rhizaria 3,502 (956 to species); Platyhelminthes 3,460 (2,335 to species); Discoba 2,455 (1,260 to species); Bacteria and archaea 2,166 (38 to species); Other eukaryotes 2,115 (706 to species); Amoebozoa 2,057 (1,309 to species); Organelle 16S 1,398 (704 to species); Metamonada 1,212 (630 to species); Vertebrates 647 (578 to species); Acanthocephala 206 (156 to species)." src="docs/figures/taxa_light.svg" width="760">
 </picture>
 
-Figures are drawn from the current release by `bin/readme_figures.py`,
-which also prints the two `<picture>` blocks above, alt text included;
-after a release, rerun it and paste its output over them:
-`python3 bin/readme_figures.py releases/vespa18s_<version> docs/figures`.
+How far a record can be named, read whole (nanopore) or only through the two 150x150 Illumina read windows, in v0.4.0. Best case: an exact sequence, no sequencing error.
+
+| Records | Read | Species | Genus | Family | Above family |
+|---|---|---:|---:|---:|---:|
+| All records (97,559) | Nanopore (whole insert) | 50% | 25% | 15% | 10% |
+|  | Illumina 150x150 | 39% | 26% | 20% | 14% |
+| Helminths (8,808) | Nanopore (whole insert) | 64% | 30% | 2% | 4% |
+|  | Illumina 150x150 | 55% | 35% | 4% | 7% |
+| Apicomplexa (4,871) | Nanopore (whole insert) | 66% | 31% | 2% | 2% |
+|  | Illumina 150x150 | 55% | 39% | 3% | 4% |
+
+How well the primers fit each record's best-matching template in v0.4.0 (`primer_fit.tsv`). A mismatch in a primer's last five bases is the kind most likely to weaken amplification.
+
+| Records | Exact | Mismatch, not near 3′ end | Mismatch in last 5 bases | Indel / not known |
+|---|---:|---:|---:|---:|
+| All records (97,559) | 78% | 8% | 14% | 0% |
+| Nematoda (5,142) | 91% | 3% | 6% | 0% |
+| Platyhelminthes (3,460) | 32% | 1% | 65% | 2% |
+| Acanthocephala (206) | 87% | 3% | 10% | 0% |
+<!-- figures:end -->
+
+The figures and tables above are generated from the current release by
+`bin/readme_figures.py`, alt text included. After a release, rerun it to
+refresh them in place:
+`python3 bin/readme_figures.py releases/vespa18s_<version> docs/figures README.md`.
 
 Primers, as ordered (locus-specific parts; both carry Nextera tails):
 
@@ -99,7 +121,8 @@ ParaRef stream (~80 min). A release is never overwritten.
 
 | version | contents | notes |
 |---|---|---|
-| v0.3.0 | v0.2.0 plus protists from NCBI genomes and GenBank; 97,559 records | **current** (docs/DESIGN.md §6.3) |
+| v0.4.0 | v0.3.0's records, plus `primer_fit.tsv`: how well the primers fit each record | **current** (docs/DESIGN.md §6.4) |
+| v0.3.0 | v0.2.0 plus protists from NCBI genomes and GenBank; 97,559 records | superseded by v0.4.0 (same records) |
 | v0.2.0 | GenBank + PR2 v5.1.1 + ParaRef + WBPS19 + local; 94,028 records, 8,808 helminth | superseded; its coverage table undercounts PR2's numbered genera (§4.6) |
 | v0.1.0 | PR2 v5.1.1 + WBPS19 genomes; 89,872 records | superseded: its Illumina resolution table overstates 8,775 records (§6.1 erratum); look-alike mask not yet usable by the pipeline |
 

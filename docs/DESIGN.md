@@ -411,6 +411,7 @@ A release is one directory, named for its build version, holding:
 | `resolution_illumina_<R1>x<R2>.tsv` | the same over the two read windows for that read length |
 | `anchor_lookalikes.tsv` | adapter-anchor near-copies, in exactly the columns the pipeline's pre-flight writes (`seq_id anchor strand position edits context`), so the pipeline reads it unchanged |
 | `conflicts.tsv` | identical sequences whose labels disagree at a high rank, and what the build did with each |
+| `primer_fit.tsv` | per id, how well the primers fit its best-matching template: forward and reverse edits, mismatch positions counted from each primer's 3′ end, the template at each site, and a class - `exact`, `away_3prime`, `near_3prime` (a mismatch in the last 5 bases), `indel`, `edits_only` (a genome-only record: counts known, sites not), `unknown` (from v0.4.0) |
 | `manifest.json` | build version, primers, PR2 version, WBPS release, version of every other layer, build date and code commit |
 
 The pipeline records `manifest.json`'s build version in every result.
@@ -528,6 +529,38 @@ Still absent: *Cooperia*, *Bunostomum*, *Hammondia* (probably identical
 to *Toxoplasma* over V4, and in PR2 if at all), and among zoo taxa
 *Murshidia*, *Prosthenorchis*, *Rhabdias*, *Anoplocephala* - none of
 which has 18S in GenBank.
+
+### 6.4 v0.4.0
+
+The same 97,559 records as v0.3.0 (`refdb.fasta` and `taxonomy.tsv`
+are byte-identical), plus `primer_fit.tsv`. The in-silico PCR now keeps
+the template at each primer site (`vespa.pcr_full`), layers carry them
+(`f_site`, `r_site`), and the genome layers keep the edit counts their
+scans recorded. Built by commit `9110efd`.
+
+Every record is an *in-silico* target - both primer sites present within
+two edits each - but not every one is equally likely to amplify:
+
+| | exact | mismatch, not near 3′ | mismatch in last 5 bases | indel / sites unknown |
+|---|---:|---:|---:|---:|
+| all records | 78% | 8% | 14% | 0.4% |
+| Nematoda | 91% | 3% | 6% | <1% |
+| Platyhelminthes | 32% | 1% | **65%** | 2% |
+| Acanthocephala | 87% | 3% | 10% | 0% |
+
+- **Flatworms carry a systematic forward-primer mismatch.** Almost all
+  the near-3′ cases (2,019 records) are one base, 4 from 29F's 3′ end:
+  template `...GGTAACTCC` against primer `...GGTAATTCC`. In the duplex it
+  is a T·G pair, the mildest mismatch and generally tolerated, so
+  flatworms should amplify - but possibly less efficiently than
+  nematodes in the same tube, so under-represented. Untested: a mock
+  with a flatworm carrying this variant (most *Schistosoma* and
+  *Fasciola*) beside a nematode would settle it.
+- **187 nematode records mismatch the reverse primer's last base** - the
+  mismatch most likely to block extension. Those organisms may be
+  detected poorly or not at all.
+- The pipeline can use `primer_fit.tsv` to say, beside a call or a
+  non-detection, that amplification was predicted to be weak.
 
 ## 7. Order of work
 
