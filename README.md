@@ -15,15 +15,18 @@ primers, and the release format the pipeline expects.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/sources_dark.svg">
-  <img alt="Bar chart: where the 97,559 reference sequences in v0.3.0 come from. PR2 v5.1.1 backs 89,734 records, 88,678 of them only from PR2; GenBank 8,482 (7,526 only from GenBank); NCBI protist genomes 237 (87); WormBase ParaSite 19 212 (116); ParaRef 147 (51); our local sequences 1 (0)." src="docs/figures/sources_light.svg" width="760">
+  <img alt="Bar chart: where the 97,559 reference sequences in v0.3.0 come from. Records each source backs, and how many only that source provides: PR2 v5.1.1 89,734 (88,678 only here); GenBank 8,482 (7,526 only here); NCBI protist genomes 237 (87 only here); WormBase ParaSite 19 212 (116 only here); ParaRef 147 (51 only here); Local (our sequences) 1 (0 only here)." src="docs/figures/sources_light.svg" width="760">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/taxa_dark.svg">
-  <img alt="Bar chart: records per major taxonomic group in v0.3.0, split into those that resolve to species and those that stop at genus or above. Largest groups: other animals 19,831, fungi 17,906, other alveolates 14,170, plants and algae 9,418, stramenopiles 7,007, Nematoda 5,142, Apicomplexa 4,867, Platyhelminthes 3,460; Acanthocephala 206." src="docs/figures/taxa_light.svg" width="760">
+  <img alt="Bar chart: records per major taxonomic group in v0.3.0, and how many resolve to species read whole: Other animals 19,831 (13,023 to species); Fungi 17,906 (8,571 to species); Other alveolates 14,170 (2,945 to species); Plants and algae 9,418 (6,220 to species); Stramenopiles 7,007 (2,663 to species); Nematoda 5,142 (3,147 to species); Apicomplexa 4,867 (3,194 to species); Rhizaria 3,502 (956 to species); Platyhelminthes 3,460 (2,335 to species); Discoba 2,455 (1,260 to species); Bacteria and archaea 2,166 (38 to species); Other eukaryotes 2,115 (706 to species); Amoebozoa 2,057 (1,309 to species); Organelle 16S 1,398 (704 to species); Metamonada 1,212 (630 to species); Vertebrates 647 (578 to species); Acanthocephala 206 (156 to species)." src="docs/figures/taxa_light.svg" width="760">
 </picture>
 
-Figures are drawn from the current release by `bin/readme_figures.py`.
+Figures are drawn from the current release by `bin/readme_figures.py`,
+which also prints the two `<picture>` blocks above, alt text included;
+after a release, rerun it and paste its output over them:
+`python3 bin/readme_figures.py releases/vespa18s_<version> docs/figures`.
 
 Primers, as ordered (locus-specific parts; both carry Nextera tails):
 

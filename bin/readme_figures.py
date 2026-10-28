@@ -3,6 +3,11 @@
 
     bin/readme_figures.py releases/vespa18s_<version> docs/figures
 
+Writes the four SVGs, and prints to stdout the two README <picture>
+blocks with their alt text built from the same numbers - paste them over
+the old ones. <outdir> is used as given in those blocks, so pass it
+relative to the README (docs/figures).
+
 1. sources_<mode>.svg  records each source contributes to, split into
                        records only that source provides and records it
                        shares with another source
@@ -199,7 +204,25 @@ def main() -> int:
                 note="Bold: the parasite groups the database was built for. Resolution read "
                      "whole (nanopore); through 2x150 Illumina windows it is lower.",
                 emphasise=("Nematoda", "Platyhelminthes", "Acanthocephala", "Apicomplexa")))
-    print(f"wrote {out}/sources_{{light,dark}}.svg and taxa_{{light,dark}}.svg")
+    print(f"wrote {out}/sources_{{light,dark}}.svg and taxa_{{light,dark}}.svg",
+          file=sys.stderr)
+
+    # The README blocks, alt text included, from the same numbers - so the
+    # alt text cannot drift from the figures. Paste them over the old ones.
+    src_alt = (f"Bar chart: where the {len(sources):,} reference sequences in {version} "
+               "come from. Records each source backs, and how many only that source "
+               "provides: " + "; ".join(f"{name} {fmt(sum(v))} ({fmt(v[0])} only here)"
+                                        for name, v in src_rows) + ".")
+    tax_alt = (f"Bar chart: records per major taxonomic group in {version}, and how many "
+               "resolve to species read whole: " +
+               "; ".join(f"{g} {fmt(sum(v))} ({fmt(v[0])} to species)" for g, v in tax_rows)
+               + ".")
+    for stem, alt in (("sources", src_alt), ("taxa", tax_alt)):
+        print(f'<picture>\n'
+              f'  <source media="(prefers-color-scheme: dark)" srcset="{out}/{stem}_dark.svg">\n'
+              f'  <img alt="{escape(alt, {chr(34): "&quot;"})}" src="{out}/{stem}_light.svg" '
+              f'width="760">\n'
+              f'</picture>\n')
     return 0
 
 
