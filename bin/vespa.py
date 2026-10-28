@@ -127,11 +127,19 @@ class PR2Index:
 
     def ranks_for(self, genus: str, species: str, lineage) -> tuple:
         """(nine ranks, how). lineage: NCBI names root-first, or a callable
-        returning them, consulted only if PR2 does not know the genus."""
+        returning them."""
+        names = (lineage() if callable(lineage) else lineage) or []
         if self.by_genus.get(genus):
-            return (*self.by_genus[genus].most_common(1)[0][0], species), "PR2 genus"
-        names = lineage() if callable(lineage) else lineage
-        for name in reversed(names or []):
+            # Genus names are not unique across kingdoms: Setaria is a
+            # nematode and a grass, Labrys a nematode and a bacterium.
+            # PR2's ranks for the name count only if their higher names
+            # agree with the NCBI lineage; without a lineage, trust PR2.
+            seen = set(names)
+            for cand, _ in self.by_genus[genus].most_common():
+                higher = [n.split(":")[0] for n in cand[1:5] if informative(n)]
+                if not seen or any(n in seen for n in higher):
+                    return (*cand, species), "PR2 genus"
+        for name in reversed(names):
             if name in self.by_name and self.by_name[name][0] <= 6:
                 depth, prefix = self.by_name[name]
                 fill = [f"{prefix[-1]}_{'X' * k}" for k in range(1, 7 - depth)]

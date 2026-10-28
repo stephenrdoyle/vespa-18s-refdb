@@ -36,10 +36,16 @@ genome showing a sequence in *Haemonchus contortus* does not show it is
 ONLY there: PR2's identical *H. placei* and *H. similis* are biology, and
 the record should stop at genus. So species never overrule. At order,
 family and genus, a less trusted label that conflicts with the trusted
-one is overruled only when a single accession carries it (PR2's lone
-"*Haemonchus* sp." identical to the *Necator* genome); carried by two or
-more independent accessions it is treated as real sharing, and the
-record stops at the rank they share.
+one is overruled only when a single accession carries it AND that
+accession either was never identified to species (PR2's lone
+"*Haemonchus* sp." identical to the *Necator* genome) or is outvoted by
+at least three members agreeing with the trusted label (one *Brugia*
+genome-project contig among nine *C. elegans* records). Otherwise a
+named species is believed, even alone: the *Teladorsagia* genome's V4 is
+identical to PR2's single *Trichostrongylus colubriformis*, and
+trichostrongylids really are one or two bases apart over V4 - so the
+record stops at the rank they share rather than erasing a probably
+genuine record.
 
 Unresolved records are kept rather than dropped on purpose. A sequence
 missing from the database does not stop reads arriving from it; they are
@@ -126,7 +132,8 @@ TRUST_RANKS = range(RANKS.index("order"), RANKS.index("genus") + 1)
 
 
 def trust_below_class(kept, trust: dict):
-    """Overrule lone lower-trust labels that conflict at order..genus."""
+    """Overrule lone lower-trust labels conflicting at order..genus that are
+    unnamed or outvoted three to one."""
     levels = {trust[m["source"]] for m in kept}
     if len(levels) < 2:
         return kept, []
@@ -141,7 +148,13 @@ def trust_below_class(kept, trust: dict):
             if informative(a) and informative(b) and a != b:
                 dissent[(i, a)].append(m)
                 break
-    over = [ms[0] for ms in dissent.values() if len(ms) == 1]
+    over = []
+    for (i, _), ms in dissent.items():
+        if len(ms) != 1:
+            continue
+        agree = sum(1 for m in kept if m["ranks"][i] == ref[i])
+        if not informative(ms[0]["ranks"][-1]) or agree >= 3:
+            over.append(ms[0])
     return [m for m in kept if m not in over], over
 
 
