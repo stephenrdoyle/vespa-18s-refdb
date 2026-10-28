@@ -85,3 +85,76 @@ def read_taxo_long(path: str):
 
 def open_text(path: str, mode: str = "rt"):
     return gzip.open(path, mode) if path.endswith(".gz") else open(path, mode[0])
+
+
+class PR2Index:
+    """What a non-PR2 layer needs from the PR2 layer: PR2's ranks for a
+    genus or for any higher name, and the PR2 class of the nearest PR2
+    insert. Built once from work/pr2_layer.tsv.gz.
+
+    Mapping a taxon onto PR2's nine ranks: if PR2 knows the genus, its
+    ranks are PR2's for that genus. Otherwise the NCBI lineage is walked
+    upward to the first name PR2 has at some rank down to family; PR2's
+    ranks are used to there and the rest filled with PR2-style
+    placeholders (Rhabditida_X, Rhabditida_XX). Both layers map this way,
+    so a species gets the same ranks whichever layer brings it.
+    """
+
+    K, STRIDE = 16, 4
+
+    def __init__(self, pr2_layer: str):
+        from collections import Counter, defaultdict
+        self.by_genus = defaultdict(Counter)
+        self.by_name = {}
+        self.ins_class = {}
+        self.accessions = set()
+        with open_text(pr2_layer) as fh:
+            head = fh.readline().rstrip("\n").split("\t")
+            col = {c: i for i, c in enumerate(head)}
+            for line in fh:
+                f = line.rstrip("\n").split("\t")
+                ranks = tuple(f[col[r]] for r in RANKS)
+                # PR2 accessions are AB353770.1.1740_U: GenBank id first.
+                self.accessions.add(f[col["accession"]].split(".")[0])
+                if informative(ranks[7]):
+                    self.by_genus[ranks[7]][ranks[:8]] += 1
+                for i, n in enumerate(ranks[:8]):
+                    if informative(n) and n not in self.by_name:
+                        self.by_name[n] = (i, ranks[:i + 1])
+                if f[col["status"]] == "amplicon":
+                    self.ins_class.setdefault(f[col["insert"]], ranks[4])
+        self._uniq = None
+
+    def ranks_for(self, genus: str, species: str, lineage) -> tuple:
+        """(nine ranks, how). lineage: NCBI names root-first, or a callable
+        returning them, consulted only if PR2 does not know the genus."""
+        if self.by_genus.get(genus):
+            return (*self.by_genus[genus].most_common(1)[0][0], species), "PR2 genus"
+        names = lineage() if callable(lineage) else lineage
+        for name in reversed(names or []):
+            if name in self.by_name and self.by_name[name][0] <= 6:
+                depth, prefix = self.by_name[name]
+                fill = [f"{prefix[-1]}_{'X' * k}" for k in range(1, 7 - depth)]
+                return (*prefix, *fill, genus, species), f"NCBI via {name}"
+        return ("",) * 7 + (genus, species), "unplaced"
+
+    def nearest_class(self, q: str):
+        """(PR2 class, share) of the PR2 insert sharing most sparse k-mers."""
+        from collections import Counter, defaultdict
+        if q in self.ins_class:
+            return self.ins_class[q], 1.0
+        if self._uniq is None:
+            self._uniq = list(self.ins_class)
+            self._index = defaultdict(list)
+            for j, s in enumerate(self._uniq):
+                for i in range(0, len(s) - self.K + 1, self.STRIDE):
+                    self._index[s[i:i + self.K]].append(j)
+        hits = Counter()
+        for i in range(len(q) - self.K + 1):
+            for j in self._index.get(q[i:i + self.K], ()):
+                hits[j] += 1
+        if not hits:
+            return "", 0.0
+        j, n = hits.most_common(1)[0]
+        s = self._uniq[j]
+        return self.ins_class[s], n / max(1, (len(s) - self.K) // self.STRIDE + 1)

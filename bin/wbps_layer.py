@@ -39,10 +39,9 @@ import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from vespa import RANKS, informative, open_text  # noqa: E402
+from vespa import RANKS, PR2Index, informative, open_text  # noqa: E402
 
 SOURCE = "WBPS19"
-K, STRIDE = 16, 4
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 
 
@@ -75,56 +74,16 @@ def main() -> int:
     cache_path = os.path.join(workdir, "ncbi_lineages.json")
     cache = json.load(open(cache_path)) if os.path.exists(cache_path) else {}
 
-    # --- PR2: lineages by genus and by any name, and a sparse k-mer index
-    by_genus = defaultdict(Counter)
-    by_name = {}
-    pr2_ins = {}
-    with open_text(pr2_path) as fh:
-        head = fh.readline().rstrip("\n").split("\t")
-        col = {c: i for i, c in enumerate(head)}
-        for line in fh:
-            f = line.rstrip("\n").split("\t")
-            ranks = tuple(f[col[r]] for r in RANKS)
-            if informative(ranks[7]):
-                by_genus[ranks[7]][ranks[:8]] += 1
-            for i, n in enumerate(ranks[:8]):
-                if informative(n) and n not in by_name:
-                    by_name[n] = (i, ranks[:i + 1])
-            if f[col["status"]] == "amplicon":
-                pr2_ins.setdefault(f[col["insert"]], ranks[4])
-    uniq = list(pr2_ins)
-    index = defaultdict(list)
-    for j, s in enumerate(uniq):
-        for i in range(0, len(s) - K + 1, STRIDE):
-            index[s[i:i + K]].append(j)
-
-    def nearest_class(q: str):
-        if q in pr2_ins:
-            return pr2_ins[q], 1.0
-        hits = Counter()
-        for i in range(len(q) - K + 1):
-            for j in index.get(q[i:i + K], ()):
-                hits[j] += 1
-        if not hits:
-            return "", 0.0
-        j, n = hits.most_common(1)[0]
-        return pr2_ins[uniq[j]], n / max(1, (len(uniq[j]) - K) // STRIDE + 1)
+    pr2 = PR2Index(pr2_path)
+    nearest_class = pr2.nearest_class
 
     def ranks_for(species: str) -> tuple:
         genus = species.split("_")[0].capitalize()
         sp = species[0].upper() + species[1:]
-        if by_genus.get(genus):
-            return (*by_genus[genus].most_common(1)[0][0], sp), "PR2 genus"
         # Strain-coded names (Auanema_ju1783) are unknown to NCBI by that
         # name; the genus is not.
-        lineage = ncbi_lineage(sp, cache)[:-1] or ncbi_lineage(genus, cache)
-        for name in reversed(lineage):
-            if name in by_name and by_name[name][0] <= 6:
-                depth, prefix = by_name[name]
-                # Down to family, PR2-style: Rhabditida_X, Rhabditida_XX ...
-                fill = [f"{prefix[-1]}_{'X' * k}" for k in range(1, 7 - depth)]
-                return (*prefix, *fill, genus, sp), f"NCBI via {name}"
-        return ("", ) * 7 + (genus, sp), "unplaced"
+        return pr2.ranks_for(genus, sp, lambda: ncbi_lineage(sp, cache)[:-1]
+                             or ncbi_lineage(genus, cache))
 
     # --- genome hits, pooled per species
     copies = defaultdict(Counter)

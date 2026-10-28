@@ -70,6 +70,37 @@ def contigs(stream):
         yield name, "".join(buf).upper()
 
 
+def amplicons_in(text):
+    """Every V4 amplicon in a FASTA text stream: (bases, rows), each row
+    (contig, strand, start, end, f_edits, r_edits, insert)."""
+    rows, bases = [], 0
+    for ctg, seq in contigs(text):
+        bases += len(seq)
+        L = len(seq)
+        for strand, s in (("+", seq), ("-", seq.translate(SEQ_COMP)[::-1])):
+            for fs, fe, fc, rs, re_, rc in scan(s):
+                ins = s[fe:rs]
+                # N matches anything, so a scaffold gap after a forward
+                # hit "contains" the reverse primer.
+                if len(ins) < 100 or ins.count("N") > 0.01 * len(ins) \
+                        or "N" in s[fs:fe] or "N" in s[rs:re_]:
+                    continue
+                a, b = (fs, re_) if strand == "+" else (L - re_, L - fs)
+                rows.append((ctg, strand, a, b, fc, rc, ins))
+    return bases, rows
+
+
+def write_hits(outdir, stem, rows, bases, secs):
+    tmp = os.path.join(outdir, stem + ".tsv.partial")
+    with open(tmp, "w") as fh:
+        fh.write("genome\tcontig\tstrand\tstart\tend\tf_edits\tr_edits\tinsert_len\tinsert\n")
+        for ctg, strand, a, b, fc, rc, ins in rows:
+            fh.write(f"{stem}\t{ctg}\t{strand}\t{a}\t{b}\t{fc}\t{rc}\t{len(ins)}\t{ins}\n")
+    os.replace(tmp, os.path.join(outdir, stem + ".tsv"))
+    with open(os.path.join(outdir, stem + ".done"), "w") as fh:
+        fh.write(f"{bases}\t{len(rows)}\t{secs:.0f}\n")
+
+
 def one_genome(path, outdir):
     stem = os.path.basename(path).replace(".genomic.fa.gz", "")
     done = os.path.join(outdir, stem + ".done")
@@ -79,23 +110,10 @@ def one_genome(path, outdir):
     rows, bases = [], 0
     for attempt in range(4):
         try:
-            rows, bases = [], 0
             with urllib.request.urlopen(BASE + path, timeout=120) as resp:
                 text = io.TextIOWrapper(gzip.GzipFile(fileobj=resp), "ascii",
                                         errors="replace")
-                for ctg, seq in contigs(text):
-                    bases += len(seq)
-                    L = len(seq)
-                    for strand, s in (("+", seq), ("-", seq.translate(SEQ_COMP)[::-1])):
-                        for fs, fe, fc, rs, re_, rc in scan(s):
-                            ins = s[fe:rs]
-                            # N matches anything, so a scaffold gap after a
-                            # forward hit "contains" the reverse primer.
-                            if len(ins) < 100 or ins.count("N") > 0.01 * len(ins) \
-                                    or "N" in s[fs:fe] or "N" in s[rs:re_]:
-                                continue
-                            a, b = (fs, re_) if strand == "+" else (L - re_, L - fs)
-                            rows.append((ctg, strand, a, b, fc, rc, s[fe:rs]))
+                bases, rows = amplicons_in(text)
             break
         except Exception as e:  # network hiccup: retry the whole genome
             err = e
@@ -104,14 +122,7 @@ def one_genome(path, outdir):
         with open(os.path.join(outdir, stem + ".failed"), "w") as fh:
             fh.write(repr(err) + "\n")
         return stem, "failed", 0, 0
-    tmp = os.path.join(outdir, stem + ".tsv.partial")
-    with open(tmp, "w") as fh:
-        fh.write("genome\tcontig\tstrand\tstart\tend\tf_edits\tr_edits\tinsert_len\tinsert\n")
-        for ctg, strand, a, b, fc, rc, ins in rows:
-            fh.write(f"{stem}\t{ctg}\t{strand}\t{a}\t{b}\t{fc}\t{rc}\t{len(ins)}\t{ins}\n")
-    os.replace(tmp, os.path.join(outdir, stem + ".tsv"))
-    with open(done, "w") as fh:
-        fh.write(f"{bases}\t{len(rows)}\t{time.time() - t0:.0f}\n")
+    write_hits(outdir, stem, rows, bases, time.time() - t0)
     return stem, "ok", bases, len(rows)
 
 
