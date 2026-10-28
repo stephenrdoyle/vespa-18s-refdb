@@ -36,7 +36,6 @@ from multiprocessing import Pool
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from collapse import merge  # noqa: E402
 from seqmatch import ANCHORS, IUPAC, LOOKALIKE_MAX_EDITS, find_anchor_lookalikes  # noqa: E402
 from vespa import FWD, PRIMER_EDITS, RANKS, REV, REV_RC, informative  # noqa: E402
 
@@ -72,6 +71,32 @@ def concrete(primer: str) -> str:
     # One representative base per degenerate position. The look-alike
     # context only needs to sit where a read's primer sits.
     return "".join(IUPAC[c][0] for c in primer)
+
+
+def merge_records(records) -> list:
+    """Merge already-collapsed records that the read windows cannot tell
+    apart.
+
+    Not collapse.merge: there a blank member rank does not exist (members
+    carry their source labels), and placeholders rightly do not vote. In a
+    record, a blank rank means its own members DISAGREED there - so it
+    must stop the group, not abstain. Treated as an abstention, a record
+    stopped at family by a genus conflict, grouped with one naming the
+    genus, let the genus through: Illumina then reached a deeper rank
+    than reading the whole insert, which cannot be.
+    """
+    out, stopped = [], False
+    for i in range(len(RANKS)):
+        vals = [r[i] for r in records]
+        info = {v for v in vals if informative(v)}
+        if stopped or len(info) > 1 or (info and "" in vals):
+            stopped = True
+            out.append("")
+        elif info:
+            out.append(info.pop())
+        else:
+            out.append(vals[0] if len(set(vals)) == 1 else "")
+    return out
 
 
 def lookalike_chunk(items):
@@ -133,11 +158,20 @@ def main() -> int:
         fh.write("id\twindow_group\trecords_in_group\tdeepest_rank\tname\n")
         for key, ids in groups.items():
             gid = "W_" + hashlib.sha1(repr(key).encode()).hexdigest()[:12]
-            merged = merge([{"ranks": tax[i]} for i in ids])
+            merged = merge_records([tax[i] for i in ids])
             r, n = deepest(merged)
             for rid in ids:
                 ill_rank[rid] = r
                 fh.write(f"{rid}\t{gid}\t{len(ids)}\t{r}\t{n}\n")
+
+    # Through the windows a record can never be resolved deeper than read
+    # whole; if it is, the merge above is wrong. Refuse the release.
+    order = {r: k for k, r in enumerate(RANKS)}
+    worse = [i for i in seqs
+             if order.get(ill_rank[i], -1) > order.get(deepest(tax[i])[0], -1)]
+    if worse:
+        sys.exit(f"{len(worse)} records resolve deeper through the Illumina "
+                 f"windows than whole, e.g. {worse[:3]}: not releasing")
 
     # --- anchor look-alikes, scanned on primer + insert + primer as read
     f5, r3 = concrete(FWD), concrete(REV_RC)
