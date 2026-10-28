@@ -588,6 +588,38 @@ three V4 copies as local sequences, and a 2x300 resolution table.
   `illumina_geometries`. Species-level records: 38,479 at 2x150, 46,566
   at 2x300, 48,424 read whole.
 
+### 6.6 v0.6.0
+
+Long-read helminth genomes, mostly from the Darwin Tree of Life, scanned
+for V4 and built into the NCBI genome layer under the genome rules (two
+copies, own class). Built by commit `da7d3a4`.
+
+- 97,708 records (171 added, none removed, 16 relabelled); helminth
+  records 8,810 -> 8,981.
+- `curation/longread_genomes.txt`: 16 assemblies for the trichostrongylid
+  and other gaps. *Cooperia oncophora*, *Oesophagostomum venulosum*,
+  *Nematodirus battus*, *Anoplocephala perfoliata* and *Necator
+  americanus* now resolve to species read whole and through both
+  Illumina geometries; *Trichostrongylus axei* mostly.
+- `curation/tol_genomes.txt`: 65 more - 13 vertebrate parasites (new
+  genera *Heligmosomum*, *Litomosoides* and an Anisakidae; *Trichuris
+  ovis*, *Opisthorchis viverrini*, *Dictyocaulus viviparus*,
+  *Spirocerca*, *Thelazia*, fish tapeworms) and 52 free-living or
+  invertebrate-parasite species, as references for faecal colonisers.
+  No free-living record shares a sequence with a parasite.
+- Independent genomes settle two limits of V4: *Teladorsagia*,
+  *Ostertagia ostertagi* and *Trichostrongylus colubriformis* share one
+  sequence (family), and so do *Ancylostoma caninum* and *A. duodenale*
+  (genus). *Trichuris ovis* is identical to *T. discolor*.
+- The *D. immitis* Tree of Life assembly carries the V4 of AB973230/1,
+  the record VESPA's human reads matched - a genuine *D. immitis*.
+- Two *Sphaerolaimus hirsutus* variants sent to review
+  (`results/curation/tol_genome_review.tsv`): weakly nearest a fungus,
+  more likely a divergent nematode V4 than a contaminant.
+
+Still no V4 anywhere: *Bunostomum*, *Chabertia*, *Murshidia*,
+*Prosthenorchis*, *Rhabdias* - none has an assembly on NCBI.
+
 ## 7. Order of work
 
 1. ~~PR2 layer, genome layer, collapse with conflict handling~~ (done:

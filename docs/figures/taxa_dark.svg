@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="648" viewBox="0 0 760 648" font-family="system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif" role="img" aria-label="Taxonomic spread of the reference sequences">
 <rect width="760" height="648" rx="8" fill="#1a1a19" stroke="rgba(255,255,255,0.10)"/>
 <text x="24" y="34" font-size="17" font-weight="600" fill="#ffffff">Taxonomic spread of the reference sequences</text>
-<text x="24" y="56" font-size="13" fill="#c3c2b7">vespa18s v0.5.0: records per group, and how many resolve to species</text>
+<text x="24" y="56" font-size="13" fill="#c3c2b7">vespa18s v0.6.0: records per group, and how many resolve to species</text>
 <rect x="196" y="72" width="12" height="12" rx="3" fill="#3987e5"/>
 <text x="214" y="82.5" font-size="12.5" fill="#c3c2b7">Resolves to species</text>
 <rect x="374.8" y="72" width="12" height="12" rx="3" fill="#184f95"/>
@@ -37,9 +37,9 @@
 <path d="M258.8,222.0 h98.5 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-98.5 z" fill="#184f95"/>
 <text x="369.4" y="234.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">7,007</text>
 <text x="184" y="262.5" font-size="13" font-weight="600" fill="#ffffff" text-anchor="end">Nematoda</text>
-<rect x="196.0" y="250.0" width="72.3" height="16" fill="#3987e5"/>
-<path d="M270.3,250.0 h43.1 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-43.1 z" fill="#184f95"/>
-<text x="325.4" y="262.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">5,144</text>
+<rect x="196.0" y="250.0" width="76.1" height="16" fill="#3987e5"/>
+<path d="M274.1,250.0 h43.1 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-43.1 z" fill="#184f95"/>
+<text x="329.2" y="262.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">5,305</text>
 <text x="184" y="290.5" font-size="13" font-weight="600" fill="#ffffff" text-anchor="end">Apicomplexa</text>
 <rect x="196.0" y="278.0" width="73.3" height="16" fill="#3987e5"/>
 <path d="M271.3,278.0 h35.5 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-35.5 z" fill="#184f95"/>
@@ -49,9 +49,9 @@
 <path d="M218.6,306.0 h56.1 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-56.1 z" fill="#184f95"/>
 <text x="286.6" y="318.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">3,502</text>
 <text x="184" y="346.5" font-size="13" font-weight="600" fill="#ffffff" text-anchor="end">Platyhelminthes</text>
-<rect x="196.0" y="334.0" width="53.1" height="16" fill="#3987e5"/>
-<path d="M251.1,334.0 h22.6 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-22.6 z" fill="#184f95"/>
-<text x="285.7" y="346.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">3,460</text>
+<rect x="196.0" y="334.0" width="53.3" height="16" fill="#3987e5"/>
+<path d="M251.3,334.0 h22.6 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-22.6 z" fill="#184f95"/>
+<text x="285.9" y="346.5" font-size="12.5" fill="#c3c2b7" font-variant-numeric="tabular-nums">3,470</text>
 <text x="184" y="374.5" font-size="13" font-weight="400" fill="#ffffff" text-anchor="end">Discoba</text>
 <rect x="196.0" y="362.0" width="27.8" height="16" fill="#3987e5"/>
 <path d="M225.8,362.0 h24.2 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-24.2 z" fill="#184f95"/>
