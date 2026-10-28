@@ -68,7 +68,8 @@ def _pcr_both(rec):
 
 def lineages(taxids, cache_path: str) -> dict:
     cache = json.load(open(cache_path)) if os.path.exists(cache_path) else {}
-    todo = sorted({t for t in taxids if t and t not in cache})
+    # Entries cached before ranks were kept are fetched again.
+    todo = sorted({t for t in taxids if t and "rank" not in cache.get(t, {})})
     for i in range(0, len(todo), 200):
         url = EUTILS + "efetch.fcgi?db=taxonomy&id=" + ",".join(todo[i:i + 200])
         for attempt in range(5):
@@ -81,8 +82,10 @@ def lineages(taxids, cache_path: str) -> dict:
             raise RuntimeError("NCBI taxonomy fetch failed five times")
         for t in root.findall("Taxon"):
             tid = t.findtext("TaxId")
-            names = [x.findtext("ScientificName") for x in t.findall("LineageEx/Taxon")]
-            cache[tid] = {"name": t.findtext("ScientificName"), "lineage": names}
+            lin = t.findall("LineageEx/Taxon")
+            cache[tid] = {"name": t.findtext("ScientificName"), "rank": t.findtext("Rank"),
+                          "lineage": [x.findtext("ScientificName") for x in lin],
+                          "ranks": [x.findtext("Rank") for x in lin]}
             # A merged taxid answers under its new id; keep the asked one too.
             for old in t.findall("AkaTaxIds/TaxId"):
                 cache[old.text] = cache[tid]
@@ -92,11 +95,24 @@ def lineages(taxids, cache_path: str) -> dict:
     return cache
 
 
-def pr2_label(name: str):
-    """NCBI scientific name -> (genus, PR2-style species label)."""
-    w = name.split()
-    genus = w[0] if w else ""
-    if len(w) >= 2 and re.fullmatch(r"[a-z][a-z-]+", w[1]) and w[1] not in ("sp", "cf", "aff"):
+def pr2_label(t: dict):
+    """NCBI taxon -> (genus, PR2-style species label).
+
+    The genus is NCBI's genus, from the ranked lineage - never simply the
+    first word of the name: "Nematoda sp." and "Dicrocoeliidae sp." have
+    no genus, and taking the first word made Nematoda a genus. A taxon
+    with no genus gets an empty genus and a placeholder species named
+    after its lowest named rank. "Genus species" -> Genus_species;
+    anything less specific -> Genus_sp., a placeholder.
+    """
+    names, ranks = t["lineage"] + [t["name"]], t["ranks"] + [t["rank"]]
+    genus = next((n for n, r in zip(names, ranks) if r == "genus"), "")
+    if not genus:
+        return "", t["name"].split()[0] + "_sp."
+    w = t["name"].split()
+    if (t["rank"] in ("species", "subspecies", "varietas", "forma") and len(w) >= 2
+            and w[0] == genus and re.fullmatch(r"[a-z][a-z-]+", w[1])
+            and w[1] not in ("sp", "cf", "aff")):
         return genus, f"{genus}_{w[1]}"
     return genus, f"{genus}_sp."
 
@@ -119,8 +135,18 @@ def main() -> int:
                 stats["unverified"] += 1
                 continue
             records.append(rec)
-    with Pool(os.cpu_count()) as pool:
-        amplified = pool.map(_pcr_both, records, chunksize=200)
+    # The in-silico PCR is the slow part and depends only on the record,
+    # so it is cached by accession across runs.
+    pcr_cache_path = os.path.join(workdir, "genbank_pcr_cache.json.gz")
+    pcr_cache = (json.load(gzip.open(pcr_cache_path, "rt"))
+                 if os.path.exists(pcr_cache_path) else {})
+    todo = [r for r in records if r[0] not in pcr_cache]
+    if todo:
+        with Pool(os.cpu_count()) as pool:
+            for acc, tx, title, status, ins, fc, rc in pool.map(_pcr_both, todo, chunksize=200):
+                pcr_cache[acc] = [status, ins, fc, rc]
+        json.dump(pcr_cache, gzip.open(pcr_cache_path, "wt"))
+    amplified = [(r[0], r[1], r[2], *pcr_cache[r[0]]) for r in records]
 
     keep = []
     for acc, tx, title, status, ins, fc, rc in amplified:
@@ -139,7 +165,7 @@ def main() -> int:
         if not t:
             stats["no_taxonomy"] += 1
             continue
-        genus, species = pr2_label(t["name"])
+        genus, species = pr2_label(t)
         ranks, h = pr2.ranks_for(genus, species, t["lineage"])
         how[h.split()[0]] += 1
         cls, share = pr2.nearest_class(ins)

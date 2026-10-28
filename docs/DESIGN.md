@@ -228,11 +228,93 @@ As implemented in `bin/wbps_layer.py`:
 
 232 genome variants from 145 species enter the build.
 
+### 4.3 GenBank layer
+
+`bin/genbank_fetch.py` and `bin/genbank_layer.py`. 52,121 nuccore
+records for Nematoda, Platyhelminthes and Acanthocephala (18S or "small
+subunit ribosomal", 500-4000bp, not environmental or uncultured):
+
+| | |
+|---|---|
+| already a PR2 entry (by accession) | 6,230 |
+| no V4 (partial 18S, ITS) | 37,794 |
+| sent to review as another class | 49 |
+| **entered** | **~7,900** |
+
+That roughly doubles helminth V4 coverage beyond PR2: Acanthocephala
+alone goes from 107 PR2 amplicons to about 400. Ranks come from the NCBI
+taxid. Two traps, both fixed:
+
+- **Genus names repeat across kingdoms** - *Setaria* is a nematode and
+  a grass, *Labrys* a nematode and a bacterium. A PR2 genus is used only
+  if PR2's class for it appears in the record's NCBI lineage
+  (`vespa.PR2Index.ranks_for`); "Metazoa" alone is not enough.
+- **The first word of a name is not always a genus.** "Nematoda sp."
+  and "Dicrocoeliidae sp." had become genera. The genus is now NCBI's,
+  from the ranked lineage; a record with none gets an empty genus.
+
+The review list is host and vector rDNA, as expected: trematode records
+nearest molluscs (intermediate hosts), *Wuchereria* nearest mosquitoes.
+
+**No public V4 exists for *Teladorsagia*, *Cooperia* or *Bunostomum*.**
+Their GenBank records are ITS or 18S fragments outside V4.
+*Onchocerca* has about 30 partial records covering V4's 3′ end, not
+used for now.
+
+### 4.4 ParaRef
+
+ParaRef (Niemann et al. 2025; zenodo.org/records/13744644) is 645
+decontaminated parasite assemblies: 221 fungi, 184 nematodes, 65
+apicomplexans, 61 platyhelminths, 37 kinetoplastids and more. The
+21.8GB archive was streamed through the same scan
+(`bin/pararef_insilico_pcr.py`, 77 minutes; 644 genomes - the
+archive lacks *Elaeophora elaphi*). Hits: `results/pararef_v4_amplicons.tsv.gz`.
+
+**ParaRef's decontamination strips rDNA.** Of 174 species in both
+ParaRef and WBPS, 82 have V4 in WBPS and none in ParaRef - every
+*Schistosoma*, *Trichuris*, *Trichinella* and *Echinococcus*, and
+*C. elegans* itself; *Fasciola hepatica* falls from 519 copies to 1.
+Only 4 species gain. For the gap species the assemblies are the same
+(same BioProject), so this is masking, not different assemblies.
+Conterminator flags sequence shared across distant taxa, and 18S is
+exactly that. So a missing V4 in a ParaRef genome means nothing, and
+ParaRef is used only as a lower-trust genome layer. (It matters beyond
+this project: metagenomic reads from rDNA will find nothing to map to
+in ParaRef.)
+
+Even so, 63 ParaRef variants are in no other source - helminths such as
+*Dipylidium caninum*, *Taenia pisiformis*, *Mansonella ozzardi*,
+*Ascaris lumbricoides*, *Parascaris univalens*, *Heligmosomoides
+polygyrus*; protists such as *Plasmodium vivax* and *P. malariae*,
+*Giardia muris*, *Entamoeba dispar*, *Naegleria fowleri*,
+*Histomonas*, *Trypanosoma congolense*. Still nothing for
+*Cryptosporidium*.
+
+### 4.5 Local layer and *Teladorsagia*
+
+`local/sequences.tsv` is hand-curated and the most trusted layer
+(`bin/local_layer.py`). Its first entry is the *Teladorsagia
+circumcincta* V4 from the tci2_wsi3.0 assembly - chr_1, two identical
+copies, both primers exact - found with `bin/genome_insilico_pcr.py`.
+
+It is **identical to PR2's *Trichostrongylus colubriformis*
+(AJ920350)**, one base from *Ostertagia*, and two from all three
+*Haemonchus* (one difference in each 2x150 read window). One
+*Ostertagia ostertagi* record differs only in the unread middle, and two
+*O. ostertagi* records differ from each other. So **V4 resolves the
+ruminant trichostrongylids to family and seldom further**; telling
+*Teladorsagia* from *Trichostrongylus* or *Ostertagia* needs ITS2. The
+merged record stops at the shared rank.
+
 ## 5. Curation: collapsing the layers
 
 As implemented in `bin/collapse.py` (its docstring is the reference).
-Layers are given in increasing order of trust: PR2, then genomes, then
-GenBank and local sequences as they arrive.
+Layers are given in increasing order of trust: **GenBank, PR2,
+ParaRef, WBPS, local**. GenBank is below PR2 because PR2 *is* GenBank,
+curated - a raw GenBank label must not overrule PR2's. ParaRef is below
+WBPS because its decontaminated genomes hold less rDNA (§4.4).
+Inserts shorter than 100bp are set aside: primer matches that touch or
+overlap "amplify" nothing (33 GenBank records, 6 PR2 entries).
 
 - **Merge.** Identical inserts become one record with a stable id
   derived from the sequence. At each rank the record takes the single
@@ -248,8 +330,13 @@ GenBank and local sequences as they arrive.
 - **Below class, a trusted layer overrules narrowly.** Species never
   overrule: a genome shows a sequence is *in* a species, not *only* in
   it. At order, family and genus, a conflicting less-trusted label is
-  overruled only when a single accession carries it; two or more are
-  taken as real sharing.
+  overruled only when a single accession carries it **and** it either
+  was never identified to species (PR2's "*Haemonchus* sp." identical
+  to *Necator*) or is outvoted at least three to one (a *Brugia*
+  genome-project contig among nine *C. elegans* records). A named
+  species standing alone is believed: the *Teladorsagia* genome's V4 is
+  identical to PR2's single *Trichostrongylus colubriformis* (§4.5), and
+  erasing that record on one genome's word would be wrong.
 - Overruled members stay in `members.tsv`, marked.
 
 On PR2 v5.1.1 plus WBPS19: 89,872 unique inserts; 103 class-level

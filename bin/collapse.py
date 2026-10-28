@@ -66,6 +66,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from vespa import CONFLICT_DEPTH, RANKS, informative, open_text  # noqa: E402
 
 
+MIN_INSERT = 100
+
+
 def record_id(insert: str) -> str:
     # From the sequence, so a record keeps its id across builds for as long
     # as its sequence exists.
@@ -165,13 +168,19 @@ def main() -> int:
     groups = defaultdict(list)
     trust, order = {}, []
     n_rows = Counter()
+    n_short = Counter()
     for li, path in enumerate(layers):
         with open_text(path) as fh:
             head = fh.readline().rstrip("\n").split("\t")
             col = {c: i for i, c in enumerate(head)}
             for line in fh:
                 f = line.rstrip("\n").split("\t")
-                if f[col["status"]] != "amplicon" or not f[col["insert"]]:
+                if f[col["status"]] != "amplicon":
+                    continue
+                if len(f[col["insert"]]) < MIN_INSERT:
+                    # Primer matches that touch or overlap "amplify" nothing;
+                    # the genome scans already apply the same floor.
+                    n_short[f[col["source"]]] += 1
                     continue
                 src = f[col["source"]]
                 if src not in trust:
@@ -223,6 +232,9 @@ def main() -> int:
             fa.write(f">{rid}\n{insert}\n")
 
     print(f"layers: " + ", ".join(f"{s} ({n_rows[s]:,} amplicons)" for s in order))
+    if n_short:
+        print("  set aside as shorter than {}bp: ".format(MIN_INSERT)
+              + ", ".join(f"{s} {n}" for s, n in n_short.items()))
     print(f"unique inserts: {len(groups):,}")
     for k in ("none", "trust", "majority", "unresolved"):
         print(f"  conflict {k:9s} {decisions[k]:>7,}")
