@@ -1,0 +1,63 @@
+vespa18s_v0.1.0  built 2026-10-28T09:58:19Z  code 930d392ff3a52d5133b18d35960af48153e2a63b
+primers AGCAGCCGCGGTAATTCC / TCCGTCAATTYCTTNAASTTTC
+layers: pr2_layer.tsv.gz, wbps_layer.tsv.gz
+records 89,872; Illumina 150x150 window groups 69,419
+members: PR2_5.1.1 kept 151,755, PR2_5.1.1 overruled 177, WBPS19 kept 232
+conflicts: majority 103, trust 8, unresolved 39
+
+Deepest rank, all records - nanopore:
+    species        43,744   48.7%
+    genus          22,124   24.6%
+    family         14,039   15.6%
+    order           4,703    5.2%
+    class           4,768    5.3%
+    subdivision       286    0.3%
+    division          190    0.2%
+    supergroup          1    0.0%
+    domain              8    0.0%
+    (none)              9    0.0%
+  Illumina:
+    species        40,900   45.5%
+    genus          22,194   24.7%
+    family         15,753   17.5%
+    order           4,801    5.3%
+    class           5,233    5.8%
+    subdivision       498    0.6%
+    division          372    0.4%
+    supergroup          3    0.0%
+    domain             51    0.1%
+    (none)             67    0.1%
+
+Helminth records (4,678) - nanopore:
+    species         3,154   67.4%
+    genus           1,281   27.4%
+    family             45    1.0%
+    order             195    4.2%
+    class               3    0.1%
+    subdivision         0    0.0%
+    division            0    0.0%
+    supergroup          0    0.0%
+    domain              0    0.0%
+    (none)              0    0.0%
+  Illumina:
+    species         2,942   62.9%
+    genus           1,383   29.6%
+    family             97    2.1%
+    order             251    5.4%
+    class               3    0.1%
+    subdivision         2    0.0%
+    division            0    0.0%
+    supergroup          0    0.0%
+    domain              0    0.0%
+    (none)              0    0.0%
+
+Anchor look-alikes by edits: 1: 2, 2: 967, 3: 42,244
+
+Files:
+  anchor_lookalikes.tsv  87d87b21665b6fcf
+  conflicts.tsv  9e9490909a75a220
+  members.tsv  b39205608d5a7874
+  refdb.fasta  032b68a080edbf8e
+  resolution_illumina_150x150.tsv  4bca389f767a37b9
+  resolution_nanopore.tsv  c6c3aaab8820c49c
+  taxonomy.tsv  153a4b47f09b1af6

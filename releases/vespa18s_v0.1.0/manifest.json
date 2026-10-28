@@ -1,0 +1,98 @@
+{
+ "name": "vespa18s_v0.1.0",
+ "version": "v0.1.0",
+ "built": "2026-10-28T09:58:19Z",
+ "code_commit": "930d392ff3a52d5133b18d35960af48153e2a63b",
+ "marker": "18S rRNA V4",
+ "primers": {
+  "forward": {
+   "name": "AMPSEQ_VESPA18S_29F",
+   "sequence": "AGCAGCCGCGGTAATTCC"
+  },
+  "reverse": {
+   "name": "AMPSEQ_VESPA18S_21b8_I_R_Nmod",
+   "sequence": "TCCGTCAATTYCTTNAASTTTC"
+  },
+  "max_edits_in_silico": 2
+ },
+ "insert": "between the primers; primers not included",
+ "illumina_read_length": 150,
+ "illumina_windows": [
+  132,
+  128
+ ],
+ "anchors": {
+  "i5_inner_anchor": "TCGTCGGCAGCGTC",
+  "i7_inner_anchor": "CCGAGCCCACGAGAC"
+ },
+ "lookalike_max_edits": 3,
+ "layers": [
+  {
+   "file": "pr2_layer.tsv.gz",
+   "sha256": "286a855f8f8b965990f6f268b4d76d3170cd9caa844460099a340c3a8bbbed17",
+   "trust_order": 0
+  },
+  {
+   "file": "wbps_layer.tsv.gz",
+   "sha256": "e7c10945f9025bc102bdeebe9fb12579d5f0606e50a4a1e8284e8e9cd849ef9e",
+   "trust_order": 1
+  }
+ ],
+ "sources": [
+  "PR2_5.1.1",
+  "WBPS19"
+ ],
+ "counts": {
+  "records": 89872,
+  "members": {
+   "PR2_5.1.1 kept": 151755,
+   "PR2_5.1.1 overruled": 177,
+   "WBPS19 kept": 232
+  },
+  "conflicts": {
+   "majority": 103,
+   "unresolved": 39,
+   "trust": 8
+  },
+  "deepest_rank_nanopore": {
+   "genus": 22124,
+   "class": 4768,
+   "species": 43744,
+   "family": 14039,
+   "order": 4703,
+   "division": 190,
+   "subdivision": 286,
+   "": 9,
+   "domain": 8,
+   "supergroup": 1
+  },
+  "deepest_rank_illumina": {
+   "genus": 22194,
+   "class": 5233,
+   "species": 40900,
+   "family": 15753,
+   "order": 4801,
+   "": 67,
+   "subdivision": 498,
+   "division": 372,
+   "domain": 51,
+   "supergroup": 3
+  },
+  "helminth_records": 4678,
+  "illumina_window_groups": 69419,
+  "anchor_lookalikes_by_edits": {
+   "1": 2,
+   "2": 967,
+   "3": 42244
+  }
+ },
+ "files": {
+  "anchor_lookalikes.tsv": "87d87b21665b6fcfc8864e01d8781c8d90af664feaa4e54f2e91a0e4a9a260d7",
+  "conflicts.tsv": "9e9490909a75a220541ee49d136798af8ff39030283c55fc925f3e8455735fbe",
+  "members.tsv": "b39205608d5a787421b9d52f78d03cb799ec913fc338d46bacf17b13b3516644",
+  "refdb.fasta": "032b68a080edbf8ecde93850e1a5c963e0a235514684d82030b0bd053c93f1cc",
+  "resolution_illumina_150x150.tsv": "4bca389f767a37b928e59c9504e7b677ac7bfdfd7fe8e0cb8ba06c9563b36224",
+  "resolution_nanopore.tsv": "c6c3aaab8820c49c46428cdfabe712e70c3c9f2f26df95f9f8fc17e2038d1fed",
+  "taxonomy.tsv": "153a4b47f09b1af693d90e6252e5927cafb1787b3a4ad048acd5c385a70bfd85"
+ }
+}

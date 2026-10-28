@@ -25,6 +25,7 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 | `bin/pr2_layer.py` | **Build.** Layer 1: PR2 (taxo_long, with accessions) trimmed to the V4 insert |
 | `bin/wbps_layer.py` | **Build.** Layer 2: genome V4 filtered by copy support and phylum, given PR2 ranks (NCBI lineage where PR2 lacks the genus) |
 | `bin/collapse.py` | **Build.** Collapses layers into unique inserts, merges taxonomy, resolves label conflicts; writes `refdb.fasta`, `taxonomy.tsv`, `members.tsv`, `conflicts.tsv` |
+| `bin/release.py` | **Build.** Cuts a release: resolution tables, look-alike mask, manifest, tarball |
 | `bin/vespa.py` | Primers, in-silico PCR and PR2 rank conventions shared by the build |
 | `bin/pr2_insilico_pcr.py` | In-silico PCR over PR2; insert lengths; resolution over the whole insert (nanopore) and the 2x150 read windows (Illumina); adapter-anchor look-alikes |
 | `bin/wbps_insilico_pcr.py` | Streams every WormBase ParaSite genome from the EBI FTP, finds V4 amplicons on both strands, keeps only the hits |
@@ -43,12 +44,23 @@ python3 bin/pr2_layer.py sources/pr2_version_5.1.1_SSU_taxo_long.fasta.gz work/p
 python3 bin/wbps_layer.py results/wbps19_v4_amplicons.tsv.gz work/pr2_layer.tsv.gz \
     work/wbps_layer.tsv.gz work/wbps_review.tsv
 python3 bin/collapse.py work/build work/pr2_layer.tsv.gz work/wbps_layer.tsv.gz
+python3 bin/release.py work/build releases v0.1.0 \
+    work/pr2_layer.tsv.gz work/wbps_layer.tsv.gz
 ```
 
-Layers go to `collapse.py` in increasing order of trust. About ten
-minutes for the PR2 layer, under a minute for the rest. Not yet a full
-release: resolution tables, the look-alike mask and the manifest are
-still to come (docs/DESIGN.md §7).
+Layers go to `collapse.py` and `release.py` in increasing order of
+trust. About ten minutes for the PR2 layer, a minute for the release,
+seconds for the rest. A release is never overwritten.
+
+## Releases
+
+| version | contents | notes |
+|---|---|---|
+| v0.1.0 | PR2 v5.1.1 + WBPS19 genomes; 89,872 records | look-alike mask not yet usable by the pipeline (docs/DESIGN.md §6.1) |
+
+Each release is `releases/vespa18s_<version>/` plus a `.tar.gz`. Only
+`manifest.json` and `summary.txt` are committed; the data travel as the
+tarball.
 
 ## Reproducing the exploratory measurements
 

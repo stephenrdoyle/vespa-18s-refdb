@@ -287,12 +287,38 @@ A release is one directory, named for its build version, holding:
 
 The pipeline records `manifest.json`'s build version in every result.
 
+### 6.1 v0.1.0
+
+PR2 v5.1.1 plus WBPS19, built by commit `930d392`;
+`releases/vespa18s_v0.1.0/summary.txt` has the full counts and
+`manifest.json` the checksums. The data (19.4MB tarball) are not in git.
+
+- 89,872 records; 69,419 distinct Illumina 150x150 window groups.
+- Deepest rank reached, all records: species 49% / genus 25% read
+  whole (nanopore); species 46% / genus 25% through the Illumina
+  windows.
+- Helminth records (4,678): species 67% / genus 27% nanopore; species
+  63% / genus 30% Illumina. (Per record, not per PR2 entry, so lower
+  than the per-entry figures in §3.)
+- Checked against this format: checksums, every id in every table,
+  look-alike columns, and the pipeline's own `LookalikeMask` loads the
+  mask.
+
+**The mask is valid but the pipeline cannot use it yet.** 43,213
+look-alikes (42,244 of them at 3 edits, the chance background for a
+14-15bp anchor) load as 29,332 contexts, and the pipeline's
+`LookalikeMask.covers()` tries every context against every anchor hit:
+measured at 3 seconds per hit, about 350 CPU-days for a 5M-read run.
+That is the pipeline's to fix - index the contexts, for example by
+k-mer, so a hit is checked only against contexts that share sequence
+with it. The release format stays as it is.
+
 ## 7. Order of work
 
 1. ~~PR2 layer, genome layer, collapse with conflict handling~~ (done:
    §4.2, §5).
-2. The rest of a release (§6): resolution tables, look-alike mask,
-   manifest; then cut the first release.
+2. ~~The rest of a release (§6)~~ (done: `bin/release.py`; first
+   release **v0.1.0**, §6.1).
 3. GenBank layer for a priority gap list; measure how many gaps it
    closes.
 4. VEuPathDB genomes for protists (*Cryptosporidium* first).
