@@ -347,6 +347,63 @@ than the genomes. Admitting partial references (here: all of the R1
 window, a third of the R2 window, 85% of the insert) is the same
 question as *Onchocerca*'s partial records (§7).
 
+### 4.7 *Blastocystis* subtypes
+
+*Blastocystis* is reported by subtype (ST1, ST2 ...), which are not
+species, and PR2 and GenBank name few: v0.6.0's 639 *Blastocystis*
+records were "*Blastocystis* sp." (463) or the host-based
+"*B. hominis*" (153), so even an exact match named no subtype.
+
+- **References.** `curation/blastocystis_subtypes.tsv`: published
+  full-length references for every subtype, ST1-ST50, with source and
+  DOI - the backbone is Santin et al. 2024 (*J Eukaryot Microbiol*,
+  Table 2), plus each describing paper. 45 subtypes are accepted (ST1-17,
+  ST21, ST23-49); ST18-20 and ST22 (Zhao 2017, possibly chimeric) and an
+  unpublished dugong "ST45" are invalid; ST50 (unpublished, 2025) is
+  disputed. ST10 was split in 2024 (old ST10c-f are ST42-44), so older
+  "ST10" titles cannot be trusted. Checked against Gentekaki et al. 2026
+  (*Trends Parasitol* 42:322, doi:10.1016/j.pt.2026.03.006): its Table 1
+  lists ST27-ST49 with the same representative accessions as ours and
+  invalidates none (it says so). It argues against the 2% criterion that
+  made ST42-ST44 (from ST10) and ST49, and would treat such finer
+  structure as allelic groups within established subtypes. Those four
+  stay named here - V4 separates all of them - with the dispute noted in
+  the table; folding them into their parent subtypes is a change to
+  `blastocystis_v4_subtypes.tsv` alone. Its criterion (ii) - fragments
+  may assign isolates to known subtypes but not name new ones - is what
+  this section does with V4.
+- **Assignment.** `bin/blastocystis_subtypes.py` trims the references
+  to V4 (82 inserts) and compares every *Blastocystis* insert we hold
+  with each, by exact edit distance. An insert takes the nearest
+  subtype when it is within 8% of the insert's length and every other
+  subtype is at least 10 edits further. V4 varies a lot inside some
+  subtypes - GenBank records titled ST3 run to 7.2% from the ST3
+  references - but subtypes stay apart (those ST3 records are >= 11%
+  from any other), hence a wide distance with a firm margin. Against
+  GenBank titles in the current numbering it contradicts none; the
+  titles it overrules are old ST10/ST12/ST14 numbers since renamed
+  (ST42/44, ST26, ST24/25). Output: `curation/blastocystis_v4_subtypes.tsv`
+  (record id -> subtype), which `bin/collapse.py` applies - every
+  *Blastocystis* member of the record takes `Blastocystis_STn`; members
+  of other genera keep their labels, so the conflict rules still judge.
+  On records with no subtype, "*B. hominis*" becomes "*Blastocystis* sp.".
+- **The references as records.** Some never reach a GenBank title
+  search, so they are a layer of their own (`genbank_layer.py` on the
+  script's `references_genbank.fasta.gz`): every subtype has at least
+  its reference.
+- **Result** (trial build on the v0.6.0 layers): 653 *Blastocystis*
+  records, 581 named to subtype, all 45 subtypes present, and every
+  subtyped record keeps its subtype read whole and through both Illumina
+  geometries. 72 stay at genus: the reptile, amphibian and insect
+  lineages (*B. lapemi*, *B. cycluri* ...) and possible undescribed
+  subtypes, > 8% from every reference, and a few between close subtypes
+  (ST14/24/25, ST10/44).
+- **VESPA's candidates.** The 26 *Blastocystis* candidates from the
+  v0.4.0 feedback, compared over their two read windows, are all clearly
+  one subtype - ST1 (10), ST2 (9), ST3 (7) - each 0.7-3.6% from a
+  subtyped record and >= 13 edits nearer it than any other subtype. They
+  were unnamed subtype variants, not missing taxa.
+
 ## 5. Curation: collapsing the layers
 
 As implemented in `bin/collapse.py` (its docstring is the reference).

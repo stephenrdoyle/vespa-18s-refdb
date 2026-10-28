@@ -113,6 +113,36 @@ def load_overrides(path: str):
     return drop, host
 
 
+def load_subtypes(path: str) -> dict:
+    """curation/blastocystis_v4_subtypes.tsv, from
+    bin/blastocystis_subtypes.py: {record id: subtype}."""
+    out = {}
+    if path and os.path.exists(path):
+        with open(path) as fh:
+            for line in fh:
+                f = line.rstrip("\n").split("\t")
+                if line.startswith("#") or f[0] == "id" or len(f) < 2:
+                    continue
+                out[f[0]] = f[1]
+    return out
+
+
+def apply_subtype(members, subtype: str) -> int:
+    """Blastocystis subtypes are not species, and PR2 and GenBank name few
+    of them: "Blastocystis sp." and the host-based names (B. hominis,
+    B. ratti) say nothing a subtype does not. Every Blastocystis member of
+    a record with a curated subtype takes Blastocystis_STn as its species;
+    members of other genera keep their labels, so the conflict rules still
+    judge a record whose members disagree. Returns how many changed."""
+    n = 0
+    for m in members:
+        r = m["ranks"]
+        if r[7].split(":")[0].split("-")[0] == "Blastocystis":
+            m["ranks"] = r[:8] + [f"Blastocystis_{subtype}"]
+            n += 1
+    return n
+
+
 def screen(members, insert: str, overrides: dict):
     """(kept, dropped) before conflicts are judged: members whose label
     cannot belong to this sequence, each dropped with its reason."""
@@ -309,6 +339,12 @@ def main() -> int:
         k = args.index("--overrides")
         overrides_path = args[k + 1]
         del args[k:k + 2]
+    subtypes_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                 os.pardir, "curation", "blastocystis_v4_subtypes.tsv")
+    if "--subtypes" in args:
+        k = args.index("--subtypes")
+        subtypes_path = args[k + 1]
+        del args[k:k + 2]
     outdir, layers = args[0], args[1:]
     os.makedirs(outdir, exist_ok=True)
     overrides, host_named = load_overrides(overrides_path)
@@ -352,6 +388,16 @@ def main() -> int:
             if informative(m["ranks"][7]):
                 genus_classes[g].add(m["ranks"][4])
     host_fixed = sum(fix_host_species(ms, genus_classes, host_named) for ms in groups.values())
+    subtypes = load_subtypes(subtypes_path)
+    subtyped = sum(apply_subtype(ms, subtypes[record_id(ins)])
+                   for ins, ms in groups.items() if record_id(ins) in subtypes)
+    # "B. hominis" is a host-based name, not an identification: with no
+    # subtype to say more, it says only Blastocystis.
+    for ins, ms in groups.items():
+        if record_id(ins) not in subtypes:
+            for m in ms:
+                if m["ranks"][8] == "Blastocystis_hominis":
+                    m["ranks"] = m["ranks"][:8] + ["Blastocystis_sp."]
 
     decisions = Counter()
     fits = Counter()
@@ -417,7 +463,8 @@ def main() -> int:
               + ", ".join(f"{s} {n}" for s, n in n_short.items()))
     print(f"unique inserts: {len(groups):,}; excluded (no member left): {excluded}")
     print("members dropped: " + (", ".join(f"{k} {v}" for k, v in drops.items()) or "none")
-          + f"; host-named species fixed: {host_fixed}")
+          + f"; host-named species fixed: {host_fixed}"
+          + f"; Blastocystis members given a subtype: {subtyped}")
     for k in ("none", "isolate", "trust", "majority", "unresolved"):
         print(f"  conflict {k:9s} {decisions[k]:>7,}")
     print("primer fit: " + ", ".join(f"{k} {fits[k]:,}" for k in

@@ -71,6 +71,7 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 |---|---|
 | `bin/pr2_layer.py` | **Build.** Layer 1: PR2 (taxo_long, with accessions) trimmed to the V4 insert |
 | `bin/wbps_layer.py` | **Build.** Layer 2: genome V4 filtered by copy support and phylum, given PR2 ranks (NCBI lineage where PR2 lacks the genus) |
+| `bin/blastocystis_subtypes.py` | **Build.** Names *Blastocystis* records to subtype (ST1, ST2 ...) from the published references in `curation/blastocystis_subtypes.tsv`; writes `curation/blastocystis_v4_subtypes.tsv` |
 | `bin/collapse.py` | **Build.** Collapses layers into unique inserts, merges taxonomy, resolves label conflicts; writes `refdb.fasta`, `taxonomy.tsv`, `members.tsv`, `conflicts.tsv` |
 | `bin/release.py` | **Build.** Cuts a release: resolution tables, look-alike mask, manifest, tarball |
 | `bin/genbank_fetch.py`, `bin/genbank_layer.py` | **Build.** GenBank 18S for named taxa; the layer keeps what PR2 lacks |
@@ -115,9 +116,17 @@ python3 bin/genbank_fetch.py work/genbank Cryptosporidium Giardia ...   # protis
 python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/genbank_protist_layer.tsv.gz \
     work/genbank_protist_review.tsv <protist fasta.gz files>
 
+# Blastocystis subtypes (docs/DESIGN.md §4.7): the references as a layer, and
+# curation/blastocystis_v4_subtypes.tsv, which collapse.py applies
+python3 bin/blastocystis_subtypes.py curation/blastocystis_subtypes.tsv \
+    work/genbank/Blastocystis.fasta.gz work/pr2_layer.tsv.gz work/blastocystis \
+    curation/blastocystis_v4_subtypes.tsv
+python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/blastocystis_ref_layer.tsv.gz \
+    work/blastocystis_ref_review.tsv work/blastocystis/references_genbank.fasta.gz
+
 # Increasing trust. (zsh: list the files; it does not word-split a variable)
 python3 bin/collapse.py work/build work/genbank_layer.tsv.gz work/genbank_protist_layer.tsv.gz \
-    work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz work/ncbi_genomes_layer.tsv.gz \
+    work/blastocystis_ref_layer.tsv.gz work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz work/ncbi_genomes_layer.tsv.gz \
     work/wbps_layer.tsv.gz work/local_layer.tsv.gz
 python3 bin/release.py work/build releases v0.3.0 <the same layers>
 ```
