@@ -1,0 +1,279 @@
+{
+ "assemblies": {
+  "GCA_031761385.1": "51031",
+  "GCA_037576465.1": "6257",
+  "GCA_965643665.1": "27828",
+  "GCA_050947105.1": "51022",
+  "GCA_963978905.1": "6319",
+  "GCA_964213955.1": "6317",
+  "GCA_966197035.1": "28839",
+  "GCA_054883415.1": "218192",
+  "GCA_965283065.1": "40349",
+  "GCA_966212565.1": "63234",
+  "GCA_019097775.1": "28841",
+  "GCA_037903475.1": "29170",
+  "GCA_965643485.1": "27828",
+  "GCA_966197095.1": "28839",
+  "GCA_965283185.1": "40349",
+  "GCA_966212575.1": "63234"
+ },
+ "taxa": {
+  "218192": {
+   "name": "Anoplocephala perfoliata",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Spiralia",
+    "Lophotrochozoa",
+    "Platyhelminthes",
+    "Rhabditophora",
+    "Neodermata",
+    "Cestoda",
+    "Eucestoda",
+    "Cyclophyllidea",
+    "Anoplocephalidae",
+    "Anoplocephala"
+   ]
+  },
+  "27828": {
+   "name": "Cooperia oncophora",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Trichostrongylidae",
+    "Cooperia"
+   ]
+  },
+  "28839": {
+   "name": "Nematodirus battus",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Molineidae",
+    "Nematodirus"
+   ]
+  },
+  "28841": {
+   "name": "Moniezia expansa",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Spiralia",
+    "Lophotrochozoa",
+    "Platyhelminthes",
+    "Rhabditophora",
+    "Neodermata",
+    "Cestoda",
+    "Eucestoda",
+    "Cyclophyllidea",
+    "Anoplocephalidae",
+    "Moniezia"
+   ]
+  },
+  "29170": {
+   "name": "Ancylostoma caninum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Ancylostomatidae",
+    "Ancylostomatinae",
+    "Ancylostoma"
+   ]
+  },
+  "40349": {
+   "name": "Trichostrongylus axei",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Trichostrongylidae",
+    "Trichostrongylus"
+   ]
+  },
+  "51022": {
+   "name": "Ancylostoma duodenale",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Ancylostomatidae",
+    "Ancylostomatinae",
+    "Ancylostoma"
+   ]
+  },
+  "51031": {
+   "name": "Necator americanus",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Ancylostomatidae",
+    "Bunostominae",
+    "Necator"
+   ]
+  },
+  "6257": {
+   "name": "Parascaris univalens",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Spirurina",
+    "Ascaridomorpha",
+    "Ascaridoidea",
+    "Ascarididae",
+    "Parascaris"
+   ]
+  },
+  "6317": {
+   "name": "Ostertagia ostertagi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Trichostrongylidae",
+    "Ostertagia"
+   ]
+  },
+  "6319": {
+   "name": "Trichostrongylus colubriformis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Trichostrongylidae",
+    "Trichostrongylus"
+   ]
+  },
+  "63234": {
+   "name": "Oesophagostomum venulosum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Strongylidae",
+    "Oesophagostomum"
+   ]
+  }
+ }
+}

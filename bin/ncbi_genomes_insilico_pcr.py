@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Stream every NCBI genome assembly for a taxon through the V4 scan.
 
-    bin/ncbi_genomes_insilico_pcr.py <taxon> <outdir> [workers] [max per species]
+    bin/ncbi_genomes_insilico_pcr.py <taxon | @accessions.txt> <outdir> [workers] [max per species]
 
 With a cap, only that many assemblies per species are scanned - the most
 contiguous (complete genome, then chromosome, scaffold, contig; then
@@ -43,10 +43,23 @@ FTP = "https://ftp.ncbi.nlm.nih.gov/genomes/all"
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 
 
+BY_ACCESSION = "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/{}/dataset_report"
+
+
 def assemblies(taxon: str) -> list:
+    """Every assembly for a taxon - or, given "@file", the assemblies whose
+    accessions the file lists, one per line (# comments allowed)."""
+    if taxon.startswith("@"):
+        accs = [l.split("#")[0].strip() for l in open(taxon[1:])]
+        url = BY_ACCESSION.format(",".join(a for a in accs if a))
+        return _reports(url)
+    return _reports(DATASETS.format(urllib.parse.quote(taxon)))
+
+
+def _reports(base: str) -> list:
     out, token = [], ""
     while True:
-        url = DATASETS.format(urllib.parse.quote(taxon)) + (f"&page_token={token}" if token else "")
+        url = base + (("&" if "?" in base else "?") + f"page_token={token}" if token else "")
         d = json.load(urllib.request.urlopen(url, timeout=120))
         for r in d.get("reports", []):
             a, st = r["assembly_info"], r.get("assembly_stats", {})
@@ -64,9 +77,21 @@ def assemblies(taxon: str) -> list:
 
 
 def ftp_url(acc: str, name: str) -> str:
-    stem = f"{acc}_{re.sub(r'[^A-Za-z0-9._]', '_', name)}"
+    """The assembly's genomic FASTA on the NCBI FTP site. Its directory is
+    accession_assemblyname, but NCBI is not consistent about the name -
+    JCVI-cmg-v1.0 became JCVI_cmg_v1.0, A.duo-1 stayed A.duo-1 - so the
+    parent directory is listed and the entry for the accession used."""
     pre, num = acc[:3], acc[4:13]
-    return f"{FTP}/{pre}/{num[0:3]}/{num[3:6]}/{num[6:9]}/{stem}/{stem}_genomic.fna.gz"
+    parent = f"{FTP}/{pre}/{num[0:3]}/{num[3:6]}/{num[6:9]}/"
+    try:
+        listing = urllib.request.urlopen(parent, timeout=60).read().decode()
+        stems = re.findall(rf'href="({re.escape(acc)}_[^"/]+)/?"', listing)
+        if stems:
+            return f"{parent}{stems[0]}/{stems[0]}_genomic.fna.gz"
+    except Exception:
+        pass
+    stem = f"{acc}_{re.sub(r'[^A-Za-z0-9._]', '_', name)}"
+    return f"{parent}{stem}/{stem}_genomic.fna.gz"
 
 
 def one(acc: str, url: str, outdir: str):

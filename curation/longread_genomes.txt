@@ -1,0 +1,19 @@
+# Long-read helminth assemblies (mostly Darwin Tree of Life, 2023-2026)
+# scanned for V4 to fill gaps no other source had. Primary haplotypes
+# unless noted; scanned with bin/ncbi_genomes_insilico_pcr.py @this-file.
+GCA_965643665.1  # Cooperia oncophora nxCooOnco1.hap1.1
+GCA_965643485.1  # Cooperia oncophora nxCooOnco1.hap2.1
+GCA_966212565.1  # Oesophagostomum venulosum nxOesVenu2.hap1.1
+GCA_966212575.1  # Oesophagostomum venulosum nxOesVenu2.hap2.1
+GCA_966197035.1  # Nematodirus battus nxNemBatt8.hap1.1
+GCA_966197095.1  # Nematodirus battus nxNemBatt8.hap2.1
+GCA_965283065.1  # Trichostrongylus axei nxTriAxei3.hap1.1
+GCA_965283185.1  # Trichostrongylus axei nxTriAxei3.hap2.1
+GCA_963978905.1  # Trichostrongylus colubriformis nxTriColu2.1
+GCA_964213955.1  # Ostertagia ostertagi nxOstOste4.1
+GCA_050947105.1  # Ancylostoma duodenale A.duo-1
+GCA_037903475.1  # Ancylostoma caninum UNMC_Acan_hybrid
+GCA_031761385.1  # Necator americanus Nec_am_Ar_1.0
+GCA_054883415.1  # Anoplocephala perfoliata
+GCA_037576465.1  # Parascaris univalens Pu_v2
+GCA_019097775.1  # Moniezia expansa

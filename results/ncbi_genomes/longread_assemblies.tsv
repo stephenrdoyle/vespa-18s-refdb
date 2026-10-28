@@ -1,0 +1,17 @@
+accession	name	organism	taxid	level	length	contig_n50	released
+GCA_031761385.1	Nec_am_Ar_1.0	Necator americanus	51031	Chromosome	234457255	4928238	2023-09-22
+GCA_037576465.1	Pu_v2	Parascaris univalens	6257	Chromosome	243743289	2420182	2024-03-27
+GCA_965643665.1	nxCooOnco1.hap1.1	Cooperia oncophora	27828	Chromosome	433191757	1216801	2025-07-19
+GCA_050947105.1	A.duo-1	Ancylostoma duodenale	51022	Chromosome	319205836	1212503	2025-06-17
+GCA_963978905.1	nxTriColu2.1	Trichostrongylus colubriformis	6319	Chromosome	330945508	1511274	2024-03-10
+GCA_964213955.1	nxOstOste4.1	Ostertagia ostertagi	6317	Chromosome	407173136	830317	2024-08-22
+GCA_966197035.1	nxNemBatt8.hap1.1	Nematodirus battus	28839	Chromosome	661135604	351122	2025-08-23
+GCA_054883415.1	ASM5488341v1	Anoplocephala perfoliata	218192	Chromosome	372309905	1049344	2026-01-29
+GCA_965283065.1	nxTriAxei3.hap1.1	Trichostrongylus axei	40349	Chromosome	339172519	540620	2025-05-18
+GCA_966212565.1	nxOesVenu2.hap1.1	Oesophagostomum venulosum	63234	Chromosome	433458635	1500829	2025-08-24
+GCA_019097775.1	ASM1909777v1	Moniezia expansa	28841	Scaffold	142225902	3386365	2021-07-02
+GCA_037903475.1	UNMC_Acan_hybrid	Ancylostoma caninum	29170	Scaffold	348020245	1076560	2024-04-01
+GCA_965643485.1	nxCooOnco1.hap2.1	Cooperia oncophora	27828	Scaffold	450937483	264437	2025-07-19
+GCA_966197095.1	nxNemBatt8.hap2.1	Nematodirus battus	28839	Scaffold	671379352	90205	2025-08-22
+GCA_965283185.1	nxTriAxei3.hap2.1	Trichostrongylus axei	40349	Scaffold	325727775	110342	2025-05-18
+GCA_966212575.1	nxOesVenu2.hap2.1	Oesophagostomum venulosum	63234	Scaffold	393522955	356661	2025-08-22
