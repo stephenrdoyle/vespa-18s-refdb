@@ -18,13 +18,12 @@ from collections import Counter
 from multiprocessing import Pool
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from vespa import RANKS, pcr, read_taxo_long  # noqa: E402
+from vespa import LAYER_COLUMNS, pcr_full, read_taxo_long  # noqa: E402
 
 
 def _one(rec):
     acc, gene, organelle, ranks, seq = rec
-    status, ins, fc, rc = pcr(seq)
-    return acc, gene, organelle, ranks, status, ins, fc, rc
+    return (acc, gene, organelle, ranks, *pcr_full(seq))
 
 
 def main() -> int:
@@ -35,16 +34,15 @@ def main() -> int:
     counts: Counter = Counter()
     tmp = out + ".partial"
     with Pool(workers) as pool, gzip.open(tmp, "wt") as fh:
-        fh.write("\t".join(["source", "accession", "gene", "organelle", *RANKS,
-                            "status", "f_edits", "r_edits", "insert"]) + "\n")
-        for acc, gene, org, ranks, status, ins, fc, rc in pool.imap(
+        fh.write("\t".join(LAYER_COLUMNS) + "\n")
+        for acc, gene, org, ranks, status, ins, fc, rc, fsite, rsite in pool.imap(
                 _one, read_taxo_long(src), chunksize=500):
             counts[status] += 1
             ranks = (list(ranks) + [""] * 9)[:9]
             fh.write("\t".join([version, acc, gene, org, *ranks, status,
                                 "" if fc is None else str(fc),
                                 "" if rc is None else str(rc),
-                                ins or ""]) + "\n")
+                                fsite or "", rsite or "", ins or ""]) + "\n")
     os.replace(tmp, out)
     total = sum(counts.values())
     print(f"{version}: {total:,} entries")

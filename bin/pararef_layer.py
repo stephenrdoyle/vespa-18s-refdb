@@ -56,7 +56,7 @@ def main() -> int:
     pr2 = PR2Index(pr2_path)
 
     copies = defaultdict(Counter)
-    where, lineage_of = {}, {}
+    where, lineage_of, edits = {}, {}, {}
     unmatched, untaxed = [], []
     tsvs = sorted(glob.glob(os.path.join(hits_dir, "*.tsv")))
     stems = {os.path.basename(t)[:-4] for t in tsvs}
@@ -87,11 +87,14 @@ def main() -> int:
                 ins = f[-1]
                 copies[species][ins] += 1
                 where.setdefault((species, ins), f"{a}:{f[1]}:{f[3]}-{f[4]}")
+                e = (int(f[5]), int(f[6]))
+                if sum(e) < sum(edits.get((species, ins), (9, 9))):
+                    edits[(species, ins)] = e
 
     def ranks_for(species: str, seq_class: str = ""):
         return pr2.ranks_for(species.split("_")[0], species, lineage_of[species], seq_class)
 
-    rows, review, stats = genome_layer_rows(copies, where, ranks_for, pr2, source)
+    rows, review, stats = genome_layer_rows(copies, where, ranks_for, pr2, source, edits)
     write_table(out_path, LAYER_COLUMNS, rows)
     write_table(review_path, GENOME_REVIEW_COLUMNS, review)
 

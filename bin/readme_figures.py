@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """The README figures, as static SVG in light and dark variants.
 
-    bin/readme_figures.py releases/vespa18s_<version> docs/figures
+    bin/readme_figures.py releases/vespa18s_<version> docs/figures [README.md]
 
-Writes the four SVGs, and prints to stdout the two README <picture>
-blocks with their alt text built from the same numbers - paste them over
-the old ones. <outdir> is used as given in those blocks, so pass it
-relative to the README (docs/figures).
+Writes the four SVGs, and builds the README section that shows them: the
+two <picture> blocks, with alt text from the same numbers, and a table of
+how far records resolve read whole (nanopore) and through the 2x150
+Illumina windows. Given README.md, it replaces the section between
+<!-- figures:start --> and <!-- figures:end --> in place; otherwise it
+prints it. <outdir> is used as given, so pass it relative to the README.
 
 1. sources_<mode>.svg  records each source contributes to, split into
                        records only that source provides and records it
@@ -217,13 +219,85 @@ def main() -> int:
                "resolve to species read whole: " +
                "; ".join(f"{g} {fmt(sum(v))} ({fmt(v[0])} to species)" for g, v in tax_rows)
                + ".")
+    blocks = []
     for stem, alt in (("sources", src_alt), ("taxa", tax_alt)):
-        print(f'<picture>\n'
-              f'  <source media="(prefers-color-scheme: dark)" srcset="{out}/{stem}_dark.svg">\n'
-              f'  <img alt="{escape(alt, {chr(34): "&quot;"})}" src="{out}/{stem}_light.svg" '
-              f'width="760">\n'
-              f'</picture>\n')
+        blocks.append(f'<picture>\n'
+                      f'  <source media="(prefers-color-scheme: dark)" srcset="{out}/{stem}_dark.svg">\n'
+                      f'  <img alt="{escape(alt, {chr(34): "&quot;"})}" src="{out}/{stem}_light.svg" '
+                      f'width="760">\n'
+                      f'</picture>')
+    section = "\n\n".join(blocks) + "\n\n" + resolution_table(rel, tax, version)
+    if os.path.exists(os.path.join(rel, "primer_fit.tsv")):
+        section += "\n\n" + primer_fit_table(rel, tax, version)
+    if len(sys.argv) > 3:
+        readme = sys.argv[3]
+        text = open(readme).read()
+        a, b = text.find(START), text.find(END)
+        if a < 0 or b < a:
+            sys.exit(f"{readme}: no {START} ... {END} section to replace")
+        open(readme, "w").write(text[:a + len(START)] + "\n" + section + "\n" + text[b:])
+        print(f"updated the figures section of {readme}", file=sys.stderr)
+    else:
+        print(section)
     return 0
+
+
+START, END = "<!-- figures:start -->", "<!-- figures:end -->"
+HELMINTHS = ("Nematoda", "Platyhelminthes", "Acanthocephala")
+
+
+def primer_fit_table(rel: str, tax: list, version: str) -> str:
+    """Markdown: how well the VESPA primers fit each record's best template."""
+    with open(os.path.join(rel, "primer_fit.tsv")) as fh:
+        fit = {r["id"]: r["fit"] for r in csv.DictReader(fh, delimiter="\t")}
+    cls = {t["id"]: t["class"].split(":")[0] for t in tax}
+    sets = [("All records", list(fit)),
+            ("Nematoda", [i for i in fit if cls[i] == "Nematoda"]),
+            ("Platyhelminthes", [i for i in fit if cls[i] == "Platyhelminthes"]),
+            ("Acanthocephala", [i for i in fit if cls[i] == "Acanthocephala"])]
+    cols = [("Exact", ("exact",)), ("Mismatch, not near 3′ end", ("away_3prime",)),
+            ("Mismatch in last 5 bases", ("near_3prime",)),
+            ("Indel / not known", ("indel", "edits_only", "unknown"))]
+    lines = [f"How well the primers fit each record's best-matching template in {version} "
+             f"(`primer_fit.tsv`). A mismatch in a primer's last five bases is the kind "
+             f"most likely to weaken amplification.", "",
+             "| Records | " + " | ".join(c for c, _ in cols) + " |",
+             "|---|" + "---:|" * len(cols)]
+    for name, ids in sets:
+        cells = [f"{100 * sum(fit[i] in keys for i in ids) / max(1, len(ids)):.0f}%"
+                 for _, keys in cols]
+        lines.append(f"| {name} ({len(ids):,}) | " + " | ".join(cells) + " |")
+    return "\n".join(lines)
+
+
+def resolution_table(rel: str, tax: list, version: str) -> str:
+    """Markdown: how deep records resolve, read whole and through the
+    Illumina windows, for all records and for the parasite groups."""
+    def ranks(path):
+        with open(os.path.join(rel, path)) as fh:
+            return {r["id"]: r["deepest_rank"] for r in csv.DictReader(fh, delimiter="\t")}
+    nano = ranks("resolution_nanopore.tsv")
+    ill_path = next(f for f in os.listdir(rel) if f.startswith("resolution_illumina_"))
+    ill = ranks(ill_path)
+    geometry = ill_path[len("resolution_illumina_"):-4]
+    sets = [("All records", [t["id"] for t in tax]),
+            ("Helminths", [t["id"] for t in tax if t["class"].split(":")[0] in HELMINTHS]),
+            ("Apicomplexa", [t["id"] for t in tax if t["subdivision"].split(":")[0] == "Apicomplexa"])]
+    bins = [("Species", ("species",)), ("Genus", ("genus",)), ("Family", ("family",)),
+            ("Above family", ("order", "class", "subdivision", "division", "supergroup",
+                              "domain", ""))]
+    lines = [f"How far a record can be named, read whole (nanopore) or only through "
+             f"the two {geometry} Illumina read windows, in {version}. Best case: "
+             f"an exact sequence, no sequencing error.", "",
+             "| Records | Read | " + " | ".join(label for label, _ in bins) + " |",
+             "|---|---|" + "---:|" * len(bins)]
+    for name, ids in sets:
+        for read, res in ((f"Nanopore (whole insert)", nano), (f"Illumina {geometry}", ill)):
+            cells = [f"{100 * sum(res[i] in keys for i in ids) / max(1, len(ids)):.0f}%"
+                     for _, keys in bins]
+            first = f"{name} ({len(ids):,})" if res is nano else ""
+            lines.append(f"| {first} | {read} | " + " | ".join(cells) + " |")
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":

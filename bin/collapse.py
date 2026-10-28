@@ -9,7 +9,8 @@ status, insert. Rows whose status is not "amplicon" are ignored. Layers
 are given in increasing order of trust - PR2 first, local sequences last -
 and that order decides conflicts (below).
 
-Writes refdb.fasta, taxonomy.tsv, members.tsv and conflicts.tsv to
+Writes refdb.fasta, taxonomy.tsv, members.tsv, conflicts.tsv and
+primer_fit.tsv (see best_fit) to
 <outdir>: the parts of a release that come from collapsing. Resolution
 tables, the look-alike mask and the manifest are separate steps.
 
@@ -63,7 +64,8 @@ import sys
 from collections import Counter, defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from vespa import CONFLICT_DEPTH, RANKS, informative, normalise_ranks, open_text  # noqa: E402
+from vespa import (CONFLICT_DEPTH, FWD, RANKS, REV, THREE_PRIME_WINDOW,  # noqa: E402
+                   informative, normalise_ranks, open_text, primer_fit)
 
 
 MIN_INSERT = 100
@@ -161,6 +163,44 @@ def trust_below_class(kept, trust: dict):
     return [m for m in kept if m not in over], over
 
 
+FIT_COLUMNS = ["id", "fit", "f_edits", "r_edits", "f_mismatch_from_3prime",
+               "r_mismatch_from_3prime", "f_site", "r_site", "best_member"]
+
+
+def best_fit(kept) -> list:
+    """The primer fit of a record: its best-fitting member's.
+
+    A record is one insert; its members may carry different primer sites
+    (the primers sit outside the insert). The best is the one PCR is most
+    likely to amplify: known sites over unknown, fewest edits, and the
+    farthest any mismatch sits from a primer's 3' end. Classes:
+      exact        both sites match their primer
+      away_3prime  mismatches, none in the last THREE_PRIME_WINDOW bases
+      near_3prime  a mismatch within the last THREE_PRIME_WINDOW bases,
+                   where it most impairs extension
+      indel        a site is not the primer's length
+      edits_only   edit counts known, sites not (genome scans kept counts)
+      unknown      nothing known (a local sequence given as a bare insert)
+    """
+    def score(m):
+        fe, re_, fs, rs = m["fit"]
+        fp, rp = primer_fit(fs, FWD), primer_fit(rs, REV)
+        if fe == "" or re_ == "":
+            return (3, 99, 0), "unknown", m, fp, rp
+        edits = int(fe) + int(re_)
+        if edits == 0:
+            return (0, 0, 0), "exact", m, fp or [], rp or []
+        if fp is None or rp is None:
+            return (2, edits, 0), ("edits_only" if not fs or not rs else "indel"), m, fp, rp
+        near = min(fp + rp)
+        cls = "near_3prime" if near <= THREE_PRIME_WINDOW else "away_3prime"
+        return (1 if cls == "away_3prime" else 1.5, edits, -near), cls, m, fp, rp
+    _, cls, m, fp, rp = min((score(m) for m in kept), key=lambda t: t[0])
+    fe, re_, fs, rs = m["fit"]
+    pos = lambda p: "" if p is None else ",".join(map(str, sorted(p)))  # noqa: E731
+    return [cls, fe, re_, pos(fp), pos(rp), fs, rs, f"{m['source']}:{m['accession']}"]
+
+
 def main() -> int:
     outdir, layers = sys.argv[1], sys.argv[2:]
     os.makedirs(outdir, exist_ok=True)
@@ -189,15 +229,20 @@ def main() -> int:
                     order.append(src)
                 n_rows[src] += 1
                 label = [f[col[r]] for r in RANKS]
+                get = lambda c: f[col[c]] if c in col else ""  # noqa: E731
                 groups[f[col["insert"]]].append({
                     "source": src, "accession": f[col["accession"]],
-                    "ranks": normalise_ranks(label), "label": label})
+                    "ranks": normalise_ranks(label), "label": label,
+                    "fit": (get("f_edits"), get("r_edits"), get("f_site"), get("r_site"))})
 
     decisions = Counter()
+    fits = Counter()
     with open(os.path.join(outdir, "refdb.fasta"), "w") as fa, \
          open(os.path.join(outdir, "taxonomy.tsv"), "w") as tx, \
          open(os.path.join(outdir, "members.tsv"), "w") as mb, \
-         open(os.path.join(outdir, "conflicts.tsv"), "w") as cf:
+         open(os.path.join(outdir, "conflicts.tsv"), "w") as cf, \
+         open(os.path.join(outdir, "primer_fit.tsv"), "w") as pf:
+        pf.write("\t".join(FIT_COLUMNS) + "\n")
         tx.write("\t".join(["id", *RANKS, "deepest_rank", "members", "sources"]) + "\n")
         mb.write("id\tsource\taccession\tlabel\trole\n")
         cf.write("id\tdecision\tmembers\tlabels\tkept_label\n")
@@ -231,6 +276,9 @@ def main() -> int:
                                 RANKS[deepest] if deepest >= 0 else "",
                                 str(len(kept)), ",".join(srcs)]) + "\n")
             fa.write(f">{rid}\n{insert}\n")
+            fit = best_fit(kept)
+            fits[fit[0]] += 1
+            pf.write("\t".join([rid, *fit]) + "\n")
 
     print(f"layers: " + ", ".join(f"{s} ({n_rows[s]:,} amplicons)" for s in order))
     if n_short:
@@ -239,6 +287,8 @@ def main() -> int:
     print(f"unique inserts: {len(groups):,}")
     for k in ("none", "trust", "majority", "unresolved"):
         print(f"  conflict {k:9s} {decisions[k]:>7,}")
+    print("primer fit: " + ", ".join(f"{k} {fits[k]:,}" for k in
+          ("exact", "away_3prime", "near_3prime", "indel", "edits_only", "unknown")))
     return 0
 
 

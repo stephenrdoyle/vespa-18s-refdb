@@ -17,6 +17,7 @@ Adds to the collapsed files:
   anchor_lookalikes.tsv        adapter-anchor near-copies, in pre-flight's
                                own columns, so the pipeline reads it as is
   manifest.json                versions, inputs, counts, checksums, commit
+(primer_fit.tsv comes from collapse.py with the other collapsed files.)
   summary.txt                  the same, for a person
 """
 
@@ -39,7 +40,7 @@ sys.path.insert(0, HERE)
 from seqmatch import ANCHORS, IUPAC, LOOKALIKE_MAX_EDITS, find_anchor_lookalikes  # noqa: E402
 from vespa import FWD, PRIMER_EDITS, RANKS, REV, REV_RC, informative  # noqa: E402
 
-COPIED = ["refdb.fasta", "taxonomy.tsv", "members.tsv", "conflicts.tsv"]
+COPIED = ["refdb.fasta", "taxonomy.tsv", "members.tsv", "conflicts.tsv", "primer_fit.tsv"]
 HELMINTHS = ("Nematoda", "Platyhelminthes", "Acanthocephala")
 
 
@@ -200,6 +201,16 @@ def main() -> int:
     helm_nano = Counter(deepest(tax[i])[0] for i in helm)
     helm_ill = Counter(ill_rank[i] for i in helm)
     look = Counter(r["edits"] for r in rows)
+    with open(os.path.join(out, "primer_fit.tsv")) as fh:
+        fh.readline()
+        fit = Counter(line.split("\t")[1] for line in fh)
+        fit_helm = Counter()
+    with open(os.path.join(out, "primer_fit.tsv")) as fh:
+        fh.readline()
+        for line in fh:
+            f = line.split("\t")
+            if tax[f[0]][4] in HELMINTHS:
+                fit_helm[f[1]] += 1
 
     files = sorted(os.listdir(out))
     manifest = {
@@ -228,6 +239,8 @@ def main() -> int:
             "helminth_records": len(helm),
             "illumina_window_groups": len(groups),
             "anchor_lookalikes_by_edits": {str(k): v for k, v in sorted(look.items())},
+            "primer_fit": dict(fit),
+            "primer_fit_helminth": dict(fit_helm),
         },
         "files": {f: sha256(os.path.join(out, f)) for f in files},
     }
@@ -250,6 +263,10 @@ def main() -> int:
              "  Illumina:", *table(ill, len(seqs)),
              "", f"Helminth records ({len(helm):,}) - nanopore:", *table(helm_nano, len(helm)),
              "  Illumina:", *table(helm_ill, len(helm)),
+             "", "Primer fit (best-fitting member of each record):",
+             *[f"    {k:12s} {fit.get(k, 0):>8,}  {100 * fit.get(k, 0) / len(seqs):5.1f}%   "
+               f"helminth {fit_helm.get(k, 0):>6,}"
+               for k in ("exact", "away_3prime", "near_3prime", "indel", "edits_only", "unknown")],
              "", "Anchor look-alikes by edits: "
              + ", ".join(f"{k}: {v:,}" for k, v in sorted(look.items())),
              "", "Files:", *[f"  {f}  {manifest['files'][f][:16]}" for f in files]]

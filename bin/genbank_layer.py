@@ -38,7 +38,7 @@ from collections import Counter
 from multiprocessing import Pool, get_context
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from vespa import RANKS, PR2Index, pcr  # noqa: E402
+from vespa import LAYER_COLUMNS, PR2Index, pcr_full  # noqa: E402
 
 SOURCE = "GenBank"
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
@@ -58,12 +58,12 @@ def read_fetch(path: str):
 
 def _pcr_both(rec):
     acc, tx, title, seq = rec
-    status, ins, fc, rc = pcr(seq)
-    if status != "amplicon":
-        s2, i2, f2, r2 = pcr(seq.translate(_RC)[::-1])
-        if s2 == "amplicon":
-            status, ins, fc, rc = s2, i2, f2, r2
-    return acc, tx, title, status, ins, fc, rc
+    res = pcr_full(seq)
+    if res[0] != "amplicon":
+        res2 = pcr_full(seq.translate(_RC)[::-1])
+        if res2[0] == "amplicon":
+            res = res2
+    return (acc, tx, title, *res)
 
 
 _PR2 = None
@@ -147,23 +147,24 @@ def main() -> int:
     pcr_cache_path = os.path.join(workdir, "genbank_pcr_cache.json.gz")
     pcr_cache = (json.load(gzip.open(pcr_cache_path, "rt"))
                  if os.path.exists(pcr_cache_path) else {})
-    todo = [r for r in records if r[0] not in pcr_cache]
+    # Entries from before the primer sites were kept are redone.
+    todo = [r for r in records if len(pcr_cache.get(r[0], ())) != 6]
     if todo:
         with Pool(os.cpu_count()) as pool:
-            for acc, tx, title, status, ins, fc, rc in pool.map(_pcr_both, todo, chunksize=200):
-                pcr_cache[acc] = [status, ins, fc, rc]
+            for acc, tx, title, *res in pool.map(_pcr_both, todo, chunksize=200):
+                pcr_cache[acc] = res
         json.dump(pcr_cache, gzip.open(pcr_cache_path, "wt"))
     amplified = [(r[0], r[1], r[2], *pcr_cache[r[0]]) for r in records]
 
     keep = []
-    for acc, tx, title, status, ins, fc, rc in amplified:
+    for acc, tx, title, status, ins, fc, rc, fsite, rsite in amplified:
         if status != "amplicon":
             stats["no_amplicon"] += 1
             continue
         if ins.count("N") > 0.01 * len(ins):
             stats["too_many_N"] += 1
             continue
-        keep.append((acc, tx, title, ins, fc, rc))
+        keep.append((acc, tx, title, ins, fc, rc, fsite, rsite))
     tax = lineages([k[1] for k in keep], os.path.join(workdir, "ncbi_taxids.json"))
 
     # The other-class check compares every insert with all of PR2 and was
@@ -177,7 +178,7 @@ def main() -> int:
                            pool.map(_nearest, [k[3] for k in keep], chunksize=50)))
 
     rows, review, how = [], [], Counter()
-    for acc, tx, title, ins, fc, rc in keep:
+    for acc, tx, title, ins, fc, rc, fsite, rsite in keep:
         t = tax.get(tx)
         if not t:
             stats["no_taxonomy"] += 1
@@ -191,12 +192,11 @@ def main() -> int:
             review.append([acc, t["name"], ranks[4], cls, f"{share:.2f}", title[:120], ins])
             continue
         rows.append([SOURCE, acc, "18S_rRNA", "nucleus", *ranks, "amplicon",
-                     str(fc), str(rc), ins])
+                     str(fc), str(rc), fsite or "", rsite or "", ins])
         stats["entered"] += 1
 
     with gzip.open(out_path, "wt") as fh:
-        fh.write("\t".join(["source", "accession", "gene", "organelle", *RANKS,
-                            "status", "f_edits", "r_edits", "insert"]) + "\n")
+        fh.write("\t".join(LAYER_COLUMNS) + "\n")
         for r in rows:
             fh.write("\t".join(r) + "\n")
     with open(review_path, "w") as fh:

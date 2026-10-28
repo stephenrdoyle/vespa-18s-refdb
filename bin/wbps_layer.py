@@ -86,7 +86,7 @@ def main() -> int:
 
     # --- genome hits, pooled per species
     copies = defaultdict(Counter)
-    where = {}
+    where, edits = {}, {}
     with open_text(hits_path) as fh:
         head = fh.readline().rstrip("\n").split("\t")
         col = {c: i for i, c in enumerate(head)}
@@ -97,8 +97,11 @@ def main() -> int:
             copies[species][ins] += 1
             where.setdefault((species, ins), f"{f[col['genome']]}:{f[col['contig']]}:"
                                             f"{f[col['start']]}-{f[col['end']]}")
+            e = (int(f[col["f_edits"]]), int(f[col["r_edits"]]))
+            if sum(e) < sum(edits.get((species, ins), (9, 9))):
+                edits[(species, ins)] = e
 
-    out_rows, review, stats = genome_layer_rows(copies, where, ranks_for, pr2, SOURCE)
+    out_rows, review, stats = genome_layer_rows(copies, where, ranks_for, pr2, SOURCE, edits)
     json.dump(cache, open(cache_path, "w"), indent=1)
 
     write_table(out_path, LAYER_COLUMNS, out_rows)

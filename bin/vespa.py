@@ -28,33 +28,58 @@ def _regex(p: str):
 _RF, _RR = _regex(FWD), _regex(REV_RC)
 
 
-def pcr(seq: str):
+def pcr_full(seq: str):
     """In-silico PCR on one sense-strand sequence.
 
-    Returns (status, insert, f_edits, r_edits); status is "amplicon",
-    "F_only", "R_only" or "neither". Exact match first, then up to
-    PRIMER_EDITS edits.
+    Returns (status, insert, f_edits, r_edits, f_site, r_site); status is
+    "amplicon", "F_only", "R_only" or "neither". Exact match first, then
+    up to PRIMER_EDITS edits. The sites are the template where each primer
+    matched, written as the primer reads (the reverse site reverse-
+    complemented), so they compare base for base with FWD and REV.
     """
     seq = seq.upper()
     m = _RF.search(seq)
     if m:
-        fe, fc = m.end(), 0
+        fs, fe, fc = m.start(), m.end(), 0
     else:
         h = find_anchor_cost(seq, FWD, PRIMER_EDITS)
-        fe, fc = (h[1], h[2]) if h else (None, None)
+        fs, fe, fc = h if h else (None, None, None)
     if fe is None:
         r = _RR.search(seq) or find_anchor_cost(seq, REV_RC, PRIMER_EDITS)
-        return ("R_only" if r else "neither"), None, None, None
+        return ("R_only" if r else "neither"), None, None, None, None, None
     rest = seq[fe:]
     m = _RR.search(rest)
     if m:
-        rs, rc = m.start(), 0
+        rs, re_, rc = m.start(), m.end(), 0
     else:
         h = find_anchor_cost(rest, REV_RC, PRIMER_EDITS)
-        rs, rc = (h[0], h[2]) if h else (None, None)
+        rs, re_, rc = h if h else (None, None, None)
     if rs is None:
-        return "F_only", None, fc, None
-    return "amplicon", rest[:rs], fc, rc
+        return "F_only", None, fc, None, seq[fs:fe], None
+    return ("amplicon", rest[:rs], fc, rc, seq[fs:fe],
+            rest[rs:re_].translate(_COMP)[::-1])
+
+
+def pcr(seq: str):
+    """pcr_full without the primer sites: (status, insert, f_edits, r_edits)."""
+    return pcr_full(seq)[:4]
+
+
+THREE_PRIME_WINDOW = 5
+
+
+def primer_fit(site: str, primer: str):
+    """Where a template site differs from its primer.
+
+    Returns positions counted from the primer's 3' end (1 = last base), or
+    None when the site is not known or is not the primer's length (an
+    indel: positions are then not meaningful base for base). Degenerate
+    primer bases match any base they stand for.
+    """
+    if not site or len(site) != len(primer):
+        return None
+    return [len(primer) - i for i, (p, b) in enumerate(zip(primer, site))
+            if b not in IUPAC.get(p, p)]
 
 
 def informative(name: str) -> bool:
@@ -198,19 +223,21 @@ class PR2Index:
 
 
 LAYER_COLUMNS = ["source", "accession", "gene", "organelle", *RANKS,
-                 "status", "f_edits", "r_edits", "insert"]
+                 "status", "f_edits", "r_edits", "f_site", "r_site", "insert"]
 GENOME_REVIEW_COLUMNS = ["species", "copy", "copies", "expected_class",
                          "nearest_pr2_class", "kmer_share", "ranks_from", "insert"]
 
 
 def genome_layer_rows(copies: dict, where: dict, ranks_for, pr2: "PR2Index",
-                      source: str):
+                      source: str, edits: dict | None = None):
     """The genome-layer rules (docs/DESIGN.md), for any set of assemblies.
 
     copies:    species -> Counter(insert -> copies), pooled across assemblies
     where:     (species, insert) -> one copy's location, as its accession
     ranks_for: (species, PR2 class nearest its commonest variant)
                -> (nine ranks, how they were found)
+    edits:     (species, insert) -> (f_edits, r_edits), the best copy's;
+               the scans did not keep the primer sites themselves
 
     SUPPORT: a variant enters if seen in at least two copies; a species
     with no such variant contributes its most common one. PHYLUM: it
@@ -242,8 +269,9 @@ def genome_layer_rows(copies: dict, where: dict, ranks_for, pr2: "PR2Index",
                 continue
             stats["entered"] += 1
             stats["single_copy"] += single
+            fe, re_ = (edits or {}).get((species, v), ("", ""))
             rows.append([source, where[(species, v)], "18S_rRNA", "nucleus", *ranks,
-                         "amplicon", "", "", v])
+                         "amplicon", str(fe), str(re_), "", "", v])
     return rows, review, stats
 
 

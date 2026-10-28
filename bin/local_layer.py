@@ -36,7 +36,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from vespa import RANKS, PR2Index, pcr  # noqa: E402
+from vespa import LAYER_COLUMNS, PR2Index, pcr_full  # noqa: E402
 
 SOURCE = "local"
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
@@ -68,10 +68,11 @@ def main() -> int:
     with open(table) as fh:
         for r in csv.DictReader(fh, delimiter="\t"):
             seq = r["sequence"].strip().upper()
-            status, ins, fc, rc = pcr(seq)
+            status, ins, fc, rc, fsite, rsite = pcr_full(seq)
             if status != "amplicon":
-                # Already the insert, as genome scans write it.
-                ins, fc, rc = seq, "", ""
+                # Already the insert, as genome scans write it: the primer
+                # sites, and so the primer fit, are not known.
+                ins, fc, rc, fsite, rsite = seq, "", "", "", ""
             w = r["ncbi_name"].split()
             genus = w[0]
             species = f"{w[0]}_{w[1]}" if len(w) > 1 and w[1] not in ("sp.", "sp") else f"{genus}_sp."
@@ -81,14 +82,13 @@ def main() -> int:
                 review.append([r["id"], r["ncbi_name"], ranks[4], cls, f"{share:.2f}"])
                 continue
             rows.append([SOURCE, r["id"], "18S_rRNA", "nucleus", *ranks, "amplicon",
-                         str(fc), str(rc), ins])
+                         str(fc), str(rc), fsite or "", rsite or "", ins])
             print(f"  {r['id']}: {r['ncbi_name']} -> {';'.join(ranks[4:])} "
                   f"({how}; {len(ins)}bp{', trimmed from a longer sequence' if status == 'amplicon' else ''})")
     json.dump(cache, open(cache_path, "w"), indent=1)
 
     with gzip.open(out_path, "wt") as fh:
-        fh.write("\t".join(["source", "accession", "gene", "organelle", *RANKS,
-                            "status", "f_edits", "r_edits", "insert"]) + "\n")
+        fh.write("\t".join(LAYER_COLUMNS) + "\n")
         for r in rows:
             fh.write("\t".join(r) + "\n")
     with open(review_path, "w") as fh:
