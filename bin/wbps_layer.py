@@ -27,7 +27,6 @@ placeholders. NCBI lineages are cached in work/ncbi_lineages.json.
 
 from __future__ import annotations
 
-import gzip
 import json
 import os
 import re
@@ -39,7 +38,8 @@ import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from vespa import RANKS, PR2Index, informative, open_text  # noqa: E402
+from vespa import (GENOME_REVIEW_COLUMNS, LAYER_COLUMNS, PR2Index,  # noqa: E402
+                   genome_layer_rows, open_text, write_table)
 
 SOURCE = "WBPS19"
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
@@ -75,7 +75,6 @@ def main() -> int:
     cache = json.load(open(cache_path)) if os.path.exists(cache_path) else {}
 
     pr2 = PR2Index(pr2_path)
-    nearest_class = pr2.nearest_class
 
     def ranks_for(species: str) -> tuple:
         genus = species.split("_")[0].capitalize()
@@ -99,44 +98,11 @@ def main() -> int:
             where.setdefault((species, ins), f"{f[col['genome']]}:{f[col['contig']]}:"
                                             f"{f[col['start']]}-{f[col['end']]}")
 
-    out_rows, review = [], []
-    stats = Counter()
-    for species in sorted(copies):
-        ranks, how = ranks_for(species)
-        stats[how.split()[0]] += 1
-        variants = copies[species]
-        supported = [v for v, n in variants.items() if n >= 2]
-        single = not supported
-        if single:
-            supported = [variants.most_common(1)[0][0]]
-        stats["variants_seen"] += len(variants)
-        for v in variants:
-            if v not in supported:
-                stats["dropped_unsupported"] += 1
-                continue
-            cls, score = nearest_class(v)
-            row = [SOURCE, where[(species, v)], "18S_rRNA", "nucleus", *ranks,
-                   "amplicon", "", "", v]
-            if ranks[4] and informative(ranks[4]) and cls and cls != ranks[4]:
-                stats["review_other_class"] += 1
-                review.append([species, where[(species, v)], str(variants[v]),
-                               ranks[4], cls, f"{score:.2f}", how, v])
-                continue
-            stats["entered"] += 1
-            stats["single_copy"] += single
-            out_rows.append(row)
+    out_rows, review, stats = genome_layer_rows(copies, where, ranks_for, pr2, SOURCE)
     json.dump(cache, open(cache_path, "w"), indent=1)
 
-    with gzip.open(out_path, "wt") as fh:
-        fh.write("\t".join(["source", "accession", "gene", "organelle", *RANKS,
-                            "status", "f_edits", "r_edits", "insert"]) + "\n")
-        for r in out_rows:
-            fh.write("\t".join(r) + "\n")
-    with open(review_path, "w") as fh:
-        fh.write("species\tcopy\tcopies\texpected_class\tnearest_pr2_class\t"
-                 "kmer_share\tranks_from\tinsert\n")
-        for r in review:
-            fh.write("\t".join(r) + "\n")
+    write_table(out_path, LAYER_COLUMNS, out_rows)
+    write_table(review_path, GENOME_REVIEW_COLUMNS, review)
 
     print(f"species with V4: {len(copies)}  (ranks from PR2 genus "
           f"{stats['PR2']}, NCBI {stats['NCBI']}, unplaced {stats['unplaced']})")

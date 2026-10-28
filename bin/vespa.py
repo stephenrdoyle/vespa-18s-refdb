@@ -134,10 +134,12 @@ class PR2Index:
             # nematode and a grass, Labrys a nematode and a bacterium.
             # PR2's ranks for the name count only if their higher names
             # agree with the NCBI lineage; without a lineage, trust PR2.
+            # The most specific of them must agree - Metazoa is shared by
+            # every animal, so it cannot tell a nematode from a vertebrate.
             seen = set(names)
             for cand, _ in self.by_genus[genus].most_common():
                 higher = [n.split(":")[0] for n in cand[1:5] if informative(n)]
-                if not seen or any(n in seen for n in higher):
+                if not seen or not higher or higher[-1] in seen:
                     return (*cand, species), "PR2 genus"
         for name in reversed(names):
             if name in self.by_name and self.by_name[name][0] <= 6:
@@ -166,3 +168,58 @@ class PR2Index:
         j, n = hits.most_common(1)[0]
         s = self._uniq[j]
         return self.ins_class[s], n / max(1, (len(s) - self.K) // self.STRIDE + 1)
+
+
+LAYER_COLUMNS = ["source", "accession", "gene", "organelle", *RANKS,
+                 "status", "f_edits", "r_edits", "insert"]
+GENOME_REVIEW_COLUMNS = ["species", "copy", "copies", "expected_class",
+                         "nearest_pr2_class", "kmer_share", "ranks_from", "insert"]
+
+
+def genome_layer_rows(copies: dict, where: dict, ranks_for, pr2: "PR2Index",
+                      source: str):
+    """The genome-layer rules (docs/DESIGN.md), for any set of assemblies.
+
+    copies:    species -> Counter(insert -> copies), pooled across assemblies
+    where:     (species, insert) -> one copy's location, as its accession
+    ranks_for: species -> (nine ranks, how they were found)
+
+    SUPPORT: a variant enters if seen in at least two copies; a species
+    with no such variant contributes its most common one. PHYLUM: it
+    enters only if its nearest PR2 insert is in the species' own PR2
+    class; otherwise it goes to review as another organism's rDNA.
+    Returns (rows, review, stats).
+    """
+    from collections import Counter
+    rows, review, stats = [], [], Counter()
+    for species in sorted(copies):
+        ranks, how = ranks_for(species)
+        stats[how.split()[0]] += 1
+        variants = copies[species]
+        supported = [v for v, n in variants.items() if n >= 2]
+        single = not supported
+        if single:
+            supported = [variants.most_common(1)[0][0]]
+        stats["variants_seen"] += len(variants)
+        for v in variants:
+            if v not in supported:
+                stats["dropped_unsupported"] += 1
+                continue
+            cls, score = pr2.nearest_class(v)
+            if ranks[4] and informative(ranks[4]) and cls and cls != ranks[4]:
+                stats["review_other_class"] += 1
+                review.append([species, where[(species, v)], str(variants[v]),
+                               ranks[4], cls, f"{score:.2f}", how, v])
+                continue
+            stats["entered"] += 1
+            stats["single_copy"] += single
+            rows.append([source, where[(species, v)], "18S_rRNA", "nucleus", *ranks,
+                         "amplicon", "", "", v])
+    return rows, review, stats
+
+
+def write_table(path: str, columns, rows) -> None:
+    with (gzip.open(path, "wt") if path.endswith(".gz") else open(path, "w")) as fh:
+        fh.write("\t".join(columns) + "\n")
+        for r in rows:
+            fh.write("\t".join(r) + "\n")
