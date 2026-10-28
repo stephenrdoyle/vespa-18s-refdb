@@ -196,7 +196,7 @@ streamed, nothing kept), the comparison about 10 minutes.
 |---|---|
 | `pr2_v5.1.0_summary.txt` | amplification, insert lengths, resolution, genera of interest, anchor look-alikes |
 | `wbps19_vs_pr2.txt` | genome-versus-PR2 report |
-| `wbps19_scan.tsv` | one row per WBPS19 assembly: bases scanned, amplicons, seconds (one failed download listed) |
+| `wbps19_scan.tsv` | one row per WBPS19 assembly: bases scanned, amplicons, seconds; a note where the assembly came from elsewhere |
 | `curation/conflicts.tsv` | every class-level label conflict in the PR2 + WBPS19 build and how it was resolved |
 | `curation/overruled.tsv` | every member label the build overruled, with its accession |
 | `curation/wbps_review.tsv` | genome variants kept out as another organism's rDNA |

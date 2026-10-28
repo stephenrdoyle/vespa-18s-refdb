@@ -1,4 +1,4 @@
-genome	bases	amplicons	seconds
+genome	bases	amplicons	seconds	note
 acanthocheilonema_viteae.PRJEB1697.WBPS19	77350906	1	21
 acrobeloides_nanus.PRJEB26554.WBPS19	248054631	1	46
 allodiplogaster_sudhausi.PRJEB48369.WBPS19	352146914	42	86
@@ -272,4 +272,4 @@ trissonchulus_latispiculum.PRJNA953805.WBPS19	642239299	2	96
 trissonchulus_wlg14.PRJNA953805.WBPS19	421514493	2	84
 wuchereria_bancrofti.PRJEB536.WBPS19	76991470	2	11
 wuchereria_bancrofti.PRJNA275548.WBPS19	88416250	1	16
-schistosoma_intercalatum.TD2_PRJEB44434.WBPS19	FAILED: download truncated at source, twice		
+schistosoma_intercalatum.TD2_PRJEB44434.WBPS19	382498898	1	26	WBPS copy truncated at source (matches its own checksum); scanned NCBI GCA_944470385.2 (tdSchInte2.2), same assembly

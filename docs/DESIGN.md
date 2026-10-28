@@ -648,5 +648,3 @@ Still no V4 anywhere: *Bunostomum*, *Chabertia*, *Murshidia*,
   off-target reads are assigned rather than forced onto the nearest
   parasite. (Current lean: keep everything; the pipeline reports
   off-target fractions from it.)
-- Retry the one WBPS19 assembly whose download failed
-  (*Schistosoma intercalatum* TD2).
