@@ -13,6 +13,18 @@ been built yet.** See [docs/DESIGN.md](docs/DESIGN.md) for the design,
 what PR2 and the WormBase ParaSite genomes look like through these
 primers, and the release format the pipeline expects.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/figures/sources_dark.svg">
+  <img alt="Bar chart: where the 97,559 reference sequences in v0.3.0 come from. PR2 v5.1.1 backs 89,734 records, 88,678 of them only from PR2; GenBank 8,482 (7,526 only from GenBank); NCBI protist genomes 237 (87); WormBase ParaSite 19 212 (116); ParaRef 147 (51); our local sequences 1 (0)." src="docs/figures/sources_light.svg" width="760">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/figures/taxa_dark.svg">
+  <img alt="Bar chart: records per major taxonomic group in v0.3.0, split into those that resolve to species and those that stop at genus or above. Largest groups: other animals 19,831, fungi 17,906, other alveolates 14,170, plants and algae 9,418, stramenopiles 7,007, Nematoda 5,142, Apicomplexa 4,867, Platyhelminthes 3,460; Acanthocephala 206." src="docs/figures/taxa_light.svg" width="760">
+</picture>
+
+Figures are drawn from the current release by `bin/readme_figures.py`.
+
 Primers, as ordered (locus-specific parts; both carry Nextera tails):
 
 - `AMPSEQ_VESPA18S_29F` `AGCAGCCGCGGTAATTCC`
@@ -31,6 +43,7 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 | `bin/local_layer.py`, `local/sequences.tsv` | **Build.** Our own sequences, hand-curated, most trusted |
 | `bin/genome_insilico_pcr.py` | Scans any one genome, URL or file |
 | `bin/ncbi_genomes_insilico_pcr.py` | Streams every NCBI assembly for a taxon through the scan (optionally the best N per species) |
+| `bin/readme_figures.py` | The README figures, light and dark SVG, from a release |
 | `bin/vespa.py` | Primers, in-silico PCR and PR2 rank conventions shared by the build |
 | `bin/pr2_insilico_pcr.py` | In-silico PCR over PR2; insert lengths; resolution over the whole insert (nanopore) and the 2x150 read windows (Illumina); adapter-anchor look-alikes |
 | `bin/wbps_insilico_pcr.py` | Streams every WormBase ParaSite genome from the EBI FTP, finds V4 amplicons on both strands, keeps only the hits |
