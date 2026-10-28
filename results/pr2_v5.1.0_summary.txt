@@ -1,0 +1,117 @@
+PR2 entries: 240,200
+primers: F AGCAGCCGCGGTAATTCC  R TCCGTCAATTYCTTNAASTTTC  (search: exact, then <= 2 edits)
+
+In-silico PCR outcome:
+  amplicon   151,931   63.3%
+  F_only      36,285   15.1%
+  R_only      34,289   14.3%
+  neither     17,695    7.4%
+  amplicons needing >=1 primer edit: 27,926 (18.4%)
+
+By group: entries | amplified | spans-neither (partial seqs) | insert length p5/median/p95
+  other eukaryotes   104,081 | 61,667 ( 59.2%) | 12,508 | 528/546/711
+  Fungi               55,610 | 35,061 ( 63.0%) |  1,370 | 331/545/551
+  other Metazoa       35,858 | 30,280 ( 84.4%) |    527 | 544/573/708
+  Ciliophora          12,281 |  8,775 ( 71.5%) |    176 | 469/530/540
+  Bacteria             8,028 |  2,591 ( 32.3%) |    516 | 363/368/393
+  plastid              6,765 |  2,735 ( 40.4%) |    224 | 360/369/370
+  Nematoda             5,249 |  3,709 ( 70.7%) |     28 | 524/544/551
+  Platyhelminthes      2,767 |  2,323 ( 84.0%) |      8 | 544/640/755
+  Blastocystis         2,614 |    745 ( 28.5%) |    365 | 535/538/552
+  Craniata (host)      2,012 |  1,718 ( 85.4%) |      6 | 548/553/565
+  mitochondrion        1,890 |      2 (  0.1%) |  1,837 | 537/686/686
+  Metamonada           1,818 |  1,584 ( 87.1%) |      5 | 403/425/799
+  Entamoeba              794 |    401 ( 50.5%) |    109 | 542/552/658
+  Eukaryota:nucl         148 |    147 ( 99.3%) |      0 | 535/557/599
+  Archaea                131 |     75 ( 57.3%) |      3 | 370/372/373
+  Acanthocephala         125 |    107 ( 85.6%) |      0 | 541/544/549
+  Eukaryota:apic          22 |      4 ( 18.2%) |     13 | 367/374/374
+  Eukaryota:chro           7 |      7 (100.0%) |      0 | 365/369/371
+
+Insert length (all amplicons): min 5, median 546, max 2030
+Illumina windows: R1 132 + R2 128 = 260 insert bases; 151,763 of 151,931 inserts (99.9%) are longer, i.e. leave an unread gap
+
+Unique keys: nanopore (whole insert) 89,738; Illumina (two windows) 69,326
+
+Resolution, per amplified entry with an informative species label:
+  rank reached = deepest rank shared by every entry with an identical sequence (best case: exact sequence)
+  group                   n    nanopore sp / gen / fam+     Illumina sp / gen / fam+
+  other eukaryotes   30,517   67.5%  16.2%  16.3%       56.1%  18.9%  25.0%
+  Fungi              20,239   54.4%  11.4%  34.2%       39.6%  11.7%  48.6%
+  other Metazoa      21,815   68.4%  12.4%  19.3%       49.3%  14.8%  35.9%
+  Ciliophora          2,938   68.1%  18.3%  13.6%       61.1%  20.7%  18.3%
+  Bacteria              124   33.9%   9.7%  56.5%       23.4%   0.0%  76.6%
+  plastid             2,517   57.0%   8.6%  34.4%       53.9%   8.9%  37.2%
+  Nematoda            2,411   77.7%  16.9%   5.4%       64.6%  26.0%   9.4%
+  Platyhelminthes     1,719   88.5%   7.5%   4.0%       78.0%  13.1%   8.9%
+  Blastocystis          217   42.9%  57.1%   0.0%       26.3%  73.7%   0.0%
+  Craniata (host)     1,609   48.5%   5.1%  46.4%       35.9%   3.7%  60.4%
+  mitochondrion           2   50.0%   0.0%  50.0%       50.0%   0.0%  50.0%
+  Metamonada            862   93.7%   6.3%   0.0%       91.0%   9.0%   0.0%
+  Entamoeba             353   95.8%   4.2%   0.0%       95.8%   4.2%   0.0%
+  Eukaryota:nucl        147   84.4%  12.2%   3.4%       80.3%  16.3%   3.4%
+  Acanthocephala         94   87.2%  12.8%   0.0%       84.0%  16.0%   0.0%
+  Eukaryota:apic          4  100.0%   0.0%   0.0%      100.0%   0.0%   0.0%
+  Eukaryota:chro          7  100.0%   0.0%   0.0%      100.0%   0.0%   0.0%
+
+Helminth genera with most entries resolved to species on nanopore but NOT on Illumina:
+  Platyhelminthes  Schistosoma                    52
+  Nematoda         Xiphinema                      28
+  Nematoda         Meloidogyne                    26
+  Nematoda         Trichinella                    20
+  Nematoda         Helicotylenchus                19
+  Nematoda         Trichodorus                    16
+  Nematoda         Chromadorea_XX                 15
+  Nematoda         Longidorus                     15
+  Nematoda         Paratrichodorus                12
+  Nematoda         Bursaphelenchus                11
+  Nematoda         Tripyla                        11
+  Nematoda         Caenorhabditis                 10
+  Nematoda         Enoplea_XX                     10
+  Nematoda         Plectus                        8
+  Nematoda         Heterodera                     8
+  Platyhelminthes  Khawia                         7
+  Nematoda         Globodera                      7
+  Platyhelminthes  Parotoplana                    7
+  Platyhelminthes  Metagonimus                    6
+  Platyhelminthes  Polystoma                      6
+
+Genera of interest (entries with an informative species label):
+  genus               n species  nano sp nano gen  ill sp ill gen  shares a sequence with (Illumina)
+  Haemonchus          5       3   20.0%   100.0%   20.0%  100.0%  
+  Teladorsagia        0  (none amplified / no species-labelled entries)
+  Trichostrongylus    1       1  100.0%   100.0%    0.0%    0.0%  Ostertagia
+  Cooperia            0  (none amplified / no species-labelled entries)
+  Ostertagia          3       2  100.0%   100.0%   66.7%   66.7%  Trichostrongylus
+  Nematodirus         2       1  100.0%   100.0%  100.0%  100.0%  
+  Oesophagostomum     0  (none amplified / no species-labelled entries)
+  Chabertia           1       1  100.0%   100.0%  100.0%  100.0%  
+  Ancylostoma         2       2  100.0%   100.0%    0.0%  100.0%  
+  Necator             2       1    0.0%     0.0%    0.0%    0.0%  Haemonchus
+  Strongyloides      34      13   70.6%   100.0%   64.7%  100.0%  
+  Trichuris          28       9   85.7%   100.0%   82.1%  100.0%  
+  Ascaris             5       2   40.0%   100.0%    0.0%  100.0%  
+  Toxocara           10       3   30.0%    30.0%   20.0%   20.0%  Toxascaris, Porrocaecum, Baylisascaris
+  Enterobius          2       1  100.0%   100.0%  100.0%  100.0%  
+  Onchocerca          2       2    0.0%   100.0%    0.0%    0.0%  Loa
+  Brugia             13       1   46.2%    46.2%   38.5%   38.5%  Chromadorea_XX, Schistosoma, Caenorhabditis
+  Wuchereria          4       1  100.0%   100.0%  100.0%  100.0%  
+  Dirofilaria         2       1  100.0%   100.0%  100.0%  100.0%  
+  Schistosoma        77      20   84.4%    88.3%   35.1%   85.7%  Digenea_X, Brugia, Chromadorea_XX
+  Fasciola            6       3  100.0%   100.0%   50.0%  100.0%  
+  Clonorchis          7       1   42.9%    42.9%    0.0%    0.0%  Euryhelmis, Metorchis, Opisthorchis
+  Opisthorchis        7       2   28.6%    28.6%    0.0%    0.0%  Clonorchis, Euryhelmis, Metorchis
+  Taenia             29      17  100.0%   100.0%   86.2%  100.0%  
+  Echinococcus       11       9  100.0%   100.0%   81.8%  100.0%  
+  Hymenolepis         6       3  100.0%   100.0%  100.0%  100.0%  
+  Giardia            43       4  100.0%   100.0%  100.0%  100.0%  
+  Cryptosporidium     0  (none amplified / no species-labelled entries)
+  Entamoeba         353      21   95.8%   100.0%   95.8%  100.0%  
+  Blastocystis      217       7   42.9%   100.0%   26.3%  100.0%  
+  Eimeria            21       8  100.0%   100.0%   95.2%   95.2%  Eimeria6, Eimeria7
+  Plasmodium          0  (none amplified / no species-labelled entries)
+  Dientamoeba        16       1  100.0%   100.0%  100.0%  100.0%  
+
+Anchor look-alikes (<=3 edits) in 89,738 unique amplicons: 43,129 hits; by edits {1: 2, 2: 964, 3: 42163}
+  unique amplicons with a hit at <=2 edits (the splitter's tolerance): 953; by group {'other Metazoa': 551, 'other eukaryotes': 258, 'Fungi': 70, 'Platyhelminthes': 32, 'Nematoda': 18, 'Craniata (host)': 10, 'Metamonada': 8, 'Ciliophora': 6}
+  helminth taxa among them (44): Aspidogastrea;Multicotyle;Multicotyle_purvisi, Chromadorea_X;Baujardia;Baujardia_mirabilis, Chromadorea_X;Chromadorea_XX;Chromadorea_XX_sp., Chromadorea_X;Desmolaimus;Desmolaimus_sp., Chromadorea_X;Mononchoides;Mononchoides_sp., Chromadorea_X;Panagrellus;Panagrellus_redivivus, Chromadorea_X;Panagrolaimus;Panagrolaimus_paetzoldi, Chromadorea_X;Parasitodiplogaster;Parasitodiplogaster_maxinema, Chromadorea_X;Parasitodiplogaster;Parasitodiplogaster_pharmaconema, Chromadorea_X;Parasitodiplogaster;Parasitodiplogaster_sp., Chromadorea_X;Philometra;Philometra_cyprinirutili, Chromadorea_X;Philometroides;Philometroides_sanguineus, Chromadorea_X;Rotylenchus;Rotylenchus_goodeyi, Digenea;Hapladena;Hapladena_nasonis, Digenea;Hysterolecithoides;Hysterolecithoides_guangdongensis, Digenea;Saccocoelium;Saccocoelium_cephali, Digenea;Saccocoelium;Saccocoelium_obesum, Enoplea_X;Enoploides;Enoploides_sp., Enoplea_X;Halalaimus;Halalaimus_sp., Eucestoda;Acanthobothrium;Acanthobothrium_sp., Eucestoda;Barsonella;Barsonella_lafoni, Eucestoda;Bathybothrium;Bathybothrium_rectangulum, Eucestoda;Bothriocephalus;Bothriocephalus_claviceps, Eucestoda;Bothriocephalus;Bothriocephalus_sp., Eucestoda;Crepidobothrium;Crepidobothrium_gerrardii, Eucestoda;Dollfusiella;Dollfusiella_sp., Eucestoda;Ephedrocephalus;Ephedrocephalus_microcephalus, Eucestoda;Gangesia;Gangesia_parasiluri, Eucestoda;Gastrolecithus;Gastrolecithus_planus, Eucestoda;Halysiorhynchus;Halysiorhynchus_macrocephalus, Eucestoda;Marsipometra;Marsipometra_hastata, Eucestoda;Parachristianella;Parachristianella_indonesiensis, Eucestoda;Parachristianella;Parachristianella_monomegacantha, Eucestoda;Parachristianella;Parachristianella_sp., Eucestoda;Platybothrium;Platybothrium_jondoeorum, Eucestoda;Prosobothrium;Prosobothrium_armigerum, Eucestoda;Proteocephalus;Proteocephalus_macrocephalus, Eucestoda;Rhinoptericola;Rhinoptericola_megacantha, Eucestoda;Shirleyrhynchus;Shirleyrhynchus_aetobatis, Eucestoda;Thaumasioscolex;Thaumasioscolex_didelphidis

@@ -1,0 +1,120 @@
+Genomes scanned: 273  (failed downloads: 1)
+Genomes yielding >=1 V4 amplicon: 185 (68%)
+Species: 208; with an amplicon from at least one assembly: 145
+Species with a genome amplicon but NO amplicon-spanning PR2 entry: 42
+
+Species in both: main genome variant matches PR2's own label for that species: 110; does not: 32
+  Angiostrongylus_cantonensis           ~0.97 -> Nematoda|Angiostrongylus|Angiostrongylus_vasorum
+  Angiostrongylus_cantonensis           ~0.61 -> Nematoda|Angiostrongylus|Angiostrongylus_vasorum
+  Caenorhabditis_becei                  ~0.79 -> Nematoda|Caenorhabditis|Caenorhabditis_sp.
+  Clonorchis_sinensis                   ~0.81 -> Platyhelminthes|Opisthorchis|Opisthorchis_sp.
+  Dicrocoelium_dendriticum              ~0.20 -> Platyhelminthes|Dicrocoelium|Dicrocoelium_orientalis
+  Dictyocaulus_viviparus                ~0.43 -> Nematoda|Dictyocaulus|Dictyocaulus_sp.
+  Dictyocaulus_viviparus                ~0.44 -> Nematoda|Dictyocaulus|Dictyocaulus_sp.
+  Diploscapter_coronatus                ~0.97 -> Nematoda|Diploscapter|Diploscapter_sp.
+  Echinococcus_granulosus               ~0.57 -> Platyhelminthes|Echinococcus|Echinococcus_shiquicus
+  Fasciola_hepatica                     ~0.51 -> Platyhelminthes|Fasciola|Fasciola_gigantica
+  Globodera_pallida                     ~0.94 -> Ascomycota|Fusarium|Fusarium_oxysporum
+  Meloidogyne_arenaria                  ~0.95 -> Nematoda|Meloidogyne|Meloidogyne_incognita
+  Meloidogyne_floridensis               ~0.64 -> Nematoda|Mermithid|Mermithid_sp.
+  Meloidogyne_javanica                  ~0.94 -> Nematoda|Meloidogyne|Meloidogyne_incognita
+  Meloidogyne_javanica                  ~0.95 -> Nematoda|Meloidogyne|Meloidogyne_incognita
+  Protopolystoma_xenopodis              exact -> Craniata|Xenopus|Xenopus_laevis
+  Schistosoma_haematobium               ~0.87 -> Platyhelminthes|Schistosoma|Schistosoma_intercalatum
+  Schistosoma_haematobium               exact -> Platyhelminthes|Schistosoma|Schistosoma_curassoni; Platyhelminthes|Schistosoma|Schistosoma_intercalatum; Platyhelminthes|Schistosoma|Schistosoma_mattheei
+  Schistosoma_haematobium               exact -> Platyhelminthes|Schistosoma|Schistosoma_curassoni; Platyhelminthes|Schistosoma|Schistosoma_intercalatum; Platyhelminthes|Schistosoma|Schistosoma_mattheei
+  Schmidtea_mediterranea                ~0.79 -> Platyhelminthes|Schmidtea|Schmidtea_polychroa
+  Strongyloides_papillosus              ~0.97 -> Nematoda|Strongyloides|Strongyloides_fuelleborni
+  Toxocara_canis                        ~0.82 -> Nematoda|Toxocara|Toxocara_cati
+  Trichinella_britovi                   exact -> Nematoda|Trichinella|Trichinella_murrelli
+  Trichinella_nativa                    exact -> Nematoda|Trichinella|Trichinella_spiralis
+  Trichinella_nativa                    exact -> Nematoda|Trichinella|Trichinella_murrelli
+
+Possible contaminant hits (genome is a helminth, variant nearest a non-helminth group):
+  angiostrongylus_cantonensis.PRJNA350391.WBPS19          x1   628bp -> ['Myxogastria_Fuscisporidia|Stemonitis|Stemonitis_sp.'] (1.0)
+  angiostrongylus_cantonensis.PRJNA350391.WBPS19          x1   768bp -> Centramoebia|Acanthamoeba|Acanthamoeba_sp. (0.765)
+  cylicostephanus_goldi.PRJEB498.WBPS19                   x1   547bp -> Chytridiomycota|Cyllamyces|Cyllamyces_aberensis (0.924)
+  globodera_pallida.PRJEB123.WBPS19                       x1   545bp -> Ascomycota|Fusarium|Fusarium_oxysporum (0.944)
+  meloidogyne_graminicola.PRJNA411966.WBPS19              x1   549bp -> Rotifera|Rotifera_XXX|Rotifera_XXX_sp. (0.933)
+  meloidogyne_hapla.PRJNA29083.WBPS19                     x1   545bp -> ['Actinobacteria_XX|Cellulomonas|Cellulomonas_sp.'] (1.0)
+  parelaphostrongylus_tenuis.PRJNA729714.WBPS19           x1   553bp -> ['Ascomycota|Morchella|Morchella_septimelata'] (1.0)
+  protopolystoma_xenopodis.PRJEB1201.WBPS19               x1   550bp -> ['Craniata|Xenopus|Xenopus_laevis'] (1.0)
+  trichinella_britovi.PRJNA257433.WBPS19                  x1   553bp -> ['Actinobacteria_XX|Streptomyces|Streptomyces_sp.'] (1.0)
+  trichinella_nativa.PRJNA257433.WBPS19                   x1   553bp -> ['Actinobacteria_XX|Streptomyces|Streptomyces_sp.'] (1.0)
+  trichinella_pseudospiralis.ISS13_PRJNA257433.WBPS19     x1   553bp -> ['Actinobacteria_XX|Streptomyces|Streptomyces_sp.'] (1.0)
+  trichinella_pseudospiralis.ISS470_PRJNA257433.WBPS19    x1   553bp -> ['Actinobacteria_XX|Streptomyces|Streptomyces_sp.'] (1.0)
+  trichinella_t8.PRJNA257433.WBPS19                       x1   553bp -> ['Actinobacteria_XX|Streptomyces|Streptomyces_sp.'] (1.0)
+  trichinella_t9.PRJNA257433.WBPS19                       x1   553bp -> ['Actinobacteria_XX|Streptomyces|Streptomyces_sp.'] (1.0)
+  trichinella_zimbabwensis.PRJNA257433.WBPS19             x1   553bp -> ['Actinobacteria_XX|Streptomyces|Streptomyces_sp.'] (1.0)
+  wuchereria_bancrofti.PRJEB536.WBPS19                    x1   580bp -> ['Arthropoda|Barraudius|Culex_modestus'] (1.0)
+
+Gap taxa, genome result:
+  teladorsagia_circumcincta.PRJNA72569.WBPS19             no amplicon
+  oesophagostomum_dentatum.PRJNA72579.WBPS19              no amplicon
+  haemonchus_contortus.PRJEB506.WBPS19                    13 copies, 5 variants, 531bp, exact PR2: Haemonchus_contortus;Haemonchus_placei;Haemonchus_similis
+  haemonchus_contortus.PRJNA205202.WBPS19                 no amplicon
+  haemonchus_placei.PRJEB509.WBPS19                       no amplicon
+  necator_americanus.PRJNA1007425.WBPS19                  1 copies, 1 variants, 531bp, exact PR2: Haemonchus_sp.;Necator_americanus
+  necator_americanus.PRJNA72135.WBPS19                    no amplicon
+  ancylostoma_caninum.PRJNA72585.WBPS19                   no amplicon
+  ancylostoma_ceylanicum.PRJNA231479.WBPS19               no amplicon
+  ancylostoma_ceylanicum.PRJNA72583.WBPS19                no amplicon
+  ancylostoma_duodenale.PRJNA72581.WBPS19                 no amplicon
+  ascaris_lumbricoides.PRJEB4950.WBPS19                   no amplicon
+  ascaris_suum.PRJNA62057.WBPS19                          6 copies, 4 variants, 544bp, exact PR2: Ascaris_sp.;Ascaris_suum
+  ascaris_suum.PRJNA80881.WBPS19                          no amplicon
+  trichuris_muris.PRJEB126.WBPS19                         9 copies, 5 variants, 551bp, exact PR2: Trichuris_arvicolae;Trichuris_muris
+  trichuris_suis.PRJNA179528.WBPS19                       no amplicon
+  trichuris_suis.PRJNA208415.WBPS19                       4 copies, 4 variants, 548bp, novel, nearest Trichuris_suis (0.804)
+  trichuris_suis.PRJNA208416.WBPS19                       5 copies, 5 variants, 548bp, novel, nearest Trichuris_suis (0.782)
+  trichuris_trichiura.PRJEB535.WBPS19                     13 copies, 3 variants, 551bp, exact PR2: Trichuris_trichiura
+  strongyloides_papillosus.PRJEB525.WBPS19                3 copies, 1 variants, 520bp, novel, nearest Strongyloides_fuelleborni (0.967)
+  strongyloides_ratti.PRJEB125.WBPS19                     1 copies, 1 variants, 514bp, exact PR2: Strongyloides_ratti
+  strongyloides_stercoralis.PRJNA930454.WBPS19            3 copies, 1 variants, 516bp, exact PR2: Strongyloides_stercoralis
+  strongyloides_venezuelensis.PRJEB530.WBPS19             no amplicon
+  toxocara_canis.PRJEB533.WBPS19                          2 copies, 2 variants, 544bp, novel, nearest Toxocara_cati (0.816)
+  toxocara_canis.PRJNA248777.WBPS19                       4 copies, 3 variants, 544bp, exact PR2: Porrocaecum_streperae;Toxocara_canis;Toxocara_cati
+  schistosoma_bovis.PRJNA451066.WBPS19                    9 copies, 3 variants, 640bp, exact PR2: Schistosoma_bovis
+  schistosoma_bovis.TD1_PRJEB44434.WBPS19                 1 copies, 1 variants, 640bp, exact PR2: Schistosoma_bovis
+  schistosoma_bovis.TD2_PRJEB44434.WBPS19                 8 copies, 3 variants, 640bp, exact PR2: Schistosoma_bovis
+  schistosoma_curassoni.PRJEB44434.WBPS19                 166 copies, 67 variants, 640bp, exact PR2: Schistosoma_curassoni;Schistosoma_intercalatum;Schistosoma_mattheei
+  schistosoma_curassoni.PRJEB519.WBPS19                   no amplicon
+  schistosoma_guineensis.PRJEB44434.WBPS19                5 copies, 1 variants, 640bp, exact PR2: Schistosoma_curassoni;Schistosoma_intercalatum;Schistosoma_mattheei
+  schistosoma_haematobium.PRJNA78265.WBPS19               2 copies, 2 variants, 640bp, novel, nearest Schistosoma_intercalatum (0.866)
+  schistosoma_haematobium.TD1_PRJEB44434.WBPS19           4 copies, 3 variants, 640bp, exact PR2: Schistosoma_curassoni;Schistosoma_intercalatum;Schistosoma_mattheei
+  schistosoma_haematobium.TD2_PRJEB44434.WBPS19           4 copies, 2 variants, 640bp, exact PR2: Schistosoma_curassoni;Schistosoma_intercalatum;Schistosoma_mattheei
+  schistosoma_intercalatum.TD1_PRJEB44434.WBPS19          3 copies, 1 variants, 640bp, exact PR2: Schistosoma_curassoni;Schistosoma_intercalatum;Schistosoma_mattheei
+  schistosoma_japonicum.PRJEA34885.WBPS19                 49 copies, 25 variants, 649bp, exact PR2: Schistosoma_japonicum
+  schistosoma_japonicum.PRJNA520774.WBPS19                4 copies, 1 variants, 649bp, exact PR2: Schistosoma_japonicum
+  schistosoma_japonicum.PRJNA724792.WBPS19                1 copies, 1 variants, 649bp, exact PR2: Schistosoma_japonicum
+  schistosoma_mansoni.PRJEA36577.WBPS19                   24 copies, 7 variants, 642bp, exact PR2: Digenea_X_sp.;Schistosoma_mansoni;Schistosoma_rodhaini
+  schistosoma_margrebowiei.PRJEB44434.WBPS19              17 copies, 2 variants, 640bp, exact PR2: Schistosoma_margrebowiei
+  schistosoma_mattheei.PRJEB44434.WBPS19                  3 copies, 1 variants, 640bp, exact PR2: Schistosoma_curassoni;Schistosoma_intercalatum;Schistosoma_mattheei
+  schistosoma_rodhaini.TD1_PRJEB44434.WBPS19              1 copies, 1 variants, 642bp, exact PR2: Digenea_X_sp.;Schistosoma_mansoni;Schistosoma_rodhaini
+  schistosoma_rodhaini.TD2_PRJEB44434.WBPS19              5 copies, 1 variants, 642bp, exact PR2: Digenea_X_sp.;Schistosoma_mansoni;Schistosoma_rodhaini
+  schistosoma_spindale.PRJEB44434.WBPS19                  3 copies, 1 variants, 640bp, exact PR2: Schistosoma_spindale
+  schistosoma_turkestanicum.PRJEB44434.WBPS19             4 copies, 2 variants, 641bp, novel, nearest Schistosoma_turkestanicum (0.951)
+  fasciola_gigantica.PRJNA230515.WBPS19                   5 copies, 5 variants, 640bp, exact PR2: Fasciola_gigantica
+  fasciola_hepatica.PRJEB58756.WBPS19                     516 copies, 28 variants, 640bp, exact PR2: Fasciola_hepatica
+  fasciola_hepatica.PRJNA179522.WBPS19                    3 copies, 3 variants, 635bp, novel, nearest Fasciola_gigantica (0.514)
+  taenia_asiatica.PRJEB532.WBPS19                         no amplicon
+  taenia_asiatica.PRJNA299871.WBPS19                      1 copies, 1 variants, 954bp, novel, nearest Taenia_asiatica (0.936)
+  taenia_multiceps.PRJNA307624.WBPS19                     86 copies, 55 variants, 941bp, novel, nearest Taenia_multiceps (0.968)
+  taenia_saginata.PRJNA71493.WBPS19                       1 copies, 1 variants, 966bp, novel, nearest Taenia_saginata (0.835)
+  taenia_solium.PRJNA170813.WBPS19                        no amplicon
+  echinococcus_canadensis.PRJEB8992.WBPS19                no amplicon
+  echinococcus_granulosus.PRJEB121.WBPS19                 no amplicon
+  echinococcus_granulosus.PRJNA182977.WBPS19              no amplicon
+  echinococcus_granulosus.PRJNA754835.WBPS19              35 copies, 30 variants, 828bp, novel, nearest Echinococcus_shiquicus (0.575)
+  echinococcus_multilocularis.PRJEB122.WBPS19             4 copies, 2 variants, 889bp, novel, nearest Echinococcus_multilocularis (0.986)
+  echinococcus_oligarthrus.PRJEB31222.WBPS19              1 copies, 1 variants, 881bp, novel, nearest Echinococcus_oligarthra (0.677)
+  brugia_malayi.PRJNA10729.WBPS19                         9 copies, 1 variants, 545bp, exact PR2: Brugia_malayi;Chromadorea_XX_sp.;Schistosoma_mansoni
+  brugia_pahangi.PRJEB497.WBPS19                          1 copies, 1 variants, 545bp, exact PR2: Brugia_malayi
+  brugia_timori.PRJEB4663.WBPS19                          1 copies, 1 variants, 545bp, exact PR2: Brugia_malayi;Chromadorea_XX_sp.;Schistosoma_mansoni
+  onchocerca_flexuosa.PRJEB512.WBPS19                     no amplicon
+  onchocerca_flexuosa.PRJNA230512.WBPS19                  no amplicon
+  onchocerca_ochengi.PRJEB1204.WBPS19                     no amplicon
+  onchocerca_ochengi.PRJEB1465.WBPS19                     no amplicon
+  onchocerca_volvulus.PRJEB513.WBPS19                     no amplicon
+
+Genomes with no amplicon (88): ancylostoma_caninum.PRJNA72585.WBPS19, ancylostoma_ceylanicum.PRJNA231479.WBPS19, ancylostoma_ceylanicum.PRJNA72583.WBPS19, ancylostoma_duodenale.PRJNA72581.WBPS19, anisakis_simplex.PRJEB496.WBPS19, ascaris_lumbricoides.PRJEB4950.WBPS19, ascaris_suum.PRJNA80881.WBPS19, caenorhabditis_angaria.PRJNA51225.WBPS19, caenorhabditis_auriculariae.PRJEB40642.WBPS19, caenorhabditis_briggsae.PRJNA10731.WBPS19, caenorhabditis_latens.PRJNA248912.WBPS19, caenorhabditis_panamensis.PRJEB28259.WBPS19, caenorhabditis_remanei.PRJNA248911.WBPS19, caenorhabditis_remanei.PRJNA577507.WBPS19, caenorhabditis_sulstoni.PRJEB12601.WBPS19, caenorhabditis_tribulationis.PRJEB12608.WBPS19, caenorhabditis_tropicalis.PRJNA53597.WBPS19, caenorhabditis_uteleia.PRJEB12600.WBPS19, caenorhabditis_waitukubuli.PRJEB12602.WBPS19, caenorhabditis_zanzibari.PRJEB12596.WBPS19, dibothriocephalus_latus.PRJEB1206.WBPS19, diplogasteroides_magnus.PRJNA655932.WBPS19, diploscapter_pachys.PRJNA280107.WBPS19, dirofilaria_immitis.PRJEB1797.WBPS19, ditylenchus_destructor.PRJNA312427.WBPS19, ditylenchus_destructor.PRJNA800207.WBPS19, echinococcus_canadensis.PRJEB8992.WBPS19, echinococcus_granulosus.PRJEB121.WBPS19, echinococcus_granulosus.PRJNA182977.WBPS19, elaeophora_elaphi.PRJEB502.WBPS19, enoplolaimus_lenunculus.PRJNA953805.WBPS19, enterobius_vermicularis.PRJEB503.WBPS19, globodera_rostochiensis.PRJEB13504.WBPS19, gongylonema_pulchrum.PRJEB505.WBPS19, gyrodactylus_salaris.PRJNA244375.WBPS19, haemonchus_contortus.PRJNA205202.WBPS19, haemonchus_placei.PRJEB509.WBPS19, halicephalobus_nkz332.PRJNA555616.WBPS19, heterodera_schachtii.PRJNA522950.WBPS19, hydatigera_taeniaeformis.PRJEB534.WBPS19, hymenolepis_diminuta.PRJEB30942.WBPS19, hymenolepis_diminuta.PRJEB507.WBPS19, litomosoides_sigmodontis.PRJEB3075.WBPS19, meloidogyne_arenaria.PRJNA340324.WBPS19, meloidogyne_floridensis.PRJEB6016.WBPS19, meloidogyne_incognita.PRJNA340324.WBPS19, mesocestoides_corti.PRJEB510.WBPS19, micoletzkya_japonica.PRJEB27334.WBPS19, necator_americanus.PRJNA72135.WBPS19, nippostrongylus_brasiliensis.PRJEB511.WBPS19, oesophagostomum_dentatum.PRJNA72579.WBPS19, onchocerca_flexuosa.PRJEB512.WBPS19, onchocerca_flexuosa.PRJNA230512.WBPS19, onchocerca_ochengi.PRJEB1204.WBPS19, onchocerca_ochengi.PRJEB1465.WBPS19, onchocerca_volvulus.PRJEB513.WBPS19, opisthorchis_felineus.PRJNA413383.WBPS19, opisthorchis_viverrini.PRJNA222628.WBPS19, panagrolaimus_davidi.PRJEB32708.WBPS19, panagrolaimus_es5.PRJEB32708.WBPS19, panagrolaimus_ju765.PRJEB32708.WBPS19, panagrolaimus_sp1159.PRJEB32708.WBPS19, panagrolaimus_superbus.PRJEB32708.WBPS19, paragonimus_skrjabinimiyazakii.PRJNA245325.WBPS19, parascaris_equorum.PRJEB514.WBPS19, pristionchus_arcanus.PRJEB27334.WBPS19, pristionchus_japonicus.PRJEB27334.WBPS19, pristionchus_maxplancki.PRJEB27334.WBPS19, romanomermis_culicivorax.PRJEB1358.WBPS19, schistocephalus_solidus.PRJEB527.WBPS19, schistosoma_curassoni.PRJEB519.WBPS19, setaria_digitata.PRJNA479729.WBPS19, soboliphyme_baturini.PRJEB516.WBPS19, spirometra_erinaceieuropaei.PRJEB1202.WBPS19, steinernema_carpocapsae.PRJNA202318.WBPS19, steinernema_carpocapsae.V1_PRJNA202318.WBPS19, steinernema_feltiae.PRJNA204661.WBPS19, steinernema_feltiae.PRJNA353610.WBPS19, steinernema_glaseri.PRJNA204943.WBPS19, steinernema_monticolum.PRJNA205067.WBPS19, steinernema_scapterisci.PRJNA204942.WBPS19, strongyloides_venezuelensis.PRJEB530.WBPS19, strongylus_vulgaris.PRJEB531.WBPS19, syphacia_muris.PRJEB524.WBPS19, taenia_asiatica.PRJEB532.WBPS19, taenia_solium.PRJNA170813.WBPS19, teladorsagia_circumcincta.PRJNA72569.WBPS19, trichuris_suis.PRJNA179528.WBPS19

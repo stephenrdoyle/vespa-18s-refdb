@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# Source databases and genomes are downloaded, never committed
+*.fasta
+*.fasta.gz
+*.fa
+*.fa.gz
+
+# Working outputs; the reports worth keeping are copied into results/
+pr2_out/
+wbps_out/
+wbps_vs_pr2/
+pcr_results.json
+wbps_genomes.txt
