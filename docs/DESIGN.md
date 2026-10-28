@@ -400,16 +400,69 @@ That is the pipeline's to fix - index the contexts, for example by
 k-mer, so a hit is checked only against contexts that share sequence
 with it. The release format stays as it is.
 
+**Erratum (found while cutting v0.2.0).** v0.1.0's
+`resolution_illumina_150x150.tsv` overstates the rank reached for
+**8,775 of 89,872 records (227 helminth)**. Records sharing read windows
+were merged with placeholders abstaining, which is right for the labels
+of one sequence but wrong for different sequences a read cannot tell
+apart. `bin/release.py` now takes a strict common ancestor and refuses
+to release if any record resolves deeper through the windows than
+whole. v0.1.0 is left as tagged; use v0.2.0.
+
+### 6.2 v0.2.0
+
+GenBank + PR2 v5.1.1 + ParaRef + WBPS19 + local, in that order of trust;
+built by commit `af46077`. `releases/vespa18s_v0.2.0/summary.txt` and
+`manifest.json` have the details; data in the tarball.
+
+- **94,028 records** (v0.1.0: 89,872); 72,727 Illumina window groups.
+- **Helminth records 8,808** (v0.1.0: 4,678), almost all the gain from
+  GenBank. Species reached: 64% nanopore, 55% Illumina; genus or better
+  94% / 89%.
+- Conflicts: 103 resolved by majority, 20 by trust, 39 unresolved.
+- Format checks pass, and no record resolves deeper through the Illumina
+  windows than whole.
+
+Genera of interest (`results/v0.2.0_genera_of_interest.tsv`; records,
+then how many reach species, nanopore/Illumina):
+
+| genus | records | species N/I | notes |
+|---|---:|---|---|
+| *Haemonchus* | 4 | 2/1 | three species share one V4 |
+| *Teladorsagia* | 1 | 0/0 | local only; shares its record with *Trichostrongylus* |
+| *Ostertagia* | 4 | 3/2 | |
+| *Cooperia*, *Bunostomum* | 0 | | no V4 in any public source |
+| *Oesophagostomum*, *Nematodirus*, *Chabertia* | 1 each | 1/1 | one record each |
+| *Ancylostoma* / *Necator* | 4 / 1 | 2/1, 1/1 | |
+| *Strongyloides* | 25 | 18/16 | |
+| *Trichuris* | 29 | 23/21 | |
+| *Ascaris* / *Toxocara* | 4 / 6 | 3/1, 4/2 | |
+| *Onchocerca* | 1 | 0/0 | 30 partial GenBank records unused |
+| *Brugia* / *Wuchereria* / *Mansonella* / *Dirofilaria* | 8 / 3 / 2 / 7 | 6/4, 2/2, 2/2, 7/7 | |
+| *Schistosoma* | 87 | 53/31 | the largest Illumina loss |
+| *Fasciola* / *Taenia* / *Echinococcus* | 10 / 42 / 18 | 8/4, 40/33, 18/15 | |
+| *Moniezia* / *Dipylidium* / *Hymenolepis* | 10 / 3 / 11 | 8/8, 3/3, 10/8 | |
+| *Giardia* / *Entamoeba* / *Blastocystis* | 20 / 146 / 294 | 15/14, 98/94, 89/55 | |
+| *Cryptosporidium* | 1 | 0/0 | still effectively absent |
+| *Toxoplasma* | 0 | | no amplicon-spanning entry |
+
 ## 7. Order of work
 
 1. ~~PR2 layer, genome layer, collapse with conflict handling~~ (done:
    §4.2, §5).
 2. ~~The rest of a release (§6)~~ (done: `bin/release.py`; first
    release **v0.1.0**, §6.1).
-3. GenBank layer for a priority gap list; measure how many gaps it
-   closes.
-4. VEuPathDB genomes for protists (*Cryptosporidium* first).
-5. Layer 4 format, and the first local sequences.
+3. ~~GenBank layer~~ (helminths done, §4.3); ~~ParaRef~~ (§4.4);
+   ~~local layer~~ (§4.5); **v0.2.0** (§6.2).
+4. Protists properly: *Cryptosporidium*, *Toxoplasma* and other gaps,
+   from VEuPathDB genomes (raw, not decontaminated) and a GenBank pass
+   for protist groups.
+5. Local sequences for *Cooperia*, *Bunostomum* and other trichostrongylid
+   gaps (Sanger, or our own assemblies via `bin/genome_insilico_pcr.py`).
+6. Decide whether partial GenBank records (V4's 3′ end only, as for
+   *Onchocerca*) can enter as partial references.
+7. Make the GenBank layer's other-class check use all cores (it is the
+   slowest step, about 15 minutes single-threaded).
 
 ## 8. Open questions
 

@@ -1,0 +1,63 @@
+vespa18s_v0.2.0  built 2026-10-28T11:57:11Z  code af460771b17d44b2ca00a7ad7175c6f0a4ee399a
+primers AGCAGCCGCGGTAATTCC / TCCGTCAATTYCTTNAASTTTC
+layers: genbank_layer.tsv.gz, pr2_layer.tsv.gz, pararef_layer.tsv.gz, wbps_layer.tsv.gz, local_layer.tsv.gz
+records 94,028; Illumina 150x150 window groups 72,727
+members: GenBank kept 7,899, GenBank overruled 16, PR2_5.1.1 kept 151,752, PR2_5.1.1 overruled 174, ParaRef kept 158, WBPS19 kept 232, local kept 1
+conflicts: majority 103, trust 20, unresolved 39
+
+Deepest rank, all records - nanopore:
+    species        46,246   49.2%
+    genus          23,480   25.0%
+    family         14,197   15.1%
+    order           4,793    5.1%
+    class           4,818    5.1%
+    subdivision       286    0.3%
+    division          190    0.2%
+    supergroup          1    0.0%
+    domain              8    0.0%
+    (none)              9    0.0%
+  Illumina:
+    species        36,778   39.1%
+    genus          23,756   25.3%
+    family         19,887   21.2%
+    order           6,373    6.8%
+    class           6,100    6.5%
+    subdivision       550    0.6%
+    division          419    0.4%
+    supergroup          3    0.0%
+    domain             80    0.1%
+    (none)             82    0.1%
+
+Helminth records (8,808) - nanopore:
+    species         5,638   64.0%
+    genus           2,635   29.9%
+    family            198    2.2%
+    order             284    3.2%
+    class              53    0.6%
+    subdivision         0    0.0%
+    division            0    0.0%
+    supergroup          0    0.0%
+    domain              0    0.0%
+    (none)              0    0.0%
+  Illumina:
+    species         4,833   54.9%
+    genus           3,040   34.5%
+    family            342    3.9%
+    order             503    5.7%
+    class              87    1.0%
+    subdivision         3    0.0%
+    division            0    0.0%
+    supergroup          0    0.0%
+    domain              0    0.0%
+    (none)              0    0.0%
+
+Anchor look-alikes by edits: 1: 2, 2: 1,024, 3: 44,111
+
+Files:
+  anchor_lookalikes.tsv  61227996d524da17
+  conflicts.tsv  0f4acadb12b64ebe
+  members.tsv  f3966b0245ad8c36
+  refdb.fasta  99b127b88c63bebe
+  resolution_illumina_150x150.tsv  a6eb237a7b10f078
+  resolution_nanopore.tsv  dcd4cf887f50fb1e
+  taxonomy.tsv  f84986cf29670b93

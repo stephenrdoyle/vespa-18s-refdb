@@ -1,0 +1,120 @@
+{
+ "name": "vespa18s_v0.2.0",
+ "version": "v0.2.0",
+ "built": "2026-10-28T11:57:11Z",
+ "code_commit": "af460771b17d44b2ca00a7ad7175c6f0a4ee399a",
+ "marker": "18S rRNA V4",
+ "primers": {
+  "forward": {
+   "name": "AMPSEQ_VESPA18S_29F",
+   "sequence": "AGCAGCCGCGGTAATTCC"
+  },
+  "reverse": {
+   "name": "AMPSEQ_VESPA18S_21b8_I_R_Nmod",
+   "sequence": "TCCGTCAATTYCTTNAASTTTC"
+  },
+  "max_edits_in_silico": 2
+ },
+ "insert": "between the primers; primers not included",
+ "illumina_read_length": 150,
+ "illumina_windows": [
+  132,
+  128
+ ],
+ "anchors": {
+  "i5_inner_anchor": "TCGTCGGCAGCGTC",
+  "i7_inner_anchor": "CCGAGCCCACGAGAC"
+ },
+ "lookalike_max_edits": 3,
+ "layers": [
+  {
+   "file": "genbank_layer.tsv.gz",
+   "sha256": "d9b26ae18871807bbcd40e5d7f6420525312ed5615d4df6eb8c0cbd1f2a183ee",
+   "trust_order": 0
+  },
+  {
+   "file": "pr2_layer.tsv.gz",
+   "sha256": "286a855f8f8b965990f6f268b4d76d3170cd9caa844460099a340c3a8bbbed17",
+   "trust_order": 1
+  },
+  {
+   "file": "pararef_layer.tsv.gz",
+   "sha256": "f13d27fe37382b87ecfe56b1ee4e2f173ae7f52889e9c845f397edf6af67a0a8",
+   "trust_order": 2
+  },
+  {
+   "file": "wbps_layer.tsv.gz",
+   "sha256": "f05ba00c7d9b8266c04f47cd21de200d27526765b5cc0361d8b11632e98511ae",
+   "trust_order": 3
+  },
+  {
+   "file": "local_layer.tsv.gz",
+   "sha256": "3b04d39879aeb4b007bf938582363d844349b1e5862b5e62f6bc08d1cbb69dad",
+   "trust_order": 4
+  }
+ ],
+ "sources": [
+  "GenBank",
+  "PR2_5.1.1",
+  "ParaRef",
+  "WBPS19",
+  "local"
+ ],
+ "counts": {
+  "records": 94028,
+  "members": {
+   "GenBank kept": 7899,
+   "GenBank overruled": 16,
+   "PR2_5.1.1 kept": 151752,
+   "PR2_5.1.1 overruled": 174,
+   "ParaRef kept": 158,
+   "WBPS19 kept": 232,
+   "local kept": 1
+  },
+  "conflicts": {
+   "majority": 103,
+   "trust": 20,
+   "unresolved": 39
+  },
+  "deepest_rank_nanopore": {
+   "genus": 23480,
+   "class": 4818,
+   "species": 46246,
+   "family": 14197,
+   "order": 4793,
+   "division": 190,
+   "subdivision": 286,
+   "": 9,
+   "domain": 8,
+   "supergroup": 1
+  },
+  "deepest_rank_illumina": {
+   "genus": 23756,
+   "class": 6100,
+   "species": 36778,
+   "family": 19887,
+   "order": 6373,
+   "": 82,
+   "subdivision": 550,
+   "division": 419,
+   "domain": 80,
+   "supergroup": 3
+  },
+  "helminth_records": 8808,
+  "illumina_window_groups": 72727,
+  "anchor_lookalikes_by_edits": {
+   "1": 2,
+   "2": 1024,
+   "3": 44111
+  }
+ },
+ "files": {
+  "anchor_lookalikes.tsv": "61227996d524da17fca20fd36d04d8a9b71a7aaedca7f83ee9919953e3496a5e",
+  "conflicts.tsv": "0f4acadb12b64ebe38a39ac3cb813fd9189caf466b711c2d950abceed82111b5",
+  "members.tsv": "f3966b0245ad8c36779a535afad78bb6014f90576a1c23b663e5b5f3eddf9ea8",
+  "refdb.fasta": "99b127b88c63bebe140bc8b288e0ed966300d89d2cdf1154fb6468e6b5f2656e",
+  "resolution_illumina_150x150.tsv": "a6eb237a7b10f078d45afea4daf311164ee5fc5065e1c79d2effe6d14488109d",
+  "resolution_nanopore.tsv": "dcd4cf887f50fb1e830f5fc7b70b47b11ac12154ee5fb8d2fc8ed486de5945e8",
+  "taxonomy.tsv": "f84986cf29670b931b1cbfd65d9d0eec19daf215233ab462d4653e77ec52aac8"
+ }
+}

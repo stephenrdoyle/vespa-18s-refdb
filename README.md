@@ -26,6 +26,10 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 | `bin/wbps_layer.py` | **Build.** Layer 2: genome V4 filtered by copy support and phylum, given PR2 ranks (NCBI lineage where PR2 lacks the genus) |
 | `bin/collapse.py` | **Build.** Collapses layers into unique inserts, merges taxonomy, resolves label conflicts; writes `refdb.fasta`, `taxonomy.tsv`, `members.tsv`, `conflicts.tsv` |
 | `bin/release.py` | **Build.** Cuts a release: resolution tables, look-alike mask, manifest, tarball |
+| `bin/genbank_fetch.py`, `bin/genbank_layer.py` | **Build.** GenBank 18S for named taxa; the layer keeps what PR2 lacks |
+| `bin/pararef_insilico_pcr.py`, `bin/pararef_layer.py` | **Build.** Streams the ParaRef archive; its layer, under the genome rules |
+| `bin/local_layer.py`, `local/sequences.tsv` | **Build.** Our own sequences, hand-curated, most trusted |
+| `bin/genome_insilico_pcr.py` | Scans any one genome, URL or file |
 | `bin/vespa.py` | Primers, in-silico PCR and PR2 rank conventions shared by the build |
 | `bin/pr2_insilico_pcr.py` | In-silico PCR over PR2; insert lengths; resolution over the whole insert (nanopore) and the 2x150 read windows (Illumina); adapter-anchor look-alikes |
 | `bin/wbps_insilico_pcr.py` | Streams every WormBase ParaSite genome from the EBI FTP, finds V4 amplicons on both strands, keeps only the hits |
@@ -43,20 +47,32 @@ Python 3.9+, standard library only.
 python3 bin/pr2_layer.py sources/pr2_version_5.1.1_SSU_taxo_long.fasta.gz work/pr2_layer.tsv.gz 8
 python3 bin/wbps_layer.py results/wbps19_v4_amplicons.tsv.gz work/pr2_layer.tsv.gz \
     work/wbps_layer.tsv.gz work/wbps_review.tsv
-python3 bin/collapse.py work/build work/pr2_layer.tsv.gz work/wbps_layer.tsv.gz
-python3 bin/release.py work/build releases v0.1.0 \
-    work/pr2_layer.tsv.gz work/wbps_layer.tsv.gz
+python3 bin/genbank_fetch.py work/genbank Nematoda Platyhelminthes Acanthocephala
+python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/genbank_layer.tsv.gz \
+    work/genbank_review.tsv work/genbank/*.fasta.gz
+python3 bin/pararef_insilico_pcr.py work/pararef_out 6      # streams 21.8GB
+python3 bin/pararef_layer.py work/pararef_out results/pararef_taxa.json \
+    work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz work/pararef_review.tsv
+python3 bin/local_layer.py local/sequences.tsv work/pr2_layer.tsv.gz \
+    work/local_layer.tsv.gz work/local_review.tsv
+
+L="work/genbank_layer.tsv.gz work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz \
+   work/wbps_layer.tsv.gz work/local_layer.tsv.gz"      # increasing trust
+python3 bin/collapse.py work/build $L
+python3 bin/release.py work/build releases v0.2.0 $L
 ```
 
 Layers go to `collapse.py` and `release.py` in increasing order of
-trust. About ten minutes for the PR2 layer, a minute for the release,
-seconds for the rest. A release is never overwritten.
+trust: GenBank, PR2, ParaRef, WBPS, local. Slow steps: the PR2 layer
+(~10 min), the GenBank layer (~15 min; its PCR is then cached), the
+ParaRef stream (~80 min). A release is never overwritten.
 
 ## Releases
 
 | version | contents | notes |
 |---|---|---|
-| v0.1.0 | PR2 v5.1.1 + WBPS19 genomes; 89,872 records | look-alike mask not yet usable by the pipeline (docs/DESIGN.md §6.1) |
+| v0.2.0 | GenBank + PR2 v5.1.1 + ParaRef + WBPS19 + local; 94,028 records, 8,808 helminth | **current** (docs/DESIGN.md §6.2) |
+| v0.1.0 | PR2 v5.1.1 + WBPS19 genomes; 89,872 records | superseded: its Illumina resolution table overstates 8,775 records (§6.1 erratum); look-alike mask not yet usable by the pipeline |
 
 Each release is `releases/vespa18s_<version>/` plus a `.tar.gz`. Only
 `manifest.json` and `summary.txt` are committed; the data travel as the
