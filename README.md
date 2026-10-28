@@ -3,7 +3,7 @@
 Builds the 18S V4 reference database for VESPA-primer metabarcoding:
 everything the primers amplify, trimmed to the amplicon, with taxonomy,
 resolution tables and the adapter look-alike mask. It is consumed by
-[nf-helminth-amplicon](https://github.com/stephenrdoyle/nf-helminth-amplicon) in its
+[amphid](https://github.com/stephenrdoyle/nf-amphid-pipeline) in its
 `--reference_database` mode, and kept separate from it because building
 a reference is its own job - its own inputs, its own release cycle - and
 its output is a versioned artefact, not a pipeline step.
@@ -83,7 +83,7 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 | `bin/pr2_insilico_pcr.py` | In-silico PCR over PR2; insert lengths; resolution over the whole insert (nanopore) and the 2x150 read windows (Illumina); adapter-anchor look-alikes |
 | `bin/wbps_insilico_pcr.py` | Streams every WormBase ParaSite genome from the EBI FTP, finds V4 amplicons on both strands, keeps only the hits |
 | `bin/compare_wbps_pr2.py` | Per genome: is the species in PR2, does its V4 match PR2 and under whose label, nearest PR2 taxon if not, possible contaminants |
-| `bin/seqmatch.py` | Approximate matching and the look-alike scan, copied from nf-helminth-amplicon's `bin/ampseqlib.py`. The look-alike scan must stay identical to the pipeline's, because the pipeline reads the mask built here |
+| `bin/seqmatch.py` | Approximate matching and the look-alike scan, copied from amphid's `bin/ampseqlib.py`. The look-alike scan must stay identical to the pipeline's, because the pipeline reads the mask built here |
 | `results/` | Reports and data from the runs the design note quotes |
 | `docs/DESIGN.md` | Design, measurements, release format |
 
