@@ -24,3 +24,10 @@ sources/*
 
 # Build intermediates
 work/
+
+# Releases: the data travel as the tarball; only the manifest and summary
+# of each release are committed.
+releases/*.tar.gz
+releases/*/*
+!releases/*/manifest.json
+!releases/*/summary.txt
