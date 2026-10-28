@@ -1,0 +1,21 @@
+{
+ "assemblies": {
+  "GCA_020186115.1": "135588",
+  "GCF_020186115.1": "135588",
+  "GCA_020184695.1": "135588"
+ },
+ "taxa": {
+  "135588": {
+   "name": "Histomonas meleagridis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Tritrichomonadida",
+    "Dientamoebidae",
+    "Histomonas"
+   ]
+  }
+ }
+}

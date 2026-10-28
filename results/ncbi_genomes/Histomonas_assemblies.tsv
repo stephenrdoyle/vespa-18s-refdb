@@ -1,0 +1,4 @@
+accession	name	organism	taxid	level	length	contig_n50	released
+GCA_020186115.1	ASM2018611v1	Histomonas meleagridis	135588	Scaffold	43414808	673467	2021-09-30
+GCF_020186115.1	ASM2018611v1	Histomonas meleagridis	135588	Scaffold	43414808	673467	2021-09-30
+GCA_020184695.1	ASM2018469v1	Histomonas meleagridis	135588	Contig	43133364	314021	2021-09-30

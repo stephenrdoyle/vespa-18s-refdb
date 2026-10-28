@@ -1,0 +1,6 @@
+accession	name	organism	taxid	level	length	contig_n50	released
+GCA_026248805.1	ASM2624880v1	Giardia duodenalis	5741	Chromosome	11414075	3046567	2022-11-21
+GCA_000002435.2	UU_WB_2.1	Giardia duodenalis	5741	Chromosome	12078186	2761001	2019-11-06
+GCF_000002435.2	UU_WB_2.1	Giardia duodenalis	5741	Chromosome	12078186	2761001	2019-11-06
+GCA_006247105.1	UU_GM_1.1	Giardia muris	5742	Chromosome	9777924	2398647	2019-07-03
+GCA_000182665.1	ASM18266v1	Giardia lamblia P15	658858	Contig	11522052	71261	2010-10-05

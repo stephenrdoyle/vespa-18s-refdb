@@ -1,0 +1,4 @@
+accession	name	organism	taxid	level	length	contig_n50	released
+GCA_000727475.1	ASM72747v1	Sarcocystis neurona	42890	Scaffold	124404968	116059	2014-07-15
+GCA_000875885.1	ASM87588v1	Sarcocystis neurona	42890	Scaffold	130023008	20961	2015-02-13
+GCA_964212155.1	Sca_genome	Sarcocystis calchasi	1344799	Contig	113893530	6674119	2025-01-03

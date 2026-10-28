@@ -1,0 +1,140 @@
+{
+ "assemblies": {
+  "GCA_057946545.1": "46681",
+  "GCA_000209125.2": "370354",
+  "GCF_000209125.1": "370354",
+  "GCA_057946535.1": "5759",
+  "GCA_015099795.1": "5759",
+  "GCA_000208925.2": "294381",
+  "GCA_000330505.1": "370355",
+  "GCF_000330505.1": "370355",
+  "GCA_002914575.1": "41668",
+  "GCA_000257125.1": "1076696",
+  "GCF_000257125.1": "1076696",
+  "GCA_045861985.1": "412467",
+  "GCA_051620835.1": "1621016"
+ },
+ "taxa": {
+  "1076696": {
+   "name": "Entamoeba nuttalli P19",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Amoebozoa",
+    "Evosea",
+    "Archamoebae",
+    "Mastigamoebida",
+    "Endamoebidae",
+    "Entamoeba",
+    "Entamoeba nuttalli"
+   ]
+  },
+  "1621016": {
+   "name": "Entamoeba marina",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Amoebozoa",
+    "Evosea",
+    "Archamoebae",
+    "Mastigamoebida",
+    "Endamoebidae",
+    "Entamoeba"
+   ]
+  },
+  "294381": {
+   "name": "Entamoeba histolytica HM-1:IMSS",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Amoebozoa",
+    "Evosea",
+    "Archamoebae",
+    "Mastigamoebida",
+    "Endamoebidae",
+    "Entamoeba",
+    "Entamoeba histolytica"
+   ]
+  },
+  "370354": {
+   "name": "Entamoeba dispar SAW760",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Amoebozoa",
+    "Evosea",
+    "Archamoebae",
+    "Mastigamoebida",
+    "Endamoebidae",
+    "Entamoeba",
+    "Entamoeba dispar"
+   ]
+  },
+  "370355": {
+   "name": "Entamoeba invadens IP1",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Amoebozoa",
+    "Evosea",
+    "Archamoebae",
+    "Mastigamoebida",
+    "Endamoebidae",
+    "Entamoeba",
+    "Entamoeba invadens"
+   ]
+  },
+  "412467": {
+   "name": "Entamoeba nuttalli",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Amoebozoa",
+    "Evosea",
+    "Archamoebae",
+    "Mastigamoebida",
+    "Endamoebidae",
+    "Entamoeba"
+   ]
+  },
+  "41668": {
+   "name": "Entamoeba moshkovskii",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Amoebozoa",
+    "Evosea",
+    "Archamoebae",
+    "Mastigamoebida",
+    "Endamoebidae",
+    "Entamoeba"
+   ]
+  },
+  "46681": {
+   "name": "Entamoeba dispar",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Amoebozoa",
+    "Evosea",
+    "Archamoebae",
+    "Mastigamoebida",
+    "Endamoebidae",
+    "Entamoeba"
+   ]
+  },
+  "5759": {
+   "name": "Entamoeba histolytica",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Amoebozoa",
+    "Evosea",
+    "Archamoebae",
+    "Mastigamoebida",
+    "Endamoebidae",
+    "Entamoeba"
+   ]
+  }
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "assemblies": {
+  "GCA_000727475.1": "42890",
+  "GCA_000875885.1": "42890",
+  "GCA_964212155.1": "1344799"
+ },
+ "taxa": {
+  "1344799": {
+   "name": "Sarcocystis calchasi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Sarcocystidae",
+    "Sarcocystis"
+   ]
+  },
+  "42890": {
+   "name": "Sarcocystis neurona",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Sarcocystidae",
+    "Sarcocystis"
+   ]
+  }
+ }
+}

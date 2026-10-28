@@ -1,0 +1,23 @@
+{
+ "assemblies": {
+  "GCA_000209485.1": "481877",
+  "GCF_000209485.1": "481877"
+ },
+ "taxa": {
+  "481877": {
+   "name": "Enterocytozoon bieneusi H348",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Enterocytozoonidae",
+    "Enterocytozoon",
+    "Enterocytozoon bieneusi"
+   ]
+  }
+ }
+}

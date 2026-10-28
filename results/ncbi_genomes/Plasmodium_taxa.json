@@ -1,0 +1,543 @@
+{
+ "assemblies": {
+  "GCA_020844765.3": "73239",
+  "GCA_900002385.2": "5861",
+  "GCF_900002385.2": "5861",
+  "GCA_032713075.1": "36329",
+  "GCF_000002765.6": "36329",
+  "GCA_000002765.3": "36329",
+  "GCA_058584565.1": "5827",
+  "GCA_058640685.1": "5827",
+  "GCA_900180395.1": "5827",
+  "GCA_900090045.1": "5858",
+  "GCF_900090045.1": "5858",
+  "GCA_977926885.1": "5858",
+  "GCA_001680005.1": "208452",
+  "GCF_001680005.1": "208452",
+  "GCA_000725905.1": "208452",
+  "GCA_903994235.1": "138298",
+  "GCA_903994205.1": "119398",
+  "GCA_900681995.1": "54757",
+  "GCA_023973825.1": "5824",
+  "GCF_023973825.1": "5824",
+  "GCA_001885115.2": "5824",
+  "GCA_977926815.1": "36330",
+  "GCA_977926825.1": "36330",
+  "GCA_977926855.1": "36330",
+  "GCA_900002375.2": "5823",
+  "GCF_900002375.2": "5823",
+  "GCA_900044335.1": "5821",
+  "GCA_900002335.2": "31271",
+  "GCF_900002335.3": "31271",
+  "GCA_900095565.1": "5826",
+  "GCA_036584725.1": "77519",
+  "GCA_002157705.1": "77519",
+  "GCF_002157705.1": "77519",
+  "GCA_900097025.1": "5854",
+  "GCA_001601855.1": "5854",
+  "GCF_001601855.1": "5854",
+  "GCA_900097015.1": "880535",
+  "GCF_900097015.1": "880535",
+  "GCA_900097045.1": "647221",
+  "GCA_001602025.1": "647221",
+  "GCF_001602025.1": "647221",
+  "GCA_000002415.2": "5855",
+  "GCF_000002415.2": "5855",
+  "GCA_900093555.2": "5855",
+  "GCA_000006355.3": "5851",
+  "GCF_000006355.2": "5851",
+  "GCA_023845535.1": "5850",
+  "GCA_900240055.1": "720590",
+  "GCA_900257145.2": "720590",
+  "GCA_900005765.1": "85471",
+  "GCF_900005765.1": "85471",
+  "GCA_900095595.1": "880534",
+  "GCA_900097035.1": "880536",
+  "GCA_050575225.1": "5859",
+  "GCA_965178745.1": "5859",
+  "GCA_000524495.1": "1237626",
+  "GCF_000524495.1": "1237626",
+  "GCA_900005855.1": "5849",
+  "GCF_900005855.1": "5849",
+  "GCA_947331455.1": "196059",
+  "GCA_000956335.1": "5857",
+  "GCF_000956335.1": "5857"
+ },
+ "taxa": {
+  "119398": {
+   "name": "Plasmodium vinckei brucechwatti",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Vinckeia",
+    "Plasmodium vinckei"
+   ]
+  },
+  "1237626": {
+   "name": "Plasmodium inui San Antonio 1",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium",
+    "Plasmodium inui"
+   ]
+  },
+  "138298": {
+   "name": "Plasmodium vinckei petteri",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Vinckeia",
+    "Plasmodium vinckei"
+   ]
+  },
+  "196059": {
+   "name": "Plasmodium cf. malariae",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium"
+   ]
+  },
+  "208452": {
+   "name": "Plasmodium coatneyi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium incertae sedis"
+   ]
+  },
+  "31271": {
+   "name": "Plasmodium chabaudi chabaudi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Vinckeia",
+    "Plasmodium chabaudi"
+   ]
+  },
+  "36329": {
+   "name": "Plasmodium falciparum 3D7",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Laverania",
+    "Plasmodium falciparum"
+   ]
+  },
+  "36330": {
+   "name": "Plasmodium ovale",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium"
+   ]
+  },
+  "54757": {
+   "name": "Plasmodium vinckei vinckei",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Vinckeia",
+    "Plasmodium vinckei"
+   ]
+  },
+  "5821": {
+   "name": "Plasmodium berghei",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Vinckeia"
+   ]
+  },
+  "5823": {
+   "name": "Plasmodium berghei ANKA",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Vinckeia",
+    "Plasmodium berghei"
+   ]
+  },
+  "5824": {
+   "name": "Plasmodium brasilianum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium"
+   ]
+  },
+  "5826": {
+   "name": "Plasmodium chabaudi adami",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Vinckeia",
+    "Plasmodium chabaudi"
+   ]
+  },
+  "5827": {
+   "name": "Plasmodium cynomolgi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium"
+   ]
+  },
+  "5849": {
+   "name": "Plasmodium gallinaceum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Haemamoeba"
+   ]
+  },
+  "5850": {
+   "name": "Plasmodium knowlesi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium"
+   ]
+  },
+  "5851": {
+   "name": "Plasmodium knowlesi strain H",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium",
+    "Plasmodium knowlesi"
+   ]
+  },
+  "5854": {
+   "name": "Plasmodium reichenowi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Laverania"
+   ]
+  },
+  "5855": {
+   "name": "Plasmodium vivax",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium"
+   ]
+  },
+  "5857": {
+   "name": "Plasmodium fragile",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium"
+   ]
+  },
+  "5858": {
+   "name": "Plasmodium malariae",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium"
+   ]
+  },
+  "5859": {
+   "name": "Plasmodium simium",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium incertae sedis"
+   ]
+  },
+  "5861": {
+   "name": "Plasmodium yoelii",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Vinckeia"
+   ]
+  },
+  "647221": {
+   "name": "Plasmodium gaboni",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Laverania"
+   ]
+  },
+  "720590": {
+   "name": "Plasmodium billcollinsi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Laverania"
+   ]
+  },
+  "73239": {
+   "name": "Plasmodium yoelii yoelii",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Vinckeia",
+    "Plasmodium yoelii"
+   ]
+  },
+  "77519": {
+   "name": "Plasmodium gonderi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Plasmodium"
+   ]
+  },
+  "85471": {
+   "name": "Plasmodium relictum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Haemamoeba"
+   ]
+  },
+  "880534": {
+   "name": "Plasmodium praefalciparum (nom. ined.)",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Laverania"
+   ]
+  },
+  "880535": {
+   "name": "Plasmodium adleri (nom. inval.)",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Laverania"
+   ]
+  },
+  "880536": {
+   "name": "Plasmodium blacklocki (nom. inval.)",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Haemosporida",
+    "Plasmodiidae",
+    "Plasmodium",
+    "Laverania"
+   ]
+  }
+ }
+}

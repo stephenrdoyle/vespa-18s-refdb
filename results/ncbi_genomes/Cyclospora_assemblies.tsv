@@ -1,0 +1,4 @@
+accession	name	organism	taxid	level	length	contig_n50	released
+GCA_002893425.1	ASM289342v1	Cyclospora cayetanensis	88456	Scaffold	45453701	343439	2018-01-19
+GCA_002893485.1	ASM289348v1	Cyclospora cayetanensis	88456	Scaffold	44612691	273493	2018-01-19
+GCA_002893305.1	ASM289330v1	Cyclospora cayetanensis	88456	Scaffold	44198550	240741	2018-01-19

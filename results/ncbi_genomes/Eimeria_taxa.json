@@ -1,0 +1,307 @@
+{
+ "assemblies": {
+  "GCA_046718765.1": "5801",
+  "GCA_981118555.1": "5801",
+  "GCA_031753475.3": "5801",
+  "GCA_977970315.1": "5804",
+  "GCA_030644505.1": "5804",
+  "GCA_047654765.1": "5804",
+  "GCA_905310635.1": "5802",
+  "GCA_030644485.1": "5802",
+  "GCA_000002835.1": "5802",
+  "GCA_963920595.1": "51316",
+  "GCA_000499445.1": "51316",
+  "GCA_963920585.1": "51316",
+  "GCA_051911505.1": "471275",
+  "GCA_051911595.1": "471279",
+  "GCA_051911515.1": "471277",
+  "GCA_051911535.1": "471278",
+  "GCA_051911575.1": "471282",
+  "GCA_000499385.1": "51315",
+  "GCF_000499385.1": "51315",
+  "GCA_002271815.1": "84963",
+  "GCA_904066255.1": "2052603",
+  "GCA_904066245.1": "2052604",
+  "GCA_000499725.1": "51314",
+  "GCA_904066265.1": "3036441",
+  "GCA_000826945.1": "44416",
+  "GCA_000499745.2": "44415",
+  "GCF_000499745.2": "44415"
+ },
+ "taxa": {
+  "2052603": {
+   "name": "Eimeria sp. OTU-X",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria",
+    "unclassified Eimeria"
+   ]
+  },
+  "2052604": {
+   "name": "Eimeria sp. OTU-Y",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria",
+    "unclassified Eimeria"
+   ]
+  },
+  "3036441": {
+   "name": "Eimeria zaria",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "44415": {
+   "name": "Eimeria mitis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "44416": {
+   "name": "Eimeria nieschulzi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "471275": {
+   "name": "Eimeria stiedae",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "471277": {
+   "name": "Eimeria flavescens",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "471278": {
+   "name": "Eimeria intestinalis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "471279": {
+   "name": "Eimeria media",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "471282": {
+   "name": "Eimeria magna",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "51314": {
+   "name": "Eimeria brunetti",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "51315": {
+   "name": "Eimeria necatrix",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "51316": {
+   "name": "Eimeria praecox",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "5801": {
+   "name": "Eimeria acervulina",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "5802": {
+   "name": "Eimeria tenella",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "5804": {
+   "name": "Eimeria maxima",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  },
+  "84963": {
+   "name": "Eimeria falciformis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Eimeria"
+   ]
+  }
+ }
+}

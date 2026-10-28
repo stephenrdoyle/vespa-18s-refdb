@@ -1,0 +1,25 @@
+{
+ "assemblies": {
+  "GCA_049996585.1": "5811",
+  "GCA_016808245.1": "5811",
+  "GCA_019455585.1": "5811"
+ },
+ "taxa": {
+  "5811": {
+   "name": "Toxoplasma gondii",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Sarcocystidae",
+    "Toxoplasma"
+   ]
+  }
+ }
+}

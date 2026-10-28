@@ -1,0 +1,25 @@
+{
+ "assemblies": {
+  "GCA_002893425.1": "88456",
+  "GCA_002893485.1": "88456",
+  "GCA_002893305.1": "88456"
+ },
+ "taxa": {
+  "88456": {
+   "name": "Cyclospora cayetanensis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Eimeriidae",
+    "Cyclospora"
+   ]
+  }
+ }
+}

@@ -35,7 +35,7 @@ import time
 import urllib.request
 import xml.etree.ElementTree as ET
 from collections import Counter
-from multiprocessing import Pool
+from multiprocessing import Pool, get_context
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from vespa import RANKS, PR2Index, pcr  # noqa: E402
@@ -64,6 +64,13 @@ def _pcr_both(rec):
         if s2 == "amplicon":
             status, ins, fc, rc = s2, i2, f2, r2
     return acc, tx, title, status, ins, fc, rc
+
+
+_PR2 = None
+
+
+def _nearest(ins: str):
+    return _PR2.nearest_class(ins)
 
 
 def lineages(taxids, cache_path: str) -> dict:
@@ -159,6 +166,16 @@ def main() -> int:
         keep.append((acc, tx, title, ins, fc, rc))
     tax = lineages([k[1] for k in keep], os.path.join(workdir, "ncbi_taxids.json"))
 
+    # The other-class check compares every insert with all of PR2 and was
+    # the slowest step on one core. The k-mer index is built here, once,
+    # and the workers are forked so they share it rather than rebuild it.
+    pr2.nearest_class("")
+    global _PR2
+    _PR2 = pr2
+    with get_context("fork").Pool(os.cpu_count()) as pool:
+        nearest = dict(zip((k[3] for k in keep),
+                           pool.map(_nearest, [k[3] for k in keep], chunksize=50)))
+
     rows, review, how = [], [], Counter()
     for acc, tx, title, ins, fc, rc in keep:
         t = tax.get(tx)
@@ -166,7 +183,7 @@ def main() -> int:
             stats["no_taxonomy"] += 1
             continue
         genus, species = pr2_label(t)
-        cls, share = pr2.nearest_class(ins)
+        cls, share = nearest[ins]
         ranks, h = pr2.ranks_for(genus, species, t["lineage"], cls)
         how[h.split()[0]] += 1
         if ranks[4] and cls and cls != ranks[4]:

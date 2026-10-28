@@ -1,0 +1,91 @@
+{
+ "assemblies": {
+  "GCA_052324655.1": "5722",
+  "GCA_026262505.1": "412133",
+  "GCF_026262505.1": "412133",
+  "GCA_061597355.1": "43075",
+  "GCA_023091735.1": "43075",
+  "GCA_900231805.1": "43075",
+  "GCA_047301465.1": "56777",
+  "GCA_008369845.1": "56777",
+  "GCA_047372375.1": "3101555",
+  "GCA_047372395.1": "3101554"
+ },
+ "taxa": {
+  "3101554": {
+   "name": "Trichomonas sp. genotype 1c",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Trichomonadida",
+    "Trichomonadidae",
+    "Trichomonas",
+    "unclassified Trichomonas"
+   ]
+  },
+  "3101555": {
+   "name": "Trichomonas sp. genotype 2a",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Trichomonadida",
+    "Trichomonadidae",
+    "Trichomonas",
+    "unclassified Trichomonas"
+   ]
+  },
+  "412133": {
+   "name": "Trichomonas vaginalis G3",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Trichomonadida",
+    "Trichomonadidae",
+    "Trichomonas",
+    "Trichomonas vaginalis"
+   ]
+  },
+  "43075": {
+   "name": "Trichomonas tenax",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Trichomonadida",
+    "Trichomonadidae",
+    "Trichomonas"
+   ]
+  },
+  "56777": {
+   "name": "Trichomonas gallinae",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Trichomonadida",
+    "Trichomonadidae",
+    "Trichomonas"
+   ]
+  },
+  "5722": {
+   "name": "Trichomonas vaginalis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Trichomonadida",
+    "Trichomonadidae",
+    "Trichomonas"
+   ]
+  }
+ }
+}

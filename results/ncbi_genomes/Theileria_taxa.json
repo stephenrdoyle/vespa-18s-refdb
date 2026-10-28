@@ -1,0 +1,164 @@
+{
+ "assemblies": {
+  "GCA_024610995.1": "5872",
+  "GCA_000342415.1": "1537102",
+  "GCF_000342415.1": "1537102",
+  "GCA_003072545.4": "68886",
+  "GCA_003072535.4": "68886",
+  "GCA_000740895.1": "869250",
+  "GCA_050329265.1": "1884592",
+  "GCF_000003225.4": "5874",
+  "GCA_000003225.1": "5874",
+  "GCA_000165365.1": "333668",
+  "GCF_000165365.1": "333668",
+  "GCA_014884785.1": "5875",
+  "GCA_026724395.1": "1379477",
+  "GCA_029379255.1": "540482"
+ },
+ "taxa": {
+  "1379477": {
+   "name": "Theileria sp. buffalo",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria",
+    "unclassified Theileria"
+   ]
+  },
+  "1537102": {
+   "name": "Theileria equi strain WA",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria",
+    "Theileria equi"
+   ]
+  },
+  "1884592": {
+   "name": "Theileria haneyi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria"
+   ]
+  },
+  "333668": {
+   "name": "Theileria parva strain Muguga",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria",
+    "Theileria parva"
+   ]
+  },
+  "540482": {
+   "name": "Theileria luwenshuni",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria"
+   ]
+  },
+  "5872": {
+   "name": "Theileria equi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria"
+   ]
+  },
+  "5874": {
+   "name": "Theileria annulata",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria"
+   ]
+  },
+  "5875": {
+   "name": "Theileria parva",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria"
+   ]
+  },
+  "68886": {
+   "name": "Theileria orientalis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria"
+   ]
+  },
+  "869250": {
+   "name": "Theileria orientalis strain Shintoku",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Theileriidae",
+    "Theileria",
+    "Theileria orientalis"
+   ]
+  }
+ }
+}

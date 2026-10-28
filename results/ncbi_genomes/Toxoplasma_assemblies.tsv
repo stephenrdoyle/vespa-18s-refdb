@@ -1,0 +1,4 @@
+accession	name	organism	taxid	level	length	contig_n50	released
+GCA_049996585.1	ASM4999658v1	Toxoplasma gondii	5811	Chromosome	64501469	6685462	2025-04-29
+GCA_016808245.1	ASM1680824v1	Toxoplasma gondii	5811	Chromosome	64490941	6680781	2021-02-04
+GCA_019455585.1	ASM1945558v1	Toxoplasma gondii	5811	Chromosome	64744900	6675137	2021-08-09

@@ -1,0 +1,19 @@
+{
+ "assemblies": {
+  "GCA_047301545.1": "5728"
+ },
+ "taxa": {
+  "5728": {
+   "name": "Pentatrichomonas hominis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Trichomonadida",
+    "Trichomonadidae",
+    "Pentatrichomonas"
+   ]
+  }
+ }
+}

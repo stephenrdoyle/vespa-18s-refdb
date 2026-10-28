@@ -1,0 +1,476 @@
+{
+ "assemblies": {
+  "GCA_917563935.1": "5697",
+  "GCA_043380945.1": "5697",
+  "GCA_057657675.1": "5697",
+  "GCA_054345675.1": "3476666",
+  "GCA_044048535.1": "5693",
+  "GCA_051170875.1": "5693",
+  "GCA_036485885.1": "5693",
+  "GCA_056783695.1": "5692",
+  "GCA_982258845.1": "5692",
+  "GCA_000227395.2": "1068625",
+  "GCA_000002445.1": "185431",
+  "GCF_000002445.2": "185431",
+  "GCA_003543875.1": "630700",
+  "GCA_056247815.1": "38249",
+  "GCA_982375215.1": "1055687",
+  "GCA_046128835.1": "5699",
+  "GCA_021307395.1": "5699",
+  "GCA_036321165.1": "71806",
+  "GCA_036321185.1": "5695",
+  "GCA_030849715.1": "71805",
+  "GCA_030849725.1": "38248",
+  "GCA_053525015.1": "3041299",
+  "GCA_030849675.1": "3041299",
+  "GCA_977064345.1": "3041299",
+  "GCA_030849755.1": "43998",
+  "GCA_030849745.1": "51349",
+  "GCA_036321205.1": "629700",
+  "GCA_002087225.1": "67003",
+  "GCF_002087225.1": "67003",
+  "GCA_964197935.1": "67003",
+  "GCA_003719475.1": "5698",
+  "GCF_003719475.1": "5698",
+  "GCA_062034323.1": "5698",
+  "GCA_003719485.1": "83891",
+  "GCF_003719485.1": "83891",
+  "GCA_000691245.1": "71804",
+  "GCF_000691245.1": "71804",
+  "GCA_001457755.2": "5694",
+  "GCF_001457755.1": "5694",
+  "GCA_964197905.1": "78086",
+  "GCA_022059095.1": "715481",
+  "GCF_022059095.1": "715481",
+  "GCA_058130045.1": "169531",
+  "GCA_964197925.1": "2583291",
+  "GCA_964197915.1": "1167208"
+ },
+ "taxa": {
+  "1055687": {
+   "name": "Trypanosoma vivax Y486",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Duttonella",
+    "Trypanosoma vivax"
+   ]
+  },
+  "1068625": {
+   "name": "Trypanosoma congolense IL3000",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Nannomonas",
+    "Trypanosoma congolense"
+   ]
+  },
+  "1167208": {
+   "name": "Trypanosoma erneyi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Schizotrypanum"
+   ]
+  },
+  "169531": {
+   "name": "Trypanosoma grosi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "185431": {
+   "name": "Trypanosoma brucei brucei TREU927",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanozoon",
+    "Trypanosoma brucei",
+    "Trypanosoma brucei brucei"
+   ]
+  },
+  "2583291": {
+   "name": "Trypanosoma suis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Pycnomonas"
+   ]
+  },
+  "3041299": {
+   "name": "Trypanosoma platydactyli",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "3476666": {
+   "name": "Trypanosoma larimichthysi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "38248": {
+   "name": "Trypanosoma boissoni",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "38249": {
+   "name": "Trypanosoma carassii",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "43998": {
+   "name": "Trypanosoma avium",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "51349": {
+   "name": "Trypanosoma scelopori",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "5692": {
+   "name": "Trypanosoma congolense",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Nannomonas"
+   ]
+  },
+  "5693": {
+   "name": "Trypanosoma cruzi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Schizotrypanum"
+   ]
+  },
+  "5694": {
+   "name": "Trypanosoma equiperdum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanozoon"
+   ]
+  },
+  "5695": {
+   "name": "Trypanosoma lewisi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Herpetosoma"
+   ]
+  },
+  "5697": {
+   "name": "Trypanosoma evansi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanozoon"
+   ]
+  },
+  "5698": {
+   "name": "Trypanosoma rangeli",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Herpetosoma"
+   ]
+  },
+  "5699": {
+   "name": "Trypanosoma vivax",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Duttonella"
+   ]
+  },
+  "629700": {
+   "name": "Trypanosoma caninum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "630700": {
+   "name": "Trypanosoma brucei equiperdum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanozoon",
+    "Trypanosoma brucei"
+   ]
+  },
+  "67003": {
+   "name": "Trypanosoma theileri",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "715481": {
+   "name": "Trypanosoma melophagium",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Megatrypanum"
+   ]
+  },
+  "71804": {
+   "name": "Trypanosoma grayi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "71805": {
+   "name": "Trypanosoma mega",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "71806": {
+   "name": "Trypanosoma musculi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "78086": {
+   "name": "Trypanosoma pestanai",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  },
+  "83891": {
+   "name": "Trypanosoma conorhini",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Trypanosoma",
+    "Trypanosoma incertae sedis"
+   ]
+  }
+ }
+}

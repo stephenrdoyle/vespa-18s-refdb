@@ -1,0 +1,235 @@
+{
+ "assemblies": {
+  "GCA_053477425.1": "5871",
+  "GCA_024862765.1": "5871",
+  "GCF_024862765.1": "5871",
+  "GCA_030583055.1": "5865",
+  "GCA_053569505.1": "5865",
+  "GCA_000165395.2": "484906",
+  "GCA_035575875.1": "33632",
+  "GCA_052818155.1": "33632",
+  "GCA_030849525.1": "33632",
+  "GCA_000981445.1": "5866",
+  "GCF_000981445.1": "5866",
+  "GCA_000723445.1": "5866",
+  "GCA_000691945.2": "1133968",
+  "GCF_000691945.2": "1133968",
+  "GCA_026802255.1": "5868",
+  "GCA_045269395.1": "167444",
+  "GCA_028658345.1": "323732",
+  "GCF_028658345.1": "323732",
+  "GCA_024586265.1": "323732",
+  "GCA_023705535.2": "5869",
+  "GCA_051529585.1": "5869",
+  "GCA_002095265.1": "462227",
+  "GCF_002095265.1": "462227",
+  "GCA_041734975.1": "35084",
+  "GCA_018398725.1": "32595",
+  "GCA_001077455.2": "32595",
+  "GCA_002897235.1": "189622",
+  "GCF_002897235.1": "189622"
+ },
+ "taxa": {
+  "1133968": {
+   "name": "Babesia microti strain RI",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia",
+    "Babesia microti"
+   ]
+  },
+  "167444": {
+   "name": "Babesia canis rossi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia",
+    "Babesia canis"
+   ]
+  },
+  "189622": {
+   "name": "Babesia ovata",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia"
+   ]
+  },
+  "323732": {
+   "name": "Babesia duncani",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia"
+   ]
+  },
+  "32595": {
+   "name": "Babesia divergens",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia"
+   ]
+  },
+  "33632": {
+   "name": "Babesia gibsoni",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia"
+   ]
+  },
+  "35084": {
+   "name": "Babesia sp.",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia",
+    "unclassified Babesia"
+   ]
+  },
+  "462227": {
+   "name": "Babesia sp. Xinjiang",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia",
+    "unclassified Babesia"
+   ]
+  },
+  "484906": {
+   "name": "Babesia bovis T2Bo",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia",
+    "Babesia bovis"
+   ]
+  },
+  "5865": {
+   "name": "Babesia bovis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia"
+   ]
+  },
+  "5866": {
+   "name": "Babesia bigemina",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia"
+   ]
+  },
+  "5868": {
+   "name": "Babesia microti",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia"
+   ]
+  },
+  "5869": {
+   "name": "Babesia ovis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia"
+   ]
+  },
+  "5871": {
+   "name": "Babesia caballi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Aconoidasida",
+    "Piroplasmida",
+    "Babesiidae",
+    "Babesia"
+   ]
+  }
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "assemblies": {
+  "GCA_026248805.1": "5741",
+  "GCA_000002435.2": "5741",
+  "GCF_000002435.2": "5741",
+  "GCA_006247105.1": "5742",
+  "GCA_000182665.1": "658858"
+ },
+ "taxa": {
+  "5741": {
+   "name": "Giardia duodenalis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Fornicata",
+    "Diplomonadida",
+    "Hexamitidae",
+    "Giardiinae",
+    "Giardia"
+   ]
+  },
+  "5742": {
+   "name": "Giardia muris",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Fornicata",
+    "Diplomonadida",
+    "Hexamitidae",
+    "Giardiinae",
+    "Giardia"
+   ]
+  },
+  "658858": {
+   "name": "Giardia lamblia P15",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Fornicata",
+    "Diplomonadida",
+    "Hexamitidae",
+    "Giardiinae",
+    "Giardia",
+    "Giardia duodenalis"
+   ]
+  }
+ }
+}

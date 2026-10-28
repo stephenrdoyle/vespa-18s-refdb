@@ -1,0 +1,75 @@
+{
+ "assemblies": {
+  "GCA_041260205.1": "1144522",
+  "GCA_060176425.1": "1144522",
+  "GCA_001839685.2": "1144522",
+  "GCA_039105265.1": "1915356",
+  "GCA_056320265.1": "2974681",
+  "GCA_042220005.1": "2879968",
+  "GCA_056320305.1": "2962107"
+ },
+ "taxa": {
+  "1144522": {
+   "name": "Tritrichomonas foetus",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Tritrichomonadida",
+    "Tritrichomonadidae",
+    "Tritrichomonas"
+   ]
+  },
+  "1915356": {
+   "name": "Tritrichomonas musculus",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Tritrichomonadida",
+    "Tritrichomonadidae",
+    "Tritrichomonas"
+   ]
+  },
+  "2879968": {
+   "name": "Tritrichomonas sp. LL5",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Tritrichomonadida",
+    "Tritrichomonadidae",
+    "Tritrichomonas",
+    "unclassified Tritrichomonas"
+   ]
+  },
+  "2962107": {
+   "name": "Tritrichomonas casperi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Tritrichomonadida",
+    "Tritrichomonadidae",
+    "Tritrichomonas"
+   ]
+  },
+  "2974681": {
+   "name": "Tritrichomonas sp. MEG-2016a ic1",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Metamonada",
+    "Parabasalia",
+    "Tritrichomonadida",
+    "Tritrichomonadidae",
+    "Tritrichomonas",
+    "unclassified Tritrichomonas"
+   ]
+  }
+ }
+}

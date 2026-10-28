@@ -1,0 +1,25 @@
+{
+ "assemblies": {
+  "GCA_016097395.1": "29176",
+  "GCA_016097425.1": "29176",
+  "GCA_000208865.2": "29176"
+ },
+ "taxa": {
+  "29176": {
+   "name": "Neospora caninum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Alveolata",
+    "Apicomplexa",
+    "Conoidasida",
+    "Coccidia",
+    "Eucoccidiorida",
+    "Eimeriorina",
+    "Sarcocystidae",
+    "Neospora"
+   ]
+  }
+ }
+}

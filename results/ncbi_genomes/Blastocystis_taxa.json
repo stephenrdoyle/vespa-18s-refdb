@@ -1,0 +1,89 @@
+{
+ "assemblies": {
+  "GCA_039096195.1": "3128534",
+  "GCA_001651215.1": "478820",
+  "GCA_000963415.1": "944208",
+  "GCA_000151665.1": "12968",
+  "GCF_000151665.1": "12968",
+  "GCA_948471165.1": "12968",
+  "GCA_935749445.1": "444509",
+  "GCA_944319995.1": "444509",
+  "GCA_935749045.1": "444509"
+ },
+ "taxa": {
+  "12968": {
+   "name": "Blastocystis hominis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis"
+   ]
+  },
+  "3128534": {
+   "name": "Blastocystis sp. BT1",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "unclassified Blastocystis"
+   ]
+  },
+  "444509": {
+   "name": "uncultured Blastocystis sp.",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "environmental samples"
+   ]
+  },
+  "478820": {
+   "name": "Blastocystis sp. ATCC 50177/Nand II",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "Blastocystis hominis"
+   ]
+  },
+  "944208": {
+   "name": "Blastocystis sp. subtype 6",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "Blastocystis sp. subtypes"
+   ]
+  }
+ }
+}

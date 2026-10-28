@@ -1,0 +1,151 @@
+{
+ "assemblies": {
+  "GCA_986194495.1": "3417535",
+  "GCA_986195105.1": "3417536",
+  "GCA_027571585.1": "6035",
+  "GCA_000091225.2": "284813",
+  "GCF_000091225.2": "284813",
+  "GCA_024399255.1": "27973",
+  "GCA_029215505.1": "27973",
+  "GCA_000277815.3": "907965",
+  "GCA_024399295.1": "58839",
+  "GCA_000146465.1": "876142",
+  "GCF_000146465.1": "876142",
+  "GCA_000280035.2": "1178016",
+  "GCF_000280035.1": "1178016"
+ },
+ "taxa": {
+  "1178016": {
+   "name": "Encephalitozoon romaleae SJ-2008",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Unikaryonidae",
+    "Encephalitozoon",
+    "Encephalitozoon romaleae"
+   ]
+  },
+  "27973": {
+   "name": "Encephalitozoon hellem",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Unikaryonidae",
+    "Encephalitozoon"
+   ]
+  },
+  "284813": {
+   "name": "Encephalitozoon cuniculi GB-M1",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Unikaryonidae",
+    "Encephalitozoon",
+    "Encephalitozoon cuniculi"
+   ]
+  },
+  "3417535": {
+   "name": "Encephalitozoon sp. gmOTU3 Ox001895",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Unikaryonidae",
+    "Encephalitozoon",
+    "unclassified Encephalitozoon"
+   ]
+  },
+  "3417536": {
+   "name": "Encephalitozoon sp. gmOTU3 Ox002250",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Unikaryonidae",
+    "Encephalitozoon",
+    "unclassified Encephalitozoon"
+   ]
+  },
+  "58839": {
+   "name": "Encephalitozoon intestinalis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Unikaryonidae",
+    "Encephalitozoon"
+   ]
+  },
+  "6035": {
+   "name": "Encephalitozoon cuniculi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Unikaryonidae",
+    "Encephalitozoon"
+   ]
+  },
+  "876142": {
+   "name": "Encephalitozoon intestinalis ATCC 50506",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Unikaryonidae",
+    "Encephalitozoon",
+    "Encephalitozoon intestinalis"
+   ]
+  },
+  "907965": {
+   "name": "Encephalitozoon hellem ATCC 50504",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Fungi",
+    "Fungi incertae sedis",
+    "Microsporidia",
+    "Apansporoblastina",
+    "Unikaryonidae",
+    "Encephalitozoon",
+    "Encephalitozoon hellem"
+   ]
+  }
+ }
+}

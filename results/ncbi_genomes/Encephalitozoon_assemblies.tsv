@@ -1,0 +1,14 @@
+accession	name	organism	taxid	level	length	contig_n50	released
+GCA_986194495.1	ilEupExig1.microsporidian_1.1	Encephalitozoon sp. gmOTU3 Ox001895	3417535	Complete Genome	2524127	452115	2026-06-23
+GCA_986195105.1	ilNemKoen2.microsporidian_1.1	Encephalitozoon sp. gmOTU3 Ox002250	3417536	Contig	2350027	171021	2026-07-01
+GCA_027571585.1	ASM2757158v1	Encephalitozoon cuniculi	6035	Complete Genome	2847233	248776	2023-01-05
+GCA_000091225.2	ASM9122v2	Encephalitozoon cuniculi GB-M1	284813	Chromosome	2497519	218329	2017-03-09
+GCF_000091225.2	ASM9122v2	Encephalitozoon cuniculi GB-M1	284813	Chromosome	2497519	218329	2017-03-09
+GCA_024399255.1	ASM2439925v1	Encephalitozoon hellem	27973	Complete Genome	2707802	248313	2022-07-25
+GCA_029215505.1	ASM2921550v1	Encephalitozoon hellem	27973	Complete Genome	2695570	246261	2023-03-15
+GCA_000277815.3	ASM27781v3	Encephalitozoon hellem ATCC 50504	907965	Chromosome	2251784	200132	2012-07-16
+GCA_024399295.1	ASM2439929v1	Encephalitozoon intestinalis	58839	Complete Genome	2609445	230490	2022-07-25
+GCA_000146465.1	ASM14646v1	Encephalitozoon intestinalis ATCC 50506	876142	Chromosome	2216898	196642	2010-08-16
+GCF_000146465.1	ASM14646v1	Encephalitozoon intestinalis ATCC 50506	876142	Chromosome	2216898	196642	2010-08-16
+GCA_000280035.2	ASM28003v2	Encephalitozoon romaleae SJ-2008	1178016	Chromosome	2187595	194799	2012-07-19
+GCF_000280035.1	ASM28003v2	Encephalitozoon romaleae SJ-2008	1178016	Chromosome	2187595	194799	2012-07-19

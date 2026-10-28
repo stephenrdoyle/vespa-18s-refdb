@@ -1,0 +1,4 @@
+accession	name	organism	taxid	level	length	contig_n50	released
+GCA_016097395.1	Ncaninum_LIV	Neospora caninum	29176	Chromosome	61494165	6402748	2020-12-17
+GCA_016097425.1	Ncaninum_Uru1	Neospora caninum	29176	Chromosome	61398675	2254088	2020-12-17
+GCA_000208865.2	ASM20886v2	Neospora caninum	29176	Chromosome	57547420	405161	2011-03-02

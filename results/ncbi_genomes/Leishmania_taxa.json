@@ -1,0 +1,626 @@
+{
+ "assemblies": {
+  "GCA_000755165.2": "5679",
+  "GCA_041682215.1": "5679",
+  "GCA_041682195.1": "5679",
+  "GCA_005317125.1": "5659",
+  "GCA_030937385.1": "5659",
+  "GCA_025688915.1": "5659",
+  "GCA_024970365.1": "5670",
+  "GCA_022701395.1": "5670",
+  "GCA_041682325.1": "5670",
+  "GCA_000002725.2": "347515",
+  "GCF_000002725.2": "347515",
+  "GCA_916722125.1": "347515",
+  "GCA_003719575.1": "5661",
+  "GCA_900635355.2": "5661",
+  "GCA_002243465.1": "5661",
+  "GCA_900500625.2": "435258",
+  "GCA_003020905.1": "5671",
+  "GCA_000002875.2": "435258",
+  "GCA_041682205.1": "3137466",
+  "GCA_041682225.1": "3137466",
+  "GCA_900537975.2": "420245",
+  "GCA_024505685.1": "5660",
+  "GCA_044509545.1": "5660",
+  "GCA_014139745.1": "5666",
+  "GCA_000410715.1": "1206058",
+  "GCA_003352575.1": "5666",
+  "GCA_017918215.1": "2803181",
+  "GCF_017918215.1": "2803181",
+  "GCA_017918225.1": "2802991",
+  "GCA_017916335.1": "2249476",
+  "GCF_017916335.1": "2249476",
+  "GCA_023159015.1": "2249476",
+  "GCA_017916325.1": "1580590",
+  "GCF_017916325.1": "1580590",
+  "GCA_023158965.1": "1580590",
+  "GCA_017916305.1": "5663",
+  "GCF_017916305.1": "5663",
+  "GCA_000410755.2": "5663",
+  "GCA_003992435.2": "5665",
+  "GCA_000234665.4": "929439",
+  "GCF_000234665.1": "929439",
+  "GCA_033953505.1": "5689",
+  "GCA_988241125.1": "5689",
+  "GCA_977064355.1": "5689",
+  "GCA_014466975.1": "44271",
+  "GCA_014466935.1": "44271",
+  "GCA_018290745.1": "44271",
+  "GCA_051989855.1": "5680",
+  "GCA_040363515.1": "5680",
+  "GCA_040363645.1": "5680",
+  "GCA_000410695.2": "40284",
+  "GCA_040363505.1": "653362",
+  "GCA_040363675.1": "651832",
+  "GCA_040363635.1": "5678",
+  "GCA_051201425.1": "5678",
+  "GCA_000444285.2": "1206056",
+  "GCA_003992445.1": "5667",
+  "GCA_902369305.1": "5674",
+  "GCA_001403675.1": "5681",
+  "GCA_001403695.1": "5681",
+  "GCA_055690245.1": "5681",
+  "GCA_000443025.1": "40285",
+  "GCA_000441995.1": "62297",
+  "GCA_058218795.1": "5677",
+  "GCA_058218815.1": "5677",
+  "GCA_003664395.1": "5677"
+ },
+ "taxa": {
+  "1206056": {
+   "name": "Leishmania aethiopica L147",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania aethiopica species complex",
+    "Leishmania aethiopica"
+   ]
+  },
+  "1206058": {
+   "name": "Leishmania tropica L590",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania tropica species complex",
+    "Leishmania tropica"
+   ]
+  },
+  "1580590": {
+   "name": "Leishmania martiniquensis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania"
+   ]
+  },
+  "2249476": {
+   "name": "Leishmania orientalis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Mundinia"
+   ]
+  },
+  "2802991": {
+   "name": "Leishmania sp. Namibia",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Mundinia",
+    "unclassified Mundinia"
+   ]
+  },
+  "2803181": {
+   "name": "Leishmania sp. Ghana 2012 LV757",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Mundinia",
+    "unclassified Mundinia"
+   ]
+  },
+  "3137466": {
+   "name": "Leishmania cf. guyanensis/panamensis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia",
+    "Leishmania guyanensis species complex"
+   ]
+  },
+  "347515": {
+   "name": "Leishmania major strain Friedlin",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania major species complex",
+    "Leishmania major"
+   ]
+  },
+  "40284": {
+   "name": "Leishmania arabica",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania"
+   ]
+  },
+  "40285": {
+   "name": "Leishmania gerbilli",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania"
+   ]
+  },
+  "420245": {
+   "name": "Leishmania braziliensis MHOM/BR/75/M2904",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia",
+    "Leishmania braziliensis species complex",
+    "Leishmania braziliensis"
+   ]
+  },
+  "435258": {
+   "name": "Leishmania infantum JPCM5",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania donovani species complex",
+    "Leishmania infantum"
+   ]
+  },
+  "44271": {
+   "name": "Leishmania chagasi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania donovani species complex"
+   ]
+  },
+  "5659": {
+   "name": "Leishmania amazonensis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania mexicana species complex"
+   ]
+  },
+  "5660": {
+   "name": "Leishmania braziliensis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia",
+    "Leishmania braziliensis species complex"
+   ]
+  },
+  "5661": {
+   "name": "Leishmania donovani",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania donovani species complex"
+   ]
+  },
+  "5663": {
+   "name": "Leishmania enriettii",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Mundinia"
+   ]
+  },
+  "5665": {
+   "name": "Leishmania mexicana",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania mexicana species complex"
+   ]
+  },
+  "5666": {
+   "name": "Leishmania tropica",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania tropica species complex"
+   ]
+  },
+  "5667": {
+   "name": "Leishmania aethiopica",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania aethiopica species complex"
+   ]
+  },
+  "5670": {
+   "name": "Leishmania guyanensis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia",
+    "Leishmania guyanensis species complex"
+   ]
+  },
+  "5671": {
+   "name": "Leishmania infantum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania donovani species complex"
+   ]
+  },
+  "5674": {
+   "name": "Leishmania adleri",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "lizard Leishmania"
+   ]
+  },
+  "5677": {
+   "name": "Leishmania lainsoni",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia",
+    "Leishmania lainsoni species complex"
+   ]
+  },
+  "5678": {
+   "name": "Leishmania naiffi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia",
+    "Leishmania naiffi species complex"
+   ]
+  },
+  "5679": {
+   "name": "Leishmania panamensis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia",
+    "Leishmania guyanensis species complex"
+   ]
+  },
+  "5680": {
+   "name": "Leishmania shawi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia",
+    "Leishmania guyanensis species complex"
+   ]
+  },
+  "5681": {
+   "name": "Leishmania peruviana",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia",
+    "Leishmania braziliensis species complex"
+   ]
+  },
+  "5689": {
+   "name": "Leishmania tarentolae",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "lizard Leishmania"
+   ]
+  },
+  "62297": {
+   "name": "Leishmania turanica",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania"
+   ]
+  },
+  "651832": {
+   "name": "Leishmania lindenbergi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia"
+   ]
+  },
+  "653362": {
+   "name": "Leishmania utingensis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Viannia"
+   ]
+  },
+  "929439": {
+   "name": "Leishmania mexicana MHOM/GT/2001/U1103",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Discoba",
+    "Euglenozoa",
+    "Kinetoplastea",
+    "Metakinetoplastina",
+    "Trypanosomatida",
+    "Trypanosomatidae",
+    "Leishmaniinae",
+    "Leishmania",
+    "Leishmania",
+    "Leishmania mexicana species complex",
+    "Leishmania mexicana"
+   ]
+  }
+ }
+}
