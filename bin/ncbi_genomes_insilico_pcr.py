@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """Stream every NCBI genome assembly for a taxon through the V4 scan.
 
-    bin/ncbi_genomes_insilico_pcr.py <taxon> <outdir> [workers]
+    bin/ncbi_genomes_insilico_pcr.py <taxon> <outdir> [workers] [max per species]
+
+With a cap, only that many assemblies per species are scanned - the most
+contiguous (complete genome, then chromosome, scaffold, contig; then
+contig N50). Plasmodium falciparum alone has over a hundred assemblies,
+and the genome rules need two copies, not a hundred isolates.
 
 Lists the taxon's assemblies with the NCBI Datasets API, streams each
 *_genomic.fna.gz from the NCBI FTP site through wbps_insilico_pcr.py's
@@ -100,8 +105,19 @@ def lineages(taxids) -> dict:
 def main() -> int:
     taxon, outdir = sys.argv[1], sys.argv[2]
     workers = int(sys.argv[3]) if len(sys.argv) > 3 else 6
+    cap = int(sys.argv[4]) if len(sys.argv) > 4 else 0
     os.makedirs(outdir, exist_ok=True)
     asms = assemblies(taxon)
+    if cap:
+        level = {"Complete Genome": 0, "Chromosome": 1, "Scaffold": 2, "Contig": 3}
+        by_sp = {}
+        for a in sorted(asms, key=lambda a: (level.get(a["level"], 9),
+                                             -int(a["contig_n50"] or 0))):
+            sp = " ".join(a["organism"].split()[:2])
+            by_sp.setdefault(sp, [])
+            if len(by_sp[sp]) < cap:
+                by_sp[sp].append(a)
+        asms = [a for v in by_sp.values() for a in v]
     with open(os.path.join(outdir, "assemblies.tsv"), "w") as fh:
         cols = ["accession", "name", "organism", "taxid", "level", "length", "contig_n50", "released"]
         fh.write("\t".join(cols) + "\n")

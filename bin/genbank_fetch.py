@@ -34,34 +34,44 @@ QUERY = ('{taxon}[Organism] AND (18S OR "small subunit ribosomal") '
 def get(endpoint: str, **params) -> str:
     if KEY:
         params["api_key"] = KEY
-    url = EUTILS + endpoint + "?" + urllib.parse.urlencode(params)
-    for attempt in range(5):
+    # POST, so a batch of a few hundred ids fits.
+    url = EUTILS + endpoint
+    data = urllib.parse.urlencode(params).encode()
+    # NCBI turns away bursts (HTTP 429), worse when something else on the
+    # same address is fetching too; a long, growing back-off rides it out
+    # where five quick retries did not.
+    for attempt in range(8):
         try:
-            with urllib.request.urlopen(url, timeout=120) as r:
+            with urllib.request.urlopen(url, data=data, timeout=120) as r:
                 body = r.read().decode()
             time.sleep(PAUSE)
             return body
-        except Exception:
-            time.sleep(5 * (attempt + 1))
-    raise RuntimeError(f"NCBI request failed five times: {endpoint}")
+        except Exception as e:
+            err = e
+            time.sleep(15 * (attempt + 1))
+    raise RuntimeError(f"NCBI request failed eight times: {endpoint}: {err!r}")
 
 
 def fetch_taxon(taxon: str, outdir: str) -> int:
     out = os.path.join(outdir, taxon.replace(" ", "_") + ".fasta.gz")
     if os.path.exists(out):
         return -1
+    # Ids first, then batches by id. NCBI's stored-search route (WebEnv,
+    # query_key) intermittently answers "Cannot retrieve history data" for
+    # a whole taxon, and no amount of retrying fixes it; ids always work.
     body = get("esearch.fcgi", db="nuccore", term=QUERY.format(taxon=taxon),
-               usehistory="y", retmax=0)
+               retmax=100000)
     count = int(re.search(r"<Count>(\d+)</Count>", body).group(1))
-    webenv = re.search(r"<WebEnv>([^<]+)</WebEnv>", body).group(1)
-    qkey = re.search(r"<QueryKey>(\d+)</QueryKey>", body).group(1)
+    ids = re.findall(r"<Id>(\d+)</Id>", body)
+    if len(ids) != count:
+        raise RuntimeError(f"{taxon}: esearch listed {len(ids)} of {count} ids")
     tmp = out + ".partial"
     n = 0
     with gzip.open(tmp, "wt") as fh:
         for start in range(0, count, BATCH):
-            # docsum for taxids, fasta for sequence; same history slice.
-            summ = get("esummary.fcgi", db="nuccore", query_key=qkey,
-                       WebEnv=webenv, retstart=start, retmax=BATCH)
+            batch = ",".join(ids[start:start + BATCH])
+            # docsum for taxids, fasta for sequence; the same ids.
+            summ = get("esummary.fcgi", db="nuccore", id=batch)
             # Per DocSum: TaxId comes before AccessionVersion inside one,
             # so pairing them across the whole response would shift them.
             taxid = {}
@@ -70,8 +80,7 @@ def fetch_taxon(taxon: str, outdir: str) -> int:
                 t = re.search(r'Name="TaxId" Type="Integer">(\d+)<', doc)
                 if a and t:
                     taxid[a.group(1)] = t.group(1)
-            fa = get("efetch.fcgi", db="nuccore", query_key=qkey, WebEnv=webenv,
-                     retstart=start, retmax=BATCH, rettype="fasta", retmode="text")
+            fa = get("efetch.fcgi", db="nuccore", id=batch, rettype="fasta", retmode="text")
             for rec in fa.split(">")[1:]:
                 head, _, seq = rec.partition("\n")
                 acc = head.split()[0]
