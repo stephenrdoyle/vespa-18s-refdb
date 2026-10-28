@@ -406,9 +406,9 @@ A release is one directory, named for its build version, holding:
 |---|---|
 | `refdb.fasta` | one record per unique insert, primers trimmed; the header is the record id only |
 | `taxonomy.tsv` | id, the nine PR2 ranks (merged to the ranks all members share; placeholder ranks left blank), the source layers contributing, and the number of member sequences |
-| `members.tsv` | every source sequence collapsed into each id: accession or genome and contig, layer, original label |
+| `members.tsv` | every source sequence collapsed into each id: accession or genome and contig, layer, original label, role (`kept`, `overruled`, `dropped`) and, for dropped members, the reason (`note`, from v0.5.0) |
 | `resolution_nanopore.tsv` | per id, the deepest rank at which it is distinguishable over the whole insert |
-| `resolution_illumina_<R1>x<R2>.tsv` | the same over the two read windows for that read length |
+| `resolution_illumina_<R1>x<R2>.tsv` | the same over the two read windows for that read length; one per geometry, listed in the manifest's `illumina_geometries` (2x150 and 2x300 from v0.5.0) |
 | `anchor_lookalikes.tsv` | adapter-anchor near-copies, in exactly the columns the pipeline's pre-flight writes (`seq_id anchor strand position edits context`), so the pipeline reads it unchanged |
 | `conflicts.tsv` | identical sequences whose labels disagree at a high rank, and what the build did with each |
 | `primer_fit.tsv` | per id, how well the primers fit its best-matching template: forward and reverse edits, mismatch positions counted from each primer's 3′ end, the template at each site, and a class - `exact`, `away_3prime`, `near_3prime` (a mismatch in the last 5 bases), `indel`, `edits_only` (a genome-only record: counts known, sites not), `unknown` (from v0.4.0) |
@@ -567,6 +567,26 @@ two edits each - but not every one is equally likely to amplify:
   detected poorly or not at all.
 - The pipeline can use `primer_fit.tsv` to say, beside a call or a
   non-detection, that amplification was predicted to be weak.
+
+### 6.5 v0.5.0
+
+Curation from the first use of a release in the pipeline
+(`docs/feedback/v0.4.0_feedback.md`, response in
+`docs/feedback/v0.4.0_response.md`), the *D. immitis* WSI 2.2 genome's
+three V4 copies as local sequences, and a 2x300 resolution table.
+
+- 97,537 records: 24 removed (eukaryote 18S carrying only a bacterial
+  label), 2 added (*D. immitis*), 21 relabelled.
+- New rules in `collapse.py`: prokaryote label on a eukaryote-length
+  insert dropped; organelle label beside a nuclear one dropped; directly
+  sequenced isolate over WGS/TSA contig; host-named species to Genus_sp.;
+  and `curation/overrides.tsv` for judgements no rule can make.
+- `members.tsv` gains a `note` column; dropped members are listed with
+  role `dropped` and the reason.
+- `resolution_illumina_300x300.tsv` (250/200-base windows) beside
+  `resolution_illumina_150x150.tsv`; `manifest.json` lists them under
+  `illumina_geometries`. Species-level records: 38,479 at 2x150, 46,566
+  at 2x300, 48,424 read whole.
 
 ## 7. Order of work
 

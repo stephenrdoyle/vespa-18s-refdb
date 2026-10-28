@@ -1,0 +1,168 @@
+
+Theileria (equi x303)
+  illumina tol 0  as released (937 records)      sparse n=  40  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  as released (937 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (937 records)      sparse n=  40  correct  98%  genus   2%  WRONG   0%
+  nanopore tol 0  as released (937 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  as released (937 records)      sparse n=  40  correct  35%  genus  65%  WRONG   0%
+  nanopore tol 2  as released (937 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (592 records)  sparse n=  40  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (592 records)  dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (592 records)  sparse n=  40  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (592 records)  dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  variants merged (592 records)  sparse n=  40  correct  42%  genus  58%  WRONG   0%
+  nanopore tol 2  variants merged (592 records)  dense  n=  30  correct 100%  genus   0%  WRONG   0%
+
+Cladococcus (scoparius x213)
+  illumina tol 0  as released (216 records)      sparse n=  40  correct  98%  genus   0%  WRONG   2%
+  illumina tol 0  as released (216 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (216 records)      sparse n=  40  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (216 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  as released (216 records)      sparse n=  40  correct  98%  genus   2%  WRONG   0%
+  nanopore tol 2  as released (216 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (113 records)  sparse n=  40  correct  98%  genus   0%  WRONG   2%
+  illumina tol 0  variants merged (113 records)  dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (113 records)  sparse n=  40  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (113 records)  dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  variants merged (113 records)  sparse n=  40  correct  48%  genus  52%  WRONG   0%
+  nanopore tol 2  variants merged (113 records)  dense  n=  30  correct 100%  genus   0%  WRONG   0%
+
+Blastocystis (hominis x153)
+  illumina tol 0  as released (638 records)      sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  as released (638 records)      dense  n=  30  correct  40%  genus  60%  WRONG   0%
+  nanopore tol 0  as released (638 records)      sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (638 records)      dense  n=  30  correct  97%  genus   3%  WRONG   0%
+  nanopore tol 2  as released (638 records)      sparse n=  20  correct   0%  genus 100%  WRONG   0%
+  nanopore tol 2  as released (638 records)      dense  n=  30  correct  47%  genus  53%  WRONG   0%
+  illumina tol 0  variants merged (584 records)  sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (584 records)  dense  n=  30  correct  30%  genus  50%  WRONG  20%
+  nanopore tol 0  variants merged (584 records)  sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (584 records)  dense  n=  30  correct  77%  genus  13%  WRONG  10%
+  nanopore tol 2  variants merged (584 records)  sparse n=  20  correct   0%  genus 100%  WRONG   0%
+  nanopore tol 2  variants merged (584 records)  dense  n=  30  correct  40%  genus  60%  WRONG   0%
+
+Rhodotorula (mucilaginosa x131)
+  illumina tol 0  as released (181 records)      sparse n=  20  correct   0%  genus 100%  WRONG   0%
+  illumina tol 0  as released (181 records)      dense  n=  30  correct   3%  genus  97%  WRONG   0%
+  nanopore tol 0  as released (181 records)      sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (181 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  as released (181 records)      sparse n=  20  correct   0%  genus 100%  WRONG   0%
+  nanopore tol 2  as released (181 records)      dense  n=  30  correct  87%  genus  13%  WRONG   0%
+  illumina tol 0  variants merged (155 records)  sparse n=  20  correct   0%  genus 100%  WRONG   0%
+  illumina tol 0  variants merged (155 records)  dense  n=  30  correct   0%  genus 100%  WRONG   0%
+  nanopore tol 0  variants merged (155 records)  sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (155 records)  dense  n=  30  correct  90%  genus  10%  WRONG   0%
+  nanopore tol 2  variants merged (155 records)  sparse n=  20  correct   0%  genus 100%  WRONG   0%
+  nanopore tol 2  variants merged (155 records)  dense  n=  30  correct  70%  genus  30%  WRONG   0%
+
+Micromonas (polaris x96)
+  illumina tol 0  as released (208 records)      sparse n=  80  correct  50%  genus  50%  WRONG   0%
+  illumina tol 0  as released (208 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (208 records)      sparse n=  80  correct  98%  genus   2%  WRONG   0%
+  nanopore tol 0  as released (208 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  as released (208 records)      sparse n=  80  correct  74%  genus  26%  WRONG   0%
+  nanopore tol 2  as released (208 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (110 records)  sparse n=  80  correct  50%  genus  50%  WRONG   0%
+  illumina tol 0  variants merged (110 records)  dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (110 records)  sparse n=  80  correct  99%  genus   1%  WRONG   0%
+  nanopore tol 0  variants merged (110 records)  dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  variants merged (110 records)  sparse n=  80  correct  74%  genus  26%  WRONG   0%
+  nanopore tol 2  variants merged (110 records)  dense  n=  30  correct  97%  genus   3%  WRONG   0%
+
+Panax (ginseng x80)
+  illumina tol 0  as released (85 records)       sparse n= 100  correct  57%  genus  42%  WRONG   1%
+  illumina tol 0  as released (85 records)       dense  n=  30  correct  57%  genus  43%  WRONG   0%
+  nanopore tol 0  as released (85 records)       sparse n= 100  correct  91%  genus   9%  WRONG   0%
+  nanopore tol 0  as released (85 records)       dense  n=  30  correct  97%  genus   3%  WRONG   0%
+  nanopore tol 2  as released (85 records)       sparse n= 100  correct  15%  genus  85%  WRONG   0%
+  nanopore tol 2  as released (85 records)       dense  n=  30  correct  13%  genus  87%  WRONG   0%
+  illumina tol 0  variants merged (37 records)   sparse n= 100  correct  20%  genus  79%  WRONG   1%
+  illumina tol 0  variants merged (37 records)   dense  n=  30  correct  13%  genus  87%  WRONG   0%
+  nanopore tol 0  variants merged (37 records)   sparse n= 100  correct  61%  genus  36%  WRONG   3%
+  nanopore tol 0  variants merged (37 records)   dense  n=  30  correct  27%  genus  70%  WRONG   3%
+  nanopore tol 2  variants merged (37 records)   sparse n= 100  correct  19%  genus  81%  WRONG   0%
+  nanopore tol 2  variants merged (37 records)   dense  n=  30  correct  20%  genus  80%  WRONG   0%
+
+Phragmidium (mexicanum x77)
+  illumina tol 0  as released (79 records)       sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  as released (79 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (79 records)       sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (79 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  as released (79 records)       sparse n=  20  correct   0%  genus 100%  WRONG   0%
+  nanopore tol 2  as released (79 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (72 records)   sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (72 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (72 records)   sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (72 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  variants merged (72 records)   sparse n=  20  correct   0%  genus 100%  WRONG   0%
+  nanopore tol 2  variants merged (72 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+
+Alexandrium (catenella x70)
+  illumina tol 0  as released (143 records)      sparse n=  80  correct  25%  genus  74%  WRONG   1%
+  illumina tol 0  as released (143 records)      dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (143 records)      sparse n=  80  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (143 records)      dense  n=  30  correct  97%  genus   3%  WRONG   0%
+  nanopore tol 2  as released (143 records)      sparse n=  80  correct  71%  genus  29%  WRONG   0%
+  nanopore tol 2  as released (143 records)      dense  n=  30  correct  80%  genus  20%  WRONG   0%
+  illumina tol 0  variants merged (90 records)   sparse n=  80  correct  25%  genus  74%  WRONG   1%
+  illumina tol 0  variants merged (90 records)   dense  n=  30  correct  80%  genus  20%  WRONG   0%
+  nanopore tol 0  variants merged (90 records)   sparse n=  80  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (90 records)   dense  n=  30  correct  80%  genus  20%  WRONG   0%
+  nanopore tol 2  variants merged (90 records)   sparse n=  80  correct  71%  genus  29%  WRONG   0%
+  nanopore tol 2  variants merged (90 records)   dense  n=  30  correct  80%  genus  20%  WRONG   0%
+
+Schmidtea (mediterranea x32)
+  illumina tol 0  as released (34 records)       sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  as released (34 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (34 records)       sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (34 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  as released (34 records)       sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  as released (34 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (22 records)   sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (22 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (22 records)   sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (22 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  variants merged (22 records)   sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  variants merged (22 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+
+Ditylenchus (destructor x27)
+  illumina tol 0  as released (98 records)       sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  as released (98 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (98 records)       sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (98 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  as released (98 records)       sparse n=  20  correct   0%  genus 100%  WRONG   0%
+  nanopore tol 2  as released (98 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (66 records)   sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (66 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (66 records)   sparse n=  20  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (66 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  variants merged (66 records)   sparse n=  20  correct  95%  genus   5%  WRONG   0%
+  nanopore tol 2  variants merged (66 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+
+Schistosoma (japonicum x27)
+  illumina tol 0  as released (87 records)       sparse n=  40  correct   0%  genus  98%  WRONG   2%
+  illumina tol 0  as released (87 records)       dense  n=  30  correct  47%  genus  53%  WRONG   0%
+  nanopore tol 0  as released (87 records)       sparse n=  40  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  as released (87 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  as released (87 records)       sparse n=  40  correct  92%  genus   8%  WRONG   0%
+  nanopore tol 2  as released (87 records)       dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (64 records)   sparse n=  40  correct   0%  genus 100%  WRONG   0%
+  illumina tol 0  variants merged (64 records)   dense  n=  30  correct  27%  genus  73%  WRONG   0%
+  nanopore tol 0  variants merged (64 records)   sparse n=  40  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (64 records)   dense  n=  30  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 2  variants merged (64 records)   sparse n=  40  correct  95%  genus   5%  WRONG   0%
+  nanopore tol 2  variants merged (64 records)   dense  n=  30  correct  87%  genus  13%  WRONG   0%
+
+Meloidogyne (incognita x24)
+  illumina tol 0  as released (200 records)      sparse n= 120  correct  83%  genus  17%  WRONG   0%
+  illumina tol 0  as released (200 records)      dense  n=  30  correct  90%  genus  10%  WRONG   0%
+  nanopore tol 0  as released (200 records)      sparse n= 120  correct  99%  genus   1%  WRONG   0%
+  nanopore tol 0  as released (200 records)      dense  n=  30  correct  93%  genus   7%  WRONG   0%
+  nanopore tol 2  as released (200 records)      sparse n= 120  correct  67%  genus  33%  WRONG   0%
+  nanopore tol 2  as released (200 records)      dense  n=  30  correct  33%  genus  67%  WRONG   0%
+  illumina tol 0  variants merged (139 records)  sparse n= 120  correct 100%  genus   0%  WRONG   0%
+  illumina tol 0  variants merged (139 records)  dense  n=  30  correct  70%  genus  30%  WRONG   0%
+  nanopore tol 0  variants merged (139 records)  sparse n= 120  correct 100%  genus   0%  WRONG   0%
+  nanopore tol 0  variants merged (139 records)  dense  n=  30  correct  70%  genus  30%  WRONG   0%
+  nanopore tol 2  variants merged (139 records)  sparse n= 120  correct  67%  genus  33%  WRONG   0%
+  nanopore tol 2  variants merged (139 records)  dense  n=  30  correct  23%  genus  77%  WRONG   0%

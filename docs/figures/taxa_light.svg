@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="648" viewBox="0 0 760 648" font-family="system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif" role="img" aria-label="Taxonomic spread of the reference sequences">
 <rect width="760" height="648" rx="8" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
 <text x="24" y="34" font-size="17" font-weight="600" fill="#0b0b0b">Taxonomic spread of the reference sequences</text>
-<text x="24" y="56" font-size="13" fill="#52514e">vespa18s v0.4.0: records per group, and how many resolve to species</text>
+<text x="24" y="56" font-size="13" fill="#52514e">vespa18s v0.5.0: records per group, and how many resolve to species</text>
 <rect x="196" y="72" width="12" height="12" rx="3" fill="#256abf"/>
 <text x="214" y="82.5" font-size="12.5" fill="#52514e">Resolves to species</text>
 <rect x="374.8" y="72" width="12" height="12" rx="3" fill="#86b6ef"/>
@@ -23,15 +23,15 @@
 <text x="184" y="150.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Fungi</text>
 <rect x="196.0" y="138.0" width="200.3" height="16" fill="#256abf"/>
 <path d="M398.3,138.0 h216.3 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-216.3 z" fill="#86b6ef"/>
-<text x="626.6" y="150.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">17,906</text>
+<text x="626.6" y="150.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">17,908</text>
 <text x="184" y="178.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Other alveolates</text>
 <rect x="196.0" y="166.0" width="67.5" height="16" fill="#256abf"/>
 <path d="M265.5,166.0 h260.9 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-260.9 z" fill="#86b6ef"/>
-<text x="538.4" y="178.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">14,170</text>
+<text x="538.4" y="178.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">14,171</text>
 <text x="184" y="206.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Plants and algae</text>
-<rect x="196.0" y="194.0" width="144.8" height="16" fill="#256abf"/>
-<path d="M342.8,194.0 h71.5 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-71.5 z" fill="#86b6ef"/>
-<text x="426.3" y="206.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">9,418</text>
+<rect x="196.0" y="194.0" width="144.9" height="16" fill="#256abf"/>
+<path d="M342.9,194.0 h71.6 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-71.6 z" fill="#86b6ef"/>
+<text x="426.5" y="206.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">9,426</text>
 <text x="184" y="234.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Stramenopiles</text>
 <rect x="196.0" y="222.0" width="60.8" height="16" fill="#256abf"/>
 <path d="M258.8,222.0 h98.5 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-98.5 z" fill="#86b6ef"/>
@@ -39,10 +39,10 @@
 <text x="184" y="262.5" font-size="13" font-weight="600" fill="#0b0b0b" text-anchor="end">Nematoda</text>
 <rect x="196.0" y="250.0" width="72.3" height="16" fill="#256abf"/>
 <path d="M270.3,250.0 h43.1 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-43.1 z" fill="#86b6ef"/>
-<text x="325.4" y="262.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">5,142</text>
+<text x="325.4" y="262.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">5,144</text>
 <text x="184" y="290.5" font-size="13" font-weight="600" fill="#0b0b0b" text-anchor="end">Apicomplexa</text>
-<rect x="196.0" y="278.0" width="73.4" height="16" fill="#256abf"/>
-<path d="M271.4,278.0 h35.5 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-35.5 z" fill="#86b6ef"/>
+<rect x="196.0" y="278.0" width="73.3" height="16" fill="#256abf"/>
+<path d="M271.3,278.0 h35.5 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-35.5 z" fill="#86b6ef"/>
 <text x="318.9" y="290.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">4,867</text>
 <text x="184" y="318.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Rhizaria</text>
 <rect x="196.0" y="306.0" width="20.6" height="16" fill="#256abf"/>
@@ -53,33 +53,33 @@
 <path d="M251.1,334.0 h22.6 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-22.6 z" fill="#86b6ef"/>
 <text x="285.7" y="346.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">3,460</text>
 <text x="184" y="374.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Discoba</text>
-<rect x="196.0" y="362.0" width="27.7" height="16" fill="#256abf"/>
-<path d="M225.7,362.0 h24.2 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-24.2 z" fill="#86b6ef"/>
-<text x="261.9" y="374.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">2,455</text>
+<rect x="196.0" y="362.0" width="27.8" height="16" fill="#256abf"/>
+<path d="M225.8,362.0 h24.2 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-24.2 z" fill="#86b6ef"/>
+<text x="262.0" y="374.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">2,457</text>
 <text x="184" y="402.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Bacteria and archaea</text>
 <rect x="196.0" y="390.0" width="2.0" height="16" fill="#256abf"/>
-<path d="M200.0,390.0 h46.2 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-46.2 z" fill="#86b6ef"/>
-<text x="258.2" y="402.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">2,166</text>
+<path d="M200.0,390.0 h46.1 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-46.1 z" fill="#86b6ef"/>
+<text x="258.1" y="402.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">2,141</text>
 <text x="184" y="430.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Other eukaryotes</text>
 <rect x="196.0" y="418.0" width="14.7" height="16" fill="#256abf"/>
-<path d="M212.7,418.0 h29.3 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-29.3 z" fill="#86b6ef"/>
-<text x="253.9" y="430.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">2,115</text>
+<path d="M212.7,418.0 h28.9 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-28.9 z" fill="#86b6ef"/>
+<text x="253.6" y="430.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">2,102</text>
 <text x="184" y="458.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Amoebozoa</text>
 <rect x="196.0" y="446.0" width="28.9" height="16" fill="#256abf"/>
 <path d="M226.9,446.0 h13.7 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-13.7 z" fill="#86b6ef"/>
-<text x="252.5" y="458.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">2,057</text>
+<text x="252.6" y="458.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">2,058</text>
 <text x="184" y="486.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Organelle 16S</text>
 <rect x="196.0" y="474.0" width="14.6" height="16" fill="#256abf"/>
 <path d="M212.6,474.0 h12.4 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-12.4 z" fill="#86b6ef"/>
-<text x="237.0" y="486.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">1,398</text>
+<text x="237.0" y="486.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">1,397</text>
 <text x="184" y="514.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Metamonada</text>
 <rect x="196.0" y="502.0" width="12.9" height="16" fill="#256abf"/>
 <path d="M210.9,502.0 h9.7 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-9.7 z" fill="#86b6ef"/>
 <text x="232.6" y="514.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">1,212</text>
 <text x="184" y="542.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Vertebrates</text>
-<rect x="196.0" y="530.0" width="11.6" height="16" fill="#256abf"/>
-<path d="M209.6,530.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#86b6ef"/>
-<text x="221.6" y="542.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">647</text>
+<rect x="196.0" y="530.0" width="11.7" height="16" fill="#256abf"/>
+<path d="M209.7,530.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#86b6ef"/>
+<text x="221.7" y="542.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">648</text>
 <text x="184" y="570.5" font-size="13" font-weight="600" fill="#0b0b0b" text-anchor="end">Acanthocephala</text>
 <rect x="196.0" y="558.0" width="2.0" height="16" fill="#256abf"/>
 <path d="M200.0,558.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#86b6ef"/>

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340" font-family="system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif" role="img" aria-label="Where the 97,559 reference sequences come from">
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340" font-family="system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif" role="img" aria-label="Where the 97,537 reference sequences come from">
 <rect width="760" height="340" rx="8" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
-<text x="24" y="34" font-size="17" font-weight="600" fill="#0b0b0b">Where the 97,559 reference sequences come from</text>
-<text x="24" y="56" font-size="13" fill="#52514e">vespa18s v0.4.0: records each source contributes to</text>
+<text x="24" y="34" font-size="17" font-weight="600" fill="#0b0b0b">Where the 97,537 reference sequences come from</text>
+<text x="24" y="56" font-size="13" fill="#52514e">vespa18s v0.5.0: records each source contributes to</text>
 <rect x="196" y="72" width="12" height="12" rx="3" fill="#2a78d6"/>
 <text x="214" y="82.5" font-size="12.5" fill="#52514e">Only from this source</text>
 <rect x="389.20000000000005" y="72" width="12" height="12" rx="3" fill="#eb6834"/>
@@ -19,9 +19,9 @@
 <line x1="584.0" y1="98" x2="584.0" y2="272" stroke="#e1e0d9" stroke-width="1"/>
 <text x="584.0" y="290" font-size="11.5" fill="#898781" text-anchor="middle" font-variant-numeric="tabular-nums">100k</text>
 <text x="184" y="122.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">PR2 v5.1.1</text>
-<rect x="196.0" y="110.0" width="342.1" height="16" fill="#2a78d6"/>
-<path d="M540.1,110.0 h2.0 a2.048640000000006,2.048640000000006 0 0 1 2.048640000000006,2.048640000000006 v11.9 a2.048640000000006,2.048640000000006 0 0 1 -2.048640000000006,2.048640000000006 h-2.0 z" fill="#eb6834"/>
-<text x="552.2" y="122.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">89,734  ·  88,678 only here</text>
+<rect x="196.0" y="110.0" width="342.0" height="16" fill="#2a78d6"/>
+<path d="M540.0,110.0 h2.0 a2.048640000000006,2.048640000000006 0 0 1 2.048640000000006,2.048640000000006 v11.9 a2.048640000000006,2.048640000000006 0 0 1 -2.048640000000006,2.048640000000006 h-2.0 z" fill="#eb6834"/>
+<text x="552.1" y="122.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">89,710  ·  88,654 only here</text>
 <text x="184" y="150.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">GenBank</text>
 <rect x="196.0" y="138.0" width="27.2" height="16" fill="#2a78d6"/>
 <path d="M225.2,138.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#eb6834"/>
@@ -33,13 +33,14 @@
 <text x="184" y="206.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">WormBase ParaSite 19</text>
 <rect x="196.0" y="194.0" width="2.0" height="16" fill="#2a78d6"/>
 <path d="M200.0,194.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#eb6834"/>
-<text x="212.0" y="206.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">212  ·  116 only here</text>
+<text x="212.0" y="206.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">212  ·  115 only here</text>
 <text x="184" y="234.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">ParaRef</text>
 <rect x="196.0" y="222.0" width="2.0" height="16" fill="#2a78d6"/>
 <path d="M200.0,222.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#eb6834"/>
 <text x="212.0" y="234.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">147  ·  51 only here</text>
 <text x="184" y="262.5" font-size="13" font-weight="400" fill="#0b0b0b" text-anchor="end">Local (our sequences)</text>
-<path d="M196.0,250.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#eb6834"/>
-<text x="208.0" y="262.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">1  ·  0 only here</text>
+<rect x="196.0" y="250.0" width="2.0" height="16" fill="#2a78d6"/>
+<path d="M200.0,250.0 h2.0 a2.0,2.0 0 0 1 2.0,2.0 v12.0 a2.0,2.0 0 0 1 -2.0,2.0 h-2.0 z" fill="#eb6834"/>
+<text x="212.0" y="262.5" font-size="12.5" fill="#52514e" font-variant-numeric="tabular-nums">4  ·  2 only here</text>
 <text x="24" y="324" font-size="12" fill="#898781">A record is one unique V4 sequence; it can be backed by several sources.</text>
 </svg>
