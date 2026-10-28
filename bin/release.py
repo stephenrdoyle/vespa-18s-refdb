@@ -74,28 +74,24 @@ def concrete(primer: str) -> str:
 
 
 def merge_records(records) -> list:
-    """Merge already-collapsed records that the read windows cannot tell
-    apart.
+    """The common ancestor of records the read windows cannot tell apart.
 
-    Not collapse.merge: there a blank member rank does not exist (members
-    carry their source labels), and placeholders rightly do not vote. In a
-    record, a blank rank means its own members DISAGREED there - so it
-    must stop the group, not abstain. Treated as an abstention, a record
-    stopped at family by a genus conflict, grouped with one naming the
-    genus, let the genus through: Illumina then reached a deeper rank
-    than reading the whole insert, which cannot be.
+    Strict: a rank is kept only if every record has exactly the same value
+    there. Not collapse.merge, where placeholders abstain - that merges the
+    labels of ONE sequence. These are DIFFERENT sequences, and a read
+    matching their shared windows may come from any of them: if one names
+    only its family (Eurotiomycetes_X) or was left blank by a conflict, the
+    read cannot be assigned the genus another names. Merged loosely, 3,512
+    v0.1.0 records were reported deeper through the windows than whole.
     """
     out, stopped = [], False
     for i in range(len(RANKS)):
-        vals = [r[i] for r in records]
-        info = {v for v in vals if informative(v)}
-        if stopped or len(info) > 1 or (info and "" in vals):
+        vals = {r[i] for r in records}
+        if stopped or len(vals) != 1:
             stopped = True
             out.append("")
-        elif info:
-            out.append(info.pop())
         else:
-            out.append(vals[0] if len(set(vals)) == 1 else "")
+            out.append(vals.pop())
     return out
 
 
