@@ -503,8 +503,22 @@ On v0.6.0: 2,896 pairs, 2,410 records (`results/neighbours/`).
   records gone (they had no other member). *Betula* and *Alnus* keep
   their records and lose their false *Eimeria* neighbours.
 
-Still open: the ~960 records with a cross-supergroup neighbour that
-neither side outnumbers - mostly single records against single records.
+Rerun on v0.7.0 (`results/neighbours/disagreements_v0.7.0.tsv`):
+domain/supergroup pairs fell from 956 to 48 - 768 of them had involved
+the 29 removed records (one contaminant can have dozens of neighbours),
+141 more now agree. Of the 155 pairs at subdivision or above, 11 touch
+parasite or pathogen groups; BLAST of the whole record
+(`suspects_v0.7.0_blast.xml.gz`) settled five more overrides for the
+next release: two more *Angulamoeba* strains PR2 files as a red alga
+(HM017143, KP864083) and a cryptophyte it files as a ciliate (PP101464,
+99.8% to *Chroomonas*) relabelled; a "*Trachelomonas* chloroplast" that
+is betaproteobacterial 16S and two *Thalassiosira* transcriptome
+contigs carrying *Bodo* and *Rhynchomonas* 18S dropped. Left alone:
+*Pyrsonympha* against *Laeohelix* (both oxymonads; one has only PR2's
+placeholder ranks), and two environmental clones.
+
+Still open: the remaining cross-supergroup pairs outside the parasite
+groups - mostly single records against single records.
 
 ## 6. Release format
 
