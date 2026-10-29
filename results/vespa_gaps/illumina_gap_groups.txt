@@ -1,0 +1,64 @@
+dict_keys(['sample_id', 'cluster', 'reads', 'rel_abundance', 'rank', 'taxon', 'label', 'identity', 'coverage', 'lineage', 'best_hit', 'best_hit_lineage', 'near_hits', 'lca_rank', 'db_resolution', 'origin', 'merged', 'length', 'database_version', 'consensus'])
+52 samples, 28170 clusters, 2,632,802 reads; eukaryote clusters 25920; median len 450
+eukaryote reads by identity: {'0.97-0.99': 292897, '>=0.99': 1784911, '0.90-0.97': 221733, '<0.90': 139550}
+class                    nearest genus                 reads  samp  clus  identity
+Archamoebea              Entamoeba                   116,887    42  2209  0.20-0.97
+Gregarinomorphea         Leidyana                     68,728    43  1337  0.18-0.97
+Opalozoa                 Blastocystis                 30,284    46   822  0.19-0.97
+Gregarinomorphea         Gregarina                    16,370    27   488  0.18-0.97
+Colpodellidea            Colpodellida_CHR1_X           7,861    14    63  0.74-0.78
+Colpodellidea            Colpodella                    7,150    18   285  0.23-0.97
+Chytridiomycota          Entophlyctis                  6,989     4    42  0.22-0.95
+Fornicata_X              Hexamita                      6,104    23   131  0.75-0.89
+Zoopagomycota            Conidiobolus                  5,812    19   107  0.25-0.67
+Gregarinomorphea         Monocystis                    5,678    11   184  0.65-0.97
+Elardia                  Nolandellidae_X               4,921    12   163  0.21-0.95
+Archamoebea              Rhizomastix                   3,981    18    63  0.84-0.89
+Archamoebea              Endolimax                     3,558    24   245  0.20-0.97
+Colpodellidea            Colpodellidae                 3,531    20   127  0.22-0.97
+Mucoromycota             Syncephalastrum               3,173    11    67  0.17-0.21
+Rozellomycota            Rozellomycota_XXX             2,772    24    92  0.30-0.97
+Nematoda                 Howardula                     2,772     4    50  0.91-0.96
+Coccidiomorphea          Rhytidocystidae_X             2,710    11    62  0.65-0.74
+Opisthosporidia          Paramicrosporidium            2,568     4    32  0.79-0.90
+Archamoebea              Iodamoeba                     2,556    23   120  0.81-0.97
+Trichomonadea            Lacusteria                    2,521     8    36  0.82-0.88
+Opalozoa                 MAST-22B                      2,434     5    33  0.29-0.73
+Eustigmatophyceae        Monodus                       2,368    21    77  0.89-0.94
+Ascomycota               Candida                       1,913    22   154  0.59-0.97
+Ascomycota               Wickerhamomyces               1,895     2    11  0.88-0.89
+Cercozoa_X               Cercozoa_XXXX                 1,735    12    55  0.22-0.84
+Nematoda                 Viannaia                      1,435    11    92  0.92-0.96
+Colpodellidea            Alphamonadea_ALPH1            1,305     8    37  0.24-0.94
+Bicoecea                 Bicoecaceae_X                 1,298     1    34  0.19-0.20
+Glaucocystophyceae:plas  Cyanophora:plas               1,250    11    35  0.84-0.86
+Filosa-Imbricatea        Auranticordis                 1,217     5    19  0.18-0.20
+Ascomycota               Aspergillus                   1,111    24   138  0.87-0.97
+Chlorophyceae            Jenufa                        1,108    11    40  0.92-0.97
+Dinophyceae              Amphidinium                   1,084     1    20  0.20-0.42
+Ascomycota               Microascus                      993    12    54  0.93-0.97
+Coccidiomorphea          Babesia                         990     3    21  0.19-0.48
+Zoopagomycota            Coemansia                       965     6    58  0.20-0.33
+Basidiomycota            Malassezia                      897     4    10  0.78-0.80
+Variosea                 Variosea_XXX                    855     6    14  0.82-0.86
+Filosa-Sarcomonadea      Paracercomonas                  732     5    23  0.88-0.97
+Filosa-Sarcomonadea      Sandona                         730     7    31  0.90-0.97
+Flabellinia              Ripella                         692     1    14  0.17-0.23
+Coccidiomorphea          Theileria                       667    13    38  0.21-0.96
+Zoopagomycota            Martensiomyces                  660     3    36  0.25-0.25
+Filosa-Sarcomonadea      Glissomonadida_XX               626     6    22  0.20-0.96
+Trebouxiophyceae                                         610    18    32  0.94-0.96
+Chytridiomycota          Chytridiales_XX                 603     5     9  0.90-0.96
+Sagenista                MAST-9_X                        565     1     5  0.73-0.73
+Gregarinomorphea         Amoebogregarina                 551     4    21  0.85-0.97
+Gregarinomorphea         Stenophora                      522     6    32  0.90-0.96
+Ascomycota               Zygowilliopsis                  518     1    21  0.92-0.95
+Trebouxiophyceae         Prototheca                      502     4    14  0.22-0.93
+Annelida                 Autolytus                       489     1     2  0.78-0.78
+Ascomycota                                               484    16    43  0.39-0.97
+Colpodea                 Colpoda                         464     1     7  0.93-0.94
+Ascomycota               Pichia                          447     4    27  0.77-0.96
+Chytridiomycota          Chytridiomycota_XXX             434     2     4  0.83-0.90
+Filosa-Sarcomonadea      Dujardina                       434     1     3  0.89-0.93
+Fungi_X                  Fungi_XXXX                      430    12    27  0.20-0.97
+Mucoromycota             Protomycocladus                 410     4    18  0.17-0.17

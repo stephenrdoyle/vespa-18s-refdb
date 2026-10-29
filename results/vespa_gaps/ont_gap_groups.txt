@@ -1,0 +1,22 @@
+
+### ONT: 50 samples, 5177 clusters, 400,410 reads; eukaryote non-chimeric clusters 509
+lengths 546 median
+eukaryote reads by identity to best hit: {'>=0.99': 209286, '0.97-0.99': 4674, '<0.90': 937, '0.90-0.97': 245}
+class                  nearest genus                   reads samples clusters  identity range
+Glaucocystophyceae:pla Cyanophora:plas                   540      12       20  0.85-0.88
+Ascomycota             Saturnispora                      364       1        2  0.84-0.86
+Gregarinomorphea       Leidyana                           91       1        2  0.85-0.90
+Embryophyceae:plas     Embryophyceae_XXX:plas             40       2        2  0.95-0.95
+Embryophyceae          Efulensia                          21       1        1  0.95-0.95
+Ascomycota             Pichia                             15       1        1  0.97-0.97
+Embryophyceae          Kerria                             15       1        1  0.95-0.95
+Embryophyceae:plas     Bhesa:plas                         15       1        1  0.97-0.97
+Embryophyceae          Oncosperma                         14       1        1  0.96-0.96
+Fornicata_X            Hexamita                           11       1        1  0.83-0.83
+Arthropoda             Neotetra                           11       2        2  0.89-0.89
+Nematoda               Chronogaster                       10       1        1  0.96-0.96
+Embryophyceae:plas                                         9       1        1  0.92-0.92
+Phaeophyceae:plas      Phaeophyceae_XXX:plas               8       1        1  0.91-0.91
+Nematoda               Trichuris                           8       1        1  0.96-0.96
+Tritrichomonadea       Dientamoeba                         6       1        1  0.97-0.97
+Nematoda               Ascaris                             4       1        1  0.95-0.95

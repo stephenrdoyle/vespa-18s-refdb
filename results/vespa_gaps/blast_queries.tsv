@@ -1,0 +1,16 @@
+query	sample	cluster	reads	identity	label
+Hexamita_1	NHP13	NHP13_p7	1037	0.8270	unclassified, 83% to Hexamita
+Rhizomastix_1	NHP3	NHP3_p18	2237	0.8732	unclassified, 87% to Rhizomastix
+Lacusteria_1	Human05	Human05_p8	1342	0.8758	unclassified, 88% to Lacusteria
+Neobalantidium_1	NHP2	NHP2_p52	134	0.9346	unclassified, 93% to Neobalantidium
+Viannaia_1	Human12	Human12_p57	45	0.9400	Eukaryota, unresolved below domain (94% to Viannaia)
+Viannaia_2	Human01	Human01_p34	42	0.9400	Opisthokonta, unresolved below division (94% to Viannaia)
+Rhytidocystidae_X_1	NHP29	NHP29_p10	514	0.7302	Apicomplexa, unresolved below subdivision (73% to Rhytidocystidae)
+Endolimax_1	NHP21	NHP21_p25	129	0.6717	unclassified, 67% to Endolimax
+Iodamoeba_1	Human12	Human12_p19	217	0.9320	unclassified, 93% to Iodamoeba
+Entamoeba_1	Human10	Human10_p1	14425	0.9335	unclassified, 93% to Entamoeba
+Entamoeba_2	NHP10	NHP10_p2	5898	0.9376	unclassified, 94% to Entamoeba
+Blastocystis_1	Human11	Human11_p24	87	0.9450	Eukaryota, unresolved below domain (94% to Blastocystis)
+Theileria_1	NHP19	NHP19_p213	19	0.7757	unclassified, 78% to Theileria
+Colpodellida_CHR1_X_1	NHP31	NHP31_p1	5148	0.7798	Alveolata, unresolved below division (78% to Colpodellida_CHR1)
+Paramicrosporidium_1	NHP31	NHP31_p7	1655	0.8978	unclassified, 90% to Paramicrosporidium

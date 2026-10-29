@@ -113,21 +113,33 @@ python3 bin/pararef_layer.py work/ncbi_genomes/Cryptosporidium \
     work/ncbi_genomes/Cryptosporidium/taxa.json work/pr2_layer.tsv.gz \
     work/ncbi_layers/Cryptosporidium.tsv.gz work/ncbi_layers/Cryptosporidium.review.tsv NCBI_genomes
 #   ... for each protist genus, then concatenate into work/ncbi_genomes_layer.tsv.gz
+#   (Blastocystis without the per-species cap - most assemblies are filed as
+#   "Blastocystis sp.": ncbi_genomes_insilico_pcr.py Blastocystis ... 6 1000)
 python3 bin/genbank_fetch.py work/genbank Cryptosporidium Giardia ...   # protist genera
 python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/genbank_protist_layer.tsv.gz \
     work/genbank_protist_review.tsv <protist fasta.gz files>
 
+# Protist genera found missing against the VESPA samples (docs/DESIGN.md §4.8)
+python3 bin/genbank_fetch.py work/genbank Tetratrichomonas Trichomitus Hypotrichomonas \
+    Pseudotrypanosoma Trepomonas Octomitus Trimitus Rhizomastix Mastigamoeba Pelomyxa \
+    Buxtonella Isotricha Dasytricha Cycloposthium Entodinium
+# plus work/genbank/VESPA_blast_hits.fasta.gz: six accessions BLAST found for
+# unmatched VESPA clusters (results/vespa_gaps/), fetched by id
+python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/genbank_targeted_layer.tsv.gz \
+    work/genbank_targeted_review.tsv <those fasta.gz files>
+
 # Blastocystis subtypes (docs/DESIGN.md §4.7): the references as a layer, and
 # curation/blastocystis_v4_subtypes.tsv, which collapse.py applies
 python3 bin/blastocystis_subtypes.py curation/blastocystis_subtypes.tsv \
-    work/genbank/Blastocystis.fasta.gz work/pr2_layer.tsv.gz work/blastocystis \
-    curation/blastocystis_v4_subtypes.tsv
+    work/genbank/Blastocystis.fasta.gz work/pr2_layer.tsv.gz,work/ncbi_genomes_layer.tsv.gz \
+    work/blastocystis curation/blastocystis_v4_subtypes.tsv \
+    --extra curation/blastocystis_pubmlst_18S.tsv
 python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/blastocystis_ref_layer.tsv.gz \
     work/blastocystis_ref_review.tsv work/blastocystis/references_genbank.fasta.gz
 
 # Increasing trust. (zsh: list the files; it does not word-split a variable)
 python3 bin/collapse.py work/build work/genbank_layer.tsv.gz work/genbank_protist_layer.tsv.gz \
-    work/blastocystis_ref_layer.tsv.gz work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz work/ncbi_genomes_layer.tsv.gz \
+    work/genbank_targeted_layer.tsv.gz work/blastocystis_ref_layer.tsv.gz work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz work/ncbi_genomes_layer.tsv.gz \
     work/wbps_layer.tsv.gz work/local_layer.tsv.gz
 python3 bin/release.py work/build releases v0.3.0 <the same layers>
 ```

@@ -398,11 +398,66 @@ records were "*Blastocystis* sp." (463) or the host-based
   lineages (*B. lapemi*, *B. cycluri* ...) and possible undescribed
   subtypes, > 8% from every reference, and a few between close subtypes
   (ST14/24/25, ST10/44).
+- **PubMLST and all the genomes** (after v0.7.0). PubMLST's curated
+  `18S_rRNA_full_length` alleles (125, each typed; 87 span V4; public
+  API, data to 2024-12-31) agree with every subtype this section had
+  given (82 of 82) and are now extra references
+  (`curation/blastocystis_pubmlst_18S.tsv`, `--extra`): they settle the
+  ST14/ST24 cases left between the two (10 more ST24), 2 ST17 and 1
+  ST1; none of the earlier assignments moved. The genome scan had
+  capped assemblies per species, and most are filed as "*Blastocystis*
+  sp.", so 9 of the 100 on NCBI had been scanned; all are now. 27 carry
+  V4; the two-copy rule keeps 19 variants (was 6), 5 of them new - ST1
+  variants and the RusS/HerGr lineage, 15% from every subtype. The
+  subtype script now also types the genome layer's rows. Trial build:
+  658 *Blastocystis* records, 596 named to subtype (was 653 and 581).
+  They add little for VESPA: of ~100,000 reads at 85-99% to a
+  *Blastocystis* record, 310 come closer.
 - **VESPA's candidates.** The 26 *Blastocystis* candidates from the
   v0.4.0 feedback, compared over their two read windows, are all clearly
   one subtype - ST1 (10), ST2 (9), ST3 (7) - each 0.7-3.6% from a
   subtyped record and >= 13 edits nearer it than any other subtype. They
   were unnamed subtype variants, not missing taxa.
+
+### 4.8 Genera found missing against the VESPA samples
+
+The VESPA samples' unmatched clusters (v0.7.0, 2x301, identity < 97%)
+pointed at protist genera never fetched from GenBank: gut trichomonads
+and diplomonads, archamoebae and trichostome ciliates. Fetched
+(`work/genbank_targeted_layer.tsv.gz`, a GenBank layer like the protist
+one): 724 records in 15 genera, 451 already in PR2, 115 not spanning V4,
+157 entered - **61 V4 sequences new to the release**: *Trichomitus
+batrachorum* (26), *Tetratrichomonas* (11, among them *T. buttreyi* and
+*T. gallinarum*), *Hypotrichomonas* (3), *Trepomonas* (3), *Trimitus*
+(2), *Mastigamoeba* (4), *Rhizomastix libera* (3), *Buxtonella
+sulcata* (5), *Cycloposthium* (3), *Dasytricha* (1).
+
+They do not close VESPA's gaps: no unmatched cluster comes more than 1%
+closer (the 83% "*Hexamita*", 87% "*Rhizomastix*" and 88%
+"*Lacusteria*" clusters stay where they were), so those organisms are
+not in GenBank under these names with V4-spanning records. Nematoda and
+Platyhelminthes were already fetched whole; *Molineus*, a candidate for
+the "*Viannaia*" cluster, has only a 36bp partial over V4.
+
+NCBI BLAST of 15 representative unmatched clusters (largest per gap,
+`results/vespa_gaps/`; core_nt, unfiltered, 2026-10-29):
+- **recovered** (added to the same layer, `VESPA_blast_hits.fasta.gz`):
+  a primate trichostome 98.0% to "*Buxtonella*-like sp." OM423619 (was
+  93% to *Neobalantidium*); *Paramicrosporidium* sp. MW898450 (90 ->
+  93%); "Hexamitinae sp." OR291217 (83 -> 93%).
+- **to review** (the layer's class check sent them there): two
+  "uncultured fungus" clones, LC365266/61, 97.1% to a 5,148-read
+  cluster PR2 places nearest a colpodellid - NCBI says fungus, the
+  sequence's nearest PR2 class is Coccidiomorphea; and "Parabasalia sp."
+  OK584312 (88 -> 91%), held only because its NCBI class is a
+  placeholder.
+- **nothing closer anywhere:** *Entamoeba* and *Iodamoeba* (best hits
+  are records we hold), an unknown alveolate (82% at best).
+- **not gaps:** the "*Viannaia*" clusters are *Pichia* yeast and
+  *Blastocystis* fragments, and the low-identity "*Blastocystis*",
+  "*Theileria*", "*Endolimax*" and "*Rhizomastix*" ones yeast or one-window
+  artefacts - labels like "unresolved below domain (94% to X)" come from
+  windows that disagree, not from a missing organism.
 
 ## 5. Curation: collapsing the layers
 

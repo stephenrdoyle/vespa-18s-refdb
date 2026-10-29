@@ -2,14 +2,16 @@
 """Assign Blastocystis V4 inserts to subtypes, by the curated references.
 
     bin/blastocystis_subtypes.py curation/blastocystis_subtypes.tsv \
-        work/genbank/Blastocystis.fasta.gz work/pr2_layer.tsv.gz work/blastocystis \
-        curation/blastocystis_v4_subtypes.tsv
+        work/genbank/Blastocystis.fasta.gz work/pr2_layer.tsv.gz[,work/ncbi_genomes_layer.tsv.gz] work/blastocystis \
+        curation/blastocystis_v4_subtypes.tsv [--extra curation/blastocystis_pubmlst_18S.tsv]
 
 Subtypes (ST1, ST2 ...) are not species and PR2 and GenBank barely label
 them, so they are set here from curation/blastocystis_subtypes.tsv: the
 published full-length reference sequences for each accepted subtype.
 
 1. The references are fetched from GenBank and trimmed to the V4 insert.
+   --extra adds curated sequences with their subtype (allele, subtype,
+   sequence): PubMLST's full-length 18S alleles, each typed by PubMLST.
    They are also written as OUTDIR/references_genbank.fasta.gz, in
    genbank_fetch.py's format, so bin/genbank_layer.py can make them a
    layer: some never reach a title search, and every subtype should have
@@ -131,7 +133,13 @@ def title_subtype(title: str) -> str:
 
 
 def main() -> int:
-    table, gb_path, pr2_path, out, curated = sys.argv[1:6]
+    args = sys.argv[1:]
+    extra = None
+    if "--extra" in args:
+        k = args.index("--extra")
+        extra = args[k + 1]
+        del args[k:k + 2]
+    table, gb_path, pr2_path, out, curated = args[:5]
     os.makedirs(out, exist_ok=True)
     refs = [r for r in csv.DictReader(open(table), delimiter="\t") if r["status"] == "accepted"]
     ref_path = os.path.join(out, "references_genbank.fasta.gz")
@@ -145,6 +153,14 @@ def main() -> int:
             ref_v4[f"{st_of[acc]}|{acc}"] = ins
         else:
             print(f"  reference {acc} ({st_of[acc]}): no V4 insert ({status})", file=sys.stderr)
+    if extra:
+        n = 0
+        for r in csv.DictReader((l for l in open(extra) if not l.startswith("#")), delimiter="\t"):
+            status, ins, *_ = pcr_full(r["sequence"])
+            if status == "amplicon" and r["subtype"]:
+                ref_v4[f"{r['subtype']}|{r['allele']}"] = ins
+                n += 1
+        print(f"  {n} extra references from {extra}", file=sys.stderr)
     with open(os.path.join(out, "references_v4.fasta"), "w") as fh:
         for k, s in ref_v4.items():
             fh.write(f">{k}\n{s}\n")
@@ -159,10 +175,14 @@ def main() -> int:
         if status == "amplicon":
             acc = name.split()[0]
             seen[ins].append(("GenBank", acc, title_subtype(name)))
-    with gzip.open(pr2_path, "rt") as fh:
-        for r in csv.DictReader(fh, delimiter="\t"):
-            if r["genus"].startswith("Blastocystis") and r["insert"]:
-                seen[r["insert"]].append(("PR2", r["accession"], ""))
+    # Layers (comma-separated): PR2's, and any other whose Blastocystis
+    # rows should be typed - the NCBI genome layer's, for one.
+    for path in pr2_path.split(","):
+        with gzip.open(path, "rt") as fh:
+            for r in csv.DictReader(fh, delimiter="\t"):
+                if r["genus"].startswith("Blastocystis") and r.get("status", "amplicon") == "amplicon" \
+                        and r["insert"]:
+                    seen[r["insert"]].append((r["source"], r["accession"], ""))
     ids = {ins: record_id(ins) for ins in seen}
 
     # Exact global edit distance to every reference.

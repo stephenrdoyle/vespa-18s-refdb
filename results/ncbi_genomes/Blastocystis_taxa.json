@@ -3,14 +3,120 @@
   "GCA_039096195.1": "3128534",
   "GCA_001651215.1": "478820",
   "GCA_000963415.1": "944208",
+  "GCA_000743755.1": "944170",
+  "GCF_000743755.1": "944170",
+  "GCA_027406425.1": "429571",
+  "GCA_027406445.1": "429571",
+  "GCA_025449385.1": "944208",
+  "GCA_029241775.1": "944168",
+  "GCA_025449415.1": "944168",
+  "GCA_029241725.1": "944168",
+  "GCA_027406465.1": "1076755",
+  "GCA_000963465.1": "1544353",
+  "GCA_000963395.1": "944170",
+  "GCA_029241515.1": "944168",
+  "GCA_000963455.1": "429571",
+  "GCA_029241095.1": "944168",
+  "GCA_029241145.1": "944168",
+  "GCA_000963385.1": "944168",
+  "GCA_027406385.1": "944168",
+  "GCA_029241275.1": "944168",
+  "GCA_000963365.1": "944160",
+  "GCA_029241215.1": "944168",
+  "GCA_027406325.1": "944160",
+  "GCA_029241375.1": "944168",
+  "GCA_029241435.1": "944168",
+  "GCA_029241155.1": "944168",
+  "GCA_029241195.1": "944168",
+  "GCA_029241535.1": "944168",
+  "GCA_029241455.1": "944168",
+  "GCA_029241245.1": "944168",
+  "GCA_029241715.1": "944168",
+  "GCA_027406365.1": "944036",
+  "GCA_054643315.1": "944036",
+  "GCA_029241675.1": "944168",
+  "GCA_029240965.1": "944168",
+  "GCA_029240975.1": "944168",
+  "GCA_029241565.1": "944168",
+  "GCA_027406485.1": "944036",
+  "GCA_029241355.1": "944168",
+  "GCA_029241065.1": "944168",
+  "GCA_029241755.1": "944168",
+  "GCA_029241605.1": "944168",
+  "GCA_029241495.1": "944168",
+  "GCA_029241115.1": "944168",
+  "GCA_029241405.1": "944168",
+  "GCA_029241395.1": "944168",
+  "GCA_029241235.1": "944168",
+  "GCA_029241785.1": "944168",
+  "GCA_029241815.1": "944168",
+  "GCA_029241035.1": "944168",
+  "GCA_029241595.1": "944168",
+  "GCA_029241685.1": "944168",
+  "GCA_029241645.1": "944168",
+  "GCA_029241475.1": "944168",
+  "GCA_029241125.1": "944168",
+  "GCA_029241045.1": "944168",
+  "GCA_029241555.1": "944168",
+  "GCA_029241015.1": "944168",
+  "GCA_039096225.1": "3128533",
+  "GCA_039096935.1": "478820",
+  "GCA_039096215.1": "3128537",
+  "GCA_039096365.1": "3128536",
+  "GCA_039096925.1": "3128535",
+  "GCA_060697475.1": "3379679",
+  "GCA_060697425.1": "3379678",
+  "GCA_027406405.1": "944036",
+  "GCA_934883995.1": "944036",
+  "GCA_944391175.1": "944208",
+  "GCA_944320215.1": "1076755",
+  "GCA_937873115.1": "944170",
+  "GCA_937863765.1": "944036",
+  "GCA_981451855.1": "478820",
+  "GCA_937871655.1": "944036",
+  "GCA_981425075.1": "944170",
+  "GCA_937862745.1": "944170",
+  "GCA_982253245.1": "944170",
+  "GCA_982246525.1": "944170",
+  "GCA_982266135.1": "944170",
+  "GCA_029241635.1": "944168",
   "GCA_000151665.1": "12968",
   "GCF_000151665.1": "12968",
   "GCA_948471165.1": "12968",
+  "GCA_003575125.1": "12968",
   "GCA_935749445.1": "444509",
   "GCA_944319995.1": "444509",
-  "GCA_935749045.1": "444509"
+  "GCA_935749045.1": "444509",
+  "GCA_935750945.1": "444509",
+  "GCA_935752185.1": "444509",
+  "GCA_944319805.1": "444509",
+  "GCA_935751105.1": "444509",
+  "GCA_935752455.1": "444509",
+  "GCA_935751545.1": "444509",
+  "GCA_935752955.1": "444509",
+  "GCA_935751615.1": "444509",
+  "GCA_935749065.1": "444509",
+  "GCA_935752615.1": "444509",
+  "GCA_935753195.1": "444509",
+  "GCA_935752495.1": "444509",
+  "GCA_935752135.1": "444509"
  },
  "taxa": {
+  "1076755": {
+   "name": "Blastocystis sp. subtype 7",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "Blastocystis sp. subtypes"
+   ]
+  },
   "12968": {
    "name": "Blastocystis hominis",
    "lineage": [
@@ -23,6 +129,36 @@
     "Opalinata",
     "Blastocystidae",
     "Blastocystis"
+   ]
+  },
+  "1544353": {
+   "name": "Blastocystis sp. subtype 9",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "Blastocystis sp. subtypes"
+   ]
+  },
+  "3128533": {
+   "name": "Blastocystis sp. Blastoise",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "unclassified Blastocystis"
    ]
   },
   "3128534": {
@@ -38,6 +174,96 @@
     "Blastocystidae",
     "Blastocystis",
     "unclassified Blastocystis"
+   ]
+  },
+  "3128535": {
+   "name": "Blastocystis sp. DL",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "unclassified Blastocystis"
+   ]
+  },
+  "3128536": {
+   "name": "Blastocystis sp. JDR",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "unclassified Blastocystis"
+   ]
+  },
+  "3128537": {
+   "name": "Blastocystis sp. NMH",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "unclassified Blastocystis"
+   ]
+  },
+  "3379678": {
+   "name": "Blastocystis sp. HerGr",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "unclassified Blastocystis"
+   ]
+  },
+  "3379679": {
+   "name": "Blastocystis sp. RusS",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "unclassified Blastocystis"
+   ]
+  },
+  "429571": {
+   "name": "Blastocystis sp. subtype 8",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "Blastocystis sp. subtypes"
    ]
   },
   "444509": {
@@ -68,6 +294,66 @@
     "Blastocystidae",
     "Blastocystis",
     "Blastocystis hominis"
+   ]
+  },
+  "944036": {
+   "name": "Blastocystis sp. subtype 1",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "Blastocystis sp. subtypes"
+   ]
+  },
+  "944160": {
+   "name": "Blastocystis sp. subtype 2",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "Blastocystis sp. subtypes"
+   ]
+  },
+  "944168": {
+   "name": "Blastocystis sp. subtype 3",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "Blastocystis sp. subtypes"
+   ]
+  },
+  "944170": {
+   "name": "Blastocystis sp. subtype 4",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Sar",
+    "Stramenopiles",
+    "Bigyra",
+    "Opalozoa",
+    "Opalinata",
+    "Blastocystidae",
+    "Blastocystis",
+    "Blastocystis sp. subtypes"
    ]
   },
   "944208": {
