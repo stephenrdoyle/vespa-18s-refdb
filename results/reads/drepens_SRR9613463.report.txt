@@ -1,0 +1,25 @@
+baited 674 reads from 1 file(s), first 200,000 reads each
+round 1: length 1084, changed
+round 2: length 1084, stable
+V4 insert 544bp, primer edits 0/0; depth over insert min 500, median 507
+positions in the insert with a second allele >= 10%: 45
+  insert pos 8: A 429 / - 83
+  insert pos 35: A 419 / - 79
+  insert pos 50: G 448 / - 59
+  insert pos 64: G 445 / - 51
+  insert pos 73: C 446 / - 56
+  insert pos 93: G 422 / - 75
+  insert pos 102: G 442 / - 51
+  insert pos 110: T 441 / - 60
+  insert pos 117: T 403 / - 87
+  insert pos 137: T 447 / - 54
+  insert pos 162: T 440 / - 62
+  insert pos 171: A 410 / - 75
+  insert pos 193: G 412 / - 82
+  insert pos 202: C 451 / - 53
+  insert pos 219: G 434 / - 62
+  insert pos 228: A 438 / - 69
+  insert pos 233: G 437 / - 56
+  insert pos 240: G 422 / - 69
+  insert pos 247: T 410 / - 81
+  insert pos 256: T 415 / - 76

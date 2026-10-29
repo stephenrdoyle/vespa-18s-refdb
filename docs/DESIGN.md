@@ -459,6 +459,122 @@ NCBI BLAST of 15 representative unmatched clusters (largest per gap,
   artefacts - labels like "unresolved below domain (94% to X)" come from
   windows that disagree, not from a missing organism.
 
+### 4.9 A watch list of important helminths
+
+`bin/watchlist_audit.py` reports, for the 122 helminths in
+`curation/helminth_watchlist.tsv` (livestock, horse, human, companion
+animal, zoo and wildlife), whether each is present, how deep it resolves
+(whole, 2x300, 2x150) and its species margin. Rerun it when genomes
+arrive. `results/audits/`: v0.8.0, and the build after §4.10.
+
+| | species | only in shared records | missing |
+|---|---:|---:|---:|
+| v0.8.0 | 80 | 10 | 32 |
+| after §4.10 | 89 | 11 | 22 |
+
+What the gaps are:
+
+- **Shared V4, not missing:** *Baylisascaris* (order), *Teladorsagia*
+  and *T. colubriformis* (family), the rumen flukes (15 members from
+  about 10 paramphistome genera, *Calicophoron* among them), the
+  cyathostomins (§4.10), *Ancylostoma ceylanicum* / *caninum* /
+  *duodenale*, *Mansonella perstans* / *ozzardi*, *Onchocerca volvulus* /
+  *ochengi* / *lupi* / *cervicalis*. A call there names the genus or
+  above, which is what V4 allows.
+- **Fragile, 1 edit:** *H. contortus*, *Ostertagia*, *Chabertia*,
+  *Cylicocyclus*, *A. lumbricoides*, *A. duodenale*, *Loa*,
+  *Dicrocoelium*, *O. stephanostomum*, and now *O. volvulus* and *D.
+  repens* (§4.10).
+- **Still missing (22), no assembly and no genome reads in ENA:**
+  *Cooperia punctata* / *curticei*, *Oesophagostomum dentatum* /
+  *radiatum* / *columbianum* / *bifurcum*, *Nematodirus filicollis* /
+  *spathiger*, *Trichostrongylus vitrinus*, *Bunostomum phlebotomum*,
+  *Strongylus edentatus*, *Anoplocephala magna*, *Strongyloides
+  westeri*, *A. braziliense* / *tubaeforme*, *Capillaria aerophila* /
+  *obsignata*, *Ternidens*, *Pterygodermatites*, *Molineus*,
+  *Enterobius anthropopitheci*, *Prosthenorchis*. Several have partial
+  18S only (§8).
+
+### 4.10 V4 from raw reads, where assemblies have none
+
+Most 2010s short-read helminth genomes dropped their rDNA (an array of
+identical repeats is what short reads cannot assemble): the WBPS genomes
+of *A. ceylanicum*, *A. duodenale*, *O. dentatum*, *S. vulgaris*,
+*H. placei*, *P. equorum* and every *Onchocerca* yield no V4. The raw
+reads still hold it, at tens to hundreds of copies per genome, and ENA
+holds the reads - including Darwin Tree of Life projects not yet
+assembled. Three routes, all streaming only the start of a run:
+
+- **Long accurate reads (PacBio HiFi):** `bin/reads_insilico_pcr.py`
+  runs the usual scan on each read (100,000 reads give hundreds to
+  thousands of V4 copies). `bin/read_variants.py` keeps a variant at
+  >= 2% of a run's V4 reads and >= 5 reads (HiFi errors recur at
+  homopolymers) and writes genome-layer input, so the genome rules and
+  class check build `work/reads_layer.tsv.gz` (source `ENA_reads`;
+  runs in `curation/longread_runs.tsv`). The class check sent the two
+  contaminants to review: a *Bullera* yeast with *Bunostomum*, an
+  unnamed *Entamoeba*-like amoeba with *Coronocyclus*.
+- **Short reads, or noisy long reads (old PacBio subreads):**
+  `bin/reads_v4_consensus.py` maps reads to a relative's 18S around V4
+  (primers plus 250bp flanks), takes the majority base position by
+  position and repeats until stable; `--decoy` drops reads nearer host
+  18S (blood, skin nodules), `--preset map-pb` takes noisy long reads.
+  Checked on *A. duodenale*: it recovers the PacBio-confirmed V4
+  exactly, and corrects a seed with 8 planted errors in one round; from
+  *O. cervicalis* as seed it recovers *D. repens* from RS II subreads.
+  It gives the majority copy only: minor alleles from short reads were
+  noise (absent from long reads of the same species), except where two
+  independent isolates agree (*H. placei*, *O. volvulus* below).
+  Results go in as local sequences, evidence in each row;
+  `results/reads/` holds every run's report.
+- **Assemblies:** further long-read assemblies scanned as before
+  (`curation/longread_genomes.txt`), and two pre-release Tree of Life
+  assemblies as their own layer (`work/tol_prerelease_layer.tsv.gz`,
+  source `ToL_prerelease`: *Cyathostoma americana* nxCyaAmer1.1,
+  *Crenosoma striatum* nxCreStri23; two *Angiostrongylus* ones held
+  back).
+
+What it found:
+
+- **New species:** *Bunostomum trigonocephalum*, *Cyathostoma
+  americana*, *Strongylus vulgaris*, and - by minor variants of their
+  own - *Cylicostephanus goldi* / *longibursatus*, *Cylicocyclus
+  insigne*, *Coronocyclus labiatus*, *Calicophoron daubneyi*.
+- **Cyathostomins share one main V4.** Six species (*Cyathostomum*,
+  *Cylicostephanus* x2, *Cylicocyclus* x2, *Coronocyclus*) carry
+  `V4_c474d5b76665`, which v0.8.0 named *Cylicocyclus* - a genus call
+  that would have misnamed every other cyathostomin. It now stops at
+  Strongylida.
+- **Filarial worms sit within a few bases of each other** (*Onchocerca*
+  / *Loa* 1 edit; *A. viteae* / *D. repens* 1-2; *Loa* / *D. repens* 3).
+  Confirmed from independent data: *Loa* (long-read assembly
+  GCA_053739935.1), *D. repens* (RS II subreads), *A. viteae*
+  (GCA_046563165.1), *Onchocerca* (*O. lupi* HiFi; *O. volvulus* from
+  Cameroon, Ghana and Mali reads; *O. ochengi*, identical to *O.
+  volvulus*). The base separating *Onchocerca* from *Loa* (insert 347)
+  is real, but lies between the 2x150 read windows, so at 2x150 the
+  three genera cannot be told apart. *O. volvulus* is polymorphic at
+  insert 123 (Ghana: A 64%, C 36%); *D. repens* has A there, so the A
+  variant went in as an *O. volvulus* record - without it those reads
+  tied with *D. repens*.
+- ***Mansonella*:** four read sets (two *M. perstans*, two *M.
+  ozzardi*) agree on one shared main V4, so a call stops at genus. The
+  v0.8.0 *M. ozzardi* record was a divergent minor copy (11% from every
+  filarid, about 2% of reads) - kept, as what it is; the *M. perstans*
+  GenBank record, 3 bases off, is dropped (`overrides.tsv`).
+- ***H. placei*** carries two V4 variants about 50:50 at insert 138 in
+  two isolates (2012, 2023). The A variant is the V4 it shares with *H.
+  contortus*; the G variant is in no other record (the *H. contortus*
+  genome has A in 12 of 13 copies), so it names *H. placei*: reads from
+  a cattle *H. placei* split between *Haemonchus* and *H. placei*.
+- ***A. ceylanicum*** (two isolates) has the common *Ancylostoma* V4 -
+  not missing, but not separable from *A. caninum* / *duodenale*.
+- **A collapse fix:** the narrow trust rule (a lone lower-trust label
+  outvoted 3:1 below class is overruled) had overruled *Cyathostomum*'s
+  and *Coronocyclus*'s reads. Members from genome and read sources
+  (`GENOME_SOURCES` in `bin/collapse.py`) are now never outvoted there;
+  they still face the class check and the screens.
+
 ## 5. Curation: collapsing the layers
 
 As implemented in `bin/collapse.py` (its docstring is the reference).

@@ -17,3 +17,18 @@ GCA_031761385.1  # Necator americanus Nec_am_Ar_1.0
 GCA_054883415.1  # Anoplocephala perfoliata
 GCA_037576465.1  # Parascaris univalens Pu_v2
 GCA_019097775.1  # Moniezia expansa
+# added after v0.8.0, from the watch-list audit (gaps and fragile records)
+GCA_964258995.1  # Calicophoron daubneyi (rumen fluke; missing)
+GCA_964186725.1  # Calicophoron daubneyi, second assembly
+GCA_062004760.1  # Strongylus vulgaris (WBPS assembly has no rDNA)
+GCA_958299035.1  # Cylicocyclus nassatus (record rests on 1 edit)
+GCA_947359475.1  # Heligmosomoides bakeri nxHelBake1.1 (Tree of Life)
+GCA_963556325.1  # Heligmosomoides bakeri nxHelBake2.1
+GCA_963556295.1  # Heligmosomoides bakeri nxHelBake3.1
+GCA_988426865.1  # Dirofilaria immitis nxDirImmi10.1 (second Tree of Life individual, 2026-10-21)
+GCA_053739935.1  # Loa loa (long-read assembly; the neighbour Onchocerca sits 1 edit from)
+GCA_046563165.1  # Acanthocheilonema viteae (chromosome-level, U. Maryland; second, independent isolate)
+GCA_037074765.1  # Mansonella perstans Mpe_Cam_1 (NEB)
+GCA_031470935.1  # Mansonella perstans NEB_Mpe_Cam2
+GCA_947561605.2  # Mansonella perstans mperst1.1 (ITM)
+GCA_044231725.1  # Mansonella ozzardi NEB_Moz_Brazil_1 (the ParaRef Venezuela copy is ~11% from every filarid)

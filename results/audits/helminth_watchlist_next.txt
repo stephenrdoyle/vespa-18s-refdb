@@ -1,0 +1,132 @@
+
+## livestock
+  Haemonchus_contortus             own   1 in   3  whole species m=1  300x300 species m=1  150x150 genus   m=-
+  Haemonchus_placei                own   1 in   2  whole species m=1  300x300 species m=1  150x150 genus   m=-
+  Teladorsagia_circumcincta        own   0 in   1  whole family  m=-  300x300 order   m=-  150x150 order   m=-
+  Ostertagia_ostertagi             own   2 in   3  whole species m=1  300x300 species m=1  150x150 species m=1
+  Trichostrongylus_colubriformis   own   0 in   1  whole family  m=-  300x300 order   m=-  150x150 order   m=-
+  Trichostrongylus_axei            own   9 in  10  whole species m=2  300x300 species m=3  150x150 species m=3
+  Trichostrongylus_vitrinus        MISSING (genus records: 9)
+  Cooperia_oncophora               own  11 in  11  whole species m=12  300x300 species m=14  150x150 species m=11
+  Cooperia_punctata                MISSING (genus records: 11)
+  Cooperia_curticei                MISSING (genus records: 11)
+  Nematodirus_battus               own   4 in   4  whole species m=3  300x300 species m=4  150x150 species m=3
+  Nematodirus_filicollis           MISSING (genus records: 4)
+  Nematodirus_spathiger            MISSING (genus records: 4)
+  Oesophagostomum_venulosum        own  47 in  47  whole species m=2  300x300 species m=3  150x150 species m=3
+  Oesophagostomum_columbianum      MISSING (genus records: 48)
+  Oesophagostomum_radiatum         MISSING (genus records: 48)
+  Oesophagostomum_dentatum         MISSING (genus records: 48)
+  Chabertia_ovina                  own   1 in   1  whole species m=1  300x300 species m=1  150x150 species m=1
+  Bunostomum_trigonocephalum       own   2 in   2  whole species m=2  300x300 species m=2  150x150 species m=1
+  Bunostomum_phlebotomum           MISSING (genus records: 2)
+  Strongyloides_papillosus         own   3 in   4  whole species m=6  300x300 species m=8  150x150 species m=5
+  Strongyloides_ransomi            own   1 in   2  whole species m=2  300x300 genus   m=-  150x150 genus   m=-
+  Toxocara_vitulorum               own   1 in   1  whole species m=2  300x300 species m=2  150x150 species m=1
+  Ascaris_suum                     own   1 in   2  whole species m=2  300x300 species m=3  150x150 genus   m=-
+  Trichuris_suis                   own   5 in   5  whole species m=16  300x300 species m=18  150x150 species m=11
+  Trichuris_ovis                   own   0 in   1  whole genus   m=-  300x300 genus   m=-  150x150 genus   m=-
+  Dictyocaulus_viviparus           own   8 in   8  whole species m=4  300x300 species m=4  150x150 species m=4
+  Dictyocaulus_filaria             own   1 in   1  whole species m=21  300x300 species m=24  150x150 species m=18
+  Fasciola_hepatica                own   5 in   6  whole species m=3  300x300 species m=4  150x150 species m=2
+  Fasciola_gigantica               own   2 in   2  whole species m=14  300x300 species m=10  150x150 species m=10
+  Dicrocoelium_dendriticum         own   2 in   2  whole species m=1  300x300 species m=1  150x150 species m=far
+  Calicophoron_daubneyi            own   7 in   8  whole species m=1  300x300 species m=2  150x150 species m=2
+  Paramphistomum_cervi             own   0 in   1  whole family  m=-  300x300 family  m=-  150x150 family  m=-
+  Moniezia_expansa                 own   3 in   3  whole species m=4  300x300 species m=8  150x150 species m=4
+  Moniezia_benedeni                own   5 in   5  whole species m=47  300x300 species m=36  150x150 species m=12
+
+## horse
+  Parascaris_univalens             own   4 in   5  whole species m=24  300x300 species m=20  150x150 species m=12
+  Parascaris_equorum               own   0 in   1  whole genus   m=-  300x300 genus   m=-  150x150 genus   m=-
+  Strongylus_vulgaris              own   1 in   1  whole species m=2  300x300 species m=2  150x150 species m=2
+  Strongylus_edentatus             MISSING (genus records: 2)
+  Strongylus_equinus               own   1 in   1  whole species m=2  300x300 species m=2  150x150 species m=1
+  Cylicocyclus_nassatus            own   3 in   4  whole species m=1  300x300 species m=2  150x150 species m=2
+  Cylicocyclus_insigne             own   1 in   3  whole species m=1  300x300 species m=1  150x150 species m=1
+  Cyathostomum_catinatum           own   0 in   1  whole family  m=-  300x300 order   m=-  150x150 order   m=-
+  Cylicostephanus_longibursatus    own   1 in   2  whole species m=1  300x300 species m=1  150x150 species m=1
+  Cylicostephanus_goldi            own   1 in   3  whole species m=1  300x300 species m=1  150x150 species m=1
+  Coronocyclus_labiatus            own   1 in   2  whole species m=1  300x300 species m=2  150x150 species m=2
+  Oxyuris_equi                     own   1 in   1  whole species m=22  300x300 species m=20  150x150 species m=12
+  Anoplocephala_perfoliata         own   3 in   3  whole species m=88  300x300 species m=75  150x150 species m=19
+  Anoplocephala_magna              MISSING (genus records: 3)
+  Strongyloides_westeri            MISSING (genus records: 25)
+
+## human
+  Ascaris_lumbricoides             own   2 in   2  whole species m=1  300x300 species m=1  150x150 species m=far
+  Trichuris_trichiura              own   8 in   8  whole species m=13  300x300 species m=6  150x150 species m=4
+  Trichuris_incognita              own   3 in   3  whole species m=17  300x300 species m=15  150x150 species m=8
+  Necator_americanus               own   1 in   1  whole species m=2  300x300 species m=2  150x150 species m=2
+  Ancylostoma_duodenale            own   2 in   3  whole species m=1  300x300 species m=1  150x150 species m=1
+  Ancylostoma_ceylanicum           own   0 in   1  whole genus   m=-  300x300 genus   m=-  150x150 order   m=-
+  Strongyloides_stercoralis        own   3 in   3  whole species m=4  300x300 species m=6  150x150 species m=4
+  Strongyloides_fuelleborni        own   3 in   4  whole species m=7  300x300 species m=7  150x150 species m=6
+  Enterobius_vermicularis          own   2 in   2  whole species m=5  300x300 species m=5  150x150 species m=3
+  Schistosoma_mansoni              own   7 in   8  whole species m=96  300x300 species m=66  150x150 species m=15
+  Schistosoma_haematobium          own   2 in   3  whole species m=7  300x300 species m=7  150x150 species m=4
+  Schistosoma_japonicum            own  27 in  27  whole species m=11  300x300 species m=9  150x150 species m=3
+  Taenia_solium                    own   1 in   1  whole species m=46  300x300 species m=17  150x150 species m=3
+  Taenia_saginata                  own   3 in   4  whole species m=27  300x300 species m=2  150x150 species m=1
+  Hymenolepis_nana                 own   2 in   2  whole species m=3  300x300 family  m=-  150x150 family  m=-
+  Clonorchis_sinensis              own   3 in   4  whole species m=2  300x300 species m=3  150x150 family  m=-
+  Opisthorchis_viverrini           own   4 in   5  whole species m=2  300x300 species m=3  150x150 species m=1
+  Fasciolopsis_buski               own   1 in   1  whole species m=11  300x300 species m=11  150x150 species m=8
+  Onchocerca_volvulus              own   1 in   2  whole species m=1  300x300 species m=1  150x150 order   m=-
+  Loa_loa                          own   1 in   1  whole species m=1  300x300 species m=1  150x150 order   m=-
+  Wuchereria_bancrofti             own   2 in   3  whole species m=3  300x300 species m=4  150x150 species m=4
+  Brugia_malayi                    own   5 in   7  whole species m=3  300x300 species m=4  150x150 species m=3
+  Mansonella_perstans              own   0 in   1  whole genus   m=-  300x300 genus   m=-  150x150 genus   m=-
+  Dracunculus_medinensis           own   4 in   4  whole species m=6  300x300 species m=10  150x150 species m=10
+  Trichinella_spiralis             own   9 in  12  whole species m=2  300x300 species m=2  150x150 species m=2
+  Anisakis_simplex                 own   1 in   2  whole species m=8  300x300 species m=8  150x150 species m=8
+  Angiostrongylus_cantonensis      own   2 in   2  whole species m=11  300x300 species m=22  150x150 species m=22
+  Angiostrongylus_malaysiensis     own   5 in   5  whole species m=3  300x300 species m=3  150x150 species m=1
+  Paragonimus_westermani           own   2 in   2  whole species m=4  300x300 species m=4  150x150 species m=1
+  Echinococcus_granulosus          own   7 in   7  whole species m=41  300x300 species m=22  150x150 species m=10
+  Echinococcus_multilocularis      own   2 in   2  whole species m=30  300x300 species m=12  150x150 species m=6
+
+## companion
+  Toxocara_canis                   own   1 in   3  whole species m=23  300x300 species m=23  150x150 species m=1
+  Toxocara_cati                    own   1 in   2  whole species m=1  300x300 order   m=-  150x150 order   m=-
+  Toxascaris_leonina               own   1 in   2  whole species m=3  300x300 order   m=-  150x150 order   m=-
+  Ancylostoma_caninum              own   1 in   2  whole species m=2  300x300 species m=3  150x150 species m=2
+  Ancylostoma_braziliense          MISSING (genus records: 5)
+  Ancylostoma_tubaeforme           MISSING (genus records: 5)
+  Uncinaria_stenocephala           own   1 in   1  whole species m=4  300x300 species m=4  150x150 species m=4
+  Trichuris_vulpis                 own   3 in   3  whole species m=7  300x300 species m=7  150x150 species m=7
+  Dirofilaria_immitis              own  13 in  13  whole species m=37  300x300 species m=43  150x150 species m=30
+  Dirofilaria_repens               own   2 in   2  whole species m=1  300x300 species m=1  150x150 species m=1
+  Angiostrongylus_vasorum          own   2 in   3  whole species m=2  300x300 species m=4  150x150 species m=4
+  Aelurostrongylus_abstrusus       own   1 in   1  whole species m=10  300x300 species m=10  150x150 species m=7
+  Crenosoma_vulpis                 own   1 in   1  whole species m=1  300x300 species m=1  150x150 genus   m=-
+  Dipylidium_caninum               own   3 in   3  whole species m=far  300x300 species m=far  150x150 species m=far
+  Taenia_pisiformis                own   7 in   7  whole species m=120  300x300 species m=91  150x150 species m=26
+  Capillaria_aerophila             MISSING (genus records: 14)
+  Thelazia_callipaeda              own   6 in   6  whole species m=33  300x300 species m=23  150x150 species m=12
+  Spirocerca_lupi                  own   5 in   5  whole species m=2  300x300 species m=3  150x150 species m=3
+
+## zoo/wildlife
+  Baylisascaris_procyonis          own   0 in   1  whole order   m=-  300x300 order   m=-  150x150 order   m=-
+  Baylisascaris_schroederi         own   0 in   1  whole order   m=-  300x300 order   m=-  150x150 order   m=-
+  Baylisascaris_transfuga          own   0 in   1  whole order   m=-  300x300 order   m=-  150x150 order   m=-
+  Prosthenorchis_elegans           MISSING (genus records: 0)
+  Oesophagostomum_bifurcum         MISSING (genus records: 48)
+  Oesophagostomum_stephanostomum   own   1 in   1  whole species m=1  300x300 species m=1  150x150 species m=1
+  Ternidens_deminutus              MISSING (genus records: 0)
+  Pterygodermatites_nycticebi      MISSING (genus records: 0)
+  Gongylonema_pulchrum             own   3 in   3  whole species m=20  300x300 species m=16  150x150 species m=13
+  Molineus_torulosus               MISSING (genus records: 0)
+  Enterobius_anthropopitheci       MISSING (genus records: 3)
+  Trypanoxyuris_atelis             own   1 in   1  whole species m=2  300x300 species m=2  150x150 species m=2
+  Crenosoma_striatum               own   5 in   5  whole species m=4  300x300 species m=4  150x150 species m=4
+  Cyathostoma_americana            own   7 in   7  whole species m=3  300x300 species m=3  150x150 species m=1
+  Heligmosomum_mixtum              own   4 in   4  whole species m=2  300x300 order   m=-  150x150 order   m=-
+  Heligmosomoides_polygyrus        own  21 in  21  whole species m=15  300x300 species m=17  150x150 species m=15
+  Litomosoides_sigmodontis         own   1 in   1  whole species m=14  300x300 species m=17  150x150 species m=10
+  Acanthocheilonema_viteae         own   2 in   2  whole species m=2  300x300 species m=2  150x150 species m=1
+  Ascaridia_galli                  own   1 in   1  whole species m=7  300x300 species m=7  150x150 species m=4
+  Heterakis_gallinarum             own   2 in   2  whole species m=10  300x300 species m=9  150x150 species m=6
+  Syngamus_trachea                 own   1 in   1  whole species m=2  300x300 species m=2  150x150 species m=2
+  Capillaria_obsignata             MISSING (genus records: 14)
+  Raillietina_tetragona            own   1 in   1  whole species m=170  300x300 species m=69  150x150 species m=19

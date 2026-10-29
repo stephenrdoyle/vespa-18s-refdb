@@ -1,0 +1,16 @@
+# Public long-read (PacBio HiFi) runs scanned for V4 with bin/reads_insilico_pcr.py
+# (first 100,000 reads each), for species whose assemblies lack rDNA or that
+# have no assembly yet. Variants kept by bin/read_variants.py (>= 2% of the
+# run's V4 reads and >= 5 reads). Not used: SRR39558006 (Strongylus vulgaris,
+# raw Sequel IIe subreads - too noisy for the primer match: 1 amplicon).
+run	organism	stem
+ERR17589398	Bunostomum trigonocephalum	bunostomum
+ERR11658766	Cyathostomum catinatum	cyathostomum_catinatum
+ERR11658752	Cylicostephanus goldi	cylicostephanus_goldi
+ERR11658744	Cylicostephanus longibursatus	cylicostephanus_longibursatus
+ERR11658755	Cylicocyclus insigne	cylicocyclus_insigne
+ERR11649225	Cylicocyclus nassatus	cylicocyclus_nassatus
+ERR11658728	Coronocyclus labiatus	coronocyclus_labiatus
+SRR33113994	Ancylostoma duodenale	ancylostoma_duodenale
+ERR17736586	Angiostrongylus malaysiensis	angiostrongylus_malaysiensis
+ERR12657672	Crenosoma striatum	crenosoma_striatum

@@ -1,0 +1,50 @@
+{
+ "assemblies": {
+  "nxCyaAmer1.1": "1827351",
+  "nxCreStri23.20261012": "699426"
+ },
+ "taxa": {
+  "1827351": {
+   "name": "Cyathostoma americana",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Syngamidae",
+    "Cyathostoma"
+   ]
+  },
+  "699426": {
+   "name": "Crenosoma striatum",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Crenosomatidae",
+    "Crenosoma"
+   ]
+  }
+ }
+}

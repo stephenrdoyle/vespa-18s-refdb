@@ -1,0 +1,5 @@
+baited 8157 reads from 2 file(s), first 3,000,000 reads each
+round 1: length 1071, stable
+V4 insert 531bp, primer edits 0/0; depth over insert min 1002, median 1086
+positions in the insert with a second allele >= 10%: 1
+  insert pos 313: T 892 / C 125

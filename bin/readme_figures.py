@@ -42,7 +42,9 @@ MODES = {
 SOURCE_NAMES = {"PR2_5.1.1": "PR2 v5.1.1", "GenBank": "GenBank", "WBPS19": "WormBase ParaSite 19",
                 "NCBI_genomes": "NCBI protist genomes",
                 "NCBI_genomes:helminth": "Long-read helminth genomes",
-                "ParaRef": "ParaRef", "local": "Local (our sequences)"}
+                "ParaRef": "ParaRef", "local": "Local (our sequences)",
+                "ENA_reads": "Raw long reads (ENA)",
+                "ToL_prerelease": "Tree of Life, pre-release"}
 HELMINTH_CLASSES = ("Nematoda", "Platyhelminthes", "Acanthocephala")
 
 

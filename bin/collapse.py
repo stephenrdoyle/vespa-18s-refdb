@@ -275,6 +275,11 @@ def resolve(members, trust: dict):
 TRUST_RANKS = range(RANKS.index("order"), RANKS.index("genus") + 1)
 
 
+# Sources whose members are an organism's own sequenced rDNA (genome
+# assemblies, raw reads, our own sequences), not a deposited label.
+GENOME_SOURCES = {"WBPS19", "ParaRef", "NCBI_genomes", "ENA_reads", "ToL_prerelease", "local"}
+
+
 def trust_below_class(kept, trust: dict):
     """Overrule lone lower-trust labels conflicting at order..genus that are
     unnamed or outvoted three to one."""
@@ -295,6 +300,12 @@ def trust_below_class(kept, trust: dict):
     over = []
     for (i, _), ms in dissent.items():
         if len(ms) != 1:
+            continue
+        # A genome's or a read set's own rDNA is the organism, not a label
+        # someone attached: never outvoted here (it still faces the class
+        # check and screen()). Found when cyathostomin genera sharing one V4
+        # had Cyathostomum's and Coronocyclus's reads overruled.
+        if ms[0]["source"] in GENOME_SOURCES:
             continue
         agree = sum(1 for m in kept if m["ranks"][i] == ref[i])
         if not informative(ms[0]["ranks"][-1]) or agree >= 3:

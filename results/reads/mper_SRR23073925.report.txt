@@ -1,0 +1,5 @@
+baited 861 reads from 2 file(s), first 3,000,000 reads each
+round 1: length 1085, changed
+round 2: length 1085, stable
+V4 insert 544bp, primer edits 0/0; depth over insert min 97, median 114
+positions in the insert with a second allele >= 10%: 0

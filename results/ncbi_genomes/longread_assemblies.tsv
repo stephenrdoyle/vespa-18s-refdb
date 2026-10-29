@@ -1,4 +1,5 @@
 accession	name	organism	taxid	level	length	contig_n50	released
+GCA_046563165.1	ASM4656316v1	Acanthocheilonema viteae	6277	Chromosome	81082259	12575739	2025-01-08
 GCA_031761385.1	Nec_am_Ar_1.0	Necator americanus	51031	Chromosome	234457255	4928238	2023-09-22
 GCA_037576465.1	Pu_v2	Parascaris univalens	6257	Chromosome	243743289	2420182	2024-03-27
 GCA_965643665.1	nxCooOnco1.hap1.1	Cooperia oncophora	27828	Chromosome	433191757	1216801	2025-07-19
@@ -7,11 +8,23 @@ GCA_963978905.1	nxTriColu2.1	Trichostrongylus colubriformis	6319	Chromosome	3309
 GCA_964213955.1	nxOstOste4.1	Ostertagia ostertagi	6317	Chromosome	407173136	830317	2024-08-22
 GCA_966197035.1	nxNemBatt8.hap1.1	Nematodirus battus	28839	Chromosome	661135604	351122	2025-08-23
 GCA_054883415.1	ASM5488341v1	Anoplocephala perfoliata	218192	Chromosome	372309905	1049344	2026-01-29
+GCA_947359475.1	nxHelBake1.1	Heligmosomoides polygyrus bakeri	375939	Chromosome	649143723	293000	2022-12-03
 GCA_965283065.1	nxTriAxei3.hap1.1	Trichostrongylus axei	40349	Chromosome	339172519	540620	2025-05-18
 GCA_966212565.1	nxOesVenu2.hap1.1	Oesophagostomum venulosum	63234	Chromosome	433458635	1500829	2025-08-24
 GCA_019097775.1	ASM1909777v1	Moniezia expansa	28841	Scaffold	142225902	3386365	2021-07-02
 GCA_037903475.1	UNMC_Acan_hybrid	Ancylostoma caninum	29170	Scaffold	348020245	1076560	2024-04-01
+GCA_037074765.1	Mpe_Cam_1	Mansonella perstans	42231	Scaffold	76054666	284449	2024-03-08
+GCA_062004760.1	UKY_Svul_1.0	Strongylus vulgaris	40348	Contig	328963418	142121	2026-09-28
+GCA_964258995.1	CDAUBV1_v9	Calicophoron daubneyi	300641	Contig	1761193519	14590010	2024-09-06
+GCA_958299035.1	Cylicocyclus_nassatus_INRAE	Cylicocyclus nassatus	53992	Scaffold	514686895	671872	2023-07-13
+GCA_988426865.1	nxDirImmi10.1	Dirofilaria immitis	6287	Chromosome	88247594	1934997	2026-10-20
+GCA_053739935.1	ASM5373993v1	Loa loa	7209	Contig	91221439	1140175	2025-11-26
 GCA_965643485.1	nxCooOnco1.hap2.1	Cooperia oncophora	27828	Scaffold	450937483	264437	2025-07-19
 GCA_966197095.1	nxNemBatt8.hap2.1	Nematodirus battus	28839	Scaffold	671379352	90205	2025-08-22
+GCA_947561605.2	mperst1.1	Mansonella perstans	42231	Scaffold	76810040	43617	2023-02-03
+GCA_031470935.1	NEB_Mpe_Cam2	Mansonella perstans	42231	Scaffold	74345861	22890	2023-09-14
+GCA_963556325.1	nxHelBake2.1	Heligmosomoides polygyrus bakeri	375939	Scaffold	656443444	266785	2023-10-11
+GCA_963556295.1	nxHelBake3.1	Heligmosomoides polygyrus bakeri	375939	Scaffold	572717499	102261	2023-10-11
 GCA_965283185.1	nxTriAxei3.hap2.1	Trichostrongylus axei	40349	Scaffold	325727775	110342	2025-05-18
+GCA_044231725.1	NEB_Moz_Brazil_1	Mansonella ozzardi	122354	Scaffold	75748246	33389	2024-11-01
 GCA_966212575.1	nxOesVenu2.hap2.1	Oesophagostomum venulosum	63234	Scaffold	393522955	356661	2025-08-22

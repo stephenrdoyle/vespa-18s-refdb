@@ -74,6 +74,9 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 | `bin/blastocystis_subtypes.py` | **Build.** Names *Blastocystis* records to subtype (ST1, ST2 ...) from the published references in `curation/blastocystis_subtypes.tsv`; writes `curation/blastocystis_v4_subtypes.tsv` |
 | `bin/collapse.py` | **Build.** Collapses layers into unique inserts, merges taxonomy, resolves label conflicts; writes `refdb.fasta`, `taxonomy.tsv`, `members.tsv`, `conflicts.tsv` |
 | `bin/neighbour_check.py` | **Check.** Pairs of records >= 99% identical over V4 whose labels disagree at class or above: the mislabelled and contaminated records identity alone cannot catch (docs/DESIGN.md §5.1) |
+| `bin/reads_insilico_pcr.py`, `bin/read_variants.py` | **Build.** V4 from raw PacBio HiFi runs streamed from ENA, and the variants kept (>= 2% of a run, >= 5 reads) as genome-layer input (docs/DESIGN.md §4.10) |
+| `bin/reads_v4_consensus.py` | **Build.** V4 from short reads (or noisy long reads) by baiting and iterative majority consensus, with a host decoy; results go in as local sequences (§4.10) |
+| `bin/watchlist_audit.py` | **Check.** Where the helminths in `curation/helminth_watchlist.tsv` stand in a release: present, depth, margin (§4.9) |
 | `bin/release.py` | **Build.** Cuts a release: resolution tables, look-alike mask, manifest, tarball |
 | `bin/genbank_fetch.py`, `bin/genbank_layer.py` | **Build.** GenBank 18S for named taxa; the layer keeps what PR2 lacks |
 | `bin/pararef_insilico_pcr.py`, `bin/pararef_layer.py` | **Build.** Streams the ParaRef archive; its layer, under the genome rules |
@@ -128,6 +131,16 @@ python3 bin/genbank_fetch.py work/genbank Tetratrichomonas Trichomitus Hypotrich
 python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/genbank_targeted_layer.tsv.gz \
     work/genbank_targeted_review.tsv <those fasta.gz files>
 
+# V4 from raw reads (docs/DESIGN.md §4.10): HiFi runs -> reads layer
+#   bin/reads_insilico_pcr.py <run fastq.gz URL> <scans>/<stem>.tsv 100000   (per run)
+python3 bin/read_variants.py curation/longread_runs.tsv <scans dir> work/reads_genomes
+python3 bin/pararef_layer.py work/reads_genomes work/reads_genomes/taxa.json \
+    work/pr2_layer.tsv.gz work/reads_layer.tsv.gz work/reads_review.tsv ENA_reads
+# pre-release Tree of Life assemblies (scanned with genome_insilico_pcr.py)
+python3 bin/pararef_layer.py work/tol_prerelease work/tol_prerelease/taxa.json \
+    work/pr2_layer.tsv.gz work/tol_prerelease_layer.tsv.gz work/tol_prerelease_review.tsv ToL_prerelease
+# short-read consensus results are local sequences (local/sequences.tsv)
+
 # Blastocystis subtypes (docs/DESIGN.md §4.7): the references as a layer, and
 # curation/blastocystis_v4_subtypes.tsv, which collapse.py applies
 python3 bin/blastocystis_subtypes.py curation/blastocystis_subtypes.tsv \
@@ -140,7 +153,7 @@ python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/blastocystis_ref_layer.t
 # Increasing trust. (zsh: list the files; it does not word-split a variable)
 python3 bin/collapse.py work/build work/genbank_layer.tsv.gz work/genbank_protist_layer.tsv.gz \
     work/genbank_targeted_layer.tsv.gz work/blastocystis_ref_layer.tsv.gz work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz work/ncbi_genomes_layer.tsv.gz \
-    work/wbps_layer.tsv.gz work/local_layer.tsv.gz
+    work/reads_layer.tsv.gz work/tol_prerelease_layer.tsv.gz work/wbps_layer.tsv.gz work/local_layer.tsv.gz
 # species margins for the resolution tables (needs minimap2; ~15 min), same
 # geometries as the release
 python3 bin/species_margins.py work/build 132x128 250x200

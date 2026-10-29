@@ -1,0 +1,6 @@
+baited 7157 reads from 2 file(s), first 3,000,000 reads each
+round 1: length 1084, changed
+round 2: length 1084, stable
+V4 insert 544bp, primer edits 0/0; depth over insert min 581, median 649
+positions in the insert with a second allele >= 10%: 1
+  insert pos 123: A 443 / C 248

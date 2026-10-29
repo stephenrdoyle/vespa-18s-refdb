@@ -1,0 +1,16 @@
+baited 66 reads from 2 file(s), first 3,000,000 reads each
+round 1: length 1084, changed
+round 2: length 1084, stable
+V4 insert 544bp, primer edits 0/0; depth over insert min 1, median 7
+positions in the insert with a second allele >= 10%: 11
+  insert pos 6: T 3 / C 2
+  insert pos 10: C 2 / A 2
+  insert pos 241: G 6 / T 1
+  insert pos 300: T 5 / C 2
+  insert pos 336: T 7 / C 3
+  insert pos 346: T 9 / A 3
+  insert pos 349: G 9 / T 3
+  insert pos 351: C 9 / T 3
+  insert pos 376: C 9 / T 3
+  insert pos 405: T 8 / A 2
+  insert pos 417: C 11 / T 2

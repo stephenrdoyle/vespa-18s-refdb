@@ -1,5 +1,6 @@
 {
  "assemblies": {
+  "GCA_046563165.1": "6277",
   "GCA_031761385.1": "51031",
   "GCA_037576465.1": "6257",
   "GCA_965643665.1": "27828",
@@ -8,16 +9,49 @@
   "GCA_964213955.1": "6317",
   "GCA_966197035.1": "28839",
   "GCA_054883415.1": "218192",
+  "GCA_947359475.1": "375939",
   "GCA_965283065.1": "40349",
   "GCA_966212565.1": "63234",
   "GCA_019097775.1": "28841",
   "GCA_037903475.1": "29170",
+  "GCA_037074765.1": "42231",
+  "GCA_062004760.1": "40348",
+  "GCA_964258995.1": "300641",
+  "GCA_958299035.1": "53992",
+  "GCA_988426865.1": "6287",
+  "GCA_053739935.1": "7209",
   "GCA_965643485.1": "27828",
   "GCA_966197095.1": "28839",
+  "GCA_947561605.2": "42231",
+  "GCA_031470935.1": "42231",
+  "GCA_963556325.1": "375939",
+  "GCA_963556295.1": "375939",
   "GCA_965283185.1": "40349",
+  "GCA_044231725.1": "122354",
   "GCA_966212575.1": "63234"
  },
  "taxa": {
+  "122354": {
+   "name": "Mansonella ozzardi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Spirurina",
+    "Spiruromorpha",
+    "Filarioidea",
+    "Onchocercidae",
+    "Mansonella"
+   ]
+  },
   "218192": {
    "name": "Anoplocephala perfoliata",
    "lineage": [
@@ -126,6 +160,73 @@
     "Ancylostoma"
    ]
   },
+  "300641": {
+   "name": "Calicophoron daubneyi",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Spiralia",
+    "Lophotrochozoa",
+    "Platyhelminthes",
+    "Rhabditophora",
+    "Neodermata",
+    "Trematoda",
+    "Digenea",
+    "Plagiorchiida",
+    "Pronocephalata",
+    "Paramphistomoidea",
+    "Paramphistomidae",
+    "Calicophoron"
+   ]
+  },
+  "375939": {
+   "name": "Heligmosomoides polygyrus bakeri",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Heligmosomidae",
+    "Heligmosomoides",
+    "Heligmosomoides polygyrus"
+   ]
+  },
+  "40348": {
+   "name": "Strongylus vulgaris",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Strongylidae",
+    "Strongylus"
+   ]
+  },
   "40349": {
    "name": "Trichostrongylus axei",
    "lineage": [
@@ -145,6 +246,27 @@
     "Strongyloidea",
     "Trichostrongylidae",
     "Trichostrongylus"
+   ]
+  },
+  "42231": {
+   "name": "Mansonella perstans",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Spirurina",
+    "Spiruromorpha",
+    "Filarioidea",
+    "Onchocercidae",
+    "Mansonella"
    ]
   },
   "51022": {
@@ -191,6 +313,27 @@
     "Necator"
    ]
   },
+  "53992": {
+   "name": "Cylicocyclus nassatus",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Rhabditina",
+    "Rhabditomorpha",
+    "Strongyloidea",
+    "Strongylidae",
+    "Cylicocyclus"
+   ]
+  },
   "6257": {
    "name": "Parascaris univalens",
    "lineage": [
@@ -210,6 +353,48 @@
     "Ascaridoidea",
     "Ascarididae",
     "Parascaris"
+   ]
+  },
+  "6277": {
+   "name": "Acanthocheilonema viteae",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Spirurina",
+    "Spiruromorpha",
+    "Filarioidea",
+    "Onchocercidae",
+    "Acanthocheilonema"
+   ]
+  },
+  "6287": {
+   "name": "Dirofilaria immitis",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Spirurina",
+    "Spiruromorpha",
+    "Filarioidea",
+    "Onchocercidae",
+    "Dirofilaria"
    ]
   },
   "6317": {
@@ -273,6 +458,27 @@
     "Strongyloidea",
     "Strongylidae",
     "Oesophagostomum"
+   ]
+  },
+  "7209": {
+   "name": "Loa loa",
+   "lineage": [
+    "cellular organisms",
+    "Eukaryota",
+    "Opisthokonta",
+    "Metazoa",
+    "Eumetazoa",
+    "Bilateria",
+    "Protostomia",
+    "Ecdysozoa",
+    "Nematoda",
+    "Chromadorea",
+    "Rhabditida",
+    "Spirurina",
+    "Spiruromorpha",
+    "Filarioidea",
+    "Onchocercidae",
+    "Loa"
    ]
   }
  }
