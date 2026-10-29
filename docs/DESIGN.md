@@ -842,6 +842,33 @@ Curation release: no new genomes or GenBank fetches. Built by commit
   copy is truncated, supports the shared *S. haematobium*-group record;
   no new record.
 
+### 6.8 v0.8.0
+
+Curation from the v0.7.0 feedback and the VESPA gaps, and three
+additions to the release format. Built by commit `e8d6145`, with one
+more layer, `genbank_targeted_layer.tsv.gz`.
+
+- 97,739 records (46 added, 3 removed, 31 relabelled or resolved
+  differently); helminth records 8,983; species-level 49,040.
+- **Curation:** five more neighbour-check overrides (§5.1: two
+  *Angulamoeba* strains and a cryptophyte relabelled; a "*Trachelomonas*
+  chloroplast" that is bacterial 16S and two diatom transcriptome
+  contigs carrying kinetoplastid 18S dropped); *Balantidium coli*
+  harmonised under *Balantioides* (39 relabels), so 4 records that
+  stopped above genus now name it.
+- **New sequences (§4.8):** a targeted GenBank layer - trichomonads,
+  diplomonads, archamoebae and trichostome ciliates never fetched, and
+  six accessions BLAST found for unmatched VESPA clusters (among them a
+  primate *Buxtonella*-like ciliate, now 98%).
+- ***Blastocystis* (§4.7):** all 100 NCBI genomes scanned (19 genome
+  variants, was 6) and PubMLST's 87 typed alleles as extra subtype
+  references - 658 records, 596 named to subtype (was 653 and 581).
+- **Release format (§6):** a `margin` column in each resolution table
+  (`bin/species_margins.py`; ~30% of species calls rest on 1-2 edits);
+  `rank_names.tsv`, what PR2's positional columns hold by clade; and in
+  `summary.txt`, primer fit by domain, the margins, and the clades V4
+  splits least.
+
 ## 7. Order of work
 
 1. ~~PR2 layer, genome layer, collapse with conflict handling~~ (done:
