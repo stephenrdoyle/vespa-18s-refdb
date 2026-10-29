@@ -465,12 +465,12 @@ NCBI BLAST of 15 representative unmatched clusters (largest per gap,
 `curation/helminth_watchlist.tsv` (livestock, horse, human, companion
 animal, zoo and wildlife), whether each is present, how deep it resolves
 (whole, 2x300, 2x150) and its species margin. Rerun it when genomes
-arrive. `results/audits/`: v0.8.0, and the build after §4.10.
+arrive. `results/audits/`: v0.8.0 and v0.9.0.
 
 | | species | only in shared records | missing |
 |---|---:|---:|---:|
 | v0.8.0 | 80 | 10 | 32 |
-| after §4.10 | 89 | 11 | 22 |
+| v0.9.0 | 89 | 11 | 22 |
 
 What the gaps are:
 
@@ -984,6 +984,32 @@ more layer, `genbank_targeted_layer.tsv.gz`.
   `rank_names.tsv`, what PR2's positional columns hold by clade; and in
   `summary.txt`, primer fit by domain, the margins, and the clades V4
   splits least.
+
+### 6.9 v0.9.0
+
+V4 from raw reads and new assemblies (§4.10), and the watch list
+(§4.9). Built by commit `a6ac2b9`, with two more layers,
+`reads_layer.tsv.gz` (source `ENA_reads`) and
+`tol_prerelease_layer.tsv.gz` (`ToL_prerelease`).
+
+- 97,784 records (46 added, 1 removed); helminth records 8,983 ->
+  9,028; species-level 49,040 -> 49,083.
+- Watch list: 89 of 122 helminths to species (v0.8.0: 80), 11 only in
+  shared records, 22 missing (32).
+- New species: *Bunostomum trigonocephalum*, *Cyathostoma americana*,
+  *Strongylus vulgaris*; *Cylicostephanus goldi* / *longibursatus*,
+  *Cylicocyclus insigne*, *Coronocyclus labiatus*, *Calicophoron
+  daubneyi* and *Haemonchus placei* by variants of their own.
+- Corrected: the cyathostomin main V4 (`V4_c474d5b76665`, six species)
+  no longer named *Cylicocyclus*; *Mansonella*'s main V4, shared by
+  *M. perstans* and *M. ozzardi*, added from four read sets, and the
+  *M. perstans* GenBank record 3 bases off it dropped; an *O. volvulus*
+  variant added so its reads no longer tie with *D. repens*.
+- Confirmed from independent data: *Loa*, *D. repens*, *A. viteae*,
+  *Onchocerca* (with *O. ochengi* and *O. lupi* sharing its V4), *A.
+  ceylanicum* (sharing *Ancylostoma*'s), *Heligmosomoides*, *D. immitis*.
+- `bin/collapse.py`: genome and read members are never outvoted by the
+  narrow trust rule.
 
 ## 7. Order of work
 

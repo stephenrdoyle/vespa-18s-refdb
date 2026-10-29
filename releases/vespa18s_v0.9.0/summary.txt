@@ -1,0 +1,106 @@
+vespa18s_v0.9.0  built 2026-10-29T14:56:43Z  code a6ac2b9324018516301f41cd96a139555d01fed2
+primers AGCAGCCGCGGTAATTCC / TCCGTCAATTYCTTNAASTTTC
+layers: genbank_layer.tsv.gz, genbank_protist_layer.tsv.gz, genbank_targeted_layer.tsv.gz, blastocystis_ref_layer.tsv.gz, pr2_layer.tsv.gz, pararef_layer.tsv.gz, ncbi_genomes_layer.tsv.gz, reads_layer.tsv.gz, tol_prerelease_layer.tsv.gz, wbps_layer.tsv.gz, local_layer.tsv.gz
+records 97,784; Illumina 150x150 window groups 75,300
+members: ENA_reads kept 26, GenBank dropped 1, GenBank kept 16,109, GenBank overruled 27, NCBI_genomes kept 538, PR2_5.1.1 dropped 545, PR2_5.1.1 kept 151,265, PR2_5.1.1 overruled 116, ParaRef kept 158, ToL_prerelease kept 10, WBPS19 kept 232, local kept 14
+conflicts: isolate 25, majority 47, trust 31, unresolved 26
+
+Deepest rank, all records - nanopore:
+    species        49,083   50.2%
+    genus          24,427   25.0%
+    family         14,169   14.5%
+    order           4,807    4.9%
+    class           4,818    4.9%
+    subdivision       285    0.3%
+    division          190    0.2%
+    supergroup          1    0.0%
+    domain              4    0.0%
+    (none)              0    0.0%
+  Illumina:
+    species        39,161   40.0%
+    genus          25,134   25.7%
+    family         19,787   20.2%
+    order           6,543    6.7%
+    class           6,132    6.3%
+    subdivision       559    0.6%
+    division          419    0.4%
+    supergroup          3    0.0%
+    domain             31    0.0%
+    (none)             15    0.0%
+
+Helminth records (9,028) - nanopore:
+    species         5,853   64.8%
+    genus           2,638   29.2%
+    family            202    2.2%
+    order             282    3.1%
+    class              53    0.6%
+    subdivision         0    0.0%
+    division            0    0.0%
+    supergroup          0    0.0%
+    domain              0    0.0%
+    (none)              0    0.0%
+  Illumina:
+    species         5,023   55.6%
+    genus           3,042   33.7%
+    family            357    4.0%
+    order             516    5.7%
+    class              87    1.0%
+    subdivision         3    0.0%
+    division            0    0.0%
+    supergroup          0    0.0%
+    domain              0    0.0%
+    (none)              0    0.0%
+
+Primer fit (best-fitting member of each record):
+    exact          76,003   77.7%   helminth  6,171
+    away_3prime     8,193    8.4%   helminth    198
+    near_3prime    13,184   13.5%   helminth  2,561
+    indel             245    0.3%   helminth      2
+    edits_only        159    0.2%   helminth     96
+    unknown             0    0.0%   helminth      0
+  by domain (records: exact / away_3prime / near_3prime / other):
+    Eukaryota      95,643: 76,003 / 8,193 / 11,043 / 404
+    Bacteria        2,068: 0 / 0 / 2,068 / 0
+    Archaea            73: 0 / 0 / 73 / 0
+
+Species margins - edits from a species-level record to the nearest record of
+another species (species_margins.tsv; the 'margin' column of each resolution
+table). A species call resting on 1-2 edits would also be made for a lineage
+the release lacks, a base or two away. 'none near': no record of another
+species shares even half its insert - a large margin:
+    read whole (49,083)          1  8,520  2  6,065  3-5 10,004  >5 20,037  none near  4,457
+    Illumina 132x128 (39,161)    1  7,788  2  5,877  3-5  8,371  >5 12,752  none near  4,373
+
+Clades V4 splits least (class column, >= 300 records; what the column
+holds by clade: rank_names.tsv). A call stopping in one of these means
+'genus unknowable from V4', not 'badly classified':
+    clade                   records  species  stop above genus  (Illumina)
+    Syndiniales               3,815       0%               98%         99%
+    Chytridiomycota             821      21%               69%         74%
+    Filosa-Thecofilosea         410      18%               67%         71%
+    Litostomatea                928      26%               63%         66%
+    Choanoflagellatea           306      34%               61%         63%
+    Spirotrichea              1,960      26%               55%         59%
+    Filosa-Sarcomonadea         395      14%               54%         57%
+    Dinophyceae               3,997      31%               53%         58%
+    Polycystinea              1,228      31%               52%         53%
+    Chrysophyceae               924      27%               49%         51%
+    Basidiomycota             5,841      45%               45%         67%
+    Oligohymenophorea         1,083      41%               42%         45%
+    Cryptophyceae               640      40%               32%         36%
+    Ascomycota                8,578      55%               31%         44%
+    Gregarinomorphea            465      54%               24%         24%
+
+Anchor look-alikes by edits: 1: 2, 2: 1,036, 3: 45,369
+
+Files:
+  anchor_lookalikes.tsv  0dde9469c07d5031
+  conflicts.tsv  e1c46d9905cd29db
+  members.tsv  752688e0c170e018
+  primer_fit.tsv  af7ed4c12ed3e3f1
+  rank_names.tsv  429e4b102d2dd07a
+  refdb.fasta  b83cd78b6b5cfbc5
+  resolution_illumina_150x150.tsv  c59db2d6fab4a0e6
+  resolution_illumina_300x300.tsv  36702111b39d5fb3
+  resolution_nanopore.tsv  0266abdcf802020e
+  taxonomy.tsv  29d681c707484c75
