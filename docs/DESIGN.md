@@ -795,6 +795,35 @@ Curation release: no new genomes or GenBank fetches. Built by commit
   come first.
 - File format for local additions (layer 4), and how each layer is
   versioned.
+- **Partial references.** A record must contain both primer sites, so
+  species known only from partial 18S are absent: about 8,200 named
+  species in PR2 and our GenBank downloads (v0.7.0), 2,900 of them
+  helminths (`results/partials/partial_only_species.tsv`, best record per
+  helminth, apicomplexan and protist species). By their best record,
+  helminths split roughly as: one primer plus 350-699bp of insert (559),
+  one primer plus one Illumina window's worth (128-349bp, 570), less
+  (122), no primer site at all (1,634 - outside V4 or a short internal
+  stretch; not yet aligned), and full-length sequences whose other
+  primer site is > 2 edits off (69, mostly land planarians - arguably
+  rightly out).
+  - *Near-complete tier* (measured, `results/partials/measure_partials.py`
+    -> `near_complete_partials.tsv`): aligning the 648 "350-699bp"
+    candidates to full V4 of their genus or family, only **49 species
+    are complete or <= 10bp short** (66 at <= 30bp); most nematode
+    partials stop > 100bp before the reverse primer. The 49 include
+    *Acanthocheilonema reconditum*, *Mansonella atelensis*, *Gurltia
+    paralysans*, *Angiostrongylus mackerrasae*, *Setaria tundra*, the pig
+    *Eimeria* (*E. suis*, *debliecki*, *neodebliecki*, *spinosa*,
+    *perminuta*), *Cryptosporidium scrofarum* and *C. equi*, *Cyclospora
+    macacae*, *Moniliformis tupaia*. Proposed handling, not built: admit
+    them trimmed to the insert, flagged in a `partial.tsv` (missing end,
+    bp), primer fit "unknown" at the missing site, joining an existing
+    record where contained in it. Before building: GenBank candidates
+    with no full record in their genus were measured against a distant
+    family member (no lineage lookup) and may be misjudged.
+  - *One-window tier* (~570 helminth species, plus the truncated
+    "350-699bp" ones): useful to Illumina reads only, in the window they
+    cover - needs partial-record support in the pipeline (amphid).
 - Whether to filter to lineages of interest, or keep all eukaryotes so
   off-target reads are assigned rather than forced onto the nearest
   parasite. (Current lean: keep everything; the pipeline reports
