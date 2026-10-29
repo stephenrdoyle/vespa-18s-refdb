@@ -1,0 +1,32 @@
+Leave-one-out: each species removed in turn; where do its reads land?
+(percent of species; 'genus left' = its genus still has other records)
+
+nanopore exact
+  Nematoda         genus left  n= 1380  correct species 99.6%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.4%  WRONG genus  0.0%  WRONG higher  0.0%
+  Nematoda         genus GONE  n=  287  correct species 100.0%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.0%  WRONG genus  0.0%  WRONG higher  0.0%
+  Platyhelminthes  genus left  n= 1149  correct species 100.0%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.0%  WRONG genus  0.0%  WRONG higher  0.0%
+  Platyhelminthes  genus GONE  n=  560  correct species 100.0%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.0%  WRONG genus  0.0%  WRONG higher  0.0%
+  Acanthocephala   genus left  n=   75  correct species 100.0%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.0%  WRONG genus  0.0%  WRONG higher  0.0%
+  Acanthocephala   genus GONE  n=   27  correct species 100.0%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.0%  WRONG genus  0.0%  WRONG higher  0.0%
+  Apicomplexa      genus left  n=  494  correct species 100.0%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.0%  WRONG genus  0.0%  WRONG higher  0.0%
+  Apicomplexa      genus GONE  n=   28  correct species 100.0%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.0%  WRONG genus  0.0%  WRONG higher  0.0%
+
+nanopore
+  Nematoda         genus left  n= 1380  correct species 68.6%  sister species  0.0%  WRONG species  0.0%  correct genus 22.6%  correct higher  8.8%  WRONG genus  0.0%  WRONG higher  0.0%
+  Nematoda         genus GONE  n=  287  correct species 83.6%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher 16.4%  WRONG genus  0.0%  WRONG higher  0.0%
+  Platyhelminthes  genus left  n= 1149  correct species 78.0%  sister species  0.0%  WRONG species  0.0%  correct genus 17.8%  correct higher  4.3%  WRONG genus  0.0%  WRONG higher  0.0%
+  Platyhelminthes  genus GONE  n=  560  correct species 92.5%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  7.5%  WRONG genus  0.0%  WRONG higher  0.0%
+  Acanthocephala   genus left  n=   75  correct species 70.7%  sister species  0.0%  WRONG species  0.0%  correct genus 21.3%  correct higher  8.0%  WRONG genus  0.0%  WRONG higher  0.0%
+  Acanthocephala   genus GONE  n=   27  correct species 85.2%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher 14.8%  WRONG genus  0.0%  WRONG higher  0.0%
+  Apicomplexa      genus left  n=  494  correct species 78.5%  sister species  0.0%  WRONG species  0.0%  correct genus 18.0%  correct higher  3.4%  WRONG genus  0.0%  WRONG higher  0.0%
+  Apicomplexa      genus GONE  n=   28  correct species 100.0%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.0%  WRONG genus  0.0%  WRONG higher  0.0%
+
+illumina
+  Nematoda         genus left  n= 1380  correct species 83.6%  sister species  0.0%  WRONG species  0.1%  correct genus 11.4%  correct higher  4.9%  WRONG genus  0.0%  WRONG higher  0.1%
+  Nematoda         genus GONE  n=  287  correct species 93.7%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  6.3%  WRONG genus  0.0%  WRONG higher  0.0%
+  Platyhelminthes  genus left  n= 1149  correct species 87.1%  sister species  0.0%  WRONG species  0.0%  correct genus  8.5%  correct higher  4.4%  WRONG genus  0.0%  WRONG higher  0.0%
+  Platyhelminthes  genus GONE  n=  560  correct species 97.3%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  2.7%  WRONG genus  0.0%  WRONG higher  0.0%
+  Acanthocephala   genus left  n=   75  correct species 85.3%  sister species  0.0%  WRONG species  0.0%  correct genus  9.3%  correct higher  5.3%  WRONG genus  0.0%  WRONG higher  0.0%
+  Acanthocephala   genus GONE  n=   27  correct species 88.9%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher 11.1%  WRONG genus  0.0%  WRONG higher  0.0%
+  Apicomplexa      genus left  n=  494  correct species 88.1%  sister species  0.0%  WRONG species  0.0%  correct genus  9.9%  correct higher  2.0%  WRONG genus  0.0%  WRONG higher  0.0%
+  Apicomplexa      genus GONE  n=   28  correct species 100.0%  sister species  0.0%  WRONG species  0.0%  correct genus  0.0%  correct higher  0.0%  WRONG genus  0.0%  WRONG higher  0.0%

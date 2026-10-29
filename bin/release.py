@@ -220,12 +220,17 @@ def main() -> int:
         fh.readline()
         fit = Counter(line.split("\t")[1] for line in fh)
         fit_helm = Counter()
+    # By domain too: prokaryotes amplify only at the 2-edit limit, 3' end
+    # mismatched, so their share of each fit class shows the release's
+    # bacterial exposure (v0.4.0 feedback, §3).
+    fit_dom = defaultdict(Counter)
     with open(os.path.join(out, "primer_fit.tsv")) as fh:
         fh.readline()
         for line in fh:
             f = line.split("\t")
             if tax[f[0]][4] in HELMINTHS:
                 fit_helm[f[1]] += 1
+            fit_dom[tax[f[0]][0].split(":")[0] or "(none)"][f[1]] += 1
 
     files = sorted(os.listdir(out))
     manifest = {
@@ -258,6 +263,7 @@ def main() -> int:
             "anchor_lookalikes_by_edits": {str(k): v for k, v in sorted(look.items())},
             "primer_fit": dict(fit),
             "primer_fit_helminth": dict(fit_helm),
+            "primer_fit_by_domain": {d: dict(c) for d, c in sorted(fit_dom.items())},
         },
         "files": {f: sha256(os.path.join(out, f)) for f in files},
     }
@@ -284,6 +290,11 @@ def main() -> int:
              *[f"    {k:12s} {fit.get(k, 0):>8,}  {100 * fit.get(k, 0) / len(seqs):5.1f}%   "
                f"helminth {fit_helm.get(k, 0):>6,}"
                for k in ("exact", "away_3prime", "near_3prime", "indel", "edits_only", "unknown")],
+             "  by domain (records: exact / away_3prime / near_3prime / other):",
+             *[f"    {d:12s} {sum(c.values()):>8,}: " + " / ".join(
+                 f"{c.get(k, 0):,}" for k in ("exact", "away_3prime", "near_3prime"))
+               + f" / {sum(v for k, v in c.items() if k not in ('exact', 'away_3prime', 'near_3prime')):,}"
+               for d, c in sorted(fit_dom.items(), key=lambda x: -sum(x[1].values()))],
              "", "Anchor look-alikes by edits: "
              + ", ".join(f"{k}: {v:,}" for k, v in sorted(look.items())),
              "", "Files:", *[f"  {f}  {manifest['files'][f][:16]}" for f in files]]

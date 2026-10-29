@@ -1,0 +1,32 @@
+Leave-one-out: each species removed in turn; where do its reads land?
+(percent of species; 'genus left' = its genus still has other records)
+
+nanopore exact
+  Nematoda         genus left  n= 1380  sister species 34.6%  WRONG species 10.5%  correct genus 35.5%  correct higher  9.9%  WRONG genus  8.0%  WRONG higher  1.4%
+  Nematoda         genus GONE  n=  287  sister species  0.0%  WRONG species 42.5%  correct genus  0.0%  correct higher 19.9%  WRONG genus 26.8%  WRONG higher  9.8%
+  Platyhelminthes  genus left  n= 1149  sister species 45.8%  WRONG species 13.7%  correct genus 29.2%  correct higher  6.6%  WRONG genus  4.2%  WRONG higher  0.4%
+  Platyhelminthes  genus GONE  n=  560  sister species  0.0%  WRONG species 57.5%  correct genus  0.0%  correct higher 19.3%  WRONG genus 21.4%  WRONG higher  0.5%
+  Acanthocephala   genus left  n=   75  sister species 38.7%  WRONG species 14.7%  correct genus 34.7%  correct higher 10.7%  WRONG genus  1.3%  WRONG higher  0.0%
+  Acanthocephala   genus GONE  n=   27  sister species  0.0%  WRONG species 37.0%  correct genus  0.0%  correct higher 37.0%  WRONG genus 18.5%  WRONG higher  0.0%
+  Apicomplexa      genus left  n=  494  sister species 44.1%  WRONG species  3.0%  correct genus 42.5%  correct higher  4.7%  WRONG genus  3.2%  WRONG higher  0.6%
+  Apicomplexa      genus GONE  n=   28  sister species  0.0%  WRONG species 21.4%  correct genus  0.0%  correct higher  3.6%  WRONG genus 46.4%  WRONG higher  3.6%
+
+nanopore
+  Nematoda         genus left  n= 1380  sister species 15.9%  WRONG species  4.4%  correct genus 43.6%  correct higher 30.5%  WRONG genus  4.6%  WRONG higher  0.9%
+  Nematoda         genus GONE  n=  287  sister species  0.0%  WRONG species 20.6%  correct genus  0.0%  correct higher 54.4%  WRONG genus 16.4%  WRONG higher  7.7%
+  Platyhelminthes  genus left  n= 1149  sister species 29.9%  WRONG species  6.3%  correct genus 37.7%  correct higher 21.7%  WRONG genus  4.0%  WRONG higher  0.3%
+  Platyhelminthes  genus GONE  n=  560  sister species  0.0%  WRONG species 35.4%  correct genus  0.0%  correct higher 45.2%  WRONG genus 17.7%  WRONG higher  0.5%
+  Acanthocephala   genus left  n=   75  sister species 22.7%  WRONG species 10.7%  correct genus 36.0%  correct higher 29.3%  WRONG genus  1.3%  WRONG higher  0.0%
+  Acanthocephala   genus GONE  n=   27  sister species  0.0%  WRONG species 18.5%  correct genus  0.0%  correct higher 66.7%  WRONG genus  7.4%  WRONG higher  0.0%
+  Apicomplexa      genus left  n=  494  sister species 24.1%  WRONG species  1.4%  correct genus 54.5%  correct higher 14.6%  WRONG genus  3.0%  WRONG higher  0.6%
+  Apicomplexa      genus GONE  n=   28  sister species  0.0%  WRONG species 10.7%  correct genus  0.0%  correct higher  7.1%  WRONG genus 50.0%  WRONG higher  7.1%
+
+illumina
+  Nematoda         genus left  n= 1380  sister species 29.2%  WRONG species  8.7%  correct genus 36.4%  correct higher 16.4%  WRONG genus  7.6%  WRONG higher  1.6%
+  Nematoda         genus GONE  n=  287  sister species  0.0%  WRONG species 34.1%  correct genus  0.0%  correct higher 29.6%  WRONG genus 24.7%  WRONG higher 10.5%
+  Platyhelminthes  genus left  n= 1149  sister species 40.7%  WRONG species 12.3%  correct genus 30.5%  correct higher 10.8%  WRONG genus  5.1%  WRONG higher  0.4%
+  Platyhelminthes  genus GONE  n=  560  sister species  0.0%  WRONG species 54.8%  correct genus  0.0%  correct higher 24.3%  WRONG genus 19.3%  WRONG higher  0.4%
+  Acanthocephala   genus left  n=   75  sister species 26.7%  WRONG species 14.7%  correct genus 41.3%  correct higher 10.7%  WRONG genus  6.7%  WRONG higher  0.0%
+  Acanthocephala   genus GONE  n=   27  sister species  0.0%  WRONG species 37.0%  correct genus  0.0%  correct higher 33.3%  WRONG genus 22.2%  WRONG higher  0.0%
+  Apicomplexa      genus left  n=  494  sister species 36.8%  WRONG species  3.2%  correct genus 47.8%  correct higher  6.7%  WRONG genus  3.4%  WRONG higher  0.2%
+  Apicomplexa      genus GONE  n=   28  sister species  0.0%  WRONG species 21.4%  correct genus  0.0%  correct higher  3.6%  WRONG genus 50.0%  WRONG higher  0.0%

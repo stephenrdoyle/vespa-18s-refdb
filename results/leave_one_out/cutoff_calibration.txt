@@ -1,0 +1,37 @@
+Species-level cut-off on distance to the best hit (helminths + Apicomplexa).
+kept = correct species calls (species present) still named to species;
+demoted = wrong species calls (species absent) turned into genus or above.
+
+nanopore exact: correct species calls n=3995, wrong species calls n=2038, wrong genus calls n=391
+   species only if <= 0.5%:  kept 100.0%   demoted  80.3%
+   species only if <= 1.0%:  kept 100.0%   demoted  61.9%
+   species only if <= 1.5%:  kept 100.0%   demoted  51.0%
+   species only if <= 2.0%:  kept 100.0%   demoted  43.1%
+   species only if <= 3.0%:  kept 100.0%   demoted  31.2%
+   species only if <= 4.0%:  kept 100.0%   demoted  23.0%
+   species only if <= 5.0%:  kept 100.0%   demoted  17.6%
+   genus only if <= 3.0%:    correct genus-or-better calls kept 100.0%   wrong genus calls demoted  40.4%
+   genus only if <= 5.0%:    correct genus-or-better calls kept 100.0%   wrong genus calls demoted  24.8%
+   genus only if <= 8.0%:    correct genus-or-better calls kept 100.0%   wrong genus calls demoted  14.6%
+illumina: correct species calls n=3520, wrong species calls n=1782, wrong genus calls n=385
+   species only if <= 0.5%:  kept  62.7%   demoted  91.1%
+   species only if <= 1.0%:  kept  86.5%   demoted  82.8%
+   species only if <= 1.5%:  kept  96.0%   demoted  72.2%
+   species only if <= 2.0%:  kept  99.8%   demoted  55.9%
+   species only if <= 3.0%:  kept 100.0%   demoted  46.5%
+   species only if <= 4.0%:  kept 100.0%   demoted  35.0%
+   species only if <= 5.0%:  kept 100.0%   demoted  26.6%
+   genus only if <= 3.0%:    correct genus-or-better calls kept 100.0%   wrong genus calls demoted  60.8%
+   genus only if <= 5.0%:    correct genus-or-better calls kept 100.0%   wrong genus calls demoted  39.0%
+   genus only if <= 8.0%:    correct genus-or-better calls kept 100.0%   wrong genus calls demoted  23.4%
+nanopore: correct species calls n=3093, wrong species calls n=1113, wrong genus calls n=287
+   species only if <= 0.5%:  kept   0.1%   demoted 100.0%
+   species only if <= 1.0%:  kept   3.8%   demoted  99.7%
+   species only if <= 1.5%:  kept  23.6%   demoted  98.3%
+   species only if <= 2.0%:  kept  54.5%   demoted  92.2%
+   species only if <= 3.0%:  kept  96.2%   demoted  64.9%
+   species only if <= 4.0%:  kept  99.9%   demoted  44.9%
+   species only if <= 5.0%:  kept 100.0%   demoted  32.1%
+   genus only if <= 3.0%:    correct genus-or-better calls kept  95.9%   wrong genus calls demoted  75.3%
+   genus only if <= 5.0%:    correct genus-or-better calls kept 100.0%   wrong genus calls demoted  44.9%
+   genus only if <= 8.0%:    correct genus-or-better calls kept 100.0%   wrong genus calls demoted  24.4%
