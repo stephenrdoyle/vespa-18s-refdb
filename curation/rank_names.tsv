@@ -1,0 +1,27 @@
+# What the taxonomy columns hold, by clade. The nine columns of taxonomy.tsv
+# are PR2's nine positional levels (domain, supergroup, division,
+# subdivision, class, order, family, genus, species), not Linnaean ranks: in
+# animals and most fungi `class` holds the phylum, `order` a class or
+# subphylum, `family` an order, class or subclass. A pipeline summarising
+# "reads named to family or better", or applying a family-level identity
+# floor, should read a call's depth through this table. Genus and species
+# mean what they say throughout. Read off the release (v0.7.0); where a
+# column mixes ranks, all are given, commonest first. "placeholder": PR2's
+# Name_X / Name_XX, no information at that level. Clades not listed: the
+# columns are close to their names (Apicomplexa, ciliates, diatoms ...).
+match_column	match_value	subdivision	class	order	family	note
+class	Nematoda	kingdom	phylum	class	order|placeholder	order = Chromadorea, Enoplea; family mostly Chromadorea_X / Enoplea_X placeholders, Rhabditida (an order) for 319 records
+class	Platyhelminthes	kingdom	phylum	class	subclass|order	order = Cestoda, Trematoda, Monogenea, Turbellaria (informal); family = Eucestoda, Digenea, Monopisthocotylea (subclasses) or Seriata, Rhabdocoela (orders)
+class	Acanthocephala	kingdom	phylum	placeholder	placeholder	no information between phylum and genus
+class	Arthropoda	kingdom	phylum	subphylum	class	order = Hexapoda, Crustacea, Chelicerata, Myriapoda; family = Insecta, Malacostraca, Arachnida ...
+class	Mollusca	kingdom	phylum	class	subclass	order = Gastropoda, Bivalvia, Cephalopoda; family = Heterobranchia, Heteroconchia ...
+class	Annelida	kingdom	phylum	placeholder	placeholder
+class	Cnidaria	kingdom	phylum	placeholder	class	family = Anthozoa, Hydrozoa ...
+class	Porifera	kingdom	phylum	placeholder	class	family = Demospongiae ...
+class	Craniata	kingdom	subphylum	placeholder	class|infraclass|order	family = Mammalia, Amphibia, Teleostei, Acipenseriformes ...
+class	Ascomycota	kingdom	phylum	subphylum	class|order	order = Pezizomycotina, Saccharomycotina; family = Eurotiomycetes, Sordariomycetes ... or Saccharomycetales (an order)
+class	Basidiomycota	kingdom	phylum	subphylum	class	order = Agaricomycotina, Ustilaginomycotina, Pucciniomycotina; family = Agaricomycetes, Exobasidiomycetes ...
+class	Mucoromycota	kingdom	phylum	subphylum	order|placeholder	order = Glomeromycotina, Mucoromycotina; family = Glomerales, Mucorales ... or placeholder
+class	Chytridiomycota	kingdom	phylum	order	family|placeholder
+class	Embryophyceae	placeholder	clade (land plants)	placeholder	placeholder	no information between land plants and genus
+subdivision	Apicomplexa	phylum	class	order	family	as named

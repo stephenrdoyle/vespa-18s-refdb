@@ -3,6 +3,7 @@ PR2 rank conventions."""
 
 from __future__ import annotations
 
+from collections import defaultdict
 import gzip
 import re
 
@@ -63,6 +64,34 @@ def pcr_full(seq: str):
 def pcr(seq: str):
     """pcr_full without the primer sites: (status, insert, f_edits, r_edits)."""
     return pcr_full(seq)[:4]
+
+
+def edit_distance(a: str, b: str) -> int:
+    """Global (Levenshtein) distance, Myers' bit-parallel algorithm with
+    Python integers as bit vectors: one pass over b."""
+    m = len(a)
+    if not m:
+        return len(b)
+    peq = defaultdict(int)
+    for i, c in enumerate(a):
+        peq[c] |= 1 << i
+    full, top = (1 << m) - 1, 1 << (m - 1)
+    pv, mv, score = full, 0, m
+    for c in b:
+        eq = peq[c]
+        xv = eq | mv
+        xh = (((eq & pv) + pv) ^ pv) | eq
+        ph = mv | (~(xh | pv) & full)
+        mh = pv & xh
+        if ph & top:
+            score += 1
+        elif mh & top:
+            score -= 1
+        ph = ((ph << 1) | 1) & full
+        mh = (mh << 1) & full
+        pv = mh | (~(xv | ph) & full)
+        mv = ph & xv
+    return score
 
 
 THREE_PRIME_WINDOW = 5

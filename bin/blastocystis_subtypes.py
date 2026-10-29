@@ -46,7 +46,7 @@ import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from collapse import record_id  # noqa: E402
-from vespa import pcr_full  # noqa: E402
+from vespa import edit_distance, pcr_full  # noqa: E402  (edit_distance re-exported)
 
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 # A subtype is given when the nearest reference subtype is within MAX_D1
@@ -97,34 +97,6 @@ def fetch(accs: list, path: str) -> None:
         for name, seq in fasta(text.splitlines()):
             acc, title = name.split(" ", 1)
             fh.write(f">{acc} taxid={taxid[acc]} {title}\n{seq}\n")
-
-
-def edit_distance(a: str, b: str) -> int:
-    """Global (Levenshtein) distance, Myers' bit-parallel algorithm with
-    Python integers as bit vectors: one pass over b."""
-    m = len(a)
-    if not m:
-        return len(b)
-    peq = collections.defaultdict(int)
-    for i, c in enumerate(a):
-        peq[c] |= 1 << i
-    full, top = (1 << m) - 1, 1 << (m - 1)
-    pv, mv, score = full, 0, m
-    for c in b:
-        eq = peq[c]
-        xv = eq | mv
-        xh = (((eq & pv) + pv) ^ pv) | eq
-        ph = mv | (~(xh | pv) & full)
-        mh = pv & xh
-        if ph & top:
-            score += 1
-        elif mh & top:
-            score -= 1
-        ph = ((ph << 1) | 1) & full
-        mh = (mh << 1) & full
-        pv = mh | (~(xv | ph) & full)
-        mv = ph & xv
-    return score
 
 
 def title_subtype(title: str) -> str:

@@ -5,15 +5,23 @@
         [--illumina 150] [--illumina 300:250x200] [--workers 8]
 
 <build dir> is collapse.py's output; the layers are the ones it was built
-from, in the same order, so the manifest can fingerprint them. Writes
+from, in the same order, so the manifest can fingerprint them. Run
+bin/species_margins.py on the build first (same geometries) to fill the
+margin columns; without it they are blank. Writes
 releases/vespa18s_<version>/ and a .tar.gz of it next to it.
 
 Adds to the collapsed files:
-  resolution_nanopore.tsv      the rank each record reaches read whole
+  resolution_nanopore.tsv      the rank each record reaches read whole, and
+                               for species-level records the margin: edits
+                               to the nearest record of another species
+                               (blank on a species row: none near)
   resolution_illumina_RxR.tsv  the rank it reaches through the two read
                                windows: records whose windows are identical
                                are indistinguishable, and share the merge
-                               of their taxonomies
+                               of their taxonomies; margin as above, over
+                               the windows
+  rank_names.tsv               what the positional taxonomy columns hold, by
+                               clade (curation/rank_names.tsv)
   anchor_lookalikes.tsv        adapter-anchor near-copies, in pre-flight's
                                own columns, so the pipeline reads it as is
   manifest.json                versions, inputs, counts, checksums, commit
@@ -24,6 +32,7 @@ Adds to the collapsed files:
 from __future__ import annotations
 
 import argparse
+import csv
 import datetime
 import hashlib
 import json
@@ -132,6 +141,15 @@ def main() -> int:
     os.makedirs(out)
     for f in COPIED:
         shutil.copy2(os.path.join(a.build, f), out)
+    # What the positional taxonomy columns hold, by clade (curated).
+    shutil.copy2(os.path.join(HERE, os.pardir, "curation", "rank_names.tsv"), out)
+    # How firmly each species-level record names its species: from
+    # bin/species_margins.py, run on the same build. Blank when absent.
+    margins = {}
+    mpath = os.path.join(a.build, "species_margins.tsv")
+    if os.path.exists(mpath):
+        with open(mpath) as fh:
+            margins = {r["id"]: r for r in csv.DictReader(fh, delimiter="\t")}
 
     seqs = read_fasta(os.path.join(out, "refdb.fasta"))
     tax = {}
@@ -143,10 +161,13 @@ def main() -> int:
 
     # --- nanopore: the whole insert, so a record is exactly itself
     with open(os.path.join(out, "resolution_nanopore.tsv"), "w") as fh:
-        fh.write("id\tdeepest_rank\tname\n")
+        # margin: edits to the nearest record of another species, read
+        # whole - how many bases a species call rests on. Species rows only.
+        fh.write("id\tdeepest_rank\tname\tmargin\n")
         for rid in seqs:
             r, n = deepest(tax[rid])
-            fh.write(f"{rid}\t{r}\t{n}\n")
+            m = margins.get(rid, {}).get("margin_whole", "") if r == "species" else ""
+            fh.write(f"{rid}\t{r}\t{n}\t{m}\n")
 
     # --- Illumina: only the two read windows are seen, one table per read
     # geometry. The first geometry is the summary's.
@@ -165,13 +186,15 @@ def main() -> int:
         table = f"resolution_illumina_{read_len}x{read_len}.tsv"
         rank_of = {}
         with open(os.path.join(out, table), "w") as fh:
-            fh.write("id\twindow_group\trecords_in_group\tdeepest_rank\tname\n")
+            fh.write("id\twindow_group\trecords_in_group\tdeepest_rank\tname\tmargin\n")
+            mcol = f"margin_{w1}x{w2}"
             for key, ids in groups.items():
                 gid = "W_" + hashlib.sha1(repr(key).encode()).hexdigest()[:12]
                 r, n = deepest(merge_records([tax[i] for i in ids]))
                 for rid in ids:
                     rank_of[rid] = r
-                    fh.write(f"{rid}\t{gid}\t{len(ids)}\t{r}\t{n}\n")
+                    m = margins.get(rid, {}).get(mcol, "") if r == "species" else ""
+                    fh.write(f"{rid}\t{gid}\t{len(ids)}\t{r}\t{n}\t{m}\n")
         # Through the windows a record can never be resolved deeper than
         # read whole; if it is, the merge above is wrong. Refuse the release.
         worse = [i for i in seqs
@@ -232,6 +255,36 @@ def main() -> int:
                 fit_helm[f[1]] += 1
             fit_dom[tax[f[0]][0].split(":")[0] or "(none)"][f[1]] += 1
 
+    # Margins: how many bases species calls rest on, read whole and
+    # through the summary's windows.
+    def margin_bins(col, ids):
+        c = Counter()
+        for i in ids:
+            v = margins.get(i, {}).get(col, "")
+            c["none near" if v == "" else "1" if int(v) <= 1 else "2" if int(v) == 2
+              else "3-5" if int(v) <= 5 else ">5"] += 1
+        return c
+    sp_whole = [i for i in seqs if deepest(tax[i])[0] == "species"]
+    sp_ill = [i for i in seqs if ill_rank[i] == "species"]
+    mb_whole = margin_bins("margin_whole", sp_whole)
+    mb_ill = margin_bins(f"margin_{w1}x{w2}", sp_ill)
+
+    # Clades V4 cannot split: by the class column (see rank_names.tsv for
+    # what it holds), the share of records that stop above genus.
+    by_clade = defaultdict(list)
+    for i in seqs:
+        by_clade[tax[i][4].split(":")[0] or "(none)"].append(i)
+    clade_rows = []
+    for c, ids in by_clade.items():
+        if len(ids) < 300:
+            continue
+        above = lambda r: r not in ("species", "genus")  # noqa: E731
+        clade_rows.append((c, len(ids),
+                           sum(deepest(tax[i])[0] == "species" for i in ids) / len(ids),
+                           sum(above(deepest(tax[i])[0]) for i in ids) / len(ids),
+                           sum(above(ill_rank[i]) for i in ids) / len(ids)))
+    clade_rows.sort(key=lambda r: -r[3])
+
     files = sorted(os.listdir(out))
     manifest = {
         "name": name,
@@ -264,6 +317,8 @@ def main() -> int:
             "primer_fit": dict(fit),
             "primer_fit_helminth": dict(fit_helm),
             "primer_fit_by_domain": {d: dict(c) for d, c in sorted(fit_dom.items())},
+            "species_margins": {"read_whole": dict(mb_whole), f"illumina_{w1}x{w2}": dict(mb_ill)}
+            if margins else None,
         },
         "files": {f: sha256(os.path.join(out, f)) for f in files},
     }
@@ -295,6 +350,21 @@ def main() -> int:
                  f"{c.get(k, 0):,}" for k in ("exact", "away_3prime", "near_3prime"))
                + f" / {sum(v for k, v in c.items() if k not in ('exact', 'away_3prime', 'near_3prime')):,}"
                for d, c in sorted(fit_dom.items(), key=lambda x: -sum(x[1].values()))],
+             "", "Species margins - edits from a species-level record to the nearest record of",
+             "another species (species_margins.tsv; the 'margin' column of each resolution",
+             "table). A species call resting on 1-2 edits would also be made for a lineage",
+             "the release lacks, a base or two away. 'none near': no record of another",
+             "species shares even half its insert - a large margin:",
+             *[f"    {label:28s} " + "  ".join(f"{k} {c.get(k, 0):>6,}" for k in
+                                               ("1", "2", "3-5", ">5", "none near"))
+               for label, c in ((f"read whole ({len(sp_whole):,})", mb_whole),
+                                (f"Illumina {w1}x{w2} ({len(sp_ill):,})", mb_ill))],
+             "", "Clades V4 splits least (class column, >= 300 records; what the column",
+             "holds by clade: rank_names.tsv). A call stopping in one of these means",
+             "'genus unknowable from V4', not 'badly classified':",
+             f"    {'clade':22s} {'records':>8s}  {'species':>7s}  {'stop above genus':>16s}  {'(Illumina)':>10s}",
+             *[f"    {c:22s} {n:>8,}  {100 * sp:6.0f}%  {100 * ab:15.0f}%  {100 * abi:9.0f}%"
+               for c, n, sp, ab, abi in clade_rows[:15]],
              "", "Anchor look-alikes by edits: "
              + ", ".join(f"{k}: {v:,}" for k, v in sorted(look.items())),
              "", "Files:", *[f"  {f}  {manifest['files'][f][:16]}" for f in files]]

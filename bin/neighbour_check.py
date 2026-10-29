@@ -32,7 +32,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from blastocystis_subtypes import edit_distance  # noqa: E402
+from vespa import edit_distance  # noqa: E402
 
 RANKS = ["domain", "supergroup", "division", "subdivision", "class"]
 ASSEMBLY = re.compile(r"^[A-Z]{4}(?:[A-Z]{2})?\d{8,}")

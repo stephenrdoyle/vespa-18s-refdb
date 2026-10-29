@@ -141,7 +141,10 @@ python3 bin/genbank_layer.py work/pr2_layer.tsv.gz work/blastocystis_ref_layer.t
 python3 bin/collapse.py work/build work/genbank_layer.tsv.gz work/genbank_protist_layer.tsv.gz \
     work/genbank_targeted_layer.tsv.gz work/blastocystis_ref_layer.tsv.gz work/pr2_layer.tsv.gz work/pararef_layer.tsv.gz work/ncbi_genomes_layer.tsv.gz \
     work/wbps_layer.tsv.gz work/local_layer.tsv.gz
-python3 bin/release.py work/build releases v0.3.0 <the same layers>
+# species margins for the resolution tables (needs minimap2; ~15 min), same
+# geometries as the release
+python3 bin/species_margins.py work/build 132x128 250x200
+python3 bin/release.py work/build releases vX.Y.Z <the same layers> --illumina 150 --illumina 300:250x200
 ```
 
 Layers go to `collapse.py` and `release.py` in increasing order of
@@ -194,6 +197,19 @@ EOF
 `vespa18s_$V/` is what the pipeline's planned `--reference_database` mode will read;
 `refdb.fasta` holds the sequences and `taxonomy.tsv` their ranks, both
 keyed by record id (the release format is in docs/DESIGN.md §6).
+
+Two things to know when reading a release:
+
+- **The taxonomy columns are PR2's nine positional levels, not Linnaean
+  ranks.** In animals and most fungi `class` holds the phylum (Nematoda,
+  Ascomycota), `order` a class or subphylum, `family` an order or class.
+  `rank_names.tsv` says what each column holds for the major clades;
+  "named to family" means different things in different clades.
+- **The `margin` column of each resolution table** gives, for records
+  resolved to species, the edits to the nearest record of another species
+  over that table's view (blank on a species row: none near). A species
+  call that rests on 1-2 edits would be made just as confidently for a
+  lineage the release lacks, a base or two away.
 
 ## Reproducing the exploratory measurements
 

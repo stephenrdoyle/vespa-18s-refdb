@@ -584,12 +584,14 @@ A release is one directory, named for its build version, holding:
 | `refdb.fasta` | one record per unique insert, primers trimmed; the header is the record id only |
 | `taxonomy.tsv` | id, the nine PR2 ranks (merged to the ranks all members share; placeholder ranks left blank), the source layers contributing, and the number of member sequences |
 | `members.tsv` | every source sequence collapsed into each id: accession or genome and contig, layer, original label, role (`kept`, `overruled`, `dropped`) and, for dropped members, the reason (`note`, from v0.5.0) |
-| `resolution_nanopore.tsv` | per id, the deepest rank at which it is distinguishable over the whole insert |
-| `resolution_illumina_<R1>x<R2>.tsv` | the same over the two read windows for that read length; one per geometry, listed in the manifest's `illumina_geometries` (2x150 and 2x300 from v0.5.0) |
+| `resolution_nanopore.tsv` | per id, the deepest rank at which it is distinguishable over the whole insert; for species-level ids, `margin`: edits to the nearest record of another species (blank: none near; from v0.8.0, `bin/species_margins.py`) |
+| `resolution_illumina_<R1>x<R2>.tsv` | the same over the two read windows for that read length; one per geometry, listed in the manifest's `illumina_geometries` (2x150 and 2x300 from v0.5.0); `margin` over the windows |
+| `rank_names.tsv` | what each positional taxonomy column holds, by clade - in animals and most fungi `class` is the phylum (from v0.8.0, `curation/rank_names.tsv`; v0.4.0 feedback §5g) |
 | `anchor_lookalikes.tsv` | adapter-anchor near-copies, in exactly the columns the pipeline's pre-flight writes (`seq_id anchor strand position edits context`), so the pipeline reads it unchanged |
 | `conflicts.tsv` | identical sequences whose labels disagree at a high rank, and what the build did with each |
 | `primer_fit.tsv` | per id, how well the primers fit its best-matching template: forward and reverse edits, mismatch positions counted from each primer's 3′ end, the template at each site, and a class - `exact`, `away_3prime`, `near_3prime` (a mismatch in the last 5 bases), `indel`, `edits_only` (a genome-only record: counts known, sites not), `unknown` (from v0.4.0) |
-| `manifest.json` | build version, primers, PR2 version, WBPS release, version of every other layer, build date and code commit |
+| `manifest.json` | build version, primers, PR2 version, WBPS release, version of every other layer, build date and code commit; counts, among them primer fit by domain and species margins (from v0.8.0) |
+| `summary.txt` | the same for a person; from v0.8.0 also primer fit by domain, species margins, and the clades V4 splits least |
 
 The pipeline records `manifest.json`'s build version in every result.
 
