@@ -1,0 +1,10 @@
+[M::mm_idx_gen::0.873*1.00] collected minimizers
+[M::mm_idx_gen::1.115*2.28] sorted minimizers
+[M::main::1.115*2.28] loaded/built the index for 97708 target sequence(s)
+[M::mm_mapopt_update::1.134*2.26] mid_occ = 7113
+[M::mm_idx_stat] kmer size: 13; skip: 5; is_hpc: 0; #seq: 97708
+[M::mm_idx_stat::1.146*2.24] distinct minimizers: 1343005 (54.57% are singletons); average occurrences: 13.299; average spacing: 3.045; total length: 54379729
+[M::worker_pipeline::827.140*1.72] mapped 97708 sequences
+[M::main] Version: 2.31-r1302
+[M::main] CMD: minimap2 -t 8 -X -k 13 -w 5 -N 2000 -p 0.5 releases/vespa18s_v0.6.0/refdb.fasta releases/vespa18s_v0.6.0/refdb.fasta
+[M::main] Real time: 827.318 sec; CPU: 1426.886 sec; Peak RSS: 1.927 GB

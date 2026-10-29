@@ -93,11 +93,15 @@ def load_overrides(path: str):
 
     action "drop": first column is a source accession (as members.tsv
     writes it, stable across builds where record ids follow the sequence);
-    that member is dropped. action "host_species": first column is a
-    species label that names the host, not the organism; it becomes
-    Genus_sp. Returns ({accession: reason}, {species label}).
+    that member is dropped. action "relabel": the same, but the member is
+    kept with the label in the fourth column (the nine ranks, ";"-joined,
+    PR2 style) - for a sequence that is right but filed under the wrong
+    name, such as a genus homonym. action "host_species": first column is
+    a species label that names the host, not the organism; it becomes
+    Genus_sp. Returns ({accession: reason}, {species label},
+    {accession: (ranks, reason)}).
     """
-    drop, host = {}, set()
+    drop, host, relabel = {}, set(), {}
     if path and os.path.exists(path):
         with open(path) as fh:
             for line in fh:
@@ -110,7 +114,12 @@ def load_overrides(path: str):
                     drop[f[0]] = f[2]
                 elif f[1] == "host_species":
                     host.add(f[0])
-    return drop, host
+                elif f[1] == "relabel":
+                    ranks = f[3].split(";") if len(f) > 3 else []
+                    if len(ranks) != len(RANKS):
+                        sys.exit(f"{path}: relabel of {f[0]} needs {len(RANKS)} ranks")
+                    relabel[f[0]] = (ranks, f[2])
+    return drop, host, relabel
 
 
 def load_subtypes(path: str) -> dict:
@@ -347,7 +356,8 @@ def main() -> int:
         del args[k:k + 2]
     outdir, layers = args[0], args[1:]
     os.makedirs(outdir, exist_ok=True)
-    overrides, host_named = load_overrides(overrides_path)
+    overrides, host_named, relabels = load_overrides(overrides_path)
+    relabelled = 0
 
     groups = defaultdict(list)
     trust, order = {}, []
@@ -378,6 +388,11 @@ def main() -> int:
                     "source": src, "accession": f[col["accession"]],
                     "ranks": normalise_ranks(label), "label": label,
                     "fit": (get("f_edits"), get("r_edits"), get("f_site"), get("r_site"))})
+                if f[col["accession"]] in relabels:
+                    ranks, why = relabels[f[col["accession"]]]
+                    m = groups[f[col["insert"]]][-1]
+                    m["ranks"], m["note"] = normalise_ranks(ranks), "relabelled: " + why
+                    relabelled += 1
 
     # Which classes each genus name is used in, across every source - so a
     # species name borrowed from another class (a host) can be recognised.
@@ -435,7 +450,7 @@ def main() -> int:
             for m in members:
                 role = "kept" if m in kept else "overruled"
                 mb.write(f"{rid}\t{m['source']}\t{m['accession']}\t"
-                         f"{';'.join(m['label'])}\t{role}\t\n")
+                         f"{';'.join(m['label'])}\t{role}\t{m.get('note', '')}\n")
             if how != "none":
                 labs = Counter(";".join(x for x in high_label(m["ranks"]))
                                for m in members)
@@ -464,7 +479,8 @@ def main() -> int:
     print(f"unique inserts: {len(groups):,}; excluded (no member left): {excluded}")
     print("members dropped: " + (", ".join(f"{k} {v}" for k, v in drops.items()) or "none")
           + f"; host-named species fixed: {host_fixed}"
-          + f"; Blastocystis members given a subtype: {subtyped}")
+          + f"; Blastocystis members given a subtype: {subtyped}"
+          + f"; members relabelled: {relabelled}")
     for k in ("none", "isolate", "trust", "majority", "unresolved"):
         print(f"  conflict {k:9s} {decisions[k]:>7,}")
     print("primer fit: " + ", ".join(f"{k} {fits[k]:,}" for k in

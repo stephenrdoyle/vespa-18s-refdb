@@ -73,6 +73,7 @@ Primers, as ordered (locus-specific parts; both carry Nextera tails):
 | `bin/wbps_layer.py` | **Build.** Layer 2: genome V4 filtered by copy support and phylum, given PR2 ranks (NCBI lineage where PR2 lacks the genus) |
 | `bin/blastocystis_subtypes.py` | **Build.** Names *Blastocystis* records to subtype (ST1, ST2 ...) from the published references in `curation/blastocystis_subtypes.tsv`; writes `curation/blastocystis_v4_subtypes.tsv` |
 | `bin/collapse.py` | **Build.** Collapses layers into unique inserts, merges taxonomy, resolves label conflicts; writes `refdb.fasta`, `taxonomy.tsv`, `members.tsv`, `conflicts.tsv` |
+| `bin/neighbour_check.py` | **Check.** Pairs of records >= 99% identical over V4 whose labels disagree at class or above: the mislabelled and contaminated records identity alone cannot catch (docs/DESIGN.md §5.1) |
 | `bin/release.py` | **Build.** Cuts a release: resolution tables, look-alike mask, manifest, tarball |
 | `bin/genbank_fetch.py`, `bin/genbank_layer.py` | **Build.** GenBank 18S for named taxa; the layer keeps what PR2 lacks |
 | `bin/pararef_insilico_pcr.py`, `bin/pararef_layer.py` | **Build.** Streams the ParaRef archive; its layer, under the genome rules |

@@ -455,6 +455,57 @@ helminth cases come out as they should:
 Every decision is in `results/curation/`: `conflicts.tsv`,
 `overruled.tsv` and `wbps_review.tsv`.
 
+### 5.1 The neighbour check
+
+The conflict rules see only identical inserts. A mislabelled sequence a
+few edits from its true relatives is a record of its own, and names
+reads wrongly as confidently as any other. `bin/neighbour_check.py`
+finds every pair of records >= 99% identical (exact edit distance over
+V4; minimap2 proposes the pairs) whose labels disagree at class or
+above - the check the v0.4.0 feedback asked for (§1a there).
+
+On v0.6.0: 2,896 pairs, 2,410 records (`results/neighbours/`).
+
+- **Class-level disagreements (1,771 pairs) are mostly biology.**
+  Ascomycota/Basidiomycota (710) and the green-algal classes (484):
+  V4 is conserved enough there that different classes sit within five
+  edits. Left to the conflict rules.
+- **Across supergroups (950 pairs) one side is almost always wrong.**
+  A record outnumbered 3:1 in members by such neighbours flags 39
+  records - but the rule only finds suspects: it pointed the wrong way
+  where one contaminated study supplied several copies (*Betula*,
+  *Alnus*, outnumbered by birch "*Eimeria*"), and some are dinoflagellates
+  whose V4 really is their diatom or haptophyte endosymbiont's
+  (*Durinskia*, *Unruhdinium*, *Karlodinium*).
+- **Settled with NCBI BLAST of the whole source record** (15 queries,
+  `results/neighbours/suspects_blast.xml.gz`), then
+  `curation/overrides.tsv`, each line with its evidence:
+  - dropped: the whole "*Eimeria* sp. T72184" study, OP407714-OP407729
+    (PR2: *E. lateralis*, *callospermophili*, *monacis*), which is yeast,
+    hazel/birch and agaric mushrooms with no *Eimeria* hit at all - reads
+    of diet would have been named *Eimeria*; misidentified strains
+    ("*Klebsormidium subtilissimum*", "*Nannochloropsis oculata*" x2),
+    a bacterium labelled as a plant, an alveolate labelled
+    *Dunaliella*; and WGS contigs or clones carrying another organism's
+    18S (*Panicum hallii* x3, *S. cerevisiae*, *Rhizophagus*,
+    *Phytophthora ramorum*, *Physarum*, *C. elegans* AC006763, an *Apis*
+    patent sequence);
+  - **reversed:** v0.5.0 kept *Morchella* and dropped the *Vigna*
+    contig on `V4_54f09b637b29`; the *Morchella* scaffold is *Vigna*
+    18S, 100% over 1,398bp, so now the *Morchella* member is dropped;
+  - **relabelled** (a new override action - the sequence is right, the
+    name is not): HM017144, filed by PR2 as a red alga, is
+    *Angulamoeba microcystivorans* as its own title says; MG452736 is
+    *Uronema* the ciliate, not the green alga; OP184778 is *Lunella*
+    the diatom, not the sea snail; JN090888 is *Closteriopsis*, not
+    *Alphamonas*.
+- **Effect** (trial build): 31 more members dropped, 4 relabelled, 29
+  records gone (they had no other member). *Betula* and *Alnus* keep
+  their records and lose their false *Eimeria* neighbours.
+
+Still open: the ~960 records with a cross-supergroup neighbour that
+neither side outnumbers - mostly single records against single records.
+
 ## 6. Release format
 
 A release is one directory, named for its build version, holding:
