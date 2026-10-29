@@ -746,6 +746,31 @@ copies, own class). Built by commit `da7d3a4`.
 Still no V4 anywhere: *Bunostomum*, *Chabertia*, *Murshidia*,
 *Prosthenorchis*, *Rhabdias* - none has an assembly on NCBI.
 
+### 6.7 v0.7.0
+
+Curation release: no new genomes or GenBank fetches. Built by commit
+`ef97680`, with one more layer, `blastocystis_ref_layer.tsv.gz`.
+
+- 97,696 records (17 added, 29 removed); helminth records 8,981 ->
+  8,983.
+- ***Blastocystis* subtypes** (§4.7): 581 of 653 *Blastocystis* records
+  named `Blastocystis_STn`, all 45 accepted subtypes (ST1-ST17, ST21,
+  ST23-ST49) present, each kept read whole and through both Illumina
+  geometries. 14 of the added records are subtype references no title
+  search had found. "*B. hominis*" is gone.
+- **The neighbour check** (§5.1): 31 members dropped and 4 relabelled
+  in `curation/overrides.tsv`, each with BLAST or neighbour evidence;
+  the 29 removed records had no other member. Among them the whole
+  "*Eimeria* sp. T72184" study (yeast, hazel/birch and agaric mushroom
+  18S), so diet reads are no longer named *Eimeria*. `V4_54f09b637b29`
+  is now *Vigna radiata*, reversing v0.5.0. `members.tsv`'s `note`
+  column now also says "relabelled: <reason>".
+- ***Trichuris incognita***: three local records from the
+  STPHxBioinformatics assembly, each nearest *T. suis* (§6.6 notes).
+- *Schistosoma intercalatum* TD2, scanned from NCBI because the WBPS
+  copy is truncated, supports the shared *S. haematobium*-group record;
+  no new record.
+
 ## 7. Order of work
 
 1. ~~PR2 layer, genome layer, collapse with conflict handling~~ (done:
